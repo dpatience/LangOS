@@ -1,7 +1,7 @@
 # LangOS Infrastructure Document
 
-**Version:** 0.1.0  
-**Status:** Draft — foundation for development  
+**Version:** 0.2.0  
+**Status:** Current  
 **Last updated:** 2026-07-23
 
 ---
@@ -164,6 +164,8 @@ LangOS.Application
     │   └── LangOS.Pipeline.StreamSupervisor
     ├── LangOS.Engine.Supervisor
     │   ├── LangOS.Engine.Rule
+    │   ├── LangOS.Engine.Lexical
+    │   ├── LangOS.Engine.Syntax
     │   ├── LangOS.Engine.Stat
     │   └── LangOS.Engine.Neural
     ├── LangOS.Cache
@@ -177,84 +179,56 @@ Each engine runs under its own supervisor. A neural engine failure does not cras
 
 ## 5. Configuration
 
-### 5.1 Configuration File (`config/langos.yaml`)
+### 5.1 Configuration Files
 
-```yaml
-runtime:
-  name: langos
-  log_level: info
-  max_concurrent_requests: 1000
+| File | Use |
+|------|-----|
+| `config/langos.json` | Default runtime config |
+| `config/dev.json` | Local development |
+| `config/test.json` | Test suite (ports 9573/9574) |
 
-server:
-  http:
-    host: 0.0.0.0
-    port: 9473
-  grpc:
-    enabled: false
-    port: 9474
+Override with `LANGOS_CONFIG=/path/to/config.json`.
 
-cache:
-  l1:
-    type: memory
-    max_entries: 50000
-  l2:
-    type: redis
-    url: redis://localhost:6379/0
-    ttl_seconds: 3600
+### 5.2 Example (`config/langos.json`)
 
-engines:
-  rule:
-    enabled: true
-    patterns_dir: packs/en/patterns
-
-  stat:
-    enabled: true
-    models_dir: models/stat/
-
-  neural:
-    enabled: true
-    backend: vllm          # or onnx (in-process NIF)
-    models:
-      parse: langos-parse-v1
-      generate: langos-express-v1
-    base_url: http://localhost:8000   # vLLM sidecar; omit for ONNX NIF
-
-routing:
-  simple_command_max_tokens: 12
-  simple_command_engine: rule
-  default_parse_engine: neural
-  default_generate_engine: neural
-  fallback_engine: stat    # never an external API
-
-compatibility:
-  openai:
-    enabled: true
-    path_prefix: /v1
-    default_model: langos-understand-v1
-  anthropic:
-    enabled: true
-    path_prefix: /v1
-    default_model: langos-understand-v1
-
-language_packs:
-  installed:
-    - en
-    - fr
-  default: en
-
-plugins:
-  vocabulary:
-    - education-vocab
-
-telemetry:
-  metrics_port: 9475
-  tracing:
-    enabled: true
-    exporter: otlp
-    endpoint: http://localhost:4317
+```json
+{
+  "runtime": { "name": "langos", "log_level": "info", "max_concurrent_requests": 1000 },
+  "server": {
+    "http": { "host": "127.0.0.1", "port": 9473 },
+    "grpc": { "enabled": true, "port": 9474 }
+  },
+  "cache": {
+    "l1": { "type": "memory", "max_entries": 50000 },
+    "l2": { "enabled": false }
+  },
+  "engines": {
+    "rule": { "enabled": true, "patterns_dir": "packs/en/patterns" },
+    "syntax": { "enabled": true },
+    "lexical": { "enabled": true },
+    "stat": { "enabled": true, "model": "models/en/intent.json", "min_confidence": 0.3 },
+    "neural": { "enabled": true }
+  },
+  "routing": {
+    "simple_command_max_tokens": 12,
+    "simple_command_engine": "rule",
+    "stages": {
+      "parse": ["rule", "lexical", "syntax", "stat", "neural"],
+      "generate": "neural"
+    }
+  },
+  "language_packs": {
+    "installed": ["en", "fr", "de", "tr", "rw"],
+    "default": "en"
+  },
+  "plugins": { "dir": "plugins", "installed": ["education-vocab"] },
+  "packs_dir": "packs"
+}
 ```
 
-### 5.2 Environment Variables
+Stat engine loads `models/<locale>/intent.json` per request locale (see [TRAINING.md](./TRAINING.md)).
+
+### 5.3 Environment Variables
 
 | Variable | Required | Description |
 |----------|----------|-------------|
@@ -264,7 +238,7 @@ telemetry:
 | `LANGOS_SECRET_KEY` | Prod | API authentication signing key |
 | `LANGOS_API_KEY` | Prod | Key accepted by LangOS (including compatibility endpoints) |
 
-### 5.3 Secrets Management
+### 5.4 Secrets Management
 
 - Development: `.env` file (gitignored)
 - Staging/Production: platform secrets (Fly.io secrets, AWS SSM, Vault)
@@ -292,17 +266,16 @@ During development, neural engines may load open-source base weights (e.g. Qwen,
 
 ```
 models/
-├── stat/
-│   ├── language-detect-onnx/
-│   └── ner-multilingual-onnx/
-├── parse/
-│   ├── langos-parse-v1/          # LangOS fine-tuned parse model
-│   └── langos-coref-v1/
-├── generate/
-│   └── langos-express-v1/        # LangOS fine-tuned generation model
-└── manifests/
-    └── models.json
+├── en/intent.json     # Naive Bayes — 361 classes, 41k examples
+├── fr/intent.json     # 28 classes
+├── de/intent.json     # 42 classes
+├── tr/intent.json     # 217 classes
+└── rw/intent.json     # 178 classes
 ```
+
+Built by `mix patience train --all`. See [TRAINING.md](./TRAINING.md).
+
+English also has `packs/en/lexicon.json` (5,718 entries). Other languages get `packs/<lang>/lexicon.json` from the same train command.
 
 Models are loaded at startup and kept resident in memory. Model files can be:
 
@@ -983,29 +956,34 @@ Costs scale with request volume and GPU usage. Rule-based fast path minimizes ne
 
 ---
 
-## 21. Implementation Roadmap (Infrastructure)
+## 21. Implementation Status
 
-| Week | Milestone | Deliverable |
-|------|-----------|-------------|
-| 1–2 | Project scaffold | Elixir app, Rust NIF crate, CI pipeline |
-| 3–4 | Core runtime | Supervision tree, config, telemetry |
-| 5–6 | Rule engine + English pack | Fast path working end-to-end |
-| 7–8 | Native HTTP API + CLI | `understand`, `express`, `serve` |
-| 9–10 | Neural engine (LangOS models) | Neural path integration |
-| 11–12 | Redis cache + golden tests | Production-ready caching |
-| 13–14 | French pack + OpenAI-compat API | Duselang migration path validated |
-| 15–16 | Docker + Fly.io deploy | Staging environment live |
-| 17–18 | Anthropic-compat + engine routing | Full compatibility surfaces |
-| 19–24 | Streaming + plugins | Long document support, vocabulary plugins |
+Phases 0–3.6 are **complete**. Current focus: Phase 4 (owned ONNX neural models).
+
+| Milestone | Status |
+|-----------|--------|
+| Elixir runtime + 5 engines | ✓ |
+| Semantic IR v1.2 graph | ✓ |
+| 5 language packs (en, fr, de, tr, rw) | ✓ |
+| Per-language intent models | ✓ |
+| OpenAI + Anthropic compat APIs | ✓ |
+| gRPC + MCP + document streaming | ✓ |
+| `patience train` / `setup` / `install` CLI | ✓ |
+| Remote pack download | planned |
+| ONNX neural engine | Phase 4 |
 
 ---
 
 ## 22. Related Documents
 
-- [ARCHITECTURE.md](./ARCHITECTURE.md) — System design, API, Semantic IR, phases
-- [EVOLUTION.md](./EVOLUTION.md) — Post-v1.0 growth, language tiers, Observatory
-- `schemas/semantic_ir.v1.json` — IR schema (Phase 0 deliverable)
-- `schemas/openapi.yaml` — API specification (Phase 0 deliverable)
+- [ARCHITECTURE.md](./ARCHITECTURE.md) — System design, Semantic IR, phases
+- [TRAINING.md](./TRAINING.md) — Build lexicon + intent models
+- [MODEL_vs_PACK.md](./MODEL_vs_PACK.md) — `packs/` vs `models/`
+- [ENGINE_SPEC.md](./ENGINE_SPEC.md) — Engine behaviour contract
+- [EVOLUTION.md](./EVOLUTION.md) — Post-v1.0 growth strategy
+- [LANGUAGE_PACK_GUIDE.md](./LANGUAGE_PACK_GUIDE.md) — Add a new language
+- `schemas/semantic_ir.v1.2.json` — IR schema
+- `schemas/openapi.yaml` — HTTP API spec
 
 ---
 
@@ -1016,7 +994,7 @@ Costs scale with request volume and GPU usage. Rule-based fast path minimizes ne
 | **BEAM** | Erlang VM hosting Elixir processes |
 | **NIF** | Native Implemented Function (Rust compiled into BEAM) |
 | **Language Pack** | Installable module for one human language |
-| **Inference Engine** | LangOS-owned component (Rule, Stat, Neural) that performs translation |
+| **Inference Engine** | LangOS-owned component: Rule, Lexical, Syntax, Stat, Neural |
 | **API Compatibility Layer** | OpenAI/Anthropic-shaped endpoints; internal pipeline only |
 | **Golden Test** | Fixed input → expected IR test pair |
 | **Fast Path** | Rule/statistical route bypassing neural models |

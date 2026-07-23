@@ -7,7 +7,10 @@ How to teach LangOS a new language — by creating a language pack.
 A language pack is a folder under `packs/<language_code>/` that teaches LangOS
 how to **understand** (parse) and **speak** (generate) in a language. LangOS
 reads these files at startup — no Elixir code changes are needed. Just create
-the folder, add the required files, and run `patience install language <code>`.
+the folder, add the required files, run `patience install language <code>`,
+then `patience train --lang <code>` to build the statistical model.
+
+See also: [TRAINING.md](./TRAINING.md) · [MODEL_vs_PACK.md](./MODEL_vs_PACK.md)
 
 ## Quick start
 
@@ -432,7 +435,7 @@ Each line is a JSON object testing understanding:
 
 Run with: `mix test test/golden_test.exs`
 
-## Step 5 — Install & test
+## Step 5 — Install, train & test
 
 ### Option A: Config file (permanent)
 
@@ -448,6 +451,7 @@ Add your language code to `config/langos.json`:
 
 ```bash
 patience install language xx
+patience train --lang xx          # build lexicon + intent model
 ```
 
 ### Test it

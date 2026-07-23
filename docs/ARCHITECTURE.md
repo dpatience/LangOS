@@ -1,7 +1,7 @@
 # LangOS Architecture Document
 
-**Version:** 0.1.0  
-**Status:** Draft — foundation for development  
+**Version:** 1.2  
+**Status:** Current — reflects Phase 3.6  
 **Last updated:** 2026-07-23
 
 ---
@@ -335,11 +335,11 @@ winning class recognizes none of its features. Below the confidence threshold
 (config `engines.stat.min_confidence`, default 0.3) the parse is rejected and
 the pipeline falls through to the next engine.
 
-The parse chain: **rule → syntax → stat → neural**. Precise patterns first,
-then the deterministic structural parser, with the trained classifier and
-bootstrap heuristics only as fallbacks for verbless or idiomatic utterances
-("thank you so much"). Statistical classification is disappearing from the
-main path by design. Retraining is one command: `python3 -m langos_train.build`.
+The parse chain: **rule → lexical → syntax → stat → neural**. Precise patterns first,
+then lexicon lookup, then the deterministic structural parser, with the trained
+classifier and bootstrap heuristics only as fallbacks for verbless or idiomatic
+utterances ("thank you so much"). Retrain all languages: `mix patience train --all`.
+Per language: `mix patience train --lang fr`.
 
 ### 4.3 Language Packs
 
@@ -354,14 +354,13 @@ Each pack implements two directions:
 - **Inbound:** Human text → Semantic IR
 - **Outbound:** Semantic IR → Human text (respecting target locale and register)
 
-Supported launch languages (Phase 1 target):
-
-| Pack | Priority |
-|------|----------|
-| English (`en`) | P0 — shipped |
-| French (`fr`) | P1 — shipped |
-| Kinyarwanda (`rw`) | P1 — shipped, expanded (200+ verb forms) |
-| Turkish (`tr`) | P2 — shipped |
+| Pack | Status |
+|------|--------|
+| English (`en`) | Shipped — full lexicon (5,718 entries), 361-class intent model |
+| French (`fr`) | Shipped |
+| German (`de`) | Shipped |
+| Kinyarwanda (`rw`) | Shipped — 200+ verb forms, prefix morphology |
+| Turkish (`tr`) | Shipped — suffix morphology, SOV word order |
 
 Adding a language pack does not require kernel changes. The pack declares
 its morphology and the kernel's pack parser adapts:
@@ -378,10 +377,11 @@ its morphology and the kernel's pack parser adapts:
 Vocabulary plugins improve recognition of domain terms without embedding domain logic:
 
 ```
-Patience install language education-vocab
-Patience install language transport-vocab
-Patience install language livestock-vocab
+plugins/education-vocab/    # bundled example
+patience plugins list       # see installed vocabulary plugins
 ```
+
+Configure in `config/langos.json` → `plugins.installed`.
 
 A vocabulary plugin contributes:
 
@@ -410,9 +410,9 @@ Vocabulary plugins **do not** define intents, business rules, or actions.
 ├─────────────────────────────────────────────────────────────┤
 │  Processing Pipeline  Splitter · Parser · Extractor         │
 ├─────────────────────────────────────────────────────────────┤
-│  Inference Engines    Rule · Statistical · Neural (owned)   │
+│  Inference Engines    Rule · Lexical · Syntax · Stat · Neural │
 ├─────────────────────────────────────────────────────────────┤
-│  Language Packs       en · fr · rw · tr · ...               │
+│  Language Packs       en · fr · de · tr · rw · ...          │
 ├─────────────────────────────────────────────────────────────┤
 │  Plugin System        Vocabulary · Export Profiles          │
 └─────────────────────────────────────────────────────────────┘
@@ -781,21 +781,28 @@ langos::express(&request)?;
 langos::translate(&request)?;
 ```
 
-### 7.4 CLI Commands
+### 7.4 CLI Commands (`patience` / `mix langos`)
 
 ```bash
-langos understand --text "Add Clarissa to Biology A1"
-langos express --template missing_fields --data fields.json
-langos translate --from en --to fr --text "Hello"
-langos serve                          # start runtime
-langos engines list
-langos compat test-openai             # verify OpenAI-compatible surface
-langos compat test-anthropic          # verify Anthropic-compatible surface
-langos languages install fr
-langos plugin install education-vocab
-langos benchmark --file corpus.jsonl
-langos config show
+patience understand --text "Add Clarissa to Biology A1"
+patience understand --file report.txt              # document mode
+patience express --template missing_fields --data '{"entity":"Clarissa","fields":"age, language"}'
+patience serve [--config config/dev.json]
+patience install language de                       # hot-load pack from packs/
+patience train --all                               # build all intent models
+patience train --lang fr                           # train one language
+patience setup [--lang en]                         # first-run default language
+patience languages list
+patience engines list
+patience plugins list
+patience benchmark [--file bench/corpus.jsonl]
+patience mcp                                       # MCP over stdio
+patience version
 ```
+
+Production: `MIX_ENV=prod mix release patience` → `_build/prod/rel/patience/bin/patience serve`
+
+See [TRAINING.md](./TRAINING.md) for when to run `patience train`.
 
 ---
 
@@ -988,7 +995,20 @@ Latency scales **sub-linearly** with text length via parallel unit processing an
 - [x] Test suite isolated onto its own ports (config/test.json: 9573/9574)
       so `mix test` runs cleanly beside a live `patience serve`
 
-### Phase 4 — Scale & Own Models
+### Phase 3.6 — Multi-Language Training (complete)
+
+- [x] `python/langos_train/build_pack.py` — train lexicon + intent model from
+      pack data (verb_map, pronoun_map, golden.jsonl) for fr, de, tr, rw
+- [x] `models/<lang>/intent.json` for all five shipped languages
+- [x] `packs/<lang>/lexicon.json` generated per language
+- [x] Stat engine uses per-locale models (`Model.intent(locale)`) with English fallback
+- [x] CLI: `patience train --all`, `patience train --lang <code>`
+- [x] CLI: `patience setup` — first-run language selection + auto-train
+- [x] CLI: `patience install language <code>` — hot-load pack, prompts train if model missing
+- [x] `scripts/install.sh` — system-wide install after `mix release patience`
+- [x] Docs: [TRAINING.md](./TRAINING.md), [MODEL_vs_PACK.md](./MODEL_vs_PACK.md)
+
+### Phase 4 — Scale & Own Models (in progress)
 
 - Train specialized LangOS models on collected translation pairs
 - Replace bootstrap base weights with fully owned models per stage
@@ -1017,24 +1037,41 @@ LangOS/
 ├── sdk/
 │   ├── elixir/                  # Hex package
 │   └── rust/                    # crates.io package
+├── models/
+│   ├── en/intent.json           # Naive Bayes intent classifier
+│   ├── fr/intent.json
+│   ├── de/intent.json
+│   ├── tr/intent.json
+│   └── rw/intent.json
 ├── packs/
 │   ├── en/                      # English language pack
 │   ├── fr/
+│   ├── de/
+│   ├── tr/
 │   └── rw/
 ├── plugins/
-│   └── education-vocab/         # Vocabulary plugin (terms, entity hints, priors)
+│   └── education-vocab/
+├── scripts/
+│   └── install.sh               # System install helper
 ├── bench/
-│   └── corpus.jsonl             # Benchmark corpus (golden format)
+│   └── corpus.jsonl
 ├── schemas/
 │   ├── semantic_ir.v1.2.json
 │   ├── semantic_vocabulary.json
-│   ├── langos.proto             # gRPC contract (port 9474)
-│   └── express_request.v1.json
+│   ├── langos.proto
+│   └── openapi.yaml
 ├── docs/
 │   ├── ARCHITECTURE.md
-│   └── INFRASTRUCTURE.md
+│   ├── INFRASTRUCTURE.md
+│   ├── TRAINING.md
+│   ├── MODEL_vs_PACK.md
+│   ├── LANGUAGE_PACK_GUIDE.md
+│   ├── ENGINE_SPEC.md
+│   └── EVOLUTION.md
 └── config/
-    └── langos.json
+    ├── langos.json
+    ├── dev.json
+    └── test.json
 ```
 
 ---

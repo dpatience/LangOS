@@ -4,42 +4,28 @@ How to build `lexicon.json` and `intent.json` for each language.
 
 ## Do you need to train when installing a language?
 
-| What you install | Needs training? | What works without it |
-|------------------|-----------------|------------------------|
-| **Language pack** (`packs/de/`) | No — works immediately | Rule engine (regex patterns), grammar, express templates |
-| **Statistical model** (`models/de/intent.json`) | Yes — one-time train | Free-form intent classification beyond fixed patterns |
-| **Neural model** (future ONNX) | Yes — separate pipeline | Long/ambiguous text (not shipped yet — neural engine is still bootstrap) |
+| Step | Needs training? | What works without it |
+|------|-----------------|------------------------|
+| `patience install language de` | No | Rule engine, syntax parser, grammar, express templates |
+| `patience train --lang de` | Yes (one-time) | Stat engine for free-form intent classification |
 
-```bash
-mix patience install language de    # loads pack — rules + templates work now
-mix patience train --lang de        # builds models/de/intent.json + packs/de/lexicon.json
-```
-
-**Rule-based understanding works without training.** Training makes the **stat engine** smarter for sentences that don't match a regex pattern.
+**Rule + syntax understanding works immediately after install.** Training improves sentences that don't match a regex pattern.
 
 ---
 
-## Train all current languages
-
-From the repo root:
+## Train all shipped languages
 
 ```bash
-# Option A — via CLI
 mix patience train --all
-
-# Option B — Python directly
-PYTHONPATH=python/langos_train python3 -m langos_train.build_pack --all
 ```
 
-This trains:
-
-| Language | Code | Pack | Output |
-|----------|------|------|--------|
-| English | `en` | `packs/en/` (rich seed data) | `packs/en/lexicon.json`, `models/en/intent.json` |
-| French | `fr` | `packs/fr/` | `packs/fr/lexicon.json`, `models/fr/intent.json` |
-| German | `de` | `packs/de/` | `packs/de/lexicon.json`, `models/de/intent.json` |
-| Turkish | `tr` | `packs/tr/` | `packs/tr/lexicon.json`, `models/tr/intent.json` |
-| Kinyarwanda | `rw` | `packs/rw/` | `packs/rw/lexicon.json`, `models/rw/intent.json` |
+| Language | Code | Lexicon entries | Intent classes | Examples |
+|----------|------|-----------------|----------------|----------|
+| English | `en` | 5,718 | 361 | 41,577 |
+| French | `fr` | 114 | 28 | 318 |
+| German | `de` | 163 | 42 | 552 |
+| Turkish | `tr` | 376 | 217 | 1,987 |
+| Kinyarwanda | `rw` | 489 | 178 | 2,710 |
 
 Train one language:
 
@@ -47,51 +33,70 @@ Train one language:
 mix patience train --lang fr
 ```
 
-English uses `seed_en.py` (synonyms + templates). Other languages use **pack data**:
-
-- `packs/<lang>/patterns/commands.json` — verb_map, pronoun_map
-- `packs/<lang>/tests/golden.jsonl` — labeled examples
-
----
-
-## First-run setup (pick default language)
+Python equivalent:
 
 ```bash
-mix patience setup
-# or non-interactive:
-mix patience setup --lang fr
+PYTHONPATH=python/langos_train python3 -m langos_train.build_pack --all
+PYTHONPATH=python/langos_train python3 -m langos_train.build_pack --lang de
 ```
-
-This:
-
-1. Sets default language in `config/langos.json`
-2. Installs the language pack
-3. Trains the statistical model if missing
 
 ---
 
-## System install (production binary)
+## What gets built
+
+```
+packs/<lang>/lexicon.json    ← word/phrase → vocabulary ID (used by Lexical engine)
+models/<lang>/intent.json    ← Naive Bayes intent classifier (used by Stat engine)
+```
+
+English uses rich seed data (`python/langos_train/seed_en.py`). Other languages train from:
+
+- `packs/<lang>/patterns/commands.json` — verb_map, pronoun_map
+- `packs/<lang>/tests/golden.jsonl` — labeled utterances
+
+---
+
+## First-run setup
+
+```bash
+mix patience setup              # interactive language picker
+mix patience setup --lang fr    # non-interactive
+```
+
+This sets the default language in `config/langos.json`, installs the pack, and trains the model if missing.
+
+---
+
+## Install + train workflow
+
+```bash
+# 1. Load pack (rules + syntax + templates — works now)
+mix patience install language de
+
+# 2. Train statistical model (optional, ~seconds)
+mix patience train --lang de
+
+# 3. Verify
+mix patience understand --text "Registriere Alice in Biologie A1." --locale de
+```
+
+---
+
+## System install
 
 ```bash
 MIX_ENV=prod mix release patience
 sudo ./scripts/install.sh
+patience setup --lang en
+patience serve
 ```
 
-The install script copies the `patience` binary and runs `patience setup` to ask which language to start with.
-
-Remote pack download (`patience install language de` from the internet) is planned — today packs ship in the repository or are copied to `packs/`.
+Remote pack download from the internet is **planned** — today packs ship in the repository.
 
 ---
 
-## Neural networks (future)
+## Neural networks (Phase 4)
 
-The **neural engine** is still a bootstrap heuristic. Real ONNX/vLLM models will live under:
+The **neural engine** is still bootstrap heuristics. Real ONNX models will live under `models/<lang>/parse.onnx` — a separate PyTorch → export pipeline, not the Naive Bayes trainer above.
 
-```
-models/<lang>/parse.onnx
-models/<lang>/express.onnx
-```
-
-That is a separate training pipeline (PyTorch → export → deploy), not the Naive Bayes `intent.json` trainer above.
-
-See [MODEL_vs_PACK.md](./MODEL_vs_PACK.md) for the difference between packs and models.
+See [MODEL_vs_PACK.md](./MODEL_vs_PACK.md) and [ARCHITECTURE.md](./ARCHITECTURE.md) Phase 4.
