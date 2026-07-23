@@ -1,5 +1,13 @@
 {
   "patterns": [
-    {"tone": "neutral", "text": "{{message}}"}
+    {"tone": "formal", "text": "An error occurred: {{reason}}."},
+    {"tone": "formal", "text": "The operation could not be completed. Reason: {{reason}}."},
+    {"tone": "formal", "text": "We encountered a problem: {{reason}}."},
+    {"tone": "neutral", "text": "Something went wrong: {{reason}}."},
+    {"tone": "neutral", "text": "That didn't work — {{reason}}."},
+    {"tone": "neutral", "text": "Error: {{reason}}."},
+    {"tone": "casual", "text": "Oops! {{reason}}."},
+    {"tone": "casual", "text": "That didn't go as planned — {{reason}}."},
+    {"tone": "casual", "text": "Hmm, {{reason}}. Let's try again?"}
   ]
 }

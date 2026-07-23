@@ -1,7 +1,13 @@
 {
   "patterns": [
     {"tone": "formal", "text": "{{entity}} has been successfully {{action}}."},
-    {"tone": "neutral", "text": "{{entity}} {{action}} completed."},
-    {"tone": "casual", "text": "Done — {{entity}} is {{action}}."}
+    {"tone": "formal", "text": "The operation completed: {{entity}} was {{action}}."},
+    {"tone": "formal", "text": "{{entity}} is now {{action}}."},
+    {"tone": "neutral", "text": "Done — {{entity}} has been {{action}}."},
+    {"tone": "neutral", "text": "{{entity}} was {{action}} successfully."},
+    {"tone": "neutral", "text": "All set. {{entity}} is {{action}}."},
+    {"tone": "casual", "text": "{{entity}} is {{action}}! ✓"},
+    {"tone": "casual", "text": "Got it — {{entity}} is {{action}}."},
+    {"tone": "casual", "text": "Done! {{entity}} has been {{action}}."}
   ]
 }

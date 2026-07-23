@@ -73,7 +73,9 @@ defmodule LangOSTest do
                })
 
       assert resp["text"] =~ "Clarissa"
-      assert resp["text"] =~ "required"
+      # Template now renders natural varied sentences with Oxford comma.
+      assert resp["text"] =~ "age"
+      assert resp["text"] =~ "and"
     end
   end
 

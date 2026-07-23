@@ -3,17 +3,53 @@ defmodule LangOS.Pipeline do
   Orchestrates understand, express, and translate pipeline stages.
   Pipeline: text → detect language → parse → build graph → export IR v1.2.
   """
-  alias LangOS.{Config, Gateway, IR, LanguageDetector, ReferenceMarker, Router, Splitter}
+  alias LangOS.{Config, Gateway, IR, LanguageDetector, ReferenceMarker, Router, Splitter, TextNormalizer}
 
   @spec understand(map()) :: {:ok, map()} | {:error, term()}
   def understand(request) do
     started = System.monotonic_time(:millisecond)
 
-    with {:ok, normalized} <- Gateway.normalize_understand(request),
-         {:ok, response, _cache} <-
-           Gateway.with_cache(normalized, fn -> run_understand(normalized) end) do
-      latency = System.monotonic_time(:millisecond) - started
-      {:ok, Map.put(response, "latency_ms", latency)}
+    with {:ok, normalized} <- Gateway.normalize_understand(request) do
+      # Automatically promote multi-sentence input to the document pipeline so
+      # the syntax engine receives individual sentences rather than one giant
+      # clause it cannot dependency-parse correctly.
+      units = Splitter.split(normalized["text"])
+
+      if length(units) > 1 do
+        case understand_document(normalized) do
+          {:ok, doc} ->
+            # Return the first unit's IR as the primary IR for API compatibility,
+            # and attach the full document as "document". Callers that only check
+            # "ir" still work; callers that want all units check "document".
+            first = Enum.find(doc["units"], fn u -> Map.has_key?(u, "ir") end)
+
+            {:ok,
+             %{
+               "ir" => (first || %{})["ir"],
+               "mentions" => get_in(first || %{}, ["ir", "mentions"]) || [],
+               "nodes" =>
+                 length(
+                   get_in(first || %{}, ["ir", "graph", "nodes"]) || []
+                 ),
+               "edges" =>
+                 length(
+                   get_in(first || %{}, ["ir", "graph", "edges"]) || []
+                 ),
+               "language" => doc["language"],
+               "document" => doc,
+               "latency_ms" => System.monotonic_time(:millisecond) - started
+             }}
+
+          err ->
+            err
+        end
+      else
+        with {:ok, response, _cache} <-
+               Gateway.with_cache(normalized, fn -> run_understand(normalized) end) do
+          latency = System.monotonic_time(:millisecond) - started
+          {:ok, Map.put(response, "latency_ms", latency)}
+        end
+      end
     end
   end
 
@@ -146,6 +182,11 @@ defmodule LangOS.Pipeline do
   def translate(_), do: {:error, :invalid_translate_request}
 
   defp run_understand(%{"text" => text} = request) do
+    # Stage 0: normalize raw text — repair obvious missing spaces, clean
+    # whitespace. Extract terminal punctuation before any stripping.
+    %{text: text, terminal_punct: terminal_punct} =
+      TextNormalizer.normalize(text, request["locale"] || "en")
+
     # Stage 1: language detection selects the pack that parses. A request
     # locale is an explicit hint; otherwise every installed pack competes.
     detected = LanguageDetector.detect(text, request["locale"])
@@ -156,6 +197,16 @@ defmodule LangOS.Pipeline do
 
     with {:ok, {mod, tree}} <- parse_with_chain(context, text, locale),
          {:ok, ir} <- mod.extract_meaning(tree, locale: locale, text: text) do
+      # Apply punctuation-driven utterance_type override: "We are in group 4?"
+      # and "We are in group 4." share the same semantic graph but differ only
+      # in utterance_type. The parser reads the cleaned text; we correct here.
+      ir =
+        case terminal_punct do
+          "?" -> Map.put(ir, "utterance_type", "question")
+          t when t in ["!", "!!"] -> Map.put(ir, "utterance_type", "exclamation")
+          _ -> ir
+        end
+
       ir =
         update_in(ir, ["meta"], fn meta ->
           (meta || %{}) |> Map.put("detected_language", detected)
@@ -197,9 +248,34 @@ defmodule LangOS.Pipeline do
   defp run_express(request) do
     context = %{locale: request["locale"]}
 
-    with {:ok, mod} <- Router.select_engine(:generate, context),
-         {:ok, text} <- mod.generate(request, locale: request["locale"]) do
-      {:ok, %{"text" => text}}
+    # Multi-unit document express: if the request carries a "document" key
+    # (from understand_document), generate one sentence per unit and join them
+    # into a natural paragraph.
+    case Map.get(request, "document") do
+      %{"units" => units} when is_list(units) and length(units) > 1 ->
+        sentences =
+          Enum.flat_map(units, fn unit ->
+            case unit["ir"] do
+              nil ->
+                []
+
+              ir ->
+                unit_req = Map.merge(request, %{"ir" => ir})
+
+                case run_express(unit_req) do
+                  {:ok, %{"text" => t}} when is_binary(t) and t != "" -> [t]
+                  _ -> []
+                end
+            end
+          end)
+
+        {:ok, %{"text" => Enum.join(sentences, " ")}}
+
+      _ ->
+        with {:ok, mod} <- Router.select_engine(:generate, context),
+             {:ok, text} <- mod.generate(request, locale: request["locale"]) do
+          {:ok, %{"text" => text}}
+        end
     end
   end
 end

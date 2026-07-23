@@ -1,7 +1,13 @@
 {
   "patterns": [
-    {"tone": "formal", "text": "{{entity}}'s {{fields}} are still required."},
-    {"tone": "neutral", "text": "Please provide {{entity}}'s {{fields}}."},
-    {"tone": "casual", "text": "We still need {{entity}}'s {{fields}}."}
+    {"tone": "formal", "text": "To proceed, we need {{entity}}'s {{fields}}."},
+    {"tone": "formal", "text": "The following information is required for {{entity}}: {{fields}}."},
+    {"tone": "formal", "text": "Could you please provide {{entity}}'s {{fields}} before we continue?"},
+    {"tone": "neutral", "text": "We're still missing {{entity}}'s {{fields}}."},
+    {"tone": "neutral", "text": "Please share {{entity}}'s {{fields}} so we can move forward."},
+    {"tone": "neutral", "text": "To complete this, we need {{entity}}'s {{fields}}."},
+    {"tone": "casual", "text": "Hey — we still need {{entity}}'s {{fields}}."},
+    {"tone": "casual", "text": "Can you add {{entity}}'s {{fields}}? We're not quite done yet."},
+    {"tone": "casual", "text": "One more thing: {{entity}}'s {{fields}} are missing."}
   ]
 }
