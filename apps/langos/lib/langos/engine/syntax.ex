@@ -387,26 +387,35 @@ defmodule LangOS.Engine.Syntax do
     Enum.find(roles, fn role -> role != subject_role and role != "agent" end) || "theme"
   end
 
-  # ---- Pack-driven clause parsing (fr, rw, ...) ---------------------------
+  # ---- Pack-driven clause parsing (fr, rw, tr, ...) ------------------------
   #
-  # Verb discovery through the pack's verb map, with morphological prefix
-  # stripping declared by the pack: "nshaka" -> n- (REF_SPEAKER) + "shaka"
-  # (STATE_WANT). Only the mapped verb touches the vocabulary.
+  # Verb discovery through the pack's verb map, with the morphology the pack
+  # declares:
+  #
+  #   * prefix languages (Kinyarwanda): "ndashaka" -> nda- (REF_SPEAKER) +
+  #     "shaka" (STATE_WANT); infinitive ku-/gu-/kw- strips to the stem
+  #   * suffix languages (Turkish): "istiyorum" -> "ist" (STATE_WANT) +
+  #     -iyorum (REF_SPEAKER)
+  #   * word order: SVO packs read objects after the verb; SOV packs
+  #     (Turkish) read them before it, and the main verb is clause-final
+  #
+  # Only the mapped verb touches the vocabulary.
 
   defp parse_pack(text, locale) do
     verb_map = LanguagePack.Registry.verb_map(locale)
     pronoun_map = LanguagePack.Registry.pronoun_map(locale)
     detection = LanguagePack.Registry.detection(locale)
+    word_order = Map.get(detection, "word_order", "svo")
 
     tokens = word_tokens(text)
 
-    case find_pack_verb(tokens, verb_map, detection) do
+    case find_pack_verb(tokens, verb_map, detection, word_order) do
       nil ->
         {:error, :no_parse}
 
-      {idx, entry, prefix_ref} ->
-        subject_arg = pack_subject(tokens, idx, pronoun_map, prefix_ref)
-        post = Enum.drop(tokens, idx + 1)
+      {idx, entry, marker_ref} ->
+        {subject_arg, object_tokens} =
+          pack_structure(tokens, idx, pronoun_map, detection, marker_ref, word_order)
 
         roles = Vocabulary.roles(entry["id"])
         category = Vocabulary.category(entry["id"]) || "ACT"
@@ -414,12 +423,22 @@ defmodule LangOS.Engine.Syntax do
         object_role = object_role(roles, subject_role)
 
         subject_arg = if subject_arg, do: Map.put(subject_arg, "role", subject_role)
-        object_arg = pack_object(text, post, pronoun_map, object_role)
+
+        object_arg =
+          pack_object(text, object_tokens, pronoun_map, object_role)
+          |> pack_canonicalize(detection)
+
+        # Imperatives are verb-initial in SVO packs, verb-final in SOV packs.
+        command_position? =
+          case word_order do
+            "sov" -> idx == length(tokens) - 1
+            _ -> idx == 0
+          end
 
         unit =
           cond do
             String.ends_with?(String.trim(text), "?") -> "question"
-            idx == 0 and subject_arg == nil and category == "ACT" -> "command"
+            command_position? and subject_arg == nil and category == "ACT" -> "command"
             true -> "statement"
           end
 
@@ -429,37 +448,82 @@ defmodule LangOS.Engine.Syntax do
     end
   end
 
-  defp find_pack_verb(tokens, verb_map, detection) do
-    prefixes =
-      detection
-      |> Map.get("strip_prefixes", [])
-      |> Enum.sort_by(&(-String.length(&1)))
-
+  defp find_pack_verb(tokens, verb_map, detection, word_order) do
+    prefixes = detection |> Map.get("strip_prefixes", []) |> Enum.sort_by(&(-String.length(&1)))
+    suffixes = detection |> Map.get("strip_suffixes", []) |> Enum.sort_by(&(-String.length(&1)))
     subject_prefixes = Map.get(detection, "subject_prefixes", %{})
+    subject_suffixes = Map.get(detection, "subject_suffixes", %{})
 
-    tokens
-    |> Enum.with_index()
-    |> Enum.find_value(fn {{lower, _, _, _}, idx} ->
+    indexed = Enum.with_index(tokens)
+    # SOV: the main verb is clause-final, so scan from the end.
+    indexed = if word_order == "sov", do: Enum.reverse(indexed), else: indexed
+
+    Enum.find_value(indexed, fn {{lower, _, _, _}, idx} ->
       case Map.get(verb_map, lower) do
         %{"id" => _} = entry ->
           {idx, entry, nil}
 
         _ ->
-          Enum.find_value(prefixes, fn prefix ->
-            rest = String.replace_prefix(lower, prefix, "")
-
-            with true <- rest != lower and String.length(rest) > 1,
-                 %{"id" => _} = entry <- Map.get(verb_map, rest) do
-              {idx, entry, Map.get(subject_prefixes, prefix)}
-            else
-              _ -> nil
-            end
-          end)
+          prefix_verb(lower, idx, prefixes, subject_prefixes, verb_map) ||
+            suffix_verb(lower, idx, suffixes, subject_suffixes, verb_map)
       end
     end)
   end
 
-  defp pack_subject(tokens, verb_idx, pronoun_map, prefix_ref) do
+  defp prefix_verb(lower, idx, prefixes, subject_prefixes, verb_map) do
+    Enum.find_value(prefixes, fn prefix ->
+      rest = String.replace_prefix(lower, prefix, "")
+
+      with true <- rest != lower and String.length(rest) > 1,
+           %{"id" => _} = entry <- Map.get(verb_map, rest) do
+        {idx, entry, Map.get(subject_prefixes, prefix)}
+      else
+        _ -> nil
+      end
+    end)
+  end
+
+  defp suffix_verb(lower, idx, suffixes, subject_suffixes, verb_map) do
+    Enum.find_value(suffixes, fn suffix ->
+      rest = String.replace_suffix(lower, suffix, "")
+
+      with true <- rest != lower and String.length(rest) > 1,
+           %{"id" => _} = entry <- Map.get(verb_map, rest) do
+        {idx, entry, Map.get(subject_suffixes, suffix)}
+      else
+        _ -> nil
+      end
+    end)
+  end
+
+  # Subject + object token layout per word order. The `marker_ref` is a
+  # subject bound to the verb by morphology (prefix or suffix).
+  defp pack_structure(tokens, verb_idx, pronoun_map, detection, marker_ref, "sov") do
+    pre = Enum.take(tokens, verb_idx)
+    subject_pronouns = Map.get(detection, "subject_pronouns", [])
+
+    # In SOV languages only nominative pronouns are subjects; case-marked
+    # pronouns before the verb ("seni") are objects.
+    explicit =
+      Enum.find(pre, fn {lower, _, _, _} -> lower in subject_pronouns end)
+
+    subject_arg =
+      case explicit do
+        {lower, surface, start, stop} ->
+          case Map.get(pronoun_map, lower) do
+            nil -> nil
+            ref -> %{"kind" => "pronoun", "label" => surface, "ref" => ref, "span" => [start, stop]}
+          end
+
+        nil ->
+          marker_subject(tokens, verb_idx, marker_ref)
+      end
+
+    object_tokens = Enum.reject(pre, &(&1 == explicit))
+    {subject_arg, object_tokens}
+  end
+
+  defp pack_structure(tokens, verb_idx, pronoun_map, _detection, marker_ref, _svo) do
     explicit =
       tokens
       |> Enum.take(verb_idx)
@@ -470,15 +534,15 @@ defmodule LangOS.Engine.Syntax do
         end
       end)
 
-    cond do
-      explicit -> explicit
-      prefix_ref ->
-        {_, surface, start, stop} = Enum.at(tokens, verb_idx)
-        %{"kind" => "pronoun", "label" => surface, "ref" => prefix_ref, "span" => [start, stop]}
+    subject_arg = explicit || marker_subject(tokens, verb_idx, marker_ref)
+    {subject_arg, Enum.drop(tokens, verb_idx + 1)}
+  end
 
-      true ->
-        nil
-    end
+  defp marker_subject(_tokens, _verb_idx, nil), do: nil
+
+  defp marker_subject(tokens, verb_idx, marker_ref) do
+    {_, surface, start, stop} = Enum.at(tokens, verb_idx)
+    %{"kind" => "pronoun", "label" => surface, "ref" => marker_ref, "span" => [start, stop]}
   end
 
   defp pack_object(text, tokens, pronoun_map, role) do
@@ -496,6 +560,26 @@ defmodule LangOS.Engine.Syntax do
         tokens_argument(text, tokens, role)
     end
   end
+
+  # Proper nouns in Turkish carry apostrophe-separated case suffixes
+  # ("Biyoloji A1'e" = to Biology A1). The suffix is grammar, not identity:
+  # strip it from the canonical so mentions of the same concept unify.
+  defp pack_canonicalize(nil, _detection), do: nil
+
+  defp pack_canonicalize(%{"ref" => _} = arg, _detection), do: arg
+
+  defp pack_canonicalize(%{"label" => label} = arg, %{"strip_apostrophe" => true}) do
+    canonical =
+      label
+      |> String.downcase()
+      |> String.split(~r/\s+/)
+      |> Enum.map(fn word -> word |> String.split("'") |> hd() end)
+      |> Enum.join(" ")
+
+    Map.put(arg, "canonical", canonical)
+  end
+
+  defp pack_canonicalize(arg, _detection), do: arg
 
   # ---- shared helpers ------------------------------------------------------
 

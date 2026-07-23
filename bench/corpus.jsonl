@@ -23,3 +23,11 @@
 {"input": {"text": "Ongeramo Alice muri Biology A1.", "locale": "rw"}, "expected": {"vocab_id": "ACT_000004", "utterance_type": "command"}}
 {"input": {"text": "Siba Biology A1.", "locale": "rw"}, "expected": {"vocab_id": "ACT_000002", "utterance_type": "command"}}
 {"input": {"text": "Nshaka kurya"}, "expected": {"vocab_id": "STA_000004", "language": "rw"}}
+{"input": {"text": "Ndagukunda.", "locale": "rw"}, "expected": {"vocab_id": "STA_000026", "utterance_type": "statement"}}
+{"input": {"text": "Fotosentezi ni iki?", "locale": "rw"}, "expected": {"vocab_id": "ACT_000221", "utterance_type": "question"}}
+{"input": {"text": "Sobanura fotosentezi.", "locale": "rw"}, "expected": {"vocab_id": "ACT_000088", "utterance_type": "command"}}
+{"input": {"text": "Clarissa'yı Biyoloji A1'e kaydet.", "locale": "tr"}, "expected": {"vocab_id": "ACT_000005", "utterance_type": "command"}}
+{"input": {"text": "Biyoloji A1'i sil.", "locale": "tr"}, "expected": {"vocab_id": "ACT_000002", "utterance_type": "command"}}
+{"input": {"text": "Fotosentez nedir?", "locale": "tr"}, "expected": {"vocab_id": "ACT_000221", "utterance_type": "question"}}
+{"input": {"text": "Seni seviyorum."}, "expected": {"vocab_id": "STA_000026", "language": "tr", "utterance_type": "statement"}}
+{"input": {"text": "Yemek istiyorum."}, "expected": {"vocab_id": "STA_000004", "language": "tr", "utterance_type": "statement"}}

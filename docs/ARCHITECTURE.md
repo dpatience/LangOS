@@ -358,12 +358,20 @@ Supported launch languages (Phase 1 target):
 
 | Pack | Priority |
 |------|----------|
-| English (`en`) | P0 |
-| French (`fr`) | P1 |
-| Kinyarwanda (`rw`) | P1 |
-| Turkish (`tr`) | P2 |
+| English (`en`) | P0 — shipped |
+| French (`fr`) | P1 — shipped |
+| Kinyarwanda (`rw`) | P1 — shipped, expanded (200+ verb forms) |
+| Turkish (`tr`) | P2 — shipped |
 
-Adding a language pack does not require kernel changes.
+Adding a language pack does not require kernel changes. The pack declares
+its morphology and the kernel's pack parser adapts:
+
+| Declaration | Meaning | Example pack |
+|-------------|---------|--------------|
+| `strip_prefixes` + `subject_prefixes` | Prefix-agglutinative: bound subject markers before the verb stem | Kinyarwanda ("ndagukunda" → nda- REF_SPEAKER + kunda STATE_LOVE) |
+| `strip_suffixes` + `subject_suffixes` | Suffix-agglutinative: person endings after the verb stem | Turkish ("seviyorum" → sev STATE_LOVE + -iyorum REF_SPEAKER) |
+| `word_order: "sov"` | Objects precede the clause-final verb; nominative `subject_pronouns` distinguish subjects from case-marked objects | Turkish ("Seni seviyorum" — "seni" is the object) |
+| `strip_apostrophe` | Apostrophe-separated case suffixes are grammar, not identity: canonicals unify ("Biyoloji A1'e" → biyoloji a1) | Turkish |
 
 ### 4.4 Vocabulary Plugins (Domain Hints)
 
@@ -956,15 +964,35 @@ Latency scales **sub-linearly** with text length via parallel unit processing an
 - [x] Benchmark suite: `patience benchmark [--file bench/corpus.jsonl]` runs a
       golden-format corpus through the full pipeline (cache off) and reports
       accuracy, latency percentiles, and per-engine counts. Baseline:
-      25/25 (100%), p50 ≈ 3.4 ms, p95 ≈ 7 ms.
+      33/33 (100%), p50 ≈ 4 ms, p95 ≈ 7 ms.
 - [x] Rust SDK (`sdk/rust`, crate `langos-sdk`): understand / document /
       express / translate over the native HTTP API.
+
+### Phase 3.5 — Language Coverage (complete)
+
+- [x] Turkish language pack (`tr`): SOV word order, suffix-agglutinative
+      morphology (person endings -iyorum/-iyorsun/... resolve to reserved
+      references), apostrophe case-suffix canonicalization, 250+ verb forms,
+      patterns, templates, golden tests
+- [x] Pack parser generalized: `strip_suffixes`/`subject_suffixes` (mirror of
+      Kinyarwanda's prefix system), `word_order: sov` (clause-final verb,
+      pre-verbal objects, nominative subject pronouns), declared per pack —
+      zero kernel changes for the next language
+- [x] Kinyarwanda pack expanded to ~200 verbs (infinitive + stem for every
+      entry so all subject-prefixed conjugations resolve), new question
+      patterns ("X ni iki?" → ACTION_DEFINE, "X ni nde?" → QUERY_WHO),
+      richer detection words, subject prefixes (nda-, m-), meta acts
+      (greet/farewell/thank/apologize/agree), more express templates
+- [x] Language detector probes suffix morphology, so bare Turkish
+      ("Yemek istiyorum") is detected without a locale hint
+- [x] Test suite isolated onto its own ports (config/test.json: 9573/9574)
+      so `mix test` runs cleanly beside a live `patience serve`
 
 ### Phase 4 — Scale & Own Models
 
 - Train specialized LangOS models on collected translation pairs
 - Replace bootstrap base weights with fully owned models per stage
-- Turkish and additional language packs
+- Additional language packs (Turkish shipped early, in Phase 3.5)
 - Export profile plugins for domain-specific JSON shapes
 
 See [EVOLUTION.md](./EVOLUTION.md) for how LangOS continues improving after v1.0—language tiers, Observatory, vocabulary packs, and scaling to 100+ languages.

@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "{{entity}} için gerekli bilgiler: {{fields}}."},
+    {"tone": "neutral", "text": "Lütfen {{entity}} için {{fields}} bilgisini girin."},
+    {"tone": "casual", "text": "{{fields}} eksik ({{entity}})."}
+  ]
+}

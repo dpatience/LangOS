@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "İşlem başarıyla tamamlandı."},
+    {"tone": "neutral", "text": "Tamamlandı."},
+    {"tone": "casual", "text": "Oldu!"}
+  ]
+}

@@ -63,18 +63,37 @@ defmodule LangOS.CLI do
   defp cmd_express(args) do
     {opts, _, _} = OptionParser.parse(args, switches: @switches, aliases: @aliases)
     template = opts[:template] || "success"
+    locale = opts[:locale] || "en"
 
     data =
       case opts[:data] do
         nil -> %{}
-        path -> path |> File.read!() |> Jason.decode!()
+        value -> parse_json_or_file!(value)
       end
 
     ensure_services()
 
-    case LangOS.express(%{"template" => template, "locale" => "en", "data" => data}) do
+    case LangOS.express(%{"template" => template, "locale" => locale, "data" => data}) do
       {:ok, resp} -> IO.puts(Jason.encode!(resp, pretty: true))
       {:error, err} -> exit_error(err)
+    end
+  end
+
+  defp parse_json_or_file!(value) do
+    trimmed = String.trim(value)
+
+    cond do
+      String.starts_with?(trimmed, "{") or String.starts_with?(trimmed, "[") ->
+        case Jason.decode(trimmed) do
+          {:ok, data} -> data
+          {:error, err} -> exit_error({:invalid_json, err})
+        end
+
+      File.exists?(value) ->
+        value |> File.read!() |> Jason.decode!()
+
+      true ->
+        exit_error({:data_not_found, "expected inline JSON or an existing file path", value})
     end
   end
 
@@ -164,6 +183,7 @@ defmodule LangOS.CLI do
 
       patience understand --text "Register Clarissa in Biology A1"
       patience understand --file report.txt          # document mode (unit streaming pipeline)
+      patience express --template missing_fields --data '{"entity":"Clarissa","fields":"age, language"}'
       patience express --template missing_fields --data fields.json
       patience serve [--config config/dev.json]
       patience mcp                                   # Model Context Protocol over stdio

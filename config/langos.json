@@ -59,7 +59,7 @@
     "installed": ["education-vocab"]
   },
   "language_packs": {
-    "installed": ["en", "fr", "rw"],
+    "installed": ["en", "fr", "rw", "tr"],
     "default": "en"
   },
   "packs_dir": "packs"

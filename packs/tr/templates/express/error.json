@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "Bir hata oluştu: {{reason}}."},
+    {"tone": "neutral", "text": "Hata: {{reason}}."},
+    {"tone": "casual", "text": "Olmadı: {{reason}}."}
+  ]
+}

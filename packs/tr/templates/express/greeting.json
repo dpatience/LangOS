@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "Merhaba, hoş geldiniz."},
+    {"tone": "neutral", "text": "Merhaba!"},
+    {"tone": "casual", "text": "Selam!"}
+  ]
+}

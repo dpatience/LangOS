@@ -1,0 +1,11 @@
+{
+  "id": "tr",
+  "version": "1.0.0",
+  "name": "Türkçe",
+  "direction": "ltr",
+  "capabilities": ["understand", "express", "tokenize"],
+  "default_locale": "tr-TR",
+  "requires": {
+    "kernel": ">=1.0.0"
+  }
+}

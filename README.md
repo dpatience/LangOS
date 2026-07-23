@@ -19,7 +19,7 @@ mix deps.get
 mix compile          # builds Rust NIFs automatically
 mix test
 
-# CLI
+# CLI (mix langos or mix patience — same thing)
 mix langos understand --text "Register Clarissa in Biology A1."
 mix langos express --template missing_fields --data '{"entity":"Clarissa","fields":"age, language"}'
 mix langos serve     # HTTP API on http://127.0.0.1:9473
@@ -81,6 +81,29 @@ Local development runs **natively** (no Docker required). Docker is for producti
 - **Phase 0** — specification (schemas, engine contract, OpenAPI) ✓
 - **Phase 1** — minimal runtime MVP ✓
 - **Phase 2** — multilingual packs, compatibility APIs, Python/Rust SDKs
+
+##Commands on Use
+# Start server
+mix langos serve
+# or (same thing, after recompile)
+mix patience serve
+
+# One-off CLI (no server)
+mix langos understand --text "Register Clarissa in Biology A1."
+mix langos express --template missing_fields --data '{"entity":"Clarissa","fields":"age, language"}'
+mix langos engines list
+mix langos languages list
+mix langos version
+
+# Test API (server running in another terminal)
+curl -s http://127.0.0.1:9473/v1/understand \
+  -H 'content-type: application/json' \
+  -d '{"text":"Add Alice to Biology A1.","locale":"en"}' | jq .
+
+## Incase wants to test for production compatibility
+
+MIX_ENV=prod mix release patience
+_build/prod/rel/patience/bin/patience serve
 
 ## Brainstorming Notes
 

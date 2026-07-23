@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "Çok teşekkür ederim."},
+    {"tone": "neutral", "text": "Teşekkürler."},
+    {"tone": "casual", "text": "Sağol!"}
+  ]
+}

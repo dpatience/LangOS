@@ -1,0 +1,6 @@
+{"input": {"text": "Clarissa'yı Biyoloji A1'e kaydet.", "locale": "tr"}, "expected": {"vocab_id": "ACT_000005", "symbol": "ACTION_REGISTER", "utterance_type": "command", "roles": [{"role": "patient", "surface": "Clarissa"}, {"role": "container", "surface": "Biyoloji A1"}]}}
+{"input": {"text": "Alice'i Biyoloji A1'e ekle.", "locale": "tr"}, "expected": {"vocab_id": "ACT_000004", "symbol": "ACTION_ASSIGN", "utterance_type": "command", "roles": [{"role": "patient", "surface": "Alice"}, {"role": "container", "surface": "Biyoloji A1"}]}}
+{"input": {"text": "Biyoloji A1'i sil.", "locale": "tr"}, "expected": {"vocab_id": "ACT_000002", "symbol": "ACTION_DELETE", "utterance_type": "command", "roles": [{"role": "patient", "surface": "Biyoloji A1"}]}}
+{"input": {"text": "Fotosentez nedir?", "locale": "tr"}, "expected": {"vocab_id": "ACT_000221", "symbol": "ACTION_DEFINE", "utterance_type": "question", "roles": [{"role": "theme", "surface": "Fotosentez"}]}}
+{"input": {"text": "Yemek istiyorum.", "locale": "tr"}, "expected": {"vocab_id": "STA_000004", "symbol": "STATE_WANT", "utterance_type": "statement"}}
+{"input": {"text": "Seni seviyorum.", "locale": "tr"}, "expected": {"vocab_id": "STA_000026", "symbol": "STATE_LOVE", "utterance_type": "statement"}}

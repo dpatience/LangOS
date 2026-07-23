@@ -3,7 +3,7 @@ defmodule LangOSGoldenTest do
   use ExUnit.Case, async: false
   @moduletag :golden
 
-  @packs ~w(en fr rw)
+  @packs ~w(en fr rw tr)
 
   for pack <- @packs do
     @pack pack
@@ -35,7 +35,7 @@ defmodule LangOSGoldenTest do
         assert pred_node["predicate"]["symbol"] == expected["symbol"],
                "expected symbol #{expected["symbol"]}, got #{pred_node["predicate"]["symbol"]} for: #{input["text"]}"
 
-        for exp_role <- expected["roles"] do
+        for exp_role <- expected["roles"] || [] do
           edge = Enum.find(edges, fn e -> e["role"] == exp_role["role"] end)
           assert edge != nil, "missing edge with role #{exp_role["role"]} for: #{input["text"]}"
 

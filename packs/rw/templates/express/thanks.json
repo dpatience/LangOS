@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "Murakoze cyane."},
+    {"tone": "neutral", "text": "Murakoze."},
+    {"tone": "casual", "text": "Urakoze!"}
+  ]
+}

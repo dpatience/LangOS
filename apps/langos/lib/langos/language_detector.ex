@@ -78,16 +78,27 @@ defmodule LangOS.LanguageDetector do
       token in words or stripped_hit?(token, verb_map, detection)
   end
 
-  # Morphological probe: strip declared prefixes (longest first) and re-check
-  # the verb map, so "nshaka" -> "shaka" and "kurya" -> "rya" both count.
+  # Morphological probe: strip declared prefixes and suffixes (longest first)
+  # and re-check the verb map. Prefix languages (Kinyarwanda): "nshaka" ->
+  # "shaka". Suffix languages (Turkish): "istiyorum" -> "ist".
   defp stripped_hit?(token, verb_map, detection) do
-    detection
-    |> Map.get("strip_prefixes", [])
-    |> Enum.sort_by(&(-String.length(&1)))
-    |> Enum.any?(fn prefix ->
-      rest = String.replace_prefix(token, prefix, "")
-      rest != token and String.length(rest) > 1 and Map.has_key?(verb_map, rest)
-    end)
+    prefix_hit =
+      detection
+      |> Map.get("strip_prefixes", [])
+      |> Enum.sort_by(&(-String.length(&1)))
+      |> Enum.any?(fn prefix ->
+        rest = String.replace_prefix(token, prefix, "")
+        rest != token and String.length(rest) > 1 and Map.has_key?(verb_map, rest)
+      end)
+
+    prefix_hit or
+      detection
+      |> Map.get("strip_suffixes", [])
+      |> Enum.sort_by(&(-String.length(&1)))
+      |> Enum.any?(fn suffix ->
+        rest = String.replace_suffix(token, suffix, "")
+        rest != token and String.length(rest) > 1 and Map.has_key?(verb_map, rest)
+      end)
   end
 
   defp installed_ids do
