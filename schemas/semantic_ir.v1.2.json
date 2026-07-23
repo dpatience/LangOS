@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://langos.dev/schemas/semantic_ir.v1.2.json",
+  "title": "LangOS Semantic IR v1.2",
+  "description": "Graph-first semantic representation. Everything is a node. Relationships are edges. JSON is serialization of the graph. Applications depend on stable vocabulary IDs.",
+  "type": "object",
+  "required": ["version", "source", "graph", "mentions", "utterance_type", "confidence", "meta"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string", "const": "1.2" },
+    "source": {
+      "type": "object",
+      "required": ["language", "text"],
+      "properties": {
+        "language": { "type": "string", "pattern": "^[a-z]{2}(-[A-Z]{2})?$" },
+        "text": { "type": "string" }
+      }
+    },
+    "graph": {
+      "type": "object",
+      "required": ["nodes", "edges"],
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/graph_node" }
+        },
+        "edges": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/graph_edge" }
+        }
+      }
+    },
+    "mentions": {
+      "type": "array",
+      "description": "Surface occurrences linking text spans to graph nodes. One concept can have many mentions.",
+      "items": { "$ref": "#/$defs/mention" }
+    },
+    "utterance_type": {
+      "type": "string",
+      "enum": ["command", "question", "statement", "exclamation", "fragment"]
+    },
+    "confidence": { "$ref": "#/$defs/confidence_detail" },
+    "meta": {
+      "type": "object",
+      "required": ["detected_language", "engine"],
+      "properties": {
+        "detected_language": { "type": "string" },
+        "engine": { "$ref": "#/$defs/engine_info" },
+        "latency_ms": { "type": "integer", "minimum": 0 }
+      }
+    }
+  },
+  "$defs": {
+    "graph_node": {
+      "type": "object",
+      "required": ["id", "type"],
+      "properties": {
+        "id": { "type": "string", "description": "Deterministic hash-based ID" },
+        "type": {
+          "type": "string",
+          "enum": ["predicate", "concept", "reference"],
+          "description": "Every semantic element is one of these three node types"
+        },
+        "predicate": {
+          "type": "object",
+          "description": "Present when type=predicate",
+          "properties": {
+            "id": { "type": "string", "pattern": "^[A-Z]{2,4}_[0-9]{6}$", "description": "Stable vocabulary ID" },
+            "symbol": { "type": "string", "description": "Human-readable symbol, for debugging only" }
+          }
+        },
+        "concept": {
+          "type": "object",
+          "description": "Present when type=concept",
+          "properties": {
+            "canonical": { "type": "string" },
+            "kind": {
+              "type": "string",
+              "enum": ["named", "quantity", "time", "location", "literal", "unknown"]
+            }
+          }
+        },
+        "reference": {
+          "type": "object",
+          "description": "Present when type=reference",
+          "properties": {
+            "ref": { "type": "string", "description": "REF_SPEAKER, REF_LISTENER, etc." }
+          }
+        }
+      }
+    },
+    "graph_edge": {
+      "type": "object",
+      "required": ["from", "to", "role"],
+      "properties": {
+        "from": { "type": "string", "description": "Source node ID" },
+        "to": { "type": "string", "description": "Target node ID" },
+        "role": { "type": "string", "description": "Semantic role (patient, agent, theme, container, etc.)" }
+      }
+    },
+    "mention": {
+      "type": "object",
+      "required": ["node_id", "surface", "span"],
+      "properties": {
+        "node_id": { "type": "string", "description": "Which graph node this mention refers to" },
+        "surface": { "type": "string", "description": "Exact text as it appeared" },
+        "span": {
+          "type": "array",
+          "minItems": 2, "maxItems": 2,
+          "items": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "confidence_detail": {
+      "type": "object",
+      "required": ["overall"],
+      "properties": {
+        "overall": { "type": "number", "minimum": 0, "maximum": 1 },
+        "predicate": { "type": "number", "minimum": 0, "maximum": 1 },
+        "roles": { "type": "number", "minimum": 0, "maximum": 1 },
+        "references": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "engine_info": {
+      "type": "object",
+      "required": ["parser"],
+      "properties": {
+        "parser": { "type": "string" },
+        "resolver": { "type": "string" },
+        "generator": { "type": "string" },
+        "language_pack": { "type": "string" },
+        "version": { "type": "string" }
+      }
+    }
+  }
+}

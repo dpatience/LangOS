@@ -1,0 +1,7 @@
+patterns:
+  - tone: formal
+    text: "{{entity}} has been successfully {{action}}."
+  - tone: neutral
+    text: "{{entity}} {{action}} completed."
+  - tone: casual
+    text: "Done — {{entity}} is {{action}}."

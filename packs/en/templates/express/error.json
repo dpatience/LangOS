@@ -1,0 +1,5 @@
+{
+  "patterns": [
+    {"tone": "neutral", "text": "{{message}}"}
+  ]
+}

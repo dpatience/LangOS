@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "Amakuru ya {{entity}} akenewe: {{fields}}."},
+    {"tone": "neutral", "text": "Mutange {{fields}} bya {{entity}}."},
+    {"tone": "casual", "text": "Turacyakeneye {{fields}} bya {{entity}}."}
+  ]
+}

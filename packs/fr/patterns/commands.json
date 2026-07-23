@@ -1,0 +1,134 @@
+{
+  "patterns": [
+    {
+      "id": "inscrire_dans",
+      "pattern": "(?:inscris|inscrivez|inscrire)\\s+(.+?)\\s+(?:dans|en)\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000005",
+      "symbol": "ACTION_REGISTER",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"},
+        {"index": 2, "role": "container", "kind": "named"}
+      ]
+    },
+    {
+      "id": "ajouter_a",
+      "pattern": "(?:ajoute|ajoutez|ajouter)\\s+(.+?)\\s+(?:à|a|au|aux)\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000004",
+      "symbol": "ACTION_ASSIGN",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"},
+        {"index": 2, "role": "container", "kind": "named"}
+      ]
+    },
+    {
+      "id": "creer_nomme",
+      "pattern": "(?:crée|créez|créer)\\s+(?:un\\s+|une\\s+)?(.+?)\\s+(?:nommé|nommée|appelé|appelée)\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000001",
+      "symbol": "ACTION_CREATE",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "theme", "kind": "named"},
+        {"index": 2, "role": "name", "kind": "literal"}
+      ]
+    },
+    {
+      "id": "supprimer",
+      "pattern": "(?:supprime|supprimez|supprimer|efface|effacez)\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000002",
+      "symbol": "ACTION_DELETE",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"}
+      ]
+    },
+    {
+      "id": "retirer_de",
+      "pattern": "(?:retire|retirez|retirer|enlève|enlevez)\\s+(.+?)\\s+de\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000006",
+      "symbol": "ACTION_REMOVE",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"},
+        {"index": 2, "role": "source", "kind": "named"}
+      ]
+    },
+    {
+      "id": "montrer",
+      "pattern": "(?:montre|montrez|affiche|affichez|liste|listez)\\s+(?:tous\\s+|toutes\\s+)?(.+?)\\.?$",
+      "vocab_id": "ACT_000011",
+      "symbol": "ACTION_LIST",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "theme", "kind": "named"}
+      ]
+    },
+    {
+      "id": "installer",
+      "pattern": "(?:installe|installez|installer)\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000016",
+      "symbol": "ACTION_INSTALL",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "theme", "kind": "named"}
+      ]
+    }
+  ],
+  "verb_map": {
+    "inscrire": {"id": "ACT_000005", "symbol": "ACTION_REGISTER"},
+    "enregistrer": {"id": "ACT_000005", "symbol": "ACTION_REGISTER"},
+    "ajouter": {"id": "ACT_000004", "symbol": "ACTION_ASSIGN"},
+    "créer": {"id": "ACT_000001", "symbol": "ACTION_CREATE"},
+    "creer": {"id": "ACT_000001", "symbol": "ACTION_CREATE"},
+    "faire": {"id": "ACT_000001", "symbol": "ACTION_CREATE"},
+    "supprimer": {"id": "ACT_000002", "symbol": "ACTION_DELETE"},
+    "effacer": {"id": "ACT_000002", "symbol": "ACTION_DELETE"},
+    "retirer": {"id": "ACT_000006", "symbol": "ACTION_REMOVE"},
+    "enlever": {"id": "ACT_000006", "symbol": "ACTION_REMOVE"},
+    "modifier": {"id": "ACT_000003", "symbol": "ACTION_UPDATE"},
+    "changer": {"id": "ACT_000003", "symbol": "ACTION_UPDATE"},
+    "montrer": {"id": "ACT_000010", "symbol": "ACTION_SHOW"},
+    "afficher": {"id": "ACT_000010", "symbol": "ACTION_SHOW"},
+    "lister": {"id": "ACT_000011", "symbol": "ACTION_LIST"},
+    "chercher": {"id": "ACT_000012", "symbol": "ACTION_SEARCH"},
+    "trouver": {"id": "ACT_000012", "symbol": "ACTION_SEARCH"},
+    "aider": {"id": "ACT_000013", "symbol": "ACTION_HELP"},
+    "commencer": {"id": "ACT_000014", "symbol": "ACTION_START"},
+    "arrêter": {"id": "ACT_000015", "symbol": "ACTION_STOP"},
+    "installer": {"id": "ACT_000016", "symbol": "ACTION_INSTALL"},
+    "envoyer": {"id": "ACT_000008", "symbol": "ACTION_SEND"},
+    "donner": {"id": "ACT_000009", "symbol": "ACTION_GIVE"},
+    "connaître": {"id": "STA_000003", "symbol": "STATE_KNOW"},
+    "connaitre": {"id": "STA_000003", "symbol": "STATE_KNOW"},
+    "savoir": {"id": "STA_000003", "symbol": "STATE_KNOW"},
+    "vouloir": {"id": "STA_000004", "symbol": "STATE_WANT"},
+    "avoir besoin": {"id": "STA_000005", "symbol": "STATE_NEED"},
+    "aimer": {"id": "STA_000026", "symbol": "STATE_LOVE"},
+    "adorer": {"id": "STA_000026", "symbol": "STATE_LOVE"},
+    "détester": {"id": "STA_000027", "symbol": "STATE_HATE"},
+    "avoir": {"id": "STA_000002", "symbol": "STATE_HAVE"},
+    "être": {"id": "STA_000001", "symbol": "STATE_BE"},
+    "bonjour": {"id": "META_000001", "symbol": "META_GREET"},
+    "salut": {"id": "META_000001", "symbol": "META_GREET"},
+    "merci": {"id": "META_000003", "symbol": "META_THANK"},
+    "oui": {"id": "META_000005", "symbol": "META_CONFIRM"},
+    "non": {"id": "META_000006", "symbol": "META_DENY"}
+  },
+  "pronoun_map": {
+    "je": "REF_SPEAKER", "moi": "REF_SPEAKER", "me": "REF_SPEAKER",
+    "mon": "REF_SPEAKER", "ma": "REF_SPEAKER", "mes": "REF_SPEAKER",
+    "nous": "REF_SPEAKER", "notre": "REF_SPEAKER", "nos": "REF_SPEAKER",
+    "tu": "REF_LISTENER", "toi": "REF_LISTENER", "te": "REF_LISTENER",
+    "ton": "REF_LISTENER", "ta": "REF_LISTENER", "tes": "REF_LISTENER",
+    "vous": "REF_LISTENER", "votre": "REF_LISTENER", "vos": "REF_LISTENER",
+    "il": "REF_PREVIOUS_ENTITY", "elle": "REF_PREVIOUS_ENTITY",
+    "ils": "REF_PREVIOUS_ENTITY", "elles": "REF_PREVIOUS_ENTITY",
+    "lui": "REF_PREVIOUS_ENTITY", "le": "REF_PREVIOUS_ENTITY",
+    "la": "REF_PREVIOUS_ENTITY", "les": "REF_PREVIOUS_ENTITY",
+    "ça": "REF_PREVIOUS_ENTITY", "cela": "REF_PREVIOUS_ENTITY", "ceci": "REF_PREVIOUS_ENTITY",
+    "ici": "REF_HERE", "là": "REF_HERE",
+    "maintenant": "REF_TIME_NOW", "aujourd'hui": "REF_TIME_NOW",
+    "hier": "REF_TIME_PAST", "demain": "REF_TIME_FUTURE"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "L'opération a été effectuée avec succès."},
+    {"tone": "neutral", "text": "C'est fait."},
+    {"tone": "casual", "text": "Voilà, c'est fait !"}
+  ]
+}

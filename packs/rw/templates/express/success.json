@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "Igikorwa cyakozwe neza."},
+    {"tone": "neutral", "text": "Byakozwe."},
+    {"tone": "casual", "text": "Byarakunze!"}
+  ]
+}

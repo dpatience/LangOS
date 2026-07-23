@@ -1,0 +1,17 @@
+[project]
+name = "langos-sdk"
+version = "0.1.0"
+description = "Python client for LangOS native API"
+readme = "README.md"
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["langos_sdk*"]

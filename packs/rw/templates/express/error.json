@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "Habaye ikibazo: {{reason}}."},
+    {"tone": "neutral", "text": "Ikibazo: {{reason}}."},
+    {"tone": "casual", "text": "Yoo, ntibyakunze: {{reason}}."}
+  ]
+}

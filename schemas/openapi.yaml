@@ -1,0 +1,262 @@
+openapi: 3.1.0
+info:
+  title: LangOS API
+  version: 1.0.0
+  description: |
+    Native language translation API for LangOS Phase 1.
+    Compatibility endpoints (OpenAI/Anthropic) are specified separately in Phase 2.
+servers:
+  - url: http://localhost:9473
+    description: Local development
+paths:
+  /v1/health:
+    get:
+      summary: Service health
+      operationId: getHealth
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponse"
+  /v1/languages:
+    get:
+      summary: Installed language packs
+      operationId: listLanguages
+      responses:
+        "200":
+          description: Language pack list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  languages:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/LanguagePack"
+  /v1/engines:
+    get:
+      summary: Installed inference engines
+      operationId: listEngines
+      responses:
+        "200":
+          description: Engine list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  engines:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/EngineInfo"
+  /v1/understand:
+    post:
+      summary: Human text to Semantic IR
+      operationId: understand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UnderstandRequest"
+      responses:
+        "200":
+          description: Parsed Semantic IR
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UnderstandResponse"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "422":
+          description: IR validation failed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /v1/express:
+    post:
+      summary: Structured data to natural language
+      operationId: express
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExpressRequest"
+      responses:
+        "200":
+          description: Generated text
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExpressResponse"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /v1/translate:
+    post:
+      summary: Cross-locale translation via Semantic IR
+      operationId: translate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TranslateRequest"
+      responses:
+        "200":
+          description: Translated text and optional IR
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TranslateResponse"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      required: [status, version]
+      properties:
+        status:
+          type: string
+          enum: [ok, degraded]
+        version:
+          type: string
+        uptime_seconds:
+          type: integer
+    LanguagePack:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        version:
+          type: string
+        capabilities:
+          type: array
+          items:
+            type: string
+    EngineInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        capabilities:
+          type: array
+          items:
+            type: string
+        health:
+          type: string
+    UnderstandRequest:
+      type: object
+      required: [text]
+      properties:
+        text:
+          type: string
+        conversation:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+              text:
+                type: string
+        entities:
+          type: array
+          items:
+            type: object
+        locale:
+          type: string
+        options:
+          type: object
+    UnderstandResponse:
+      type: object
+      required: [ir, references, units, language, latency_ms]
+      properties:
+        ir:
+          type: object
+        references:
+          type: array
+          items:
+            type: object
+        units:
+          type: integer
+        language:
+          type: string
+        latency_ms:
+          type: integer
+    ExpressRequest:
+      type: object
+      required: [locale]
+      properties:
+        template:
+          type: string
+        locale:
+          type: string
+        tone:
+          type: string
+        data:
+          type: object
+        ir:
+          type: object
+        options:
+          type: object
+    ExpressResponse:
+      type: object
+      required: [text, locale, latency_ms]
+      properties:
+        text:
+          type: string
+        locale:
+          type: string
+        latency_ms:
+          type: integer
+    TranslateRequest:
+      type: object
+      properties:
+        text:
+          type: string
+        ir:
+          type: object
+        from:
+          type: string
+        to:
+          type: string
+    TranslateResponse:
+      type: object
+      properties:
+        text:
+          type: string
+        ir:
+          type: object
+        from:
+          type: string
+        to:
+          type: string
+        latency_ms:
+          type: integer
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        details:
+          type: object

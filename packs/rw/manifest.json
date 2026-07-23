@@ -1,0 +1,11 @@
+{
+  "id": "rw",
+  "version": "1.0.0",
+  "name": "Ikinyarwanda",
+  "direction": "ltr",
+  "capabilities": ["understand", "express", "tokenize"],
+  "default_locale": "rw-RW",
+  "requires": {
+    "kernel": ">=1.0.0"
+  }
+}

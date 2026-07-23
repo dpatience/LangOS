@@ -1,0 +1,11 @@
+{
+  "id": "fr",
+  "version": "1.0.0",
+  "name": "Français",
+  "direction": "ltr",
+  "capabilities": ["understand", "express", "tokenize"],
+  "default_locale": "fr-FR",
+  "requires": {
+    "kernel": ">=1.0.0"
+  }
+}

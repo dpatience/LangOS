@@ -1,0 +1,14 @@
+[package]
+name = "langos_parser"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+regex = { workspace = true }
+langos_tokenizer = { path = "../langos_tokenizer" }
+
+[lib]
+name = "langos_parser"
+path = "src/lib.rs"

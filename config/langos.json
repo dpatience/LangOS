@@ -1,0 +1,48 @@
+{
+  "runtime": {
+    "name": "langos",
+    "log_level": "info",
+    "max_concurrent_requests": 1000
+  },
+  "server": {
+    "http": {
+      "host": "127.0.0.1",
+      "port": 9473
+    }
+  },
+  "cache": {
+    "l1": {
+      "type": "memory",
+      "max_entries": 50000
+    },
+    "l2": {
+      "enabled": false
+    }
+  },
+  "engines": {
+    "rule": {
+      "enabled": true,
+      "patterns_dir": "packs/en/patterns"
+    },
+    "stat": {
+      "enabled": true,
+      "model": "models/en/intent.json",
+      "min_confidence": 0.3
+    },
+    "neural": {
+      "enabled": true
+    }
+  },
+  "routing": {
+    "simple_command_max_tokens": 12,
+    "simple_command_engine": "rule",
+    "default_parse_engine": "neural",
+    "default_generate_engine": "neural",
+    "fallback_engine": "rule"
+  },
+  "language_packs": {
+    "installed": ["en", "fr", "rw"],
+    "default": "en"
+  },
+  "packs_dir": "packs"
+}

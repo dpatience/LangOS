@@ -1,0 +1,16 @@
+/_build/
+/deps/
+*.ez
+*.beam
+/config/*.secret.exs
+.env
+.venv/
+__pycache__/
+*.pyc
+/target/
+Cargo.lock
+/priv/native/
+*.so
+*.dylib
+*.dll
+.DS_Store

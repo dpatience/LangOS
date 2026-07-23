@@ -1,0 +1,147 @@
+{
+  "patterns": [
+    {
+      "id": "register_in",
+      "pattern": "register\\s+(.+?)\\s+in\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000005",
+      "symbol": "ACTION_REGISTER",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"},
+        {"index": 2, "role": "container", "kind": "named"}
+      ]
+    },
+    {
+      "id": "add_to",
+      "pattern": "add\\s+(.+?)\\s+to\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000004",
+      "symbol": "ACTION_ASSIGN",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"},
+        {"index": 2, "role": "container", "kind": "named"}
+      ]
+    },
+    {
+      "id": "create_named",
+      "pattern": "create\\s+(?:a\\s+)?(.+?)\\s+(?:named|called)\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000001",
+      "symbol": "ACTION_CREATE",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "theme", "kind": "named"},
+        {"index": 2, "role": "name", "kind": "literal"}
+      ]
+    },
+    {
+      "id": "delete",
+      "pattern": "delete\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000002",
+      "symbol": "ACTION_DELETE",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"}
+      ]
+    },
+    {
+      "id": "remove_from",
+      "pattern": "remove\\s+(.+?)\\s+from\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000006",
+      "symbol": "ACTION_REMOVE",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"},
+        {"index": 2, "role": "source", "kind": "named"}
+      ]
+    },
+    {
+      "id": "update_set",
+      "pattern": "(?:update|set|change)\\s+(.+?)(?:'s)?\\s+(\\w+)\\s+to\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000003",
+      "symbol": "ACTION_UPDATE",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"},
+        {"index": 2, "role": "attribute", "kind": "literal"},
+        {"index": 3, "role": "value", "kind": "literal"}
+      ]
+    },
+    {
+      "id": "show_list",
+      "pattern": "(?:show|list|display)\\s+(?:all\\s+)?(.+?)\\.?$",
+      "vocab_id": "ACT_000011",
+      "symbol": "ACTION_LIST",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "theme", "kind": "named"}
+      ]
+    },
+    {
+      "id": "install",
+      "pattern": "install\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000016",
+      "symbol": "ACTION_INSTALL",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "theme", "kind": "named"}
+      ]
+    }
+  ],
+  "verb_map": {
+    "register": {"id": "ACT_000005", "symbol": "ACTION_REGISTER"},
+    "enroll": {"id": "ACT_000005", "symbol": "ACTION_REGISTER"},
+    "sign up": {"id": "ACT_000005", "symbol": "ACTION_REGISTER"},
+    "add": {"id": "ACT_000004", "symbol": "ACTION_ASSIGN"},
+    "assign": {"id": "ACT_000004", "symbol": "ACTION_ASSIGN"},
+    "put": {"id": "ACT_000004", "symbol": "ACTION_ASSIGN"},
+    "create": {"id": "ACT_000001", "symbol": "ACTION_CREATE"},
+    "make": {"id": "ACT_000001", "symbol": "ACTION_CREATE"},
+    "delete": {"id": "ACT_000002", "symbol": "ACTION_DELETE"},
+    "remove": {"id": "ACT_000006", "symbol": "ACTION_REMOVE"},
+    "update": {"id": "ACT_000003", "symbol": "ACTION_UPDATE"},
+    "set": {"id": "ACT_000003", "symbol": "ACTION_UPDATE"},
+    "change": {"id": "ACT_000003", "symbol": "ACTION_UPDATE"},
+    "show": {"id": "ACT_000010", "symbol": "ACTION_SHOW"},
+    "display": {"id": "ACT_000010", "symbol": "ACTION_SHOW"},
+    "list": {"id": "ACT_000011", "symbol": "ACTION_LIST"},
+    "search": {"id": "ACT_000012", "symbol": "ACTION_SEARCH"},
+    "find": {"id": "ACT_000012", "symbol": "ACTION_SEARCH"},
+    "help": {"id": "ACT_000013", "symbol": "ACTION_HELP"},
+    "start": {"id": "ACT_000014", "symbol": "ACTION_START"},
+    "begin": {"id": "ACT_000014", "symbol": "ACTION_START"},
+    "stop": {"id": "ACT_000015", "symbol": "ACTION_STOP"},
+    "end": {"id": "ACT_000015", "symbol": "ACTION_STOP"},
+    "install": {"id": "ACT_000016", "symbol": "ACTION_INSTALL"},
+    "move": {"id": "ACT_000007", "symbol": "ACTION_MOVE"},
+    "send": {"id": "ACT_000008", "symbol": "ACTION_SEND"},
+    "give": {"id": "ACT_000009", "symbol": "ACTION_GIVE"},
+    "know": {"id": "STA_000003", "symbol": "STATE_KNOW"},
+    "want": {"id": "STA_000004", "symbol": "STATE_WANT"},
+    "need": {"id": "STA_000005", "symbol": "STATE_NEED"},
+    "like": {"id": "STA_000006", "symbol": "STATE_LIKE"},
+    "prefer": {"id": "STA_000007", "symbol": "STATE_PREFER"},
+    "have": {"id": "STA_000002", "symbol": "STATE_HAVE"},
+    "is": {"id": "STA_000001", "symbol": "STATE_BE"},
+    "are": {"id": "STA_000001", "symbol": "STATE_BE"},
+    "was": {"id": "STA_000001", "symbol": "STATE_BE"},
+    "am": {"id": "STA_000001", "symbol": "STATE_BE"},
+    "join": {"id": "EVT_000001", "symbol": "EVENT_JOIN"},
+    "leave": {"id": "EVT_000002", "symbol": "EVENT_LEAVE"},
+    "hello": {"id": "META_000001", "symbol": "META_GREET"},
+    "hi": {"id": "META_000001", "symbol": "META_GREET"},
+    "thanks": {"id": "META_000003", "symbol": "META_THANK"},
+    "thank": {"id": "META_000003", "symbol": "META_THANK"},
+    "yes": {"id": "META_000005", "symbol": "META_CONFIRM"},
+    "no": {"id": "META_000006", "symbol": "META_DENY"}
+  },
+  "pronoun_map": {
+    "i": "REF_SPEAKER", "me": "REF_SPEAKER", "my": "REF_SPEAKER", "mine": "REF_SPEAKER", "myself": "REF_SPEAKER",
+    "you": "REF_LISTENER", "your": "REF_LISTENER", "yours": "REF_LISTENER", "yourself": "REF_LISTENER",
+    "he": "REF_PREVIOUS_ENTITY", "she": "REF_PREVIOUS_ENTITY", "him": "REF_PREVIOUS_ENTITY",
+    "her": "REF_PREVIOUS_ENTITY", "his": "REF_PREVIOUS_ENTITY", "it": "REF_PREVIOUS_ENTITY",
+    "they": "REF_PREVIOUS_ENTITY", "them": "REF_PREVIOUS_ENTITY",
+    "this": "REF_PREVIOUS_ENTITY", "that": "REF_PREVIOUS_ENTITY",
+    "here": "REF_HERE", "now": "REF_TIME_NOW", "today": "REF_TIME_NOW",
+    "yesterday": "REF_TIME_PAST", "tomorrow": "REF_TIME_FUTURE"
+  }
+}

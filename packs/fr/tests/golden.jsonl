@@ -1,0 +1,3 @@
+{"input": {"text": "Inscris Clarissa dans Biologie A1.", "locale": "fr"}, "expected": {"vocab_id": "ACT_000005", "symbol": "ACTION_REGISTER", "utterance_type": "command", "roles": [{"role": "patient", "surface": "Clarissa"}, {"role": "container", "surface": "Biologie A1"}]}}
+{"input": {"text": "Ajoute Alice au groupe.", "locale": "fr"}, "expected": {"vocab_id": "ACT_000004", "symbol": "ACTION_ASSIGN", "utterance_type": "command", "roles": [{"role": "patient", "surface": "Alice"}, {"role": "container", "surface": "groupe"}]}}
+{"input": {"text": "Supprime Biologie A1.", "locale": "fr"}, "expected": {"vocab_id": "ACT_000002", "symbol": "ACTION_DELETE", "utterance_type": "command", "roles": [{"role": "patient", "surface": "Biologie A1"}]}}

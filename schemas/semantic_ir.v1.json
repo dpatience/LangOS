@@ -1,0 +1,207 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://langos.dev/schemas/semantic_ir.v1.json",
+  "title": "LangOS Semantic IR v1.0",
+  "description": "Language-independent intermediate representation produced by LangOS understand pipeline and consumed by express/translate.",
+  "type": "object",
+  "required": ["version", "source", "units", "entities", "references", "facts", "meta"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "1.0",
+      "description": "Semantic IR schema version."
+    },
+    "source": {
+      "type": "object",
+      "required": ["language", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "language": {
+          "type": "string",
+          "pattern": "^[a-z]{2}(-[A-Z]{2})?$",
+          "description": "BCP-47 language code of the source text."
+        },
+        "text": {
+          "type": "string",
+          "description": "Original human-language input."
+        }
+      }
+    },
+    "units": {
+      "type": "array",
+      "description": "Semantic units extracted from the source text.",
+      "items": { "$ref": "#/$defs/semantic_unit" }
+    },
+    "entities": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/entity" }
+    },
+    "references": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/reference" }
+    },
+    "facts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/fact" }
+    },
+    "meta": {
+      "type": "object",
+      "required": ["detected_language", "processing_path"],
+      "additionalProperties": true,
+      "properties": {
+        "detected_language": {
+          "type": "string",
+          "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+        },
+        "processing_path": {
+          "type": "string",
+          "enum": ["fast_parser", "rule_engine", "stat_engine", "neural_engine", "hybrid"]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "engine": {
+          "type": "string"
+        },
+        "latency_ms": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "$defs": {
+    "semantic_unit": {
+      "type": "object",
+      "required": ["id", "span", "predicate", "arguments", "modifiers", "confidence"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^u[0-9]+$"
+        },
+        "span": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "type": "integer", "minimum": 0 },
+          "description": "Character offsets [start, end) in source.text."
+        },
+        "predicate": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Generic action or relation label (e.g. register, create, assign)."
+        },
+        "arguments": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/argument" }
+        },
+        "modifiers": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "argument": {
+      "type": "object",
+      "required": ["role"],
+      "additionalProperties": false,
+      "properties": {
+        "role": {
+          "type": "string",
+          "description": "Semantic role (agent, target, destination, name, value, etc.)."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["entity", "literal", "reference", "quantity", "date", "boolean"]
+        },
+        "label": {
+          "type": "string"
+        },
+        "value": {},
+        "ref": {
+          "type": ["string", "null"],
+          "description": "Unresolved reference slot; application resolves."
+        },
+        "entity_id": {
+          "type": "string",
+          "pattern": "^e[0-9]+$"
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "required": ["id", "label", "attributes", "refs"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^e[0-9]+$"
+        },
+        "label": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "description": "Extracted label hint, not a LangOS enum."
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "refs": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "reference": {
+      "type": "object",
+      "required": ["token", "slot", "confidence"],
+      "additionalProperties": false,
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "slot": {
+          "type": "string",
+          "description": "Reference slot identifier (e.g. entity:s1, previous_entity)."
+        },
+        "span": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "type": "integer", "minimum": 0 }
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "fact": {
+      "type": "object",
+      "required": ["subject", "predicate", "object"],
+      "additionalProperties": false,
+      "properties": {
+        "subject": { "type": "string" },
+        "predicate": { "type": "string" },
+        "object": {},
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}

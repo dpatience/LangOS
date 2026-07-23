@@ -1,0 +1,72 @@
+{
+  "description": "LangOS canonical predicate registry. Language packs map surface verbs to these IDs. Applications consume these IDs — never raw surface verbs.",
+  "version": "1.0",
+  "predicates": {
+    "ACTION_REGISTER": { "roles": ["patient", "container"], "description": "Place entity into a group/system" },
+    "ACTION_CREATE": { "roles": ["theme", "name"], "description": "Bring a new entity into existence" },
+    "ACTION_DELETE": { "roles": ["patient"], "description": "Remove entity from existence" },
+    "ACTION_ASSIGN": { "roles": ["patient", "container"], "description": "Place entity into a container or group" },
+    "ACTION_UPDATE": { "roles": ["patient", "attribute", "value"], "description": "Change a property of entity" },
+    "ACTION_REMOVE": { "roles": ["patient", "source"], "description": "Take entity out of a group" },
+    "ACTION_MOVE": { "roles": ["patient", "source", "goal"], "description": "Transfer entity between containers" },
+    "ACTION_SEND": { "roles": ["agent", "theme", "goal"], "description": "Transmit something to a destination" },
+    "ACTION_GIVE": { "roles": ["agent", "theme", "beneficiary"], "description": "Transfer possession" },
+    "ACTION_SHOW": { "roles": ["agent", "theme", "experiencer"], "description": "Make visible/known" },
+    "ACTION_LIST": { "roles": ["theme"], "description": "Enumerate items" },
+    "ACTION_SEARCH": { "roles": ["theme"], "description": "Look for something" },
+    "ACTION_HELP": { "roles": ["beneficiary"], "description": "Request assistance" },
+    "ACTION_START": { "roles": ["theme"], "description": "Begin a process" },
+    "ACTION_STOP": { "roles": ["theme"], "description": "End a process" },
+    "ACTION_INSTALL": { "roles": ["theme", "container"], "description": "Add a component to a system" },
+
+    "STATE_BE": { "roles": ["theme", "attribute"], "description": "Existence or property assertion" },
+    "STATE_HAVE": { "roles": ["possessor", "theme"], "description": "Possession assertion" },
+    "STATE_KNOW": { "roles": ["experiencer", "theme"], "description": "Knowledge assertion" },
+    "STATE_WANT": { "roles": ["experiencer", "theme"], "description": "Desire assertion" },
+    "STATE_LIKE": { "roles": ["experiencer", "stimulus"], "description": "Preference assertion" },
+    "STATE_NEED": { "roles": ["experiencer", "theme"], "description": "Requirement assertion" },
+    "STATE_PREFER": { "roles": ["experiencer", "theme"], "description": "Preference between options" },
+
+    "QUERY_ASK": { "roles": ["theme"], "description": "General question" },
+    "QUERY_KNOW": { "roles": ["experiencer", "theme"], "description": "Question about knowledge" },
+
+    "EVENT_JOIN": { "roles": ["patient", "container", "time"], "description": "Become part of a group" },
+    "EVENT_LEAVE": { "roles": ["patient", "source", "time"], "description": "Depart from a group" },
+    "EVENT_ARRIVE": { "roles": ["patient", "goal", "time"], "description": "Reach a destination" },
+    "EVENT_COMPLETE": { "roles": ["theme"], "description": "Finish a process" },
+
+    "META_GREET": { "roles": [], "description": "Greeting or social opener" },
+    "META_THANK": { "roles": ["beneficiary"], "description": "Expression of gratitude" },
+    "META_CONFIRM": { "roles": ["theme"], "description": "Affirm or agree" },
+    "META_DENY": { "roles": ["theme"], "description": "Negate or disagree" },
+
+    "UNKNOWN": { "roles": ["content"], "description": "Cannot classify — low confidence fallback" }
+  },
+  "reserved_references": [
+    "REF_SPEAKER",
+    "REF_LISTENER",
+    "REF_PREVIOUS_ENTITY",
+    "REF_PREVIOUS_ACTION",
+    "REF_TIME_NOW",
+    "REF_HERE",
+    "REF_CONTEXT"
+  ],
+  "roles": {
+    "agent": "The deliberate performer of the action",
+    "patient": "The entity undergoing the action or being affected by it",
+    "theme": "The entity being described, moved, or discussed (non-affected)",
+    "experiencer": "The entity experiencing a mental state (know, want, see)",
+    "stimulus": "What causes the experience",
+    "beneficiary": "Who benefits from the action",
+    "instrument": "Tool or means used to perform the action",
+    "container": "The group, class, system, or location receiving the patient",
+    "source": "Where something comes from",
+    "goal": "Where something goes",
+    "possessor": "Who owns or has something",
+    "attribute": "A property or quality being described",
+    "value": "The value of an attribute",
+    "name": "Label or identifier being assigned",
+    "time": "Temporal reference",
+    "content": "Unstructured content (fallback)"
+  }
+}

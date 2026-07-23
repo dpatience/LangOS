@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "{{entity}}'s {{fields}} are still required."},
+    {"tone": "neutral", "text": "Please provide {{entity}}'s {{fields}}."},
+    {"tone": "casual", "text": "We still need {{entity}}'s {{fields}}."}
+  ]
+}

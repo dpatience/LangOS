@@ -1,0 +1,3 @@
+{"input": {"text": "Andikisha Clarissa muri Biology A1.", "locale": "rw"}, "expected": {"vocab_id": "ACT_000005", "symbol": "ACTION_REGISTER", "utterance_type": "command", "roles": [{"role": "patient", "surface": "Clarissa"}, {"role": "container", "surface": "Biology A1"}]}}
+{"input": {"text": "Ongeramo Alice muri Biology A1.", "locale": "rw"}, "expected": {"vocab_id": "ACT_000004", "symbol": "ACTION_ASSIGN", "utterance_type": "command", "roles": [{"role": "patient", "surface": "Alice"}, {"role": "container", "surface": "Biology A1"}]}}
+{"input": {"text": "Siba Biology A1.", "locale": "rw"}, "expected": {"vocab_id": "ACT_000002", "symbol": "ACTION_DELETE", "utterance_type": "command", "roles": [{"role": "patient", "surface": "Biology A1"}]}}

@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "Les informations suivantes de {{entity}} sont encore requises : {{fields}}."},
+    {"tone": "neutral", "text": "Veuillez fournir {{fields}} de {{entity}}."},
+    {"tone": "casual", "text": "Il nous manque encore {{fields}} de {{entity}}."}
+  ]
+}

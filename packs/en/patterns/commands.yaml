@@ -1,0 +1,41 @@
+patterns:
+  - id: register_in
+    pattern: 'register\s+(.+?)\s+in\s+(.+)'
+    predicate: register
+    groups:
+      - index: 1
+        role: agent
+        type: entity
+      - index: 2
+        role: destination
+        type: entity
+
+  - id: add_to
+    pattern: 'add\s+(.+?)\s+to\s+(.+)'
+    predicate: assign
+    groups:
+      - index: 1
+        role: agent
+        type: entity
+      - index: 2
+        role: destination
+        type: entity
+
+  - id: create_named
+    pattern: 'create\s+(?:a\s+)?(.+?)\s+named\s+(.+)'
+    predicate: create
+    groups:
+      - index: 1
+        role: target
+        type: entity
+      - index: 2
+        role: name
+        type: literal
+
+  - id: delete
+    pattern: 'delete\s+(.+)'
+    predicate: delete
+    groups:
+      - index: 1
+        role: target
+        type: entity

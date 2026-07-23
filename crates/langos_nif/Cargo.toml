@@ -1,0 +1,20 @@
+[package]
+name = "langos_nif"
+version.workspace = true
+edition.workspace = true
+
+[lib]
+name = "langos_nif"
+crate-type = ["cdylib", "rlib"]
+path = "src/lib.rs"
+
+[dependencies]
+rustler = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+langos_tokenizer = { path = "../langos_tokenizer" }
+langos_parser = { path = "../langos_parser" }
+langos_graph = { path = "../langos_graph" }
+
+[profile.release]
+lto = true

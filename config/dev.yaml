@@ -1,0 +1,38 @@
+runtime:
+  name: langos
+  log_level: debug
+
+server:
+  http:
+    host: 127.0.0.1
+    port: 9473
+
+cache:
+  l1:
+    type: memory
+    max_entries: 1000
+  l2:
+    enabled: false
+
+engines:
+  rule:
+    enabled: true
+    patterns_dir: packs/en/patterns
+  stat:
+    enabled: true
+  neural:
+    enabled: true
+
+routing:
+  simple_command_max_tokens: 12
+  simple_command_engine: rule
+  default_parse_engine: neural
+  default_generate_engine: neural
+  fallback_engine: rule
+
+language_packs:
+  installed:
+    - en
+  default: en
+
+packs_dir: packs

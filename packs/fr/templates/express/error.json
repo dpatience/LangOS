@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "Une erreur s'est produite : {{reason}}."},
+    {"tone": "neutral", "text": "Erreur : {{reason}}."},
+    {"tone": "casual", "text": "Oups, ça n'a pas marché : {{reason}}."}
+  ]
+}

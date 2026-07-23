@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://langos.dev/schemas/express_request.v1.json",
+  "title": "LangOS Express Request v1.0",
+  "description": "Structured input for the LangOS express pipeline (natural language generation).",
+  "type": "object",
+  "required": ["locale"],
+  "additionalProperties": false,
+  "properties": {
+    "template": {
+      "type": "string",
+      "description": "Named express template (e.g. missing_fields, success, error)."
+    },
+    "locale": {
+      "type": "string",
+      "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+    },
+    "tone": {
+      "type": "string",
+      "enum": ["formal", "neutral", "casual"],
+      "default": "neutral"
+    },
+    "data": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Template-specific structured data."
+    },
+    "ir": {
+      "$ref": "semantic_ir.v1.json",
+      "description": "Optional Semantic IR to express directly."
+    },
+    "options": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "max_length": { "type": "integer", "minimum": 1 },
+        "style": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "patterns": [
+    {
+      "id": "andikisha_muri",
+      "pattern": "andikisha\\s+(.+?)\\s+muri\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000005",
+      "symbol": "ACTION_REGISTER",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"},
+        {"index": 2, "role": "container", "kind": "named"}
+      ]
+    },
+    {
+      "id": "ongeramo_muri",
+      "pattern": "(?:ongeramo|ongera)\\s+(.+?)\\s+muri\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000004",
+      "symbol": "ACTION_ASSIGN",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"},
+        {"index": 2, "role": "container", "kind": "named"}
+      ]
+    },
+    {
+      "id": "kora_yitwa",
+      "pattern": "kora\\s+(.+?)\\s+(?:yitwa|witwa)\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000001",
+      "symbol": "ACTION_CREATE",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "theme", "kind": "named"},
+        {"index": 2, "role": "name", "kind": "literal"}
+      ]
+    },
+    {
+      "id": "siba",
+      "pattern": "siba\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000002",
+      "symbol": "ACTION_DELETE",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"}
+      ]
+    },
+    {
+      "id": "kuramo_muri",
+      "pattern": "kuramo\\s+(.+?)\\s+muri\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000006",
+      "symbol": "ACTION_REMOVE",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"},
+        {"index": 2, "role": "source", "kind": "named"}
+      ]
+    },
+    {
+      "id": "erekana",
+      "pattern": "(?:erekana|garagaza)\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000011",
+      "symbol": "ACTION_LIST",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "theme", "kind": "named"}
+      ]
+    }
+  ],
+  "verb_map": {
+    "kwandikisha": {"id": "ACT_000005", "symbol": "ACTION_REGISTER"},
+    "andikisha": {"id": "ACT_000005", "symbol": "ACTION_REGISTER"},
+    "kongeramo": {"id": "ACT_000004", "symbol": "ACTION_ASSIGN"},
+    "ongeramo": {"id": "ACT_000004", "symbol": "ACTION_ASSIGN"},
+    "gukora": {"id": "ACT_000001", "symbol": "ACTION_CREATE"},
+    "kora": {"id": "ACT_000001", "symbol": "ACTION_CREATE"},
+    "gusiba": {"id": "ACT_000002", "symbol": "ACTION_DELETE"},
+    "siba": {"id": "ACT_000002", "symbol": "ACTION_DELETE"},
+    "gukuramo": {"id": "ACT_000006", "symbol": "ACTION_REMOVE"},
+    "kuramo": {"id": "ACT_000006", "symbol": "ACTION_REMOVE"},
+    "guhindura": {"id": "ACT_000003", "symbol": "ACTION_UPDATE"},
+    "kwerekana": {"id": "ACT_000010", "symbol": "ACTION_SHOW"},
+    "erekana": {"id": "ACT_000010", "symbol": "ACTION_SHOW"},
+    "garagaza": {"id": "ACT_000010", "symbol": "ACTION_SHOW"},
+    "gushaka": {"id": "ACT_000012", "symbol": "ACTION_SEARCH"},
+    "shaka": {"id": "ACT_000012", "symbol": "ACTION_SEARCH"},
+    "gufasha": {"id": "ACT_000013", "symbol": "ACTION_HELP"},
+    "fasha": {"id": "ACT_000013", "symbol": "ACTION_HELP"},
+    "gutangira": {"id": "ACT_000014", "symbol": "ACTION_START"},
+    "guhagarika": {"id": "ACT_000015", "symbol": "ACTION_STOP"},
+    "kohereza": {"id": "ACT_000008", "symbol": "ACTION_SEND"},
+    "guha": {"id": "ACT_000009", "symbol": "ACTION_GIVE"},
+    "kumenya": {"id": "STA_000003", "symbol": "STATE_KNOW"},
+    "gukenera": {"id": "STA_000005", "symbol": "STATE_NEED"},
+    "gukunda": {"id": "STA_000026", "symbol": "STATE_LOVE"},
+    "kwanga": {"id": "STA_000027", "symbol": "STATE_HATE"},
+    "kugira": {"id": "STA_000002", "symbol": "STATE_HAVE"},
+    "muraho": {"id": "META_000001", "symbol": "META_GREET"},
+    "mwaramutse": {"id": "META_000001", "symbol": "META_GREET"},
+    "mwiriwe": {"id": "META_000001", "symbol": "META_GREET"},
+    "murakoze": {"id": "META_000003", "symbol": "META_THANK"},
+    "yego": {"id": "META_000005", "symbol": "META_CONFIRM"},
+    "oya": {"id": "META_000006", "symbol": "META_DENY"}
+  },
+  "pronoun_map": {
+    "njye": "REF_SPEAKER", "jye": "REF_SPEAKER", "jyewe": "REF_SPEAKER",
+    "nanjye": "REF_SPEAKER", "twebwe": "REF_SPEAKER", "twe": "REF_SPEAKER",
+    "wowe": "REF_LISTENER", "nawe": "REF_LISTENER", "mwebwe": "REF_LISTENER",
+    "we": "REF_PREVIOUS_ENTITY", "bo": "REF_PREVIOUS_ENTITY",
+    "iki": "REF_PREVIOUS_ENTITY", "icyo": "REF_PREVIOUS_ENTITY",
+    "hano": "REF_HERE", "aha": "REF_HERE",
+    "ubu": "REF_TIME_NOW", "none": "REF_TIME_NOW", "uyu munsi": "REF_TIME_NOW",
+    "ejo hashize": "REF_TIME_PAST", "ejo": "REF_TIME_FUTURE"
+  }
+}
