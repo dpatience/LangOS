@@ -1,0 +1,1702 @@
+{
+ "entries": {
+  "affedersin": {
+   "category": "META",
+   "id": "META_000004",
+   "symbol": "META_APOLOGIZE"
+  },
+  "affedersiniz": {
+   "category": "META",
+   "id": "META_000004",
+   "symbol": "META_APOLOGIZE"
+  },
+  "affet": {
+   "category": "ACT",
+   "id": "ACT_000184",
+   "symbol": "ACTION_FORGIVE"
+  },
+  "aktar": {
+   "category": "ACT",
+   "id": "ACT_000066",
+   "symbol": "ACTION_TRANSFER"
+  },
+  "al": {
+   "category": "ACT",
+   "id": "ACT_000142",
+   "symbol": "ACTION_TAKE"
+  },
+  "ama": {
+   "category": "MOD"
+  },
+  "anl": {
+   "category": "STA",
+   "id": "STA_000016",
+   "symbol": "STATE_UNDERSTAND"
+  },
+  "anla": {
+   "category": "STA",
+   "id": "STA_000016",
+   "symbol": "STATE_UNDERSTAND"
+  },
+  "anlat": {
+   "category": "ACT",
+   "id": "ACT_000164",
+   "symbol": "ACTION_TELL"
+  },
+  "ara": {
+   "category": "ACT",
+   "id": "ACT_000012",
+   "symbol": "ACTION_SEARCH"
+  },
+  "ara\u015ft\u0131r": {
+   "category": "ACT",
+   "id": "ACT_000199",
+   "symbol": "ACTION_EXPLORE"
+  },
+  "art\u0131r": {
+   "category": "EVT",
+   "id": "EVT_000010",
+   "symbol": "EVENT_INCREASE"
+  },
+  "ar\u015fivle": {
+   "category": "ACT",
+   "id": "ACT_000093",
+   "symbol": "ACTION_ARCHIVE"
+  },
+  "atla": {
+   "category": "ACT",
+   "id": "ACT_000128",
+   "symbol": "ACTION_JUMP"
+  },
+  "avla": {
+   "category": "ACT",
+   "id": "ACT_000203",
+   "symbol": "ACTION_HUNT"
+  },
+  "ayr\u0131l": {
+   "category": "EVT",
+   "id": "EVT_000002",
+   "symbol": "EVENT_LEAVE"
+  },
+  "ay\u0131rt": {
+   "category": "ACT",
+   "id": "ACT_000050",
+   "symbol": "ACTION_RESERVE"
+  },
+  "azalt": {
+   "category": "EVT",
+   "id": "EVT_000011",
+   "symbol": "EVENT_DECREASE"
+  },
+  "a\u00e7": {
+   "category": "ACT",
+   "id": "ACT_000017",
+   "symbol": "ACTION_OPEN"
+  },
+  "a\u00e7\u0131kla": {
+   "category": "ACT",
+   "id": "ACT_000088",
+   "symbol": "ACTION_EXPLAIN"
+  },
+  "a\u00e7\u0131kl\u0131yorum": {
+   "category": "ACT",
+   "id": "ACT_000088",
+   "symbol": "ACTION_EXPLAIN"
+  },
+  "a\u011fl": {
+   "category": "ACT",
+   "id": "ACT_000161",
+   "symbol": "ACTION_CRY"
+  },
+  "a\u011fla": {
+   "category": "ACT",
+   "id": "ACT_000161",
+   "symbol": "ACTION_CRY"
+  },
+  "bak": {
+   "category": "ACT",
+   "id": "ACT_000103",
+   "symbol": "ACTION_SEE"
+  },
+  "bana": {
+   "ref": "REF_SPEAKER"
+  },
+  "ba\u011flan": {
+   "category": "ACT",
+   "id": "ACT_000023",
+   "symbol": "ACTION_CONNECT"
+  },
+  "ba\u011f\u0131r": {
+   "category": "ACT",
+   "id": "ACT_000162",
+   "symbol": "ACTION_SHOUT"
+  },
+  "ba\u015far": {
+   "category": "EVT",
+   "id": "EVT_000012",
+   "symbol": "EVENT_SUCCEED"
+  },
+  "ba\u015fla": {
+   "category": "ACT",
+   "id": "ACT_000014",
+   "symbol": "ACTION_START"
+  },
+  "ba\u015flat": {
+   "category": "ACT",
+   "id": "ACT_000014",
+   "symbol": "ACTION_START"
+  },
+  "bekl": {
+   "category": "ACT",
+   "id": "ACT_000076",
+   "symbol": "ACTION_WAIT"
+  },
+  "bekle": {
+   "category": "ACT",
+   "id": "ACT_000076",
+   "symbol": "ACTION_WAIT"
+  },
+  "belirt": {
+   "category": "ACT",
+   "id": "ACT_000010",
+   "symbol": "ACTION_SHOW"
+  },
+  "belirtin": {
+   "category": "ACT",
+   "id": "ACT_000010",
+   "symbol": "ACTION_SHOW"
+  },
+  "ben": {
+   "ref": "REF_SPEAKER"
+  },
+  "beni": {
+   "ref": "REF_SPEAKER"
+  },
+  "benim": {
+   "ref": "REF_SPEAKER"
+  },
+  "benz": {
+   "category": "STA",
+   "id": "STA_000034",
+   "symbol": "STATE_RESEMBLE"
+  },
+  "benze": {
+   "category": "STA",
+   "id": "STA_000034",
+   "symbol": "STATE_RESEMBLE"
+  },
+  "besl": {
+   "category": "ACT",
+   "id": "ACT_000216",
+   "symbol": "ACTION_FEED"
+  },
+  "besle": {
+   "category": "ACT",
+   "id": "ACT_000216",
+   "symbol": "ACTION_FEED"
+  },
+  "be\u011fen": {
+   "category": "STA",
+   "id": "STA_000006",
+   "symbol": "STATE_LIKE"
+  },
+  "bil": {
+   "category": "STA",
+   "id": "STA_000003",
+   "symbol": "STATE_KNOW"
+  },
+  "bildir": {
+   "category": "ACT",
+   "id": "ACT_000048",
+   "symbol": "ACTION_NOTIFY"
+  },
+  "bin": {
+   "category": "ACT",
+   "id": "ACT_000217",
+   "symbol": "ACTION_RIDE"
+  },
+  "bir": {
+   "category": "MOD"
+  },
+  "birle\u015ftir": {
+   "category": "ACT",
+   "id": "ACT_000042",
+   "symbol": "ACTION_MERGE"
+  },
+  "bitir": {
+   "category": "EVT",
+   "id": "EVT_000005",
+   "symbol": "EVENT_COMPLETE"
+  },
+  "biz": {
+   "ref": "REF_SPEAKER"
+  },
+  "bize": {
+   "ref": "REF_SPEAKER"
+  },
+  "bizi": {
+   "ref": "REF_SPEAKER"
+  },
+  "bizim": {
+   "ref": "REF_SPEAKER"
+  },
+  "bo\u015falt": {
+   "category": "ACT",
+   "id": "ACT_000141",
+   "symbol": "ACTION_EMPTY"
+  },
+  "bu": {
+   "category": "MOD"
+  },
+  "bug\u00fcn": {
+   "ref": "REF_TIME_NOW"
+  },
+  "bul": {
+   "category": "ACT",
+   "id": "ACT_000012",
+   "symbol": "ACTION_SEARCH"
+  },
+  "bulu\u015f": {
+   "category": "ACT",
+   "id": "ACT_000154",
+   "symbol": "ACTION_MEET"
+  },
+  "bunu": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "burada": {
+   "ref": "REF_HERE"
+  },
+  "buras\u0131": {
+   "ref": "REF_HERE"
+  },
+  "buraya": {
+   "ref": "REF_HERE"
+  },
+  "b\u00f6l": {
+   "category": "ACT",
+   "id": "ACT_000043",
+   "symbol": "ACTION_SPLIT"
+  },
+  "b\u0131rak": {
+   "category": "ACT",
+   "id": "ACT_000136",
+   "symbol": "ACTION_DROP"
+  },
+  "cevapla": {
+   "category": "ACT",
+   "id": "ACT_000152",
+   "symbol": "ACTION_ANSWER"
+  },
+  "cezaland\u0131r": {
+   "category": "ACT",
+   "id": "ACT_000182",
+   "symbol": "ACTION_PUNISH"
+  },
+  "daha": {
+   "category": "MOD"
+  },
+  "davet": {
+   "category": "ACT",
+   "id": "ACT_000095",
+   "symbol": "ACTION_INVITE"
+  },
+  "da\u011f\u0131t": {
+   "category": "ACT",
+   "id": "ACT_000068",
+   "symbol": "ACTION_DISTRIBUTE"
+  },
+  "demek": {
+   "category": "MOD"
+  },
+  "demektir": {
+   "category": "MOD"
+  },
+  "den": {
+   "category": "ACT",
+   "id": "ACT_000063",
+   "symbol": "ACTION_TEST"
+  },
+  "dene": {
+   "category": "ACT",
+   "id": "ACT_000063",
+   "symbol": "ACTION_TEST"
+  },
+  "denetle": {
+   "category": "ACT",
+   "id": "ACT_000072",
+   "symbol": "ACTION_INSPECT"
+  },
+  "ders": {
+   "category": "MOD"
+  },
+  "derse": {
+   "category": "MOD"
+  },
+  "destekl": {
+   "category": "STA",
+   "id": "STA_000054",
+   "symbol": "STATE_SUPPORT"
+  },
+  "destekle": {
+   "category": "STA",
+   "id": "STA_000054",
+   "symbol": "STATE_SUPPORT"
+  },
+  "devam": {
+   "category": "ACT",
+   "id": "ACT_000077",
+   "symbol": "ACTION_RESUME"
+  },
+  "de\u011ferlendir": {
+   "category": "ACT",
+   "id": "ACT_000064",
+   "symbol": "ACTION_EVALUATE"
+  },
+  "de\u011fil": {
+   "category": "MOD"
+  },
+  "de\u011fi\u015f": {
+   "category": "EVT",
+   "id": "EVT_000009",
+   "symbol": "EVENT_CHANGE"
+  },
+  "dik": {
+   "category": "ACT",
+   "id": "ACT_000214",
+   "symbol": "ACTION_PLANT"
+  },
+  "dile": {
+   "category": "STA",
+   "id": "STA_000031",
+   "symbol": "STATE_WISH"
+  },
+  "dilerim": {
+   "category": "STA",
+   "id": "STA_000031",
+   "symbol": "STATE_WISH"
+  },
+  "dinl": {
+   "category": "ACT",
+   "id": "ACT_000102",
+   "symbol": "ACTION_LISTEN"
+  },
+  "dinle": {
+   "category": "ACT",
+   "id": "ACT_000102",
+   "symbol": "ACTION_LISTEN"
+  },
+  "dokun": {
+   "category": "ACT",
+   "id": "ACT_000105",
+   "symbol": "ACTION_TOUCH"
+  },
+  "doldur": {
+   "category": "ACT",
+   "id": "ACT_000140",
+   "symbol": "ACTION_FILL"
+  },
+  "do\u011frula": {
+   "category": "ACT",
+   "id": "ACT_000196",
+   "symbol": "ACTION_VERIFY"
+  },
+  "dua": {
+   "category": "ACT",
+   "id": "ACT_000190",
+   "symbol": "ACTION_PRAY"
+  },
+  "duraklat": {
+   "category": "ACT",
+   "id": "ACT_000078",
+   "symbol": "ACTION_PAUSE"
+  },
+  "durdur": {
+   "category": "ACT",
+   "id": "ACT_000015",
+   "symbol": "ACTION_STOP"
+  },
+  "duy": {
+   "category": "ACT",
+   "id": "ACT_000104",
+   "symbol": "ACTION_HEAR"
+  },
+  "duyur": {
+   "category": "ACT",
+   "id": "ACT_000165",
+   "symbol": "ACTION_ANNOUNCE"
+  },
+  "d\u00f6k": {
+   "category": "ACT",
+   "id": "ACT_000139",
+   "symbol": "ACTION_POUR"
+  },
+  "d\u00f6n": {
+   "category": "ACT",
+   "id": "ACT_000144",
+   "symbol": "ACTION_RETURN"
+  },
+  "d\u00fcn": {
+   "ref": "REF_TIME_PAST"
+  },
+  "d\u00fczenl": {
+   "category": "ACT",
+   "id": "ACT_000175",
+   "symbol": "ACTION_ORGANIZE"
+  },
+  "d\u00fczenle": {
+   "category": "ACT",
+   "id": "ACT_000175",
+   "symbol": "ACTION_ORGANIZE"
+  },
+  "d\u00fc\u015f": {
+   "category": "EVT",
+   "id": "EVT_000019",
+   "symbol": "EVENT_FALL"
+  },
+  "d\u00fc\u015f\u00fcn": {
+   "category": "STA",
+   "id": "STA_000009",
+   "symbol": "STATE_THINK"
+  },
+  "ekl": {
+   "category": "ACT",
+   "id": "ACT_000004",
+   "symbol": "ACTION_ASSIGN"
+  },
+  "ekle": {
+   "category": "ACT",
+   "id": "ACT_000004",
+   "symbol": "ACTION_ASSIGN"
+  },
+  "ekmek": {
+   "category": "MOD"
+  },
+  "ele\u015ftir": {
+   "category": "ACT",
+   "id": "ACT_000187",
+   "symbol": "ACTION_CRITICIZE"
+  },
+  "emret": {
+   "category": "ACT",
+   "id": "ACT_000171",
+   "symbol": "ACTION_ORDER"
+  },
+  "en": {
+   "category": "MOD"
+  },
+  "etiketle": {
+   "category": "ACT",
+   "id": "ACT_000091",
+   "symbol": "ACTION_TAG"
+  },
+  "ev": {
+   "category": "MOD"
+  },
+  "eve": {
+   "category": "MOD"
+  },
+  "evet": {
+   "category": "META",
+   "id": "META_000005",
+   "symbol": "META_CONFIRM"
+  },
+  "evlen": {
+   "category": "ACT",
+   "id": "ACT_000156",
+   "symbol": "ACTION_MARRY"
+  },
+  "fakat": {
+   "category": "MOD"
+  },
+  "filtrele": {
+   "category": "ACT",
+   "id": "ACT_000036",
+   "symbol": "ACTION_FILTER"
+  },
+  "f\u0131rlat": {
+   "category": "ACT",
+   "id": "ACT_000129",
+   "symbol": "ACTION_THROW"
+  },
+  "f\u0131s\u0131lda": {
+   "category": "ACT",
+   "id": "ACT_000163",
+   "symbol": "ACTION_WHISPER"
+  },
+  "gel": {
+   "category": "EVT",
+   "id": "EVT_000003",
+   "symbol": "EVENT_ARRIVE"
+  },
+  "gerek": {
+   "category": "STA",
+   "id": "STA_000005",
+   "symbol": "STATE_NEED"
+  },
+  "gerekiyor": {
+   "category": "STA",
+   "id": "STA_000005",
+   "symbol": "STATE_NEED"
+  },
+  "geri": {
+   "category": "ACT",
+   "id": "ACT_000080",
+   "symbol": "ACTION_UNDO"
+  },
+  "getir": {
+   "category": "ACT",
+   "id": "ACT_000143",
+   "symbol": "ACTION_BRING"
+  },
+  "gibi": {
+   "category": "MOD"
+  },
+  "gid": {
+   "category": "ACT",
+   "id": "ACT_000200",
+   "symbol": "ACTION_TRAVEL"
+  },
+  "gir": {
+   "category": "ACT",
+   "id": "ACT_000009",
+   "symbol": "ACTION_GIVE"
+  },
+  "girin": {
+   "category": "ACT",
+   "id": "ACT_000009",
+   "symbol": "ACTION_GIVE"
+  },
+  "giriniz": {
+   "category": "ACT",
+   "id": "ACT_000009",
+   "symbol": "ACTION_GIVE"
+  },
+  "git": {
+   "category": "ACT",
+   "id": "ACT_000200",
+   "symbol": "ACTION_TRAVEL"
+  },
+  "giy": {
+   "category": "ACT",
+   "id": "ACT_000119",
+   "symbol": "ACTION_WEAR"
+  },
+  "gizl": {
+   "category": "ACT",
+   "id": "ACT_000084",
+   "symbol": "ACTION_HIDE"
+  },
+  "gizle": {
+   "category": "ACT",
+   "id": "ACT_000084",
+   "symbol": "ACTION_HIDE"
+  },
+  "g\u00f6nder": {
+   "category": "ACT",
+   "id": "ACT_000008",
+   "symbol": "ACTION_SEND"
+  },
+  "g\u00f6r": {
+   "category": "ACT",
+   "id": "ACT_000103",
+   "symbol": "ACTION_SEE"
+  },
+  "g\u00f6r\u00fc\u015f\u00fcr\u00fcz": {
+   "category": "META",
+   "id": "META_000002",
+   "symbol": "META_FAREWELL"
+  },
+  "g\u00f6ster": {
+   "category": "ACT",
+   "id": "ACT_000010",
+   "symbol": "ACTION_SHOW"
+  },
+  "g\u00fcl": {
+   "category": "ACT",
+   "id": "ACT_000160",
+   "symbol": "ACTION_LAUGH"
+  },
+  "g\u00fcl\u00fcmse": {
+   "category": "ACT",
+   "id": "ACT_000159",
+   "symbol": "ACTION_SMILE"
+  },
+  "g\u00fcn": {
+   "category": "MOD"
+  },
+  "g\u00fcncell": {
+   "category": "ACT",
+   "id": "ACT_000003",
+   "symbol": "ACTION_UPDATE"
+  },
+  "g\u00fcncelle": {
+   "category": "ACT",
+   "id": "ACT_000003",
+   "symbol": "ACTION_UPDATE"
+  },
+  "g\u00fcven": {
+   "category": "STA",
+   "id": "STA_000014",
+   "symbol": "STATE_TRUST"
+  },
+  "hangi": {
+   "category": "MOD"
+  },
+  "hangisi": {
+   "category": "MOD"
+  },
+  "hat\u0131rl": {
+   "category": "STA",
+   "id": "STA_000017",
+   "symbol": "STATE_REMEMBER"
+  },
+  "hat\u0131rla": {
+   "category": "STA",
+   "id": "STA_000017",
+   "symbol": "STATE_REMEMBER"
+  },
+  "hay\u0131r": {
+   "category": "META",
+   "id": "META_000006",
+   "symbol": "META_DENY"
+  },
+  "hesapla": {
+   "category": "ACT",
+   "id": "ACT_000039",
+   "symbol": "ACTION_CALCULATE"
+  },
+  "hissediyorum": {
+   "category": "STA",
+   "id": "STA_000010",
+   "symbol": "STATE_FEEL"
+  },
+  "hisset": {
+   "category": "STA",
+   "id": "STA_000010",
+   "symbol": "STATE_FEEL"
+  },
+  "ho\u015fgeldin": {
+   "category": "META",
+   "id": "META_000015",
+   "symbol": "META_WELCOME"
+  },
+  "ho\u015fgeldiniz": {
+   "category": "META",
+   "id": "META_000015",
+   "symbol": "META_WELCOME"
+  },
+  "ho\u015flan": {
+   "category": "STA",
+   "id": "STA_000028",
+   "symbol": "STATE_ENJOY"
+  },
+  "ho\u015f\u00e7akal": {
+   "category": "META",
+   "id": "META_000002",
+   "symbol": "META_FAREWELL"
+  },
+  "ihtiyac\u0131m": {
+   "category": "STA",
+   "id": "STA_000005",
+   "symbol": "STATE_NEED"
+  },
+  "ile": {
+   "category": "MOD"
+  },
+  "inan": {
+   "category": "STA",
+   "id": "STA_000008",
+   "symbol": "STATE_BELIEVE"
+  },
+  "indir": {
+   "category": "ACT",
+   "id": "ACT_000098",
+   "symbol": "ACTION_DOWNLOAD"
+  },
+  "insan": {
+   "category": "MOD"
+  },
+  "in\u015fa": {
+   "category": "ACT",
+   "id": "ACT_000070",
+   "symbol": "ACTION_BUILD"
+  },
+  "iptal": {
+   "category": "ACT",
+   "id": "ACT_000032",
+   "symbol": "ACTION_CANCEL"
+  },
+  "ist": {
+   "category": "STA",
+   "id": "STA_000004",
+   "symbol": "STATE_WANT"
+  },
+  "iste": {
+   "category": "STA",
+   "id": "STA_000004",
+   "symbol": "STATE_WANT"
+  },
+  "iyile\u015ftir": {
+   "category": "ACT",
+   "id": "ACT_000211",
+   "symbol": "ACTION_HEAL"
+  },
+  "izl": {
+   "category": "ACT",
+   "id": "ACT_000073",
+   "symbol": "ACTION_MONITOR"
+  },
+  "izle": {
+   "category": "ACT",
+   "id": "ACT_000073",
+   "symbol": "ACTION_MONITOR"
+  },
+  "i\u00e7": {
+   "category": "ACT",
+   "id": "ACT_000115",
+   "symbol": "ACTION_DRINK"
+  },
+  "i\u00e7in": {
+   "category": "MOD"
+  },
+  "i\u015faretle": {
+   "category": "ACT",
+   "id": "ACT_000092",
+   "symbol": "ACTION_MARK"
+  },
+  "kald\u0131r": {
+   "category": "ACT",
+   "id": "ACT_000133",
+   "symbol": "ACTION_LIFT"
+  },
+  "kalk": {
+   "category": "ACT",
+   "id": "ACT_000111",
+   "symbol": "ACTION_STAND"
+  },
+  "kan\u0131tla": {
+   "category": "ACT",
+   "id": "ACT_000197",
+   "symbol": "ACTION_PROVE"
+  },
+  "kapat": {
+   "category": "ACT",
+   "id": "ACT_000018",
+   "symbol": "ACTION_CLOSE"
+  },
+  "kar\u0131\u015ft\u0131r": {
+   "category": "ACT",
+   "id": "ACT_000138",
+   "symbol": "ACTION_MIX"
+  },
+  "kar\u015f\u0131la\u015ft\u0131r": {
+   "category": "ACT",
+   "id": "ACT_000034",
+   "symbol": "ACTION_COMPARE"
+  },
+  "kat\u0131l": {
+   "category": "EVT",
+   "id": "EVT_000001",
+   "symbol": "EVENT_JOIN"
+  },
+  "kat\u0131l\u0131yorum": {
+   "category": "META",
+   "id": "META_000007",
+   "symbol": "META_AGREE"
+  },
+  "kaybet": {
+   "category": "ACT",
+   "id": "ACT_000208",
+   "symbol": "ACTION_LOSE"
+  },
+  "kaydet": {
+   "category": "ACT",
+   "id": "ACT_000005",
+   "symbol": "ACTION_REGISTER"
+  },
+  "kaydol": {
+   "category": "ACT",
+   "id": "ACT_000005",
+   "symbol": "ACTION_REGISTER"
+  },
+  "kazan": {
+   "category": "ACT",
+   "id": "ACT_000207",
+   "symbol": "ACTION_WIN"
+  },
+  "ka\u00e7": {
+   "category": "ACT",
+   "id": "ACT_000201",
+   "symbol": "ACTION_ESCAPE"
+  },
+  "kes": {
+   "category": "ACT",
+   "id": "ACT_000137",
+   "symbol": "ACTION_CUT"
+  },
+  "ke\u015ffet": {
+   "category": "ACT",
+   "id": "ACT_000198",
+   "symbol": "ACTION_DISCOVER"
+  },
+  "kilitle": {
+   "category": "ACT",
+   "id": "ACT_000052",
+   "symbol": "ACTION_LOCK"
+  },
+  "kim": {
+   "category": "MOD"
+  },
+  "kimdir": {
+   "category": "MOD"
+  },
+  "kimin": {
+   "category": "MOD"
+  },
+  "kitab\u0131": {
+   "category": "MOD"
+  },
+  "kitap": {
+   "category": "MOD"
+  },
+  "kokla": {
+   "category": "ACT",
+   "id": "ACT_000106",
+   "symbol": "ACTION_SMELL"
+  },
+  "kontrol": {
+   "category": "ACT",
+   "id": "ACT_000195",
+   "symbol": "ACTION_CHECK"
+  },
+  "konu\u015f": {
+   "category": "ACT",
+   "id": "ACT_000101",
+   "symbol": "ACTION_SPEAK"
+  },
+  "kopyala": {
+   "category": "ACT",
+   "id": "ACT_000041",
+   "symbol": "ACTION_COPY"
+  },
+  "kork": {
+   "category": "STA",
+   "id": "STA_000013",
+   "symbol": "STATE_FEAR"
+  },
+  "koru": {
+   "category": "ACT",
+   "id": "ACT_000086",
+   "symbol": "ACTION_PROTECT"
+  },
+  "kovala": {
+   "category": "ACT",
+   "id": "ACT_000202",
+   "symbol": "ACTION_CHASE"
+  },
+  "ko\u015f": {
+   "category": "ACT",
+   "id": "ACT_000109",
+   "symbol": "ACTION_RUN"
+  },
+  "kur": {
+   "category": "ACT",
+   "id": "ACT_000016",
+   "symbol": "ACTION_INSTALL"
+  },
+  "kutl": {
+   "category": "ACT",
+   "id": "ACT_000189",
+   "symbol": "ACTION_CELEBRATE"
+  },
+  "kutla": {
+   "category": "ACT",
+   "id": "ACT_000189",
+   "symbol": "ACTION_CELEBRATE"
+  },
+  "k\u0131r": {
+   "category": "EVT",
+   "id": "EVT_000015",
+   "symbol": "EVENT_BREAK"
+  },
+  "laz\u0131m": {
+   "category": "STA",
+   "id": "STA_000005",
+   "symbol": "STATE_NEED"
+  },
+  "listel": {
+   "category": "ACT",
+   "id": "ACT_000011",
+   "symbol": "ACTION_LIST"
+  },
+  "listele": {
+   "category": "ACT",
+   "id": "ACT_000011",
+   "symbol": "ACTION_LIST"
+  },
+  "l\u00fctfen": {
+   "category": "MOD"
+  },
+  "merhaba": {
+   "category": "META",
+   "id": "META_000001",
+   "symbol": "META_GREET"
+  },
+  "mi": {
+   "category": "MOD"
+  },
+  "misin": {
+   "category": "MOD"
+  },
+  "miyim": {
+   "category": "MOD"
+  },
+  "mu": {
+   "category": "MOD"
+  },
+  "musun": {
+   "category": "MOD"
+  },
+  "m\u00fc": {
+   "category": "MOD"
+  },
+  "m\u00fcs\u00fcn": {
+   "category": "MOD"
+  },
+  "m\u0131": {
+   "category": "MOD"
+  },
+  "m\u0131s\u0131n": {
+   "category": "MOD"
+  },
+  "m\u0131y\u0131m": {
+   "category": "MOD"
+  },
+  "nas\u0131l": {
+   "category": "MOD"
+  },
+  "ne": {
+   "category": "MOD"
+  },
+  "neden": {
+   "category": "MOD"
+  },
+  "nedir": {
+   "category": "MOD"
+  },
+  "nefret": {
+   "category": "STA",
+   "id": "STA_000027",
+   "symbol": "STATE_HATE"
+  },
+  "nerede": {
+   "category": "MOD"
+  },
+  "nereden": {
+   "category": "MOD"
+  },
+  "neresi": {
+   "category": "MOD"
+  },
+  "nereye": {
+   "category": "MOD"
+  },
+  "niye": {
+   "category": "MOD"
+  },
+  "ni\u00e7in": {
+   "category": "MOD"
+  },
+  "o": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "oku": {
+   "category": "ACT",
+   "id": "ACT_000019",
+   "symbol": "ACTION_READ"
+  },
+  "okul": {
+   "category": "MOD"
+  },
+  "okula": {
+   "category": "MOD"
+  },
+  "olu\u015ftur": {
+   "category": "ACT",
+   "id": "ACT_000001",
+   "symbol": "ACTION_CREATE"
+  },
+  "ona": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "onar": {
+   "category": "ACT",
+   "id": "ACT_000071",
+   "symbol": "ACTION_REPAIR"
+  },
+  "onayla": {
+   "category": "ACT",
+   "id": "ACT_000033",
+   "symbol": "ACTION_CONFIRM"
+  },
+  "onayl\u0131yorum": {
+   "category": "ACT",
+   "id": "ACT_000033",
+   "symbol": "ACTION_CONFIRM"
+  },
+  "onlar": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "onlar\u0131": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "onu": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "otur": {
+   "category": "ACT",
+   "id": "ACT_000110",
+   "symbol": "ACTION_SIT"
+  },
+  "oyla": {
+   "category": "ACT",
+   "id": "ACT_000179",
+   "symbol": "ACTION_VOTE"
+  },
+  "oyn": {
+   "category": "ACT",
+   "id": "ACT_000120",
+   "symbol": "ACTION_PLAY"
+  },
+  "oyna": {
+   "category": "ACT",
+   "id": "ACT_000120",
+   "symbol": "ACTION_PLAY"
+  },
+  "payla\u015f": {
+   "category": "ACT",
+   "id": "ACT_000083",
+   "symbol": "ACTION_SHARE"
+  },
+  "pi\u015fir": {
+   "category": "ACT",
+   "id": "ACT_000116",
+   "symbol": "ACTION_COOK"
+  },
+  "pi\u015fman": {
+   "category": "STA",
+   "id": "STA_000032",
+   "symbol": "STATE_REGRET"
+  },
+  "planla": {
+   "category": "ACT",
+   "id": "ACT_000174",
+   "symbol": "ACTION_PLAN"
+  },
+  "pratik": {
+   "category": "ACT",
+   "id": "ACT_000192",
+   "symbol": "ACTION_PRACTICE"
+  },
+  "raporla": {
+   "category": "ACT",
+   "id": "ACT_000074",
+   "symbol": "ACTION_REPORT"
+  },
+  "reddet": {
+   "category": "ACT",
+   "id": "ACT_000031",
+   "symbol": "ACTION_REJECT"
+  },
+  "sahip": {
+   "category": "STA",
+   "id": "STA_000019",
+   "symbol": "STATE_OWN"
+  },
+  "sald\u0131r": {
+   "category": "ACT",
+   "id": "ACT_000205",
+   "symbol": "ACTION_ATTACK"
+  },
+  "sana": {
+   "ref": "REF_LISTENER"
+  },
+  "sar\u0131l": {
+   "category": "ACT",
+   "id": "ACT_000157",
+   "symbol": "ACTION_HUG"
+  },
+  "sat": {
+   "category": "ACT",
+   "id": "ACT_000058",
+   "symbol": "ACTION_SELL"
+  },
+  "sat\u0131n": {
+   "category": "ACT",
+   "id": "ACT_000057",
+   "symbol": "ACTION_BUY"
+  },
+  "sava\u015f": {
+   "category": "ACT",
+   "id": "ACT_000204",
+   "symbol": "ACTION_FIGHT"
+  },
+  "savun": {
+   "category": "ACT",
+   "id": "ACT_000206",
+   "symbol": "ACTION_DEFEND"
+  },
+  "say": {
+   "category": "ACT",
+   "id": "ACT_000037",
+   "symbol": "ACTION_COUNT"
+  },
+  "sa\u011fla": {
+   "category": "ACT",
+   "id": "ACT_000009",
+   "symbol": "ACTION_GIVE"
+  },
+  "sa\u011flay\u0131n": {
+   "category": "ACT",
+   "id": "ACT_000009",
+   "symbol": "ACTION_GIVE"
+  },
+  "sa\u011fol": {
+   "category": "META",
+   "id": "META_000003",
+   "symbol": "META_THANK"
+  },
+  "sa\u011folun": {
+   "category": "META",
+   "id": "META_000003",
+   "symbol": "META_THANK"
+  },
+  "selam": {
+   "category": "META",
+   "id": "META_000001",
+   "symbol": "META_GREET"
+  },
+  "sen": {
+   "ref": "REF_LISTENER"
+  },
+  "seni": {
+   "ref": "REF_LISTENER"
+  },
+  "senin": {
+   "ref": "REF_LISTENER"
+  },
+  "sev": {
+   "category": "STA",
+   "id": "STA_000026",
+   "symbol": "STATE_LOVE"
+  },
+  "seyahat": {
+   "category": "ACT",
+   "id": "ACT_000200",
+   "symbol": "ACTION_TRAVEL"
+  },
+  "se\u00e7": {
+   "category": "ACT",
+   "id": "ACT_000040",
+   "symbol": "ACTION_SELECT"
+  },
+  "sil": {
+   "category": "ACT",
+   "id": "ACT_000002",
+   "symbol": "ACTION_DELETE"
+  },
+  "siz": {
+   "ref": "REF_LISTENER"
+  },
+  "size": {
+   "ref": "REF_LISTENER"
+  },
+  "sizi": {
+   "ref": "REF_LISTENER"
+  },
+  "sizin": {
+   "ref": "REF_LISTENER"
+  },
+  "sor": {
+   "category": "QRY",
+   "id": "QRY_000002",
+   "symbol": "QUERY_ASK"
+  },
+  "su": {
+   "category": "MOD"
+  },
+  "su\u00e7la": {
+   "category": "ACT",
+   "id": "ACT_000185",
+   "symbol": "ACTION_BLAME"
+  },
+  "s\u00f6yl": {
+   "category": "ACT",
+   "id": "ACT_000164",
+   "symbol": "ACTION_TELL"
+  },
+  "s\u00f6yle": {
+   "category": "ACT",
+   "id": "ACT_000164",
+   "symbol": "ACTION_TELL"
+  },
+  "s\u00fcr": {
+   "category": "ACT",
+   "id": "ACT_000124",
+   "symbol": "ACTION_DRIVE"
+  },
+  "s\u0131f\u0131rla": {
+   "category": "ACT",
+   "id": "ACT_000081",
+   "symbol": "ACTION_RESET"
+  },
+  "s\u0131n\u0131f": {
+   "category": "MOD"
+  },
+  "s\u0131n\u0131fa": {
+   "category": "MOD"
+  },
+  "s\u0131rala": {
+   "category": "ACT",
+   "id": "ACT_000035",
+   "symbol": "ACTION_SORT"
+  },
+  "tahmin": {
+   "category": "ACT",
+   "id": "ACT_000194",
+   "symbol": "ACTION_GUESS"
+  },
+  "tamam": {
+   "category": "META",
+   "id": "META_000009",
+   "symbol": "META_ACKNOWLEDGE"
+  },
+  "tamaml": {
+   "category": "EVT",
+   "id": "EVT_000005",
+   "symbol": "EVENT_COMPLETE"
+  },
+  "tamamla": {
+   "category": "EVT",
+   "id": "EVT_000005",
+   "symbol": "EVENT_COMPLETE"
+  },
+  "tamir": {
+   "category": "ACT",
+   "id": "ACT_000071",
+   "symbol": "ACTION_REPAIR"
+  },
+  "tan\u0131": {
+   "category": "STA",
+   "id": "STA_000003",
+   "symbol": "STATE_KNOW"
+  },
+  "tan\u0131mla": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
+  "tasarla": {
+   "category": "ACT",
+   "id": "ACT_000173",
+   "symbol": "ACTION_DESIGN"
+  },
+  "tat": {
+   "category": "ACT",
+   "id": "ACT_000107",
+   "symbol": "ACTION_TASTE"
+  },
+  "tavsiye": {
+   "category": "ACT",
+   "id": "ACT_000170",
+   "symbol": "ACTION_RECOMMEND"
+  },
+  "ta\u015f\u0131": {
+   "category": "ACT",
+   "id": "ACT_000007",
+   "symbol": "ACTION_MOVE"
+  },
+  "tebrikler": {
+   "category": "META",
+   "id": "META_000014",
+   "symbol": "META_CONGRATULATE"
+  },
+  "tedavi": {
+   "category": "ACT",
+   "id": "ACT_000212",
+   "symbol": "ACTION_TREAT"
+  },
+  "tekrar": {
+   "category": "ACT",
+   "id": "ACT_000079",
+   "symbol": "ACTION_RETRY"
+  },
+  "tekrarla": {
+   "category": "ACT",
+   "id": "ACT_000079",
+   "symbol": "ACTION_RETRY"
+  },
+  "temizl": {
+   "category": "ACT",
+   "id": "ACT_000117",
+   "symbol": "ACTION_CLEAN"
+  },
+  "temizle": {
+   "category": "ACT",
+   "id": "ACT_000117",
+   "symbol": "ACTION_CLEAN"
+  },
+  "tercih": {
+   "category": "STA",
+   "id": "STA_000007",
+   "symbol": "STATE_PREFER"
+  },
+  "terc\u00fcme": {
+   "category": "ACT",
+   "id": "ACT_000087",
+   "symbol": "ACTION_TRANSLATE"
+  },
+  "te\u015fekk\u00fcr": {
+   "category": "META",
+   "id": "META_000003",
+   "symbol": "META_THANK"
+  },
+  "te\u015fekk\u00fcrler": {
+   "category": "META",
+   "id": "META_000003",
+   "symbol": "META_THANK"
+  },
+  "topla": {
+   "category": "ACT",
+   "id": "ACT_000069",
+   "symbol": "ACTION_COLLECT"
+  },
+  "tut": {
+   "category": "ACT",
+   "id": "ACT_000135",
+   "symbol": "ACTION_HOLD"
+  },
+  "t\u0131rman": {
+   "category": "ACT",
+   "id": "ACT_000127",
+   "symbol": "ACTION_CLIMB"
+  },
+  "umar\u0131m": {
+   "category": "STA",
+   "id": "STA_000011",
+   "symbol": "STATE_HOPE"
+  },
+  "umuyorum": {
+   "category": "STA",
+   "id": "STA_000011",
+   "symbol": "STATE_HOPE"
+  },
+  "unut": {
+   "category": "STA",
+   "id": "STA_000018",
+   "symbol": "STATE_FORGET"
+  },
+  "uyan": {
+   "category": "ACT",
+   "id": "ACT_000113",
+   "symbol": "ACTION_WAKE"
+  },
+  "uyar": {
+   "category": "ACT",
+   "id": "ACT_000167",
+   "symbol": "ACTION_WARN"
+  },
+  "uyu": {
+   "category": "ACT",
+   "id": "ACT_000112",
+   "symbol": "ACTION_SLEEP"
+  },
+  "u\u00e7": {
+   "category": "ACT",
+   "id": "ACT_000125",
+   "symbol": "ACTION_FLY"
+  },
+  "var": {
+   "category": "MOD"
+  },
+  "ve": {
+   "category": "MOD"
+  },
+  "ver": {
+   "category": "ACT",
+   "id": "ACT_000009",
+   "symbol": "ACTION_GIVE"
+  },
+  "veya": {
+   "category": "MOD"
+  },
+  "yakala": {
+   "category": "ACT",
+   "id": "ACT_000130",
+   "symbol": "ACTION_CATCH"
+  },
+  "yan\u0131tla": {
+   "category": "ACT",
+   "id": "ACT_000153",
+   "symbol": "ACTION_REPLY"
+  },
+  "yap": {
+   "category": "ACT",
+   "id": "ACT_000001",
+   "symbol": "ACTION_CREATE"
+  },
+  "yarat": {
+   "category": "ACT",
+   "id": "ACT_000001",
+   "symbol": "ACTION_CREATE"
+  },
+  "yard\u0131m": {
+   "category": "ACT",
+   "id": "ACT_000013",
+   "symbol": "ACTION_HELP"
+  },
+  "yar\u0131n": {
+   "ref": "REF_TIME_FUTURE"
+  },
+  "yar\u0131\u015f": {
+   "category": "ACT",
+   "id": "ACT_000209",
+   "symbol": "ACTION_COMPETE"
+  },
+  "yasakla": {
+   "category": "ACT",
+   "id": "ACT_000172",
+   "symbol": "ACTION_FORBID"
+  },
+  "yay\u0131nla": {
+   "category": "ACT",
+   "id": "ACT_000046",
+   "symbol": "ACTION_PUBLISH"
+  },
+  "yaz": {
+   "category": "ACT",
+   "id": "ACT_000020",
+   "symbol": "ACTION_WRITE"
+  },
+  "yazd\u0131r": {
+   "category": "ACT",
+   "id": "ACT_000100",
+   "symbol": "ACTION_PRINT"
+  },
+  "ya\u015f": {
+   "category": "STA",
+   "id": "STA_000048",
+   "symbol": "STATE_LIVE"
+  },
+  "ya\u015fa": {
+   "category": "STA",
+   "id": "STA_000048",
+   "symbol": "STATE_LIVE"
+  },
+  "ye": {
+   "category": "ACT",
+   "id": "ACT_000114",
+   "symbol": "ACTION_EAT"
+  },
+  "yemek": {
+   "category": "ACT",
+   "id": "ACT_000114",
+   "symbol": "ACTION_EAT"
+  },
+  "yi": {
+   "category": "ACT",
+   "id": "ACT_000114",
+   "symbol": "ACTION_EAT"
+  },
+  "yok": {
+   "category": "MOD"
+  },
+  "yolla": {
+   "category": "ACT",
+   "id": "ACT_000008",
+   "symbol": "ACTION_SEND"
+  },
+  "y\u00f6net": {
+   "category": "ACT",
+   "id": "ACT_000176",
+   "symbol": "ACTION_MANAGE"
+  },
+  "y\u00fckl": {
+   "category": "ACT",
+   "id": "ACT_000099",
+   "symbol": "ACTION_UPLOAD"
+  },
+  "y\u00fckle": {
+   "category": "ACT",
+   "id": "ACT_000099",
+   "symbol": "ACTION_UPLOAD"
+  },
+  "y\u00fcr\u00fc": {
+   "category": "ACT",
+   "id": "ACT_000108",
+   "symbol": "ACTION_WALK"
+  },
+  "y\u00fcz": {
+   "category": "ACT",
+   "id": "ACT_000126",
+   "symbol": "ACTION_SWIM"
+  },
+  "y\u0131ka": {
+   "category": "ACT",
+   "id": "ACT_000118",
+   "symbol": "ACTION_WASH"
+  },
+  "zaman": {
+   "category": "MOD"
+  },
+  "ziyaret": {
+   "category": "ACT",
+   "id": "ACT_000155",
+   "symbol": "ACTION_VISIT"
+  },
+  "\u00e7al\u0131\u015f": {
+   "category": "ACT",
+   "id": "ACT_000191",
+   "symbol": "ACTION_STUDY"
+  },
+  "\u00e7al\u0131\u015ft\u0131r": {
+   "category": "ACT",
+   "id": "ACT_000082",
+   "symbol": "ACTION_EXECUTE"
+  },
+  "\u00e7ek": {
+   "category": "ACT",
+   "id": "ACT_000132",
+   "symbol": "ACTION_PULL"
+  },
+  "\u00e7evir": {
+   "category": "ACT",
+   "id": "ACT_000087",
+   "symbol": "ACTION_TRANSLATE"
+  },
+  "\u00e7iz": {
+   "category": "ACT",
+   "id": "ACT_000123",
+   "symbol": "ACTION_DRAW"
+  },
+  "\u00e7ok": {
+   "category": "MOD"
+  },
+  "\u00e7\u00f6z": {
+   "category": "ACT",
+   "id": "ACT_000193",
+   "symbol": "ACTION_SOLVE"
+  },
+  "\u00e7\u0131kar": {
+   "category": "ACT",
+   "id": "ACT_000006",
+   "symbol": "ACTION_REMOVE"
+  },
+  "\u00f6d": {
+   "category": "ACT",
+   "id": "ACT_000059",
+   "symbol": "ACTION_PAY"
+  },
+  "\u00f6de": {
+   "category": "ACT",
+   "id": "ACT_000059",
+   "symbol": "ACTION_PAY"
+  },
+  "\u00f6d\u00fcllendir": {
+   "category": "ACT",
+   "id": "ACT_000183",
+   "symbol": "ACTION_REWARD"
+  },
+  "\u00f6l\u00e7": {
+   "category": "ACT",
+   "id": "ACT_000038",
+   "symbol": "ACTION_MEASURE"
+  },
+  "\u00f6ner": {
+   "category": "ACT",
+   "id": "ACT_000169",
+   "symbol": "ACTION_SUGGEST"
+  },
+  "\u00f6nle": {
+   "category": "STA",
+   "id": "STA_000056",
+   "symbol": "STATE_PREVENT"
+  },
+  "\u00f6p": {
+   "category": "ACT",
+   "id": "ACT_000158",
+   "symbol": "ACTION_KISS"
+  },
+  "\u00f6v": {
+   "category": "ACT",
+   "id": "ACT_000186",
+   "symbol": "ACTION_PRAISE"
+  },
+  "\u00f6zetl": {
+   "category": "ACT",
+   "id": "ACT_000089",
+   "symbol": "ACTION_SUMMARIZE"
+  },
+  "\u00f6zetle": {
+   "category": "ACT",
+   "id": "ACT_000089",
+   "symbol": "ACTION_SUMMARIZE"
+  },
+  "\u00f6zl": {
+   "category": "STA",
+   "id": "STA_000029",
+   "symbol": "STATE_MISS"
+  },
+  "\u00f6zle": {
+   "category": "STA",
+   "id": "STA_000029",
+   "symbol": "STATE_MISS"
+  },
+  "\u00f6z\u00fcr": {
+   "category": "META",
+   "id": "META_000004",
+   "symbol": "META_APOLOGIZE"
+  },
+  "\u00f6\u011fren": {
+   "category": "ACT",
+   "id": "ACT_000061",
+   "symbol": "ACTION_LEARN"
+  },
+  "\u00f6\u011frenci": {
+   "category": "MOD"
+  },
+  "\u00f6\u011frenciyi": {
+   "category": "MOD"
+  },
+  "\u00f6\u011fret": {
+   "category": "ACT",
+   "id": "ACT_000060",
+   "symbol": "ACTION_TEACH"
+  },
+  "\u00f6\u011fretmen": {
+   "category": "MOD"
+  },
+  "\u015fey": {
+   "category": "MOD"
+  },
+  "\u015fikayet": {
+   "category": "ACT",
+   "id": "ACT_000188",
+   "symbol": "ACTION_COMPLAIN"
+  },
+  "\u015fimdi": {
+   "ref": "REF_TIME_NOW"
+  },
+  "\u015fu": {
+   "category": "MOD"
+  },
+  "\u015funu": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  }
+ },
+ "entry_count": 376,
+ "generated_by": "langos_train.build_pack",
+ "language": "tr",
+ "max_phrase_words": 1
+}

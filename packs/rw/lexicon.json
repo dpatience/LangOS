@@ -1,0 +1,2247 @@
+{
+ "entries": {
+  "aba": {
+   "category": "MOD"
+  },
+  "abana": {
+   "category": "MOD"
+  },
+  "abantu": {
+   "category": "MOD"
+  },
+  "abanyeshuri": {
+   "category": "MOD"
+  },
+  "aha": {
+   "ref": "REF_HERE"
+  },
+  "akazi": {
+   "category": "MOD"
+  },
+  "akira": {
+   "category": "ACT",
+   "id": "ACT_000030",
+   "symbol": "ACTION_ACCEPT"
+  },
+  "amafaranga": {
+   "category": "MOD"
+  },
+  "amakuru": {
+   "category": "META",
+   "id": "META_000001",
+   "symbol": "META_GREET"
+  },
+  "amashuri": {
+   "category": "MOD"
+  },
+  "amazi": {
+   "category": "MOD"
+  },
+  "amazu": {
+   "category": "MOD"
+  },
+  "ambara": {
+   "category": "ACT",
+   "id": "ACT_000119",
+   "symbol": "ACTION_WEAR"
+  },
+  "andika": {
+   "category": "ACT",
+   "id": "ACT_000020",
+   "symbol": "ACTION_WRITE"
+  },
+  "andikisha": {
+   "category": "ACT",
+   "id": "ACT_000005",
+   "symbol": "ACTION_REGISTER"
+  },
+  "anga": {
+   "category": "STA",
+   "id": "STA_000027",
+   "symbol": "STATE_HATE"
+  },
+  "ariko": {
+   "category": "MOD"
+  },
+  "aya": {
+   "category": "MOD"
+  },
+  "babarira": {
+   "category": "ACT",
+   "id": "ACT_000184",
+   "symbol": "ACTION_FORGIVE"
+  },
+  "baza": {
+   "category": "QRY",
+   "id": "QRY_000002",
+   "symbol": "QUERY_ASK"
+  },
+  "bika": {
+   "category": "ACT",
+   "id": "ACT_000021",
+   "symbol": "ACTION_SAVE"
+  },
+  "bite": {
+   "category": "MOD"
+  },
+  "bo": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "bona": {
+   "category": "ACT",
+   "id": "ACT_000103",
+   "symbol": "ACTION_SEE"
+  },
+  "buri": {
+   "category": "MOD"
+  },
+  "burira": {
+   "category": "ACT",
+   "id": "ACT_000167",
+   "symbol": "ACTION_WARN"
+  },
+  "buza": {
+   "category": "ACT",
+   "id": "ACT_000172",
+   "symbol": "ACTION_FORBID"
+  },
+  "bwira": {
+   "category": "ACT",
+   "id": "ACT_000164",
+   "symbol": "ACTION_TELL"
+  },
+  "byina": {
+   "category": "ACT",
+   "id": "ACT_000122",
+   "symbol": "ACTION_DANCE"
+  },
+  "byiza": {
+   "category": "MOD"
+  },
+  "byo": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "byose": {
+   "category": "MOD"
+  },
+  "byuka": {
+   "category": "ACT",
+   "id": "ACT_000113",
+   "symbol": "ACTION_WAKE"
+  },
+  "capa": {
+   "category": "ACT",
+   "id": "ACT_000100",
+   "symbol": "ACTION_PRINT"
+  },
+  "cyane": {
+   "category": "MOD"
+  },
+  "cyangwa": {
+   "category": "MOD"
+  },
+  "cyo": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "ejo": {
+   "ref": "REF_TIME_FUTURE"
+  },
+  "ejo hashize": {
+   "ref": "REF_TIME_PAST"
+  },
+  "emera": {
+   "category": "ACT",
+   "id": "ACT_000030",
+   "symbol": "ACTION_ACCEPT"
+  },
+  "emeza": {
+   "category": "ACT",
+   "id": "ACT_000033",
+   "symbol": "ACTION_CONFIRM"
+  },
+  "erekana": {
+   "category": "ACT",
+   "id": "ACT_000010",
+   "symbol": "ACTION_SHOW"
+  },
+  "fasha": {
+   "category": "ACT",
+   "id": "ACT_000013",
+   "symbol": "ACTION_HELP"
+  },
+  "fata": {
+   "category": "ACT",
+   "id": "ACT_000142",
+   "symbol": "ACTION_TAKE"
+  },
+  "fite": {
+   "category": "STA",
+   "id": "STA_000002",
+   "symbol": "STATE_HAVE"
+  },
+  "funga": {
+   "category": "ACT",
+   "id": "ACT_000018",
+   "symbol": "ACTION_CLOSE"
+  },
+  "fungura": {
+   "category": "ACT",
+   "id": "ACT_000017",
+   "symbol": "ACTION_OPEN"
+  },
+  "gabanya": {
+   "category": "EVT",
+   "id": "EVT_000011",
+   "symbol": "EVENT_DECREASE"
+  },
+  "gaburira": {
+   "category": "ACT",
+   "id": "ACT_000216",
+   "symbol": "ACTION_FEED"
+  },
+  "ganira": {
+   "category": "ACT",
+   "id": "ACT_000101",
+   "symbol": "ACTION_SPEAK"
+  },
+  "garagaza": {
+   "category": "ACT",
+   "id": "ACT_000010",
+   "symbol": "ACTION_SHOW"
+  },
+  "genda": {
+   "category": "ACT",
+   "id": "ACT_000108",
+   "symbol": "ACTION_WALK"
+  },
+  "gerageza": {
+   "category": "ACT",
+   "id": "ACT_000063",
+   "symbol": "ACTION_TEST"
+  },
+  "gereranya": {
+   "category": "ACT",
+   "id": "ACT_000034",
+   "symbol": "ACTION_COMPARE"
+  },
+  "gira": {
+   "category": "STA",
+   "id": "STA_000002",
+   "symbol": "STATE_HAVE"
+  },
+  "gucapa": {
+   "category": "ACT",
+   "id": "ACT_000100",
+   "symbol": "ACTION_PRINT"
+  },
+  "gufasha": {
+   "category": "ACT",
+   "id": "ACT_000013",
+   "symbol": "ACTION_HELP"
+  },
+  "gufata": {
+   "category": "ACT",
+   "id": "ACT_000142",
+   "symbol": "ACTION_TAKE"
+  },
+  "gufite": {
+   "category": "STA",
+   "id": "STA_000002",
+   "symbol": "STATE_HAVE"
+  },
+  "gufunga": {
+   "category": "ACT",
+   "id": "ACT_000018",
+   "symbol": "ACTION_CLOSE"
+  },
+  "gufungura": {
+   "category": "ACT",
+   "id": "ACT_000017",
+   "symbol": "ACTION_OPEN"
+  },
+  "guha": {
+   "category": "ACT",
+   "id": "ACT_000009",
+   "symbol": "ACTION_GIVE"
+  },
+  "guhagarika": {
+   "category": "ACT",
+   "id": "ACT_000015",
+   "symbol": "ACTION_STOP"
+  },
+  "guhaguruka": {
+   "category": "ACT",
+   "id": "ACT_000111",
+   "symbol": "ACTION_STAND"
+  },
+  "guhaha": {
+   "category": "ACT",
+   "id": "ACT_000057",
+   "symbol": "ACTION_BUY"
+  },
+  "guhakana": {
+   "category": "META",
+   "id": "META_000006",
+   "symbol": "META_DENY"
+  },
+  "guhamagara": {
+   "category": "ACT",
+   "id": "ACT_000151",
+   "symbol": "ACTION_CALL"
+  },
+  "guhana": {
+   "category": "ACT",
+   "id": "ACT_000182",
+   "symbol": "ACTION_PUNISH"
+  },
+  "guhemba": {
+   "category": "ACT",
+   "id": "ACT_000183",
+   "symbol": "ACTION_REWARD"
+  },
+  "guhiga": {
+   "category": "ACT",
+   "id": "ACT_000203",
+   "symbol": "ACTION_HUNT"
+  },
+  "guhindura": {
+   "category": "ACT",
+   "id": "ACT_000003",
+   "symbol": "ACTION_UPDATE"
+  },
+  "guhinga": {
+   "category": "ACT",
+   "id": "ACT_000214",
+   "symbol": "ACTION_PLANT"
+  },
+  "guhisha": {
+   "category": "ACT",
+   "id": "ACT_000084",
+   "symbol": "ACTION_HIDE"
+  },
+  "guhitamo": {
+   "category": "ACT",
+   "id": "ACT_000040",
+   "symbol": "ACTION_SELECT"
+  },
+  "guhobera": {
+   "category": "ACT",
+   "id": "ACT_000157",
+   "symbol": "ACTION_HUG"
+  },
+  "guhunga": {
+   "category": "ACT",
+   "id": "ACT_000201",
+   "symbol": "ACTION_ESCAPE"
+  },
+  "guhura": {
+   "category": "ACT",
+   "id": "ACT_000154",
+   "symbol": "ACTION_MEET"
+  },
+  "gukaraba": {
+   "category": "ACT",
+   "id": "ACT_000118",
+   "symbol": "ACTION_WASH"
+  },
+  "gukata": {
+   "category": "ACT",
+   "id": "ACT_000137",
+   "symbol": "ACTION_CUT"
+  },
+  "gukeka": {
+   "category": "ACT",
+   "id": "ACT_000194",
+   "symbol": "ACTION_GUESS"
+  },
+  "gukemura": {
+   "category": "ACT",
+   "id": "ACT_000193",
+   "symbol": "ACTION_SOLVE"
+  },
+  "gukenera": {
+   "category": "STA",
+   "id": "STA_000005",
+   "symbol": "STATE_NEED"
+  },
+  "gukina": {
+   "category": "ACT",
+   "id": "ACT_000120",
+   "symbol": "ACTION_PLAY"
+  },
+  "gukiza": {
+   "category": "ACT",
+   "id": "ACT_000211",
+   "symbol": "ACTION_HEAL"
+  },
+  "gukomeza": {
+   "category": "ACT",
+   "id": "ACT_000077",
+   "symbol": "ACTION_RESUME"
+  },
+  "gukora": {
+   "category": "ACT",
+   "id": "ACT_000001",
+   "symbol": "ACTION_CREATE"
+  },
+  "gukoraho": {
+   "category": "ACT",
+   "id": "ACT_000105",
+   "symbol": "ACTION_TOUCH"
+  },
+  "gukorera": {
+   "category": "STA",
+   "id": "STA_000049",
+   "symbol": "STATE_WORK"
+  },
+  "gukosora": {
+   "category": "ACT",
+   "id": "ACT_000220",
+   "symbol": "ACTION_EDIT"
+  },
+  "gukunda": {
+   "category": "STA",
+   "id": "STA_000026",
+   "symbol": "STATE_LOVE"
+  },
+  "gukura": {
+   "category": "EVT",
+   "id": "EVT_000010",
+   "symbol": "EVENT_INCREASE"
+  },
+  "gukuraho": {
+   "category": "ACT",
+   "id": "ACT_000006",
+   "symbol": "ACTION_REMOVE"
+  },
+  "gukuramo": {
+   "category": "ACT",
+   "id": "ACT_000006",
+   "symbol": "ACTION_REMOVE"
+  },
+  "gukurikira": {
+   "category": "ACT",
+   "id": "ACT_000096",
+   "symbol": "ACTION_FOLLOW"
+  },
+  "gukurikirana": {
+   "category": "ACT",
+   "id": "ACT_000073",
+   "symbol": "ACTION_MONITOR"
+  },
+  "gukurura": {
+   "category": "ACT",
+   "id": "ACT_000132",
+   "symbol": "ACTION_PULL"
+  },
+  "guma": {
+   "category": "STA",
+   "id": "STA_000047",
+   "symbol": "STATE_REMAIN"
+  },
+  "gupfa": {
+   "category": "EVT",
+   "id": "EVT_000017",
+   "symbol": "EVENT_DEATH"
+  },
+  "gupima": {
+   "category": "ACT",
+   "id": "ACT_000038",
+   "symbol": "ACTION_MEASURE"
+  },
+  "gura": {
+   "category": "ACT",
+   "id": "ACT_000057",
+   "symbol": "ACTION_BUY"
+  },
+  "gurisha": {
+   "category": "ACT",
+   "id": "ACT_000058",
+   "symbol": "ACTION_SELL"
+  },
+  "guruka": {
+   "category": "ACT",
+   "id": "ACT_000125",
+   "symbol": "ACTION_FLY"
+  },
+  "gusaba": {
+   "category": "ACT",
+   "id": "ACT_000029",
+   "symbol": "ACTION_REQUEST"
+  },
+  "gusakuza": {
+   "category": "ACT",
+   "id": "ACT_000162",
+   "symbol": "ACTION_SHOUT"
+  },
+  "gusana": {
+   "category": "ACT",
+   "id": "ACT_000071",
+   "symbol": "ACTION_REPAIR"
+  },
+  "gusangira": {
+   "category": "ACT",
+   "id": "ACT_000083",
+   "symbol": "ACTION_SHARE"
+  },
+  "gusarura": {
+   "category": "ACT",
+   "id": "ACT_000215",
+   "symbol": "ACTION_HARVEST"
+  },
+  "guseka": {
+   "category": "ACT",
+   "id": "ACT_000160",
+   "symbol": "ACTION_LAUGH"
+  },
+  "gusemura": {
+   "category": "ACT",
+   "id": "ACT_000087",
+   "symbol": "ACTION_TRANSLATE"
+  },
+  "gusenga": {
+   "category": "ACT",
+   "id": "ACT_000190",
+   "symbol": "ACTION_PRAY"
+  },
+  "gusenya": {
+   "category": "EVT",
+   "id": "EVT_000015",
+   "symbol": "EVENT_BREAK"
+  },
+  "gushaka": {
+   "category": "STA",
+   "id": "STA_000004",
+   "symbol": "STATE_WANT"
+  },
+  "gushakisha": {
+   "category": "ACT",
+   "id": "ACT_000012",
+   "symbol": "ACTION_SEARCH"
+  },
+  "gushidikanya": {
+   "category": "STA",
+   "id": "STA_000015",
+   "symbol": "STATE_DOUBT"
+  },
+  "gushima": {
+   "category": "ACT",
+   "id": "ACT_000186",
+   "symbol": "ACTION_PRAISE"
+  },
+  "gushushanya": {
+   "category": "ACT",
+   "id": "ACT_000123",
+   "symbol": "ACTION_DRAW"
+  },
+  "gushyira": {
+   "category": "ACT",
+   "id": "ACT_000007",
+   "symbol": "ACTION_MOVE"
+  },
+  "gusiba": {
+   "category": "ACT",
+   "id": "ACT_000002",
+   "symbol": "ACTION_DELETE"
+  },
+  "gusiganwa": {
+   "category": "ACT",
+   "id": "ACT_000209",
+   "symbol": "ACTION_COMPETE"
+  },
+  "gusimbuka": {
+   "category": "ACT",
+   "id": "ACT_000128",
+   "symbol": "ACTION_JUMP"
+  },
+  "gusinzira": {
+   "category": "ACT",
+   "id": "ACT_000112",
+   "symbol": "ACTION_SLEEP"
+  },
+  "gusobanukirwa": {
+   "category": "STA",
+   "id": "STA_000016",
+   "symbol": "STATE_UNDERSTAND"
+  },
+  "gusobanura": {
+   "category": "ACT",
+   "id": "ACT_000088",
+   "symbol": "ACTION_EXPLAIN"
+  },
+  "gusogongera": {
+   "category": "ACT",
+   "id": "ACT_000107",
+   "symbol": "ACTION_TASTE"
+  },
+  "gusohoka": {
+   "category": "EVT",
+   "id": "EVT_000002",
+   "symbol": "EVENT_LEAVE"
+  },
+  "gusoma": {
+   "category": "ACT",
+   "id": "ACT_000019",
+   "symbol": "ACTION_READ"
+  },
+  "gusomana": {
+   "category": "ACT",
+   "id": "ACT_000158",
+   "symbol": "ACTION_KISS"
+  },
+  "gusubira": {
+   "category": "ACT",
+   "id": "ACT_000144",
+   "symbol": "ACTION_RETURN"
+  },
+  "gusubiramo": {
+   "category": "ACT",
+   "id": "ACT_000079",
+   "symbol": "ACTION_RETRY"
+  },
+  "gusubiza": {
+   "category": "ACT",
+   "id": "ACT_000152",
+   "symbol": "ACTION_ANSWER"
+  },
+  "gusuka": {
+   "category": "ACT",
+   "id": "ACT_000139",
+   "symbol": "ACTION_POUR"
+  },
+  "gusukura": {
+   "category": "ACT",
+   "id": "ACT_000117",
+   "symbol": "ACTION_CLEAN"
+  },
+  "gusunika": {
+   "category": "ACT",
+   "id": "ACT_000131",
+   "symbol": "ACTION_PUSH"
+  },
+  "gusura": {
+   "category": "ACT",
+   "id": "ACT_000155",
+   "symbol": "ACTION_VISIT"
+  },
+  "gusuzuma": {
+   "category": "ACT",
+   "id": "ACT_000072",
+   "symbol": "ACTION_INSPECT"
+  },
+  "gutabara": {
+   "category": "ACT",
+   "id": "ACT_000013",
+   "symbol": "ACTION_HELP"
+  },
+  "gutanga": {
+   "category": "ACT",
+   "id": "ACT_000009",
+   "symbol": "ACTION_GIVE"
+  },
+  "gutangaza": {
+   "category": "ACT",
+   "id": "ACT_000165",
+   "symbol": "ACTION_ANNOUNCE"
+  },
+  "gutangira": {
+   "category": "ACT",
+   "id": "ACT_000014",
+   "symbol": "ACTION_START"
+  },
+  "gute": {
+   "category": "MOD"
+  },
+  "guteganya": {
+   "category": "ACT",
+   "id": "ACT_000049",
+   "symbol": "ACTION_SCHEDULE"
+  },
+  "gutegeka": {
+   "category": "ACT",
+   "id": "ACT_000171",
+   "symbol": "ACTION_ORDER"
+  },
+  "gutegereza": {
+   "category": "ACT",
+   "id": "ACT_000076",
+   "symbol": "ACTION_WAIT"
+  },
+  "gutegura": {
+   "category": "ACT",
+   "id": "ACT_000174",
+   "symbol": "ACTION_PLAN"
+  },
+  "guteka": {
+   "category": "ACT",
+   "id": "ACT_000116",
+   "symbol": "ACTION_COOK"
+  },
+  "gutekereza": {
+   "category": "STA",
+   "id": "STA_000009",
+   "symbol": "STATE_THINK"
+  },
+  "gutembera": {
+   "category": "ACT",
+   "id": "ACT_000200",
+   "symbol": "ACTION_TRAVEL"
+  },
+  "guterura": {
+   "category": "ACT",
+   "id": "ACT_000133",
+   "symbol": "ACTION_LIFT"
+  },
+  "gutinya": {
+   "category": "STA",
+   "id": "STA_000013",
+   "symbol": "STATE_FEAR"
+  },
+  "gutora": {
+   "category": "ACT",
+   "id": "ACT_000179",
+   "symbol": "ACTION_VOTE"
+  },
+  "gutsinda": {
+   "category": "ACT",
+   "id": "ACT_000207",
+   "symbol": "ACTION_WIN"
+  },
+  "gutsindwa": {
+   "category": "ACT",
+   "id": "ACT_000208",
+   "symbol": "ACTION_LOSE"
+  },
+  "gutuka": {
+   "category": "ACT",
+   "id": "ACT_000187",
+   "symbol": "ACTION_CRITICIZE"
+  },
+  "gutumira": {
+   "category": "ACT",
+   "id": "ACT_000095",
+   "symbol": "ACTION_INVITE"
+  },
+  "gutunga": {
+   "category": "STA",
+   "id": "STA_000019",
+   "symbol": "STATE_OWN"
+  },
+  "gutunganya": {
+   "category": "ACT",
+   "id": "ACT_000175",
+   "symbol": "ACTION_ORGANIZE"
+  },
+  "gutwara": {
+   "category": "ACT",
+   "id": "ACT_000124",
+   "symbol": "ACTION_DRIVE"
+  },
+  "ha": {
+   "category": "ACT",
+   "id": "ACT_000009",
+   "symbol": "ACTION_GIVE"
+  },
+  "hagarika": {
+   "category": "ACT",
+   "id": "ACT_000015",
+   "symbol": "ACTION_STOP"
+  },
+  "haguruka": {
+   "category": "ACT",
+   "id": "ACT_000111",
+   "symbol": "ACTION_STAND"
+  },
+  "haha": {
+   "category": "ACT",
+   "id": "ACT_000057",
+   "symbol": "ACTION_BUY"
+  },
+  "hakana": {
+   "category": "META",
+   "id": "META_000006",
+   "symbol": "META_DENY"
+  },
+  "hamagara": {
+   "category": "ACT",
+   "id": "ACT_000151",
+   "symbol": "ACTION_CALL"
+  },
+  "hano": {
+   "ref": "REF_HERE"
+  },
+  "hariya": {
+   "category": "MOD"
+  },
+  "hehe": {
+   "category": "MOD"
+  },
+  "hemba": {
+   "category": "ACT",
+   "id": "ACT_000183",
+   "symbol": "ACTION_REWARD"
+  },
+  "higa": {
+   "category": "ACT",
+   "id": "ACT_000203",
+   "symbol": "ACTION_HUNT"
+  },
+  "hindura": {
+   "category": "ACT",
+   "id": "ACT_000003",
+   "symbol": "ACTION_UPDATE"
+  },
+  "hinga": {
+   "category": "ACT",
+   "id": "ACT_000214",
+   "symbol": "ACTION_PLANT"
+  },
+  "hisha": {
+   "category": "ACT",
+   "id": "ACT_000084",
+   "symbol": "ACTION_HIDE"
+  },
+  "hitamo": {
+   "category": "ACT",
+   "id": "ACT_000040",
+   "symbol": "ACTION_SELECT"
+  },
+  "hobera": {
+   "category": "ACT",
+   "id": "ACT_000157",
+   "symbol": "ACTION_HUG"
+  },
+  "hunga": {
+   "category": "ACT",
+   "id": "ACT_000201",
+   "symbol": "ACTION_ESCAPE"
+  },
+  "ibagirwa": {
+   "category": "STA",
+   "id": "STA_000018",
+   "symbol": "STATE_FORGET"
+  },
+  "ibaza": {
+   "category": "QRY",
+   "id": "QRY_000002",
+   "symbol": "QUERY_ASK"
+  },
+  "ibi": {
+   "category": "MOD"
+  },
+  "ibiryo": {
+   "category": "MOD"
+  },
+  "ibitabo": {
+   "category": "MOD"
+  },
+  "ibuka": {
+   "category": "STA",
+   "id": "STA_000017",
+   "symbol": "STATE_REMEMBER"
+  },
+  "icara": {
+   "category": "ACT",
+   "id": "ACT_000110",
+   "symbol": "ACTION_SIT"
+  },
+  "icuza": {
+   "category": "STA",
+   "id": "STA_000032",
+   "symbol": "STATE_REGRET"
+  },
+  "icyayi": {
+   "category": "MOD"
+  },
+  "icyo": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "icyumweru": {
+   "category": "MOD"
+  },
+  "ifuza": {
+   "category": "STA",
+   "id": "STA_000031",
+   "symbol": "STATE_WISH"
+  },
+  "iga": {
+   "category": "ACT",
+   "id": "ACT_000061",
+   "symbol": "ACTION_LEARN"
+  },
+  "igihe": {
+   "category": "MOD"
+  },
+  "igisha": {
+   "category": "ACT",
+   "id": "ACT_000060",
+   "symbol": "ACTION_TEACH"
+  },
+  "igitabo": {
+   "category": "MOD"
+  },
+  "ihangane": {
+   "category": "META",
+   "id": "META_000023",
+   "symbol": "META_COMFORT"
+  },
+  "ikawa": {
+   "category": "MOD"
+  },
+  "iki": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "imbwa": {
+   "category": "MOD"
+  },
+  "imura": {
+   "category": "ACT",
+   "id": "ACT_000007",
+   "symbol": "ACTION_MOVE"
+  },
+  "inginga": {
+   "category": "ACT",
+   "id": "ACT_000029",
+   "symbol": "ACTION_REQUEST"
+  },
+  "injangwe": {
+   "category": "MOD"
+  },
+  "injira": {
+   "category": "EVT",
+   "id": "EVT_000001",
+   "symbol": "EVENT_JOIN"
+  },
+  "inshuti": {
+   "category": "MOD"
+  },
+  "inyama": {
+   "category": "MOD"
+  },
+  "inzu": {
+   "category": "MOD"
+  },
+  "iri": {
+   "category": "MOD"
+  },
+  "iringira": {
+   "category": "STA",
+   "id": "STA_000011",
+   "symbol": "STATE_HOPE"
+  },
+  "iruka": {
+   "category": "ACT",
+   "id": "ACT_000109",
+   "symbol": "ACTION_RUN"
+  },
+  "isaha": {
+   "category": "MOD"
+  },
+  "ishima": {
+   "category": "STA",
+   "id": "STA_000028",
+   "symbol": "STATE_ENJOY"
+  },
+  "ishuri": {
+   "category": "MOD"
+  },
+  "ishyura": {
+   "category": "ACT",
+   "id": "ACT_000059",
+   "symbol": "ACTION_PAY"
+  },
+  "itegereza": {
+   "category": "ACT",
+   "id": "ACT_000072",
+   "symbol": "ACTION_INSPECT"
+  },
+  "itotomba": {
+   "category": "ACT",
+   "id": "ACT_000188",
+   "symbol": "ACTION_COMPLAIN"
+  },
+  "itoza": {
+   "category": "ACT",
+   "id": "ACT_000192",
+   "symbol": "ACTION_PRACTICE"
+  },
+  "iyandikisha": {
+   "category": "ACT",
+   "id": "ACT_000005",
+   "symbol": "ACTION_REGISTER"
+  },
+  "iyi": {
+   "category": "MOD"
+  },
+  "izera": {
+   "category": "STA",
+   "id": "STA_000014",
+   "symbol": "STATE_TRUST"
+  },
+  "izihiza": {
+   "category": "ACT",
+   "id": "ACT_000189",
+   "symbol": "ACTION_CELEBRATE"
+  },
+  "jugunya": {
+   "category": "ACT",
+   "id": "ACT_000129",
+   "symbol": "ACTION_THROW"
+  },
+  "jya": {
+   "category": "ACT",
+   "id": "ACT_000200",
+   "symbol": "ACTION_TRAVEL"
+  },
+  "jye": {
+   "ref": "REF_SPEAKER"
+  },
+  "jyewe": {
+   "ref": "REF_SPEAKER"
+  },
+  "kandi": {
+   "category": "MOD"
+  },
+  "karaba": {
+   "category": "ACT",
+   "id": "ACT_000118",
+   "symbol": "ACTION_WASH"
+  },
+  "kata": {
+   "category": "ACT",
+   "id": "ACT_000137",
+   "symbol": "ACTION_CUT"
+  },
+  "keka": {
+   "category": "ACT",
+   "id": "ACT_000194",
+   "symbol": "ACTION_GUESS"
+  },
+  "kemura": {
+   "category": "ACT",
+   "id": "ACT_000193",
+   "symbol": "ACTION_SOLVE"
+  },
+  "kenera": {
+   "category": "STA",
+   "id": "STA_000005",
+   "symbol": "STATE_NEED"
+  },
+  "keneye": {
+   "category": "STA",
+   "id": "STA_000005",
+   "symbol": "STATE_NEED"
+  },
+  "kera": {
+   "ref": "REF_TIME_PAST"
+  },
+  "kina": {
+   "category": "ACT",
+   "id": "ACT_000120",
+   "symbol": "ACTION_PLAY"
+  },
+  "kiza": {
+   "category": "ACT",
+   "id": "ACT_000211",
+   "symbol": "ACTION_HEAL"
+  },
+  "koga": {
+   "category": "ACT",
+   "id": "ACT_000126",
+   "symbol": "ACTION_SWIM"
+  },
+  "kohereza": {
+   "category": "ACT",
+   "id": "ACT_000008",
+   "symbol": "ACTION_SEND"
+  },
+  "koko": {
+   "category": "MOD"
+  },
+  "komeza": {
+   "category": "ACT",
+   "id": "ACT_000077",
+   "symbol": "ACTION_RESUME"
+  },
+  "kongera": {
+   "category": "ACT",
+   "id": "ACT_000079",
+   "symbol": "ACTION_RETRY"
+  },
+  "kongeramo": {
+   "category": "ACT",
+   "id": "ACT_000004",
+   "symbol": "ACTION_ASSIGN"
+  },
+  "kongorera": {
+   "category": "ACT",
+   "id": "ACT_000163",
+   "symbol": "ACTION_WHISPER"
+  },
+  "kora": {
+   "category": "ACT",
+   "id": "ACT_000001",
+   "symbol": "ACTION_CREATE"
+  },
+  "koraho": {
+   "category": "ACT",
+   "id": "ACT_000105",
+   "symbol": "ACTION_TOUCH"
+  },
+  "korera": {
+   "category": "STA",
+   "id": "STA_000049",
+   "symbol": "STATE_WORK"
+  },
+  "kosora": {
+   "category": "ACT",
+   "id": "ACT_000220",
+   "symbol": "ACTION_EDIT"
+  },
+  "ku": {
+   "category": "MOD"
+  },
+  "kubabarira": {
+   "category": "ACT",
+   "id": "ACT_000184",
+   "symbol": "ACTION_FORGIVE"
+  },
+  "kubaho": {
+   "category": "STA",
+   "id": "STA_000048",
+   "symbol": "STATE_LIVE"
+  },
+  "kubaka": {
+   "category": "ACT",
+   "id": "ACT_000070",
+   "symbol": "ACTION_BUILD"
+  },
+  "kubana": {
+   "category": "STA",
+   "id": "STA_000048",
+   "symbol": "STATE_LIVE"
+  },
+  "kubara": {
+   "category": "ACT",
+   "id": "ACT_000037",
+   "symbol": "ACTION_COUNT"
+  },
+  "kubaza": {
+   "category": "QRY",
+   "id": "QRY_000002",
+   "symbol": "QUERY_ASK"
+  },
+  "kubera": {
+   "category": "MOD"
+  },
+  "kubika": {
+   "category": "ACT",
+   "id": "ACT_000021",
+   "symbol": "ACTION_SAVE"
+  },
+  "kubona": {
+   "category": "ACT",
+   "id": "ACT_000103",
+   "symbol": "ACTION_SEE"
+  },
+  "kuburira": {
+   "category": "ACT",
+   "id": "ACT_000167",
+   "symbol": "ACTION_WARN"
+  },
+  "kubuza": {
+   "category": "ACT",
+   "id": "ACT_000172",
+   "symbol": "ACTION_FORBID"
+  },
+  "kubwira": {
+   "category": "ACT",
+   "id": "ACT_000164",
+   "symbol": "ACTION_TELL"
+  },
+  "kubyina": {
+   "category": "ACT",
+   "id": "ACT_000122",
+   "symbol": "ACTION_DANCE"
+  },
+  "kubyuka": {
+   "category": "ACT",
+   "id": "ACT_000113",
+   "symbol": "ACTION_WAKE"
+  },
+  "kugabanya": {
+   "category": "EVT",
+   "id": "EVT_000011",
+   "symbol": "EVENT_DECREASE"
+  },
+  "kugaburira": {
+   "category": "ACT",
+   "id": "ACT_000216",
+   "symbol": "ACTION_FEED"
+  },
+  "kuganira": {
+   "category": "ACT",
+   "id": "ACT_000101",
+   "symbol": "ACTION_SPEAK"
+  },
+  "kugaragaza": {
+   "category": "ACT",
+   "id": "ACT_000010",
+   "symbol": "ACTION_SHOW"
+  },
+  "kugenda": {
+   "category": "ACT",
+   "id": "ACT_000108",
+   "symbol": "ACTION_WALK"
+  },
+  "kugerageza": {
+   "category": "ACT",
+   "id": "ACT_000063",
+   "symbol": "ACTION_TEST"
+  },
+  "kugereranya": {
+   "category": "ACT",
+   "id": "ACT_000034",
+   "symbol": "ACTION_COMPARE"
+  },
+  "kugira": {
+   "category": "STA",
+   "id": "STA_000002",
+   "symbol": "STATE_HAVE"
+  },
+  "kuguma": {
+   "category": "STA",
+   "id": "STA_000047",
+   "symbol": "STATE_REMAIN"
+  },
+  "kugura": {
+   "category": "ACT",
+   "id": "ACT_000057",
+   "symbol": "ACTION_BUY"
+  },
+  "kugurisha": {
+   "category": "ACT",
+   "id": "ACT_000058",
+   "symbol": "ACTION_SELL"
+  },
+  "kuguruka": {
+   "category": "ACT",
+   "id": "ACT_000125",
+   "symbol": "ACTION_FLY"
+  },
+  "kugwa": {
+   "category": "EVT",
+   "id": "EVT_000019",
+   "symbol": "EVENT_FALL"
+  },
+  "kujugunya": {
+   "category": "ACT",
+   "id": "ACT_000129",
+   "symbol": "ACTION_THROW"
+  },
+  "kujya": {
+   "category": "ACT",
+   "id": "ACT_000200",
+   "symbol": "ACTION_TRAVEL"
+  },
+  "kuko": {
+   "category": "MOD"
+  },
+  "kumena": {
+   "category": "EVT",
+   "id": "EVT_000015",
+   "symbol": "EVENT_BREAK"
+  },
+  "kumenya": {
+   "category": "STA",
+   "id": "STA_000003",
+   "symbol": "STATE_KNOW"
+  },
+  "kumenyesha": {
+   "category": "ACT",
+   "id": "ACT_000048",
+   "symbol": "ACTION_NOTIFY"
+  },
+  "kumesa": {
+   "category": "ACT",
+   "id": "ACT_000118",
+   "symbol": "ACTION_WASH"
+  },
+  "kumva": {
+   "category": "ACT",
+   "id": "ACT_000104",
+   "symbol": "ACTION_HEAR"
+  },
+  "kumvikana": {
+   "category": "META",
+   "id": "META_000007",
+   "symbol": "META_AGREE"
+  },
+  "kumwenyura": {
+   "category": "ACT",
+   "id": "ACT_000159",
+   "symbol": "ACTION_SMILE"
+  },
+  "kunda": {
+   "category": "STA",
+   "id": "STA_000026",
+   "symbol": "STATE_LOVE"
+  },
+  "kunenga": {
+   "category": "ACT",
+   "id": "ACT_000187",
+   "symbol": "ACTION_CRITICIZE"
+  },
+  "kunywa": {
+   "category": "ACT",
+   "id": "ACT_000115",
+   "symbol": "ACTION_DRINK"
+  },
+  "kuraho": {
+   "category": "ACT",
+   "id": "ACT_000006",
+   "symbol": "ACTION_REMOVE"
+  },
+  "kurakara": {
+   "category": "STA",
+   "id": "STA_000010",
+   "symbol": "STATE_FEEL"
+  },
+  "kuramo": {
+   "category": "ACT",
+   "id": "ACT_000006",
+   "symbol": "ACTION_REMOVE"
+  },
+  "kurangiza": {
+   "category": "EVT",
+   "id": "EVT_000005",
+   "symbol": "EVENT_COMPLETE"
+  },
+  "kureba": {
+   "category": "ACT",
+   "id": "ACT_000103",
+   "symbol": "ACTION_SEE"
+  },
+  "kurekura": {
+   "category": "ACT",
+   "id": "ACT_000051",
+   "symbol": "ACTION_RELEASE"
+  },
+  "kuri": {
+   "category": "MOD"
+  },
+  "kurikira": {
+   "category": "ACT",
+   "id": "ACT_000096",
+   "symbol": "ACTION_FOLLOW"
+  },
+  "kurikirana": {
+   "category": "ACT",
+   "id": "ACT_000073",
+   "symbol": "ACTION_MONITOR"
+  },
+  "kurinda": {
+   "category": "ACT",
+   "id": "ACT_000086",
+   "symbol": "ACTION_PROTECT"
+  },
+  "kurira": {
+   "category": "ACT",
+   "id": "ACT_000161",
+   "symbol": "ACTION_CRY"
+  },
+  "kuririmba": {
+   "category": "ACT",
+   "id": "ACT_000121",
+   "symbol": "ACTION_SING"
+  },
+  "kuruhuka": {
+   "category": "ACT",
+   "id": "ACT_000078",
+   "symbol": "ACTION_PAUSE"
+  },
+  "kurura": {
+   "category": "ACT",
+   "id": "ACT_000132",
+   "symbol": "ACTION_PULL"
+  },
+  "kurwana": {
+   "category": "ACT",
+   "id": "ACT_000204",
+   "symbol": "ACTION_FIGHT"
+  },
+  "kurya": {
+   "category": "ACT",
+   "id": "ACT_000114",
+   "symbol": "ACTION_EAT"
+  },
+  "kuvanga": {
+   "category": "ACT",
+   "id": "ACT_000138",
+   "symbol": "ACTION_MIX"
+  },
+  "kuvuga": {
+   "category": "ACT",
+   "id": "ACT_000101",
+   "symbol": "ACTION_SPEAK"
+  },
+  "kuvugana": {
+   "category": "ACT",
+   "id": "ACT_000101",
+   "symbol": "ACTION_SPEAK"
+  },
+  "kuvuka": {
+   "category": "EVT",
+   "id": "EVT_000016",
+   "symbol": "EVENT_BIRTH"
+  },
+  "kuvumbura": {
+   "category": "ACT",
+   "id": "ACT_000198",
+   "symbol": "ACTION_DISCOVER"
+  },
+  "kuvura": {
+   "category": "ACT",
+   "id": "ACT_000212",
+   "symbol": "ACTION_TREAT"
+  },
+  "kuyobora": {
+   "category": "ACT",
+   "id": "ACT_000177",
+   "symbol": "ACTION_LEAD"
+  },
+  "kuza": {
+   "category": "EVT",
+   "id": "EVT_000003",
+   "symbol": "EVENT_ARRIVE"
+  },
+  "kuzamuka": {
+   "category": "ACT",
+   "id": "ACT_000127",
+   "symbol": "ACTION_CLIMB"
+  },
+  "kuzana": {
+   "category": "ACT",
+   "id": "ACT_000143",
+   "symbol": "ACTION_BRING"
+  },
+  "kuzuza": {
+   "category": "ACT",
+   "id": "ACT_000140",
+   "symbol": "ACTION_FILL"
+  },
+  "kwakira": {
+   "category": "ACT",
+   "id": "ACT_000030",
+   "symbol": "ACTION_ACCEPT"
+  },
+  "kwambara": {
+   "category": "ACT",
+   "id": "ACT_000119",
+   "symbol": "ACTION_WEAR"
+  },
+  "kwandika": {
+   "category": "ACT",
+   "id": "ACT_000020",
+   "symbol": "ACTION_WRITE"
+  },
+  "kwandikisha": {
+   "category": "ACT",
+   "id": "ACT_000005",
+   "symbol": "ACTION_REGISTER"
+  },
+  "kwanga": {
+   "category": "STA",
+   "id": "STA_000027",
+   "symbol": "STATE_HATE"
+  },
+  "kwemera": {
+   "category": "ACT",
+   "id": "ACT_000030",
+   "symbol": "ACTION_ACCEPT"
+  },
+  "kwemeza": {
+   "category": "ACT",
+   "id": "ACT_000033",
+   "symbol": "ACTION_CONFIRM"
+  },
+  "kwerekana": {
+   "category": "ACT",
+   "id": "ACT_000010",
+   "symbol": "ACTION_SHOW"
+  },
+  "kwibagirwa": {
+   "category": "STA",
+   "id": "STA_000018",
+   "symbol": "STATE_FORGET"
+  },
+  "kwibaza": {
+   "category": "QRY",
+   "id": "QRY_000002",
+   "symbol": "QUERY_ASK"
+  },
+  "kwibuka": {
+   "category": "STA",
+   "id": "STA_000017",
+   "symbol": "STATE_REMEMBER"
+  },
+  "kwicara": {
+   "category": "ACT",
+   "id": "ACT_000110",
+   "symbol": "ACTION_SIT"
+  },
+  "kwicuza": {
+   "category": "STA",
+   "id": "STA_000032",
+   "symbol": "STATE_REGRET"
+  },
+  "kwifuza": {
+   "category": "STA",
+   "id": "STA_000031",
+   "symbol": "STATE_WISH"
+  },
+  "kwiga": {
+   "category": "ACT",
+   "id": "ACT_000061",
+   "symbol": "ACTION_LEARN"
+  },
+  "kwigisha": {
+   "category": "ACT",
+   "id": "ACT_000060",
+   "symbol": "ACTION_TEACH"
+  },
+  "kwimura": {
+   "category": "ACT",
+   "id": "ACT_000007",
+   "symbol": "ACTION_MOVE"
+  },
+  "kwinginga": {
+   "category": "ACT",
+   "id": "ACT_000029",
+   "symbol": "ACTION_REQUEST"
+  },
+  "kwinjira": {
+   "category": "EVT",
+   "id": "EVT_000001",
+   "symbol": "EVENT_JOIN"
+  },
+  "kwiringira": {
+   "category": "STA",
+   "id": "STA_000011",
+   "symbol": "STATE_HOPE"
+  },
+  "kwiruka": {
+   "category": "ACT",
+   "id": "ACT_000109",
+   "symbol": "ACTION_RUN"
+  },
+  "kwishima": {
+   "category": "STA",
+   "id": "STA_000028",
+   "symbol": "STATE_ENJOY"
+  },
+  "kwishyura": {
+   "category": "ACT",
+   "id": "ACT_000059",
+   "symbol": "ACTION_PAY"
+  },
+  "kwitegereza": {
+   "category": "ACT",
+   "id": "ACT_000072",
+   "symbol": "ACTION_INSPECT"
+  },
+  "kwitotomba": {
+   "category": "ACT",
+   "id": "ACT_000188",
+   "symbol": "ACTION_COMPLAIN"
+  },
+  "kwitoza": {
+   "category": "ACT",
+   "id": "ACT_000192",
+   "symbol": "ACTION_PRACTICE"
+  },
+  "kwiyandikisha": {
+   "category": "ACT",
+   "id": "ACT_000005",
+   "symbol": "ACTION_REGISTER"
+  },
+  "kwizera": {
+   "category": "STA",
+   "id": "STA_000014",
+   "symbol": "STATE_TRUST"
+  },
+  "kwizihiza": {
+   "category": "ACT",
+   "id": "ACT_000189",
+   "symbol": "ACTION_CELEBRATE"
+  },
+  "kwohereza": {
+   "category": "ACT",
+   "id": "ACT_000008",
+   "symbol": "ACTION_SEND"
+  },
+  "make": {
+   "category": "MOD"
+  },
+  "mbabarira": {
+   "category": "META",
+   "id": "META_000004",
+   "symbol": "META_APOLOGIZE"
+  },
+  "mena": {
+   "category": "EVT",
+   "id": "EVT_000015",
+   "symbol": "EVENT_BREAK"
+  },
+  "menshi": {
+   "category": "MOD"
+  },
+  "menya": {
+   "category": "STA",
+   "id": "STA_000003",
+   "symbol": "STATE_KNOW"
+  },
+  "menyesha": {
+   "category": "ACT",
+   "id": "ACT_000048",
+   "symbol": "ACTION_NOTIFY"
+  },
+  "mesa": {
+   "category": "ACT",
+   "id": "ACT_000118",
+   "symbol": "ACTION_WASH"
+  },
+  "meza": {
+   "category": "MOD"
+  },
+  "mu": {
+   "category": "MOD"
+  },
+  "murabeho": {
+   "category": "META",
+   "id": "META_000002",
+   "symbol": "META_FAREWELL"
+  },
+  "muraho": {
+   "category": "META",
+   "id": "META_000001",
+   "symbol": "META_GREET"
+  },
+  "murakaza": {
+   "category": "META",
+   "id": "META_000015",
+   "symbol": "META_WELCOME"
+  },
+  "murakoze": {
+   "category": "META",
+   "id": "META_000003",
+   "symbol": "META_THANK"
+  },
+  "muri": {
+   "category": "MOD"
+  },
+  "mwaramutse": {
+   "category": "META",
+   "id": "META_000001",
+   "symbol": "META_GREET"
+  },
+  "mwe": {
+   "ref": "REF_LISTENER"
+  },
+  "mwebwe": {
+   "ref": "REF_LISTENER"
+  },
+  "mwenyura": {
+   "category": "ACT",
+   "id": "ACT_000159",
+   "symbol": "ACTION_SMILE"
+  },
+  "mwiriwe": {
+   "category": "META",
+   "id": "META_000001",
+   "symbol": "META_GREET"
+  },
+  "na": {
+   "category": "MOD"
+  },
+  "nabi": {
+   "category": "MOD"
+  },
+  "nanjye": {
+   "ref": "REF_SPEAKER"
+  },
+  "nawe": {
+   "ref": "REF_LISTENER"
+  },
+  "ndashimira": {
+   "category": "META",
+   "id": "META_000003",
+   "symbol": "META_THANK"
+  },
+  "nde": {
+   "category": "MOD"
+  },
+  "nenga": {
+   "category": "ACT",
+   "id": "ACT_000187",
+   "symbol": "ACTION_CRITICIZE"
+  },
+  "neza": {
+   "category": "MOD"
+  },
+  "ngo": {
+   "category": "MOD"
+  },
+  "ni": {
+   "category": "MOD"
+  },
+  "niba": {
+   "category": "MOD"
+  },
+  "nibyo": {
+   "category": "META",
+   "id": "META_000007",
+   "symbol": "META_AGREE"
+  },
+  "nini": {
+   "category": "MOD"
+  },
+  "njye": {
+   "ref": "REF_SPEAKER"
+  },
+  "njyewe": {
+   "ref": "REF_SPEAKER"
+  },
+  "no": {
+   "category": "MOD"
+  },
+  "none": {
+   "ref": "REF_TIME_NOW"
+  },
+  "nta": {
+   "category": "MOD"
+  },
+  "ntabwo": {
+   "category": "MOD"
+  },
+  "nto": {
+   "category": "MOD"
+  },
+  "nyabuneka": {
+   "category": "MOD"
+  },
+  "nywa": {
+   "category": "ACT",
+   "id": "ACT_000115",
+   "symbol": "ACTION_DRINK"
+  },
+  "ohereza": {
+   "category": "ACT",
+   "id": "ACT_000008",
+   "symbol": "ACTION_SEND"
+  },
+  "ongeramo": {
+   "category": "ACT",
+   "id": "ACT_000004",
+   "symbol": "ACTION_ASSIGN"
+  },
+  "ongorera": {
+   "category": "ACT",
+   "id": "ACT_000163",
+   "symbol": "ACTION_WHISPER"
+  },
+  "oya": {
+   "category": "META",
+   "id": "META_000006",
+   "symbol": "META_DENY"
+  },
+  "pfa": {
+   "category": "EVT",
+   "id": "EVT_000017",
+   "symbol": "EVENT_DEATH"
+  },
+  "pima": {
+   "category": "ACT",
+   "id": "ACT_000038",
+   "symbol": "ACTION_MEASURE"
+  },
+  "rakara": {
+   "category": "STA",
+   "id": "STA_000010",
+   "symbol": "STATE_FEEL"
+  },
+  "rangiza": {
+   "category": "EVT",
+   "id": "EVT_000005",
+   "symbol": "EVENT_COMPLETE"
+  },
+  "reba": {
+   "category": "ACT",
+   "id": "ACT_000103",
+   "symbol": "ACTION_SEE"
+  },
+  "rekura": {
+   "category": "ACT",
+   "id": "ACT_000051",
+   "symbol": "ACTION_RELEASE"
+  },
+  "rinda": {
+   "category": "ACT",
+   "id": "ACT_000086",
+   "symbol": "ACTION_PROTECT"
+  },
+  "ririmba": {
+   "category": "ACT",
+   "id": "ACT_000121",
+   "symbol": "ACTION_SING"
+  },
+  "ruhuka": {
+   "category": "ACT",
+   "id": "ACT_000078",
+   "symbol": "ACTION_PAUSE"
+  },
+  "rwana": {
+   "category": "ACT",
+   "id": "ACT_000204",
+   "symbol": "ACTION_FIGHT"
+  },
+  "rwose": {
+   "category": "MOD"
+  },
+  "rya": {
+   "category": "ACT",
+   "id": "ACT_000114",
+   "symbol": "ACTION_EAT"
+  },
+  "ryari": {
+   "category": "MOD"
+  },
+  "saba": {
+   "category": "ACT",
+   "id": "ACT_000029",
+   "symbol": "ACTION_REQUEST"
+  },
+  "sakuza": {
+   "category": "ACT",
+   "id": "ACT_000162",
+   "symbol": "ACTION_SHOUT"
+  },
+  "sana": {
+   "category": "ACT",
+   "id": "ACT_000071",
+   "symbol": "ACTION_REPAIR"
+  },
+  "sangira": {
+   "category": "ACT",
+   "id": "ACT_000083",
+   "symbol": "ACTION_SHARE"
+  },
+  "sarura": {
+   "category": "ACT",
+   "id": "ACT_000215",
+   "symbol": "ACTION_HARVEST"
+  },
+  "seka": {
+   "category": "ACT",
+   "id": "ACT_000160",
+   "symbol": "ACTION_LAUGH"
+  },
+  "semura": {
+   "category": "ACT",
+   "id": "ACT_000087",
+   "symbol": "ACTION_TRANSLATE"
+  },
+  "senga": {
+   "category": "ACT",
+   "id": "ACT_000190",
+   "symbol": "ACTION_PRAY"
+  },
+  "senya": {
+   "category": "EVT",
+   "id": "EVT_000015",
+   "symbol": "EVENT_BREAK"
+  },
+  "shaka": {
+   "category": "STA",
+   "id": "STA_000004",
+   "symbol": "STATE_WANT"
+  },
+  "shakisha": {
+   "category": "ACT",
+   "id": "ACT_000012",
+   "symbol": "ACTION_SEARCH"
+  },
+  "shidikanya": {
+   "category": "STA",
+   "id": "STA_000015",
+   "symbol": "STATE_DOUBT"
+  },
+  "shima": {
+   "category": "ACT",
+   "id": "ACT_000186",
+   "symbol": "ACTION_PRAISE"
+  },
+  "shushanya": {
+   "category": "ACT",
+   "id": "ACT_000123",
+   "symbol": "ACTION_DRAW"
+  },
+  "shyira": {
+   "category": "ACT",
+   "id": "ACT_000007",
+   "symbol": "ACTION_MOVE"
+  },
+  "siba": {
+   "category": "ACT",
+   "id": "ACT_000002",
+   "symbol": "ACTION_DELETE"
+  },
+  "sibyo": {
+   "category": "META",
+   "id": "META_000008",
+   "symbol": "META_DISAGREE"
+  },
+  "siganwa": {
+   "category": "ACT",
+   "id": "ACT_000209",
+   "symbol": "ACTION_COMPETE"
+  },
+  "simbuka": {
+   "category": "ACT",
+   "id": "ACT_000128",
+   "symbol": "ACTION_JUMP"
+  },
+  "sinzira": {
+   "category": "ACT",
+   "id": "ACT_000112",
+   "symbol": "ACTION_SLEEP"
+  },
+  "sobanukirwa": {
+   "category": "STA",
+   "id": "STA_000016",
+   "symbol": "STATE_UNDERSTAND"
+  },
+  "sobanura": {
+   "category": "ACT",
+   "id": "ACT_000088",
+   "symbol": "ACTION_EXPLAIN"
+  },
+  "sogongera": {
+   "category": "ACT",
+   "id": "ACT_000107",
+   "symbol": "ACTION_TASTE"
+  },
+  "sohoka": {
+   "category": "EVT",
+   "id": "EVT_000002",
+   "symbol": "EVENT_LEAVE"
+  },
+  "soma": {
+   "category": "ACT",
+   "id": "ACT_000019",
+   "symbol": "ACTION_READ"
+  },
+  "somana": {
+   "category": "ACT",
+   "id": "ACT_000158",
+   "symbol": "ACTION_KISS"
+  },
+  "subira": {
+   "category": "ACT",
+   "id": "ACT_000144",
+   "symbol": "ACTION_RETURN"
+  },
+  "subiramo": {
+   "category": "ACT",
+   "id": "ACT_000079",
+   "symbol": "ACTION_RETRY"
+  },
+  "subiza": {
+   "category": "ACT",
+   "id": "ACT_000152",
+   "symbol": "ACTION_ANSWER"
+  },
+  "suka": {
+   "category": "ACT",
+   "id": "ACT_000139",
+   "symbol": "ACTION_POUR"
+  },
+  "sukura": {
+   "category": "ACT",
+   "id": "ACT_000117",
+   "symbol": "ACTION_CLEAN"
+  },
+  "sunika": {
+   "category": "ACT",
+   "id": "ACT_000131",
+   "symbol": "ACTION_PUSH"
+  },
+  "sura": {
+   "category": "ACT",
+   "id": "ACT_000155",
+   "symbol": "ACTION_VISIT"
+  },
+  "suzuma": {
+   "category": "ACT",
+   "id": "ACT_000072",
+   "symbol": "ACTION_INSPECT"
+  },
+  "tabara": {
+   "category": "ACT",
+   "id": "ACT_000013",
+   "symbol": "ACTION_HELP"
+  },
+  "tanga": {
+   "category": "ACT",
+   "id": "ACT_000009",
+   "symbol": "ACTION_GIVE"
+  },
+  "tangaza": {
+   "category": "ACT",
+   "id": "ACT_000165",
+   "symbol": "ACTION_ANNOUNCE"
+  },
+  "tangira": {
+   "category": "ACT",
+   "id": "ACT_000014",
+   "symbol": "ACTION_START"
+  },
+  "teganya": {
+   "category": "ACT",
+   "id": "ACT_000049",
+   "symbol": "ACTION_SCHEDULE"
+  },
+  "tegeka": {
+   "category": "ACT",
+   "id": "ACT_000171",
+   "symbol": "ACTION_ORDER"
+  },
+  "tegereza": {
+   "category": "ACT",
+   "id": "ACT_000076",
+   "symbol": "ACTION_WAIT"
+  },
+  "tegura": {
+   "category": "ACT",
+   "id": "ACT_000174",
+   "symbol": "ACTION_PLAN"
+  },
+  "teka": {
+   "category": "ACT",
+   "id": "ACT_000116",
+   "symbol": "ACTION_COOK"
+  },
+  "tekereza": {
+   "category": "STA",
+   "id": "STA_000009",
+   "symbol": "STATE_THINK"
+  },
+  "tembera": {
+   "category": "ACT",
+   "id": "ACT_000200",
+   "symbol": "ACTION_TRAVEL"
+  },
+  "terura": {
+   "category": "ACT",
+   "id": "ACT_000133",
+   "symbol": "ACTION_LIFT"
+  },
+  "tinya": {
+   "category": "STA",
+   "id": "STA_000013",
+   "symbol": "STATE_FEAR"
+  },
+  "tora": {
+   "category": "ACT",
+   "id": "ACT_000179",
+   "symbol": "ACTION_VOTE"
+  },
+  "tsinda": {
+   "category": "ACT",
+   "id": "ACT_000207",
+   "symbol": "ACTION_WIN"
+  },
+  "tsindwa": {
+   "category": "ACT",
+   "id": "ACT_000208",
+   "symbol": "ACTION_LOSE"
+  },
+  "tuka": {
+   "category": "ACT",
+   "id": "ACT_000187",
+   "symbol": "ACTION_CRITICIZE"
+  },
+  "tumira": {
+   "category": "ACT",
+   "id": "ACT_000095",
+   "symbol": "ACTION_INVITE"
+  },
+  "tunga": {
+   "category": "STA",
+   "id": "STA_000019",
+   "symbol": "STATE_OWN"
+  },
+  "tunganya": {
+   "category": "ACT",
+   "id": "ACT_000175",
+   "symbol": "ACTION_ORGANIZE"
+  },
+  "tuzabonana": {
+   "category": "META",
+   "id": "META_000002",
+   "symbol": "META_FAREWELL"
+  },
+  "twara": {
+   "category": "ACT",
+   "id": "ACT_000124",
+   "symbol": "ACTION_DRIVE"
+  },
+  "twe": {
+   "ref": "REF_SPEAKER"
+  },
+  "twebwe": {
+   "ref": "REF_SPEAKER"
+  },
+  "ubaka": {
+   "category": "ACT",
+   "id": "ACT_000070",
+   "symbol": "ACTION_BUILD"
+  },
+  "ubu": {
+   "ref": "REF_TIME_NOW"
+  },
+  "ukwezi": {
+   "category": "MOD"
+  },
+  "umuceri": {
+   "category": "MOD"
+  },
+  "umugabo": {
+   "category": "MOD"
+  },
+  "umugore": {
+   "category": "MOD"
+  },
+  "umujyi": {
+   "category": "MOD"
+  },
+  "umukozi": {
+   "category": "MOD"
+  },
+  "umunsi": {
+   "category": "MOD"
+  },
+  "umuntu": {
+   "category": "MOD"
+  },
+  "umunyeshuri": {
+   "category": "MOD"
+  },
+  "umuryango": {
+   "category": "MOD"
+  },
+  "umva": {
+   "category": "ACT",
+   "id": "ACT_000104",
+   "symbol": "ACTION_HEAR"
+  },
+  "umvikana": {
+   "category": "META",
+   "id": "META_000007",
+   "symbol": "META_AGREE"
+  },
+  "umwaka": {
+   "category": "MOD"
+  },
+  "umwana": {
+   "category": "MOD"
+  },
+  "urakoze": {
+   "category": "META",
+   "id": "META_000003",
+   "symbol": "META_THANK"
+  },
+  "uwo": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "uyu": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "uyu munsi": {
+   "ref": "REF_TIME_NOW"
+  },
+  "uzuza": {
+   "category": "ACT",
+   "id": "ACT_000140",
+   "symbol": "ACTION_FILL"
+  },
+  "vanga": {
+   "category": "ACT",
+   "id": "ACT_000138",
+   "symbol": "ACTION_MIX"
+  },
+  "vuga": {
+   "category": "ACT",
+   "id": "ACT_000101",
+   "symbol": "ACTION_SPEAK"
+  },
+  "vugana": {
+   "category": "ACT",
+   "id": "ACT_000101",
+   "symbol": "ACTION_SPEAK"
+  },
+  "vuka": {
+   "category": "EVT",
+   "id": "EVT_000016",
+   "symbol": "EVENT_BIRTH"
+  },
+  "vumbura": {
+   "category": "ACT",
+   "id": "ACT_000198",
+   "symbol": "ACTION_DISCOVER"
+  },
+  "vura": {
+   "category": "ACT",
+   "id": "ACT_000212",
+   "symbol": "ACTION_TREAT"
+  },
+  "we": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "wowe": {
+   "ref": "REF_LISTENER"
+  },
+  "yego": {
+   "category": "META",
+   "id": "META_000005",
+   "symbol": "META_CONFIRM"
+  },
+  "yo": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "yobora": {
+   "category": "ACT",
+   "id": "ACT_000177",
+   "symbol": "ACTION_LEAD"
+  },
+  "zamuka": {
+   "category": "ACT",
+   "id": "ACT_000127",
+   "symbol": "ACTION_CLIMB"
+  },
+  "zana": {
+   "category": "ACT",
+   "id": "ACT_000143",
+   "symbol": "ACTION_BRING"
+  },
+  "zi": {
+   "category": "STA",
+   "id": "STA_000003",
+   "symbol": "STATE_KNOW"
+  }
+ },
+ "entry_count": 489,
+ "generated_by": "langos_train.build_pack",
+ "language": "rw",
+ "max_phrase_words": 2
+}

@@ -230,7 +230,9 @@ defmodule LangOS.Engine.Stat do
     end
   end
 
-  defp model_locale(_locale), do: "en"
+  defp model_locale(locale) do
+    if Model.intent(locale), do: locale, else: "en"
+  end
 
   defp min_confidence do
     case Process.whereis(Config) do

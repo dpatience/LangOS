@@ -24,6 +24,10 @@ mix langos understand --text "Register Clarissa in Biology A1."
 mix langos express --template missing_fields --data '{"entity":"Clarissa","fields":"age, language"}'
 mix langos serve     # HTTP API on http://127.0.0.1:9473
 
+# Train statistical models (optional — rules work without this)
+mix langos train --all
+mix langos setup --lang en   # first-run: default language + train if needed
+
 # Example API call
 curl -s http://127.0.0.1:9473/v1/understand \
   -H 'content-type: application/json' \
@@ -40,6 +44,8 @@ Configuration lives in `config/dev.json` (development) and `config/langos.json` 
 | [Infrastructure](./docs/INFRASTRUCTURE.md) | Build, deploy, scale, models, caching, CI/CD |
 | [Evolution](./docs/EVOLUTION.md) | Long-term growth, language packs, Observatory, post-v1.0 strategy |
 | [Engine Spec](./docs/ENGINE_SPEC.md) | Inference engine behaviour contract |
+| [Training](./docs/TRAINING.md) | Build models for en, fr, de, tr, rw |
+| [Models vs Packs](./docs/MODEL_vs_PACK.md) | What goes in `packs/` vs `models/` |
 
 ## Repository layout
 
@@ -104,10 +110,6 @@ curl -s http://127.0.0.1:9473/v1/understand \
 
 MIX_ENV=prod mix release patience
 _build/prod/rel/patience/bin/patience serve
-
-## Brainstorming Notes
-
-Design discussions are captured in [`chats/`](./chats/) (1.md – 10.md).
 
 ## License
 

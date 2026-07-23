@@ -1,0 +1,440 @@
+{
+ "entries": {
+  "adorer": {
+   "category": "STA",
+   "id": "STA_000026",
+   "symbol": "STATE_LOVE"
+  },
+  "afficher": {
+   "category": "ACT",
+   "id": "ACT_000010",
+   "symbol": "ACTION_SHOW"
+  },
+  "aider": {
+   "category": "ACT",
+   "id": "ACT_000013",
+   "symbol": "ACTION_HELP"
+  },
+  "aime": {
+   "category": "STA",
+   "id": "STA_000026",
+   "symbol": "STATE_LOVE"
+  },
+  "aimer": {
+   "category": "STA",
+   "id": "STA_000026",
+   "symbol": "STATE_LOVE"
+  },
+  "ajouter": {
+   "category": "ACT",
+   "id": "ACT_000004",
+   "symbol": "ACTION_ASSIGN"
+  },
+  "arr\u00eater": {
+   "category": "ACT",
+   "id": "ACT_000015",
+   "symbol": "ACTION_STOP"
+  },
+  "au": {
+   "category": "MOD"
+  },
+  "aujourd'hui": {
+   "ref": "REF_TIME_NOW"
+  },
+  "aux": {
+   "category": "MOD"
+  },
+  "avec": {
+   "category": "MOD"
+  },
+  "avoir": {
+   "category": "STA",
+   "id": "STA_000002",
+   "symbol": "STATE_HAVE"
+  },
+  "avoir besoin": {
+   "category": "STA",
+   "id": "STA_000005",
+   "symbol": "STATE_NEED"
+  },
+  "bien": {
+   "category": "MOD"
+  },
+  "boire": {
+   "category": "ACT",
+   "id": "ACT_000115",
+   "symbol": "ACTION_DRINK"
+  },
+  "bonjour": {
+   "category": "META",
+   "id": "META_000001",
+   "symbol": "META_GREET"
+  },
+  "c'est": {
+   "category": "MOD"
+  },
+  "ceci": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "cela": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "changer": {
+   "category": "ACT",
+   "id": "ACT_000003",
+   "symbol": "ACTION_UPDATE"
+  },
+  "chercher": {
+   "category": "ACT",
+   "id": "ACT_000012",
+   "symbol": "ACTION_SEARCH"
+  },
+  "commencer": {
+   "category": "ACT",
+   "id": "ACT_000014",
+   "symbol": "ACTION_START"
+  },
+  "comment": {
+   "category": "MOD"
+  },
+  "connaitre": {
+   "category": "STA",
+   "id": "STA_000003",
+   "symbol": "STATE_KNOW"
+  },
+  "conna\u00eetre": {
+   "category": "STA",
+   "id": "STA_000003",
+   "symbol": "STATE_KNOW"
+  },
+  "creer": {
+   "category": "ACT",
+   "id": "ACT_000001",
+   "symbol": "ACTION_CREATE"
+  },
+  "cr\u00e9er": {
+   "category": "ACT",
+   "id": "ACT_000001",
+   "symbol": "ACTION_CREATE"
+  },
+  "dans": {
+   "category": "MOD"
+  },
+  "de": {
+   "category": "MOD"
+  },
+  "demain": {
+   "ref": "REF_TIME_FUTURE"
+  },
+  "des": {
+   "category": "MOD"
+  },
+  "donner": {
+   "category": "ACT",
+   "id": "ACT_000009",
+   "symbol": "ACTION_GIVE"
+  },
+  "du": {
+   "category": "MOD"
+  },
+  "d\u00e9tester": {
+   "category": "STA",
+   "id": "STA_000027",
+   "symbol": "STATE_HATE"
+  },
+  "effacer": {
+   "category": "ACT",
+   "id": "ACT_000002",
+   "symbol": "ACTION_DELETE"
+  },
+  "elle": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "elles": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "enlever": {
+   "category": "ACT",
+   "id": "ACT_000006",
+   "symbol": "ACTION_REMOVE"
+  },
+  "enregistrer": {
+   "category": "ACT",
+   "id": "ACT_000005",
+   "symbol": "ACTION_REGISTER"
+  },
+  "envoyer": {
+   "category": "ACT",
+   "id": "ACT_000008",
+   "symbol": "ACTION_SEND"
+  },
+  "es": {
+   "category": "MOD"
+  },
+  "est": {
+   "category": "MOD"
+  },
+  "et": {
+   "category": "MOD"
+  },
+  "faire": {
+   "category": "ACT",
+   "id": "ACT_000001",
+   "symbol": "ACTION_CREATE"
+  },
+  "hier": {
+   "ref": "REF_TIME_PAST"
+  },
+  "ici": {
+   "ref": "REF_HERE"
+  },
+  "il": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "ils": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "inscrire": {
+   "category": "ACT",
+   "id": "ACT_000005",
+   "symbol": "ACTION_REGISTER"
+  },
+  "installer": {
+   "category": "ACT",
+   "id": "ACT_000016",
+   "symbol": "ACTION_INSTALL"
+  },
+  "je": {
+   "ref": "REF_SPEAKER"
+  },
+  "la": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "le": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "les": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "lister": {
+   "category": "ACT",
+   "id": "ACT_000011",
+   "symbol": "ACTION_LIST"
+  },
+  "lui": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "l\u00e0": {
+   "ref": "REF_HERE"
+  },
+  "ma": {
+   "ref": "REF_SPEAKER"
+  },
+  "maintenant": {
+   "ref": "REF_TIME_NOW"
+  },
+  "mais": {
+   "category": "MOD"
+  },
+  "mange": {
+   "category": "ACT",
+   "id": "ACT_000114",
+   "symbol": "ACTION_EAT"
+  },
+  "manger": {
+   "category": "ACT",
+   "id": "ACT_000114",
+   "symbol": "ACTION_EAT"
+  },
+  "me": {
+   "ref": "REF_SPEAKER"
+  },
+  "merci": {
+   "category": "META",
+   "id": "META_000003",
+   "symbol": "META_THANK"
+  },
+  "mes": {
+   "ref": "REF_SPEAKER"
+  },
+  "modifier": {
+   "category": "ACT",
+   "id": "ACT_000003",
+   "symbol": "ACTION_UPDATE"
+  },
+  "moi": {
+   "ref": "REF_SPEAKER"
+  },
+  "mon": {
+   "ref": "REF_SPEAKER"
+  },
+  "montrer": {
+   "category": "ACT",
+   "id": "ACT_000010",
+   "symbol": "ACTION_SHOW"
+  },
+  "ne": {
+   "category": "MOD"
+  },
+  "non": {
+   "category": "META",
+   "id": "META_000006",
+   "symbol": "META_DENY"
+  },
+  "nos": {
+   "ref": "REF_SPEAKER"
+  },
+  "notre": {
+   "ref": "REF_SPEAKER"
+  },
+  "nous": {
+   "ref": "REF_SPEAKER"
+  },
+  "ou": {
+   "category": "MOD"
+  },
+  "oui": {
+   "category": "META",
+   "id": "META_000005",
+   "symbol": "META_CONFIRM"
+  },
+  "o\u00f9": {
+   "category": "MOD"
+  },
+  "pas": {
+   "category": "MOD"
+  },
+  "pla\u00eet": {
+   "category": "MOD"
+  },
+  "pour": {
+   "category": "MOD"
+  },
+  "pourquoi": {
+   "category": "MOD"
+  },
+  "qu'est-ce": {
+   "category": "MOD"
+  },
+  "quand": {
+   "category": "MOD"
+  },
+  "que": {
+   "category": "MOD"
+  },
+  "qui": {
+   "category": "MOD"
+  },
+  "quoi": {
+   "category": "MOD"
+  },
+  "retirer": {
+   "category": "ACT",
+   "id": "ACT_000006",
+   "symbol": "ACTION_REMOVE"
+  },
+  "s'il": {
+   "category": "MOD"
+  },
+  "sais": {
+   "category": "STA",
+   "id": "STA_000003",
+   "symbol": "STATE_KNOW"
+  },
+  "salut": {
+   "category": "META",
+   "id": "META_000001",
+   "symbol": "META_GREET"
+  },
+  "savoir": {
+   "category": "STA",
+   "id": "STA_000003",
+   "symbol": "STATE_KNOW"
+  },
+  "sont": {
+   "category": "MOD"
+  },
+  "suis": {
+   "category": "MOD"
+  },
+  "supprimer": {
+   "category": "ACT",
+   "id": "ACT_000002",
+   "symbol": "ACTION_DELETE"
+  },
+  "sur": {
+   "category": "MOD"
+  },
+  "ta": {
+   "ref": "REF_LISTENER"
+  },
+  "te": {
+   "ref": "REF_LISTENER"
+  },
+  "tes": {
+   "ref": "REF_LISTENER"
+  },
+  "toi": {
+   "ref": "REF_LISTENER"
+  },
+  "ton": {
+   "ref": "REF_LISTENER"
+  },
+  "trouver": {
+   "category": "ACT",
+   "id": "ACT_000012",
+   "symbol": "ACTION_SEARCH"
+  },
+  "tr\u00e8s": {
+   "category": "MOD"
+  },
+  "tu": {
+   "ref": "REF_LISTENER"
+  },
+  "un": {
+   "category": "MOD"
+  },
+  "une": {
+   "category": "MOD"
+  },
+  "veux": {
+   "category": "STA",
+   "id": "STA_000004",
+   "symbol": "STATE_WANT"
+  },
+  "vos": {
+   "ref": "REF_LISTENER"
+  },
+  "votre": {
+   "ref": "REF_LISTENER"
+  },
+  "voulez": {
+   "category": "STA",
+   "id": "STA_000004",
+   "symbol": "STATE_WANT"
+  },
+  "vouloir": {
+   "category": "STA",
+   "id": "STA_000004",
+   "symbol": "STATE_WANT"
+  },
+  "vous": {
+   "ref": "REF_LISTENER"
+  },
+  "\u00e7a": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "\u00eates": {
+   "category": "MOD"
+  },
+  "\u00eatre": {
+   "category": "STA",
+   "id": "STA_000001",
+   "symbol": "STATE_BE"
+  }
+ },
+ "entry_count": 114,
+ "generated_by": "langos_train.build_pack",
+ "language": "fr",
+ "max_phrase_words": 2
+}

@@ -1,0 +1,651 @@
+{
+ "entries": {
+  "abend": {
+   "category": "MOD"
+  },
+  "aber": {
+   "category": "MOD"
+  },
+  "aktualisiere": {
+   "category": "ACT",
+   "id": "ACT_000003",
+   "symbol": "ACTION_UPDATE"
+  },
+  "aktualisieren": {
+   "category": "ACT",
+   "id": "ACT_000003",
+   "symbol": "ACTION_UPDATE"
+  },
+  "alle": {
+   "category": "MOD"
+  },
+  "an": {
+   "category": "MOD"
+  },
+  "auch": {
+   "category": "MOD"
+  },
+  "auf": {
+   "category": "MOD"
+  },
+  "bezahle": {
+   "category": "ACT",
+   "id": "ACT_000059",
+   "symbol": "ACTION_PAY"
+  },
+  "bezahlen": {
+   "category": "ACT",
+   "id": "ACT_000059",
+   "symbol": "ACTION_PAY"
+  },
+  "bin": {
+   "category": "STA",
+   "id": "STA_000001",
+   "symbol": "STATE_BE"
+  },
+  "bitte": {
+   "category": "MOD"
+  },
+  "bittesch\u00f6n": {
+   "category": "MOD"
+  },
+  "brauche": {
+   "category": "STA",
+   "id": "STA_000005",
+   "symbol": "STATE_NEED"
+  },
+  "brauchen": {
+   "category": "STA",
+   "id": "STA_000005",
+   "symbol": "STATE_NEED"
+  },
+  "danke": {
+   "category": "MOD"
+  },
+  "dankesch\u00f6n": {
+   "category": "MOD"
+  },
+  "das": {
+   "category": "MOD"
+  },
+  "definiere": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
+  "definieren": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
+  "dein": {
+   "category": "MOD"
+  },
+  "dem": {
+   "category": "MOD"
+  },
+  "den": {
+   "category": "MOD"
+  },
+  "denke": {
+   "category": "STA",
+   "id": "STA_000009",
+   "symbol": "STATE_THINK"
+  },
+  "denken": {
+   "category": "STA",
+   "id": "STA_000009",
+   "symbol": "STATE_THINK"
+  },
+  "der": {
+   "category": "MOD"
+  },
+  "des": {
+   "category": "MOD"
+  },
+  "dich": {
+   "ref": "REF_LISTENER"
+  },
+  "die": {
+   "category": "MOD"
+  },
+  "dir": {
+   "ref": "REF_LISTENER"
+  },
+  "du": {
+   "ref": "REF_LISTENER"
+  },
+  "durch": {
+   "category": "MOD"
+  },
+  "ein": {
+   "category": "MOD"
+  },
+  "eine": {
+   "category": "MOD"
+  },
+  "einladen": {
+   "category": "ACT",
+   "id": "ACT_000095",
+   "symbol": "ACTION_INVITE"
+  },
+  "entschuldigung": {
+   "category": "MOD"
+  },
+  "er": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "erkl\u00e4re": {
+   "category": "ACT",
+   "id": "ACT_000088",
+   "symbol": "ACTION_EXPLAIN"
+  },
+  "erkl\u00e4ren": {
+   "category": "ACT",
+   "id": "ACT_000088",
+   "symbol": "ACTION_EXPLAIN"
+  },
+  "erstelle": {
+   "category": "ACT",
+   "id": "ACT_000001",
+   "symbol": "ACTION_CREATE"
+  },
+  "erstellen": {
+   "category": "ACT",
+   "id": "ACT_000001",
+   "symbol": "ACTION_CREATE"
+  },
+  "es": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "esse": {
+   "category": "ACT",
+   "id": "ACT_000114",
+   "symbol": "ACTION_EAT"
+  },
+  "essen": {
+   "category": "ACT",
+   "id": "ACT_000114",
+   "symbol": "ACTION_EAT"
+  },
+  "euer": {
+   "category": "MOD"
+  },
+  "f\u00fcr": {
+   "category": "MOD"
+  },
+  "geben": {
+   "category": "ACT",
+   "id": "ACT_000009",
+   "symbol": "ACTION_GIVE"
+  },
+  "gegen": {
+   "category": "MOD"
+  },
+  "gehe": {
+   "category": "ACT",
+   "id": "ACT_000200",
+   "symbol": "ACTION_TRAVEL"
+  },
+  "gehen": {
+   "category": "ACT",
+   "id": "ACT_000200",
+   "symbol": "ACTION_TRAVEL"
+  },
+  "genau": {
+   "category": "MOD"
+  },
+  "gib": {
+   "category": "ACT",
+   "id": "ACT_000009",
+   "symbol": "ACTION_GIVE"
+  },
+  "gut": {
+   "category": "MOD"
+  },
+  "guten": {
+   "category": "MOD"
+  },
+  "habe": {
+   "category": "STA",
+   "id": "STA_000002",
+   "symbol": "STATE_HAVE"
+  },
+  "haben": {
+   "category": "STA",
+   "id": "STA_000002",
+   "symbol": "STATE_HAVE"
+  },
+  "hallo": {
+   "category": "MOD"
+  },
+  "hasse": {
+   "category": "STA",
+   "id": "STA_000027",
+   "symbol": "STATE_HATE"
+  },
+  "hassen": {
+   "category": "STA",
+   "id": "STA_000027",
+   "symbol": "STATE_HATE"
+  },
+  "hat": {
+   "category": "MOD"
+  },
+  "helfen": {
+   "category": "ACT",
+   "id": "ACT_000013",
+   "symbol": "ACTION_HELP"
+  },
+  "heute": {
+   "ref": "REF_TIME_NOW"
+  },
+  "hier": {
+   "ref": "REF_HERE"
+  },
+  "hilf": {
+   "category": "ACT",
+   "id": "ACT_000013",
+   "symbol": "ACTION_HELP"
+  },
+  "ich": {
+   "ref": "REF_SPEAKER"
+  },
+  "ihr": {
+   "category": "MOD"
+  },
+  "immer": {
+   "category": "MOD"
+  },
+  "in": {
+   "category": "MOD"
+  },
+  "ist": {
+   "category": "STA",
+   "id": "STA_000001",
+   "symbol": "STATE_BE"
+  },
+  "ja": {
+   "category": "MOD"
+  },
+  "jetzt": {
+   "ref": "REF_TIME_NOW"
+  },
+  "kaufe": {
+   "category": "ACT",
+   "id": "ACT_000057",
+   "symbol": "ACTION_BUY"
+  },
+  "kaufen": {
+   "category": "ACT",
+   "id": "ACT_000057",
+   "symbol": "ACTION_BUY"
+  },
+  "kein": {
+   "category": "MOD"
+  },
+  "k\u00f6nnen": {
+   "category": "MOD"
+  },
+  "lade": {
+   "category": "ACT",
+   "id": "ACT_000095",
+   "symbol": "ACTION_INVITE"
+  },
+  "lesen": {
+   "category": "ACT",
+   "id": "ACT_000019",
+   "symbol": "ACTION_READ"
+  },
+  "liebe": {
+   "category": "STA",
+   "id": "STA_000026",
+   "symbol": "STATE_LOVE"
+  },
+  "lieben": {
+   "category": "STA",
+   "id": "STA_000026",
+   "symbol": "STATE_LOVE"
+  },
+  "lies": {
+   "category": "ACT",
+   "id": "ACT_000019",
+   "symbol": "ACTION_READ"
+  },
+  "l\u00f6sche": {
+   "category": "ACT",
+   "id": "ACT_000002",
+   "symbol": "ACTION_DELETE"
+  },
+  "l\u00f6schen": {
+   "category": "ACT",
+   "id": "ACT_000002",
+   "symbol": "ACTION_DELETE"
+  },
+  "mag": {
+   "category": "STA",
+   "id": "STA_000006",
+   "symbol": "STATE_LIKE"
+  },
+  "mehr": {
+   "category": "MOD"
+  },
+  "mein": {
+   "category": "MOD"
+  },
+  "mich": {
+   "ref": "REF_SPEAKER"
+  },
+  "mir": {
+   "ref": "REF_SPEAKER"
+  },
+  "mit": {
+   "category": "MOD"
+  },
+  "moin": {
+   "category": "MOD"
+  },
+  "morgen": {
+   "category": "MOD"
+  },
+  "m\u00f6chten": {
+   "category": "MOD"
+  },
+  "m\u00f6gen": {
+   "category": "STA",
+   "id": "STA_000006",
+   "symbol": "STATE_LIKE"
+  },
+  "m\u00fcssen": {
+   "category": "MOD"
+  },
+  "nat\u00fcrlich": {
+   "category": "MOD"
+  },
+  "neben": {
+   "category": "MOD"
+  },
+  "nein": {
+   "category": "MOD"
+  },
+  "nicht": {
+   "category": "MOD"
+  },
+  "nie": {
+   "category": "MOD"
+  },
+  "noch": {
+   "category": "MOD"
+  },
+  "oder": {
+   "category": "MOD"
+  },
+  "ohne": {
+   "category": "MOD"
+  },
+  "registriere": {
+   "category": "ACT",
+   "id": "ACT_000005",
+   "symbol": "ACTION_REGISTER"
+  },
+  "registrieren": {
+   "category": "ACT",
+   "id": "ACT_000005",
+   "symbol": "ACTION_REGISTER"
+  },
+  "reise": {
+   "category": "ACT",
+   "id": "ACT_000200",
+   "symbol": "ACTION_TRAVEL"
+  },
+  "reisen": {
+   "category": "ACT",
+   "id": "ACT_000200",
+   "symbol": "ACTION_TRAVEL"
+  },
+  "schlafe": {
+   "category": "ACT",
+   "id": "ACT_000112",
+   "symbol": "ACTION_SLEEP"
+  },
+  "schlafen": {
+   "category": "ACT",
+   "id": "ACT_000112",
+   "symbol": "ACTION_SLEEP"
+  },
+  "schlie\u00dfe": {
+   "category": "ACT",
+   "id": "ACT_000018",
+   "symbol": "ACTION_CLOSE"
+  },
+  "schlie\u00dfen": {
+   "category": "ACT",
+   "id": "ACT_000018",
+   "symbol": "ACTION_CLOSE"
+  },
+  "schon": {
+   "category": "MOD"
+  },
+  "schreibe": {
+   "category": "ACT",
+   "id": "ACT_000020",
+   "symbol": "ACTION_WRITE"
+  },
+  "schreiben": {
+   "category": "ACT",
+   "id": "ACT_000020",
+   "symbol": "ACTION_WRITE"
+  },
+  "sehr": {
+   "category": "MOD"
+  },
+  "sein": {
+   "category": "MOD"
+  },
+  "sende": {
+   "category": "ACT",
+   "id": "ACT_000008",
+   "symbol": "ACTION_SEND"
+  },
+  "senden": {
+   "category": "ACT",
+   "id": "ACT_000008",
+   "symbol": "ACTION_SEND"
+  },
+  "servus": {
+   "category": "MOD"
+  },
+  "sie": {
+   "ref": "REF_PREVIOUS_ENTITY"
+  },
+  "sind": {
+   "category": "STA",
+   "id": "STA_000001",
+   "symbol": "STATE_BE"
+  },
+  "sollen": {
+   "category": "MOD"
+  },
+  "speichere": {
+   "category": "ACT",
+   "id": "ACT_000021",
+   "symbol": "ACTION_SAVE"
+  },
+  "speichern": {
+   "category": "ACT",
+   "id": "ACT_000021",
+   "symbol": "ACTION_SAVE"
+  },
+  "spiele": {
+   "category": "ACT",
+   "id": "ACT_000120",
+   "symbol": "ACTION_PLAY"
+  },
+  "spielen": {
+   "category": "ACT",
+   "id": "ACT_000120",
+   "symbol": "ACTION_PLAY"
+  },
+  "starte": {
+   "category": "ACT",
+   "id": "ACT_000014",
+   "symbol": "ACTION_START"
+  },
+  "starten": {
+   "category": "ACT",
+   "id": "ACT_000014",
+   "symbol": "ACTION_START"
+  },
+  "stoppe": {
+   "category": "ACT",
+   "id": "ACT_000015",
+   "symbol": "ACTION_STOP"
+  },
+  "stoppen": {
+   "category": "ACT",
+   "id": "ACT_000015",
+   "symbol": "ACTION_STOP"
+  },
+  "suche": {
+   "category": "ACT",
+   "id": "ACT_000012",
+   "symbol": "ACTION_SEARCH"
+  },
+  "suchen": {
+   "category": "ACT",
+   "id": "ACT_000012",
+   "symbol": "ACTION_SEARCH"
+  },
+  "trinke": {
+   "category": "ACT",
+   "id": "ACT_000115",
+   "symbol": "ACTION_DRINK"
+  },
+  "trinken": {
+   "category": "ACT",
+   "id": "ACT_000115",
+   "symbol": "ACTION_DRINK"
+  },
+  "tsch\u00fcss": {
+   "category": "MOD"
+  },
+  "und": {
+   "category": "MOD"
+  },
+  "unser": {
+   "category": "MOD"
+  },
+  "unter": {
+   "category": "MOD"
+  },
+  "verstehe": {
+   "category": "STA",
+   "id": "STA_000016",
+   "symbol": "STATE_UNDERSTAND"
+  },
+  "verstehen": {
+   "category": "STA",
+   "id": "STA_000016",
+   "symbol": "STATE_UNDERSTAND"
+  },
+  "vielleicht": {
+   "category": "MOD"
+  },
+  "von": {
+   "category": "MOD"
+  },
+  "wann": {
+   "category": "MOD"
+  },
+  "war": {
+   "category": "MOD"
+  },
+  "warum": {
+   "category": "MOD"
+  },
+  "was": {
+   "category": "MOD"
+  },
+  "wei\u00df": {
+   "category": "STA",
+   "id": "STA_000003",
+   "symbol": "STATE_KNOW"
+  },
+  "weniger": {
+   "category": "MOD"
+  },
+  "wer": {
+   "category": "MOD"
+  },
+  "werden": {
+   "category": "MOD"
+  },
+  "wie": {
+   "category": "MOD"
+  },
+  "will": {
+   "category": "STA",
+   "id": "STA_000004",
+   "symbol": "STATE_WANT"
+  },
+  "wir": {
+   "category": "MOD"
+  },
+  "wissen": {
+   "category": "STA",
+   "id": "STA_000003",
+   "symbol": "STATE_KNOW"
+  },
+  "wo": {
+   "category": "MOD"
+  },
+  "wollen": {
+   "category": "STA",
+   "id": "STA_000004",
+   "symbol": "STATE_WANT"
+  },
+  "zeige": {
+   "category": "ACT",
+   "id": "ACT_000010",
+   "symbol": "ACTION_SHOW"
+  },
+  "zeigen": {
+   "category": "ACT",
+   "id": "ACT_000010",
+   "symbol": "ACTION_SHOW"
+  },
+  "zu": {
+   "category": "MOD"
+  },
+  "zwischen": {
+   "category": "MOD"
+  },
+  "\u00f6ffne": {
+   "category": "ACT",
+   "id": "ACT_000017",
+   "symbol": "ACTION_OPEN"
+  },
+  "\u00f6ffnen": {
+   "category": "ACT",
+   "id": "ACT_000017",
+   "symbol": "ACTION_OPEN"
+  },
+  "\u00fcber": {
+   "category": "MOD"
+  },
+  "\u00fcbersetze": {
+   "category": "ACT",
+   "id": "ACT_000087",
+   "symbol": "ACTION_TRANSLATE"
+  },
+  "\u00fcbersetzen": {
+   "category": "ACT",
+   "id": "ACT_000087",
+   "symbol": "ACTION_TRANSLATE"
+  }
+ },
+ "entry_count": 163,
+ "generated_by": "langos_train.build_pack",
+ "language": "de",
+ "max_phrase_words": 1
+}
