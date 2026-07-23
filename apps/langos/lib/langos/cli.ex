@@ -3,7 +3,17 @@ defmodule LangOS.CLI do
   Patience CLI — the LangOS command-line interface.
   Named after Patience, who created LangOS.
   """
-  @switches [config: :string, text: :string, template: :string, data: :string, from: :string, to: :string]
+  @switches [
+    config: :string,
+    text: :string,
+    template: :string,
+    data: :string,
+    from: :string,
+    to: :string,
+    file: :string,
+    locale: :string,
+    document: :boolean
+  ]
   @aliases [c: :config]
 
   def main(argv) do
@@ -11,8 +21,11 @@ defmodule LangOS.CLI do
       ["understand" | rest] -> cmd_understand(rest)
       ["express" | rest] -> cmd_express(rest)
       ["serve" | rest] -> cmd_serve(rest)
+      ["mcp" | rest] -> cmd_mcp(rest)
+      ["benchmark" | rest] -> cmd_benchmark(rest)
       ["languages", "list"] -> cmd_languages_list()
       ["engines", "list"] -> cmd_engines_list()
+      ["plugins", "list"] -> cmd_plugins_list()
       ["version"] -> cmd_version()
       _ -> usage()
     end
@@ -20,11 +33,28 @@ defmodule LangOS.CLI do
 
   defp cmd_understand(args) do
     {opts, _, _} = OptionParser.parse(args, switches: @switches, aliases: @aliases)
-    text = opts[:text] || IO.read(:stdio, :line) |> String.trim()
+
+    text =
+      cond do
+        opts[:file] -> File.read!(opts[:file])
+        opts[:text] -> opts[:text]
+        true -> IO.read(:stdio, :line) |> String.trim()
+      end
 
     ensure_services()
 
-    case LangOS.understand(%{"text" => text}) do
+    request =
+      %{"text" => text}
+      |> then(fn req -> if opts[:locale], do: Map.put(req, "locale", opts[:locale]), else: req end)
+
+    result =
+      if opts[:document] || opts[:file] do
+        LangOS.understand_document(request)
+      else
+        LangOS.understand(request)
+      end
+
+    case result do
       {:ok, resp} -> IO.puts(Jason.encode!(resp, pretty: true))
       {:error, err} -> exit_error(err)
     end
@@ -61,6 +91,38 @@ defmodule LangOS.CLI do
     IO.puts("patience: Listening on http://127.0.0.1:#{port}")
     IO.puts("patience: Semantic IR #{LangOS.IR.version()} — graph-first, language-independent")
     Process.sleep(:infinity)
+  end
+
+  defp cmd_mcp(args) do
+    {opts, _, _} = OptionParser.parse(args, switches: @switches, aliases: @aliases)
+
+    if path = opts[:config] do
+      Application.put_env(:langos, :config_file, path)
+    end
+
+    ensure_services()
+    LangOS.MCP.Server.run()
+  end
+
+  defp cmd_benchmark(args) do
+    {opts, _, _} = OptionParser.parse(args, switches: @switches, aliases: @aliases)
+    path = opts[:file] || "bench/corpus.jsonl"
+
+    ensure_services()
+
+    case LangOS.Benchmark.run(path) do
+      {:ok, report} ->
+        LangOS.Benchmark.print(report)
+        if report["accuracy"] < 100.0, do: System.halt(1)
+
+      {:error, err} ->
+        exit_error(err)
+    end
+  end
+
+  defp cmd_plugins_list do
+    ensure_services()
+    IO.puts(Jason.encode!(LangOS.VocabPlugin.installed(), pretty: true))
   end
 
   defp cmd_version do
@@ -101,10 +163,14 @@ defmodule LangOS.CLI do
     patience — LangOS CLI (by Patience)
 
       patience understand --text "Register Clarissa in Biology A1"
+      patience understand --file report.txt          # document mode (unit streaming pipeline)
       patience express --template missing_fields --data fields.json
       patience serve [--config config/dev.json]
+      patience mcp                                   # Model Context Protocol over stdio
+      patience benchmark [--file bench/corpus.jsonl]
       patience languages list
       patience engines list
+      patience plugins list
       patience version
     """)
 

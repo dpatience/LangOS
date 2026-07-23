@@ -1,0 +1,11 @@
+[package]
+name = "langos-sdk"
+description = "Rust SDK for LangOS — translate human language to Semantic IR and back"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+ureq = { version = "2", features = ["json"] }

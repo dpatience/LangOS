@@ -35,7 +35,12 @@ defmodule LangOS.MixProject do
       {:plug, "~> 1.16"},
       {:cachex, "~> 4.0"},
       {:rustler, "~> 0.36", runtime: false},
-      {:telemetry, "~> 1.3"}
+      {:telemetry, "~> 1.3"},
+      {:grpc, "~> 0.10"},
+      # grpc's cowboy server adapter is an optional dep; depend on it
+      # explicitly so ranch/cowboy start before our gRPC endpoint.
+      {:cowboy, "~> 2.14"},
+      {:protobuf, "~> 0.14"}
     ]
   end
 

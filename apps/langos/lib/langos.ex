@@ -18,6 +18,16 @@ defmodule LangOS do
   end
 
   @doc """
+  Parse a multi-sentence document into one Semantic IR per semantic unit.
+  Units are parsed in parallel; coreference slots carry candidates from
+  earlier units.
+  """
+  @spec understand_document(understand_request()) :: {:ok, map()} | {:error, term()}
+  def understand_document(request) when is_map(request) do
+    Pipeline.understand_document(request)
+  end
+
+  @doc """
   Generate natural language from structured express input.
   """
   @spec express(express_request()) :: {:ok, map()} | {:error, term()}

@@ -1,0 +1,25 @@
+{"input": {"text": "Register Clarissa in Biology A1.", "locale": "en"}, "expected": {"vocab_id": "ACT_000005", "utterance_type": "command"}}
+{"input": {"text": "Add Alice to Biology A1.", "locale": "en"}, "expected": {"vocab_id": "ACT_000004", "utterance_type": "command"}}
+{"input": {"text": "Create a student named Clarissa.", "locale": "en"}, "expected": {"vocab_id": "ACT_000001", "utterance_type": "command"}}
+{"input": {"text": "Delete Biology A1.", "locale": "en"}, "expected": {"vocab_id": "ACT_000002", "utterance_type": "command"}}
+{"input": {"text": "Enroll Malik in Chemistry B2.", "locale": "en"}, "expected": {"vocab_id": "ACT_000005", "utterance_type": "command"}}
+{"input": {"text": "What is the meaning of photosynthesis?"}, "expected": {"vocab_id": "ACT_000221", "utterance_type": "question", "language": "en"}}
+{"input": {"text": "What is photosynthesis?"}, "expected": {"vocab_id": "ACT_000221", "utterance_type": "question"}}
+{"input": {"text": "Can I join the class?"}, "expected": {"vocab_id": "EVT_000001", "utterance_type": "question"}}
+{"input": {"text": "Is the world green?"}, "expected": {"vocab_id": "STA_000001", "utterance_type": "question"}}
+{"input": {"text": "Do you know me?"}, "expected": {"vocab_id": "STA_000003", "utterance_type": "question"}}
+{"input": {"text": "Where is Alice?"}, "expected": {"vocab_id": "STA_000001", "utterance_type": "question"}}
+{"input": {"text": "I love you."}, "expected": {"vocab_id": "STA_000026", "utterance_type": "statement"}}
+{"input": {"text": "I miss my family."}, "expected": {"vocab_id": "STA_000029", "utterance_type": "statement"}}
+{"input": {"text": "The sky is blue."}, "expected": {"vocab_id": "STA_000001", "utterance_type": "statement"}}
+{"input": {"text": "I want to eat."}, "expected": {"vocab_id": "STA_000004", "utterance_type": "statement"}}
+{"input": {"text": "I need help with my homework."}, "expected": {"vocab_id": "STA_000005", "utterance_type": "statement"}}
+{"input": {"text": "Thank you so much!"}, "expected": {"vocab_id": "META_000003"}}
+{"input": {"text": "Inscris Clarissa dans Biologie A1.", "locale": "fr"}, "expected": {"vocab_id": "ACT_000005", "utterance_type": "command"}}
+{"input": {"text": "Ajoute Alice au groupe.", "locale": "fr"}, "expected": {"vocab_id": "ACT_000004", "utterance_type": "command"}}
+{"input": {"text": "Supprime Biologie A1.", "locale": "fr"}, "expected": {"vocab_id": "ACT_000002", "utterance_type": "command"}}
+{"input": {"text": "Je veux manger"}, "expected": {"vocab_id": "STA_000004", "language": "fr"}}
+{"input": {"text": "Andikisha Clarissa muri Biology A1.", "locale": "rw"}, "expected": {"vocab_id": "ACT_000005", "utterance_type": "command"}}
+{"input": {"text": "Ongeramo Alice muri Biology A1.", "locale": "rw"}, "expected": {"vocab_id": "ACT_000004", "utterance_type": "command"}}
+{"input": {"text": "Siba Biology A1.", "locale": "rw"}, "expected": {"vocab_id": "ACT_000002", "utterance_type": "command"}}
+{"input": {"text": "Nshaka kurya"}, "expected": {"vocab_id": "STA_000004", "language": "rw"}}

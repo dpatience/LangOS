@@ -4,6 +4,7 @@ members = [
   "crates/langos_parser",
   "crates/langos_graph",
   "crates/langos_nif",
+  "sdk/rust",
 ]
 resolver = "2"
 

@@ -34,6 +34,37 @@ defmodule LangOS.API.Router do
     handle(conn, fn -> LangOS.understand(conn.body_params) end)
   end
 
+  post "/v1/understand/document" do
+    handle(conn, fn -> LangOS.understand_document(conn.body_params) end)
+  end
+
+  # Server-sent events: one `unit` event per parsed semantic unit, in order,
+  # followed by a `done` event with the document summary. First unit arrives
+  # while the rest of the document is still parsing.
+  post "/v1/understand/stream" do
+    conn =
+      conn
+      |> put_resp_content_type("text/event-stream")
+      |> put_resp_header("cache-control", "no-cache")
+      |> send_chunked(200)
+
+    result =
+      LangOS.Pipeline.understand_document(conn.body_params, fn unit ->
+        {:ok, _} = chunk(conn, "event: unit\ndata: #{Jason.encode!(unit)}\n\n")
+      end)
+
+    case result do
+      {:ok, summary} ->
+        done = Map.drop(summary, ["units"])
+        {:ok, conn} = chunk(conn, "event: done\ndata: #{Jason.encode!(done)}\n\n")
+        conn
+
+      {:error, reason} ->
+        {:ok, conn} = chunk(conn, "event: error\ndata: #{Jason.encode!(%{error: inspect(reason)})}\n\n")
+        conn
+    end
+  end
+
   post "/v1/express" do
     handle(conn, fn -> LangOS.express(conn.body_params) end)
   end

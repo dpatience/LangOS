@@ -926,16 +926,39 @@ Latency scales **sub-linearly** with text length via parallel unit processing an
 - [x] Kinyarwanda morphology: subject prefixes (n-/u-/a-...) resolve to
       reserved references, infinitive prefixes (ku-/gu-/kw-) strip to stems
 - [x] Parse chain: rule → syntax → stat → neural (classifier demoted to fallback)
-- [ ] Reference marker (coreference slots) — Phase 3
-- [ ] Rust SDK — Phase 3 (Python SDK shipped in Phase 1)
+- [x] Reference marker (coreference slots) — shipped in Phase 3
+- [x] Rust SDK — shipped in Phase 3 (Python SDK shipped in Phase 1)
 
-### Phase 3 — Platform
+### Phase 3 — Platform (complete)
 
-- Vocabulary plugins
-- Streaming for long documents
-- gRPC + MCP transports
-- Per-stage engine routing
-- Benchmark suite and evaluation harness
+- [x] Reference marker (`LangOS.ReferenceMarker`): every reference node gets a
+      coreference *slot* (speaker, listener, previous_entity, ...) under
+      `ir["references"]` — slots, never resolution. Discourse slots carry
+      ranked candidates from earlier semantic units.
+- [x] Vocabulary plugins (`plugins/<id>/vocab.json`): term lexicons, entity
+      hints, disambiguation priors — no intents or business rules. Example
+      plugin `education-vocab` ships installed ("class" → course,
+      "A1" → identifier). `patience plugins list`.
+- [x] Streaming for long documents: sentence splitter with source spans
+      (`LangOS.Splitter`), parallel unit parsing via `Task.async_stream`
+      (bounded by `documents.max_unit_concurrency`), sequential coreference
+      marking so later units see earlier entities. `POST /v1/understand/document`
+      (JSON) and `POST /v1/understand/stream` (SSE, one `unit` event per
+      semantic unit as it finishes). `patience understand --file doc.txt`.
+- [x] MCP transport: JSON-RPC 2.0 over stdio (`patience mcp`) exposing
+      `langos_understand`, `langos_understand_document`, `langos_express`,
+      `langos_translate` to any MCP client.
+- [x] gRPC transport: contract in `schemas/langos.proto`, served on port 9474
+      (config `server.grpc`), same core runtime as HTTP per P7.
+- [x] Per-stage engine routing from config (`routing.stages.parse`,
+      `routing.stages.generate`) — deployments reorder or drop engines
+      without code changes.
+- [x] Benchmark suite: `patience benchmark [--file bench/corpus.jsonl]` runs a
+      golden-format corpus through the full pipeline (cache off) and reports
+      accuracy, latency percentiles, and per-engine counts. Baseline:
+      25/25 (100%), p50 ≈ 3.4 ms, p95 ≈ 7 ms.
+- [x] Rust SDK (`sdk/rust`, crate `langos-sdk`): understand / document /
+      express / translate over the native HTTP API.
 
 ### Phase 4 — Scale & Own Models
 
@@ -971,15 +994,19 @@ LangOS/
 │   ├── fr/
 │   └── rw/
 ├── plugins/
-│   └── vocabulary/
+│   └── education-vocab/         # Vocabulary plugin (terms, entity hints, priors)
+├── bench/
+│   └── corpus.jsonl             # Benchmark corpus (golden format)
 ├── schemas/
-│   ├── semantic_ir.v1.json
+│   ├── semantic_ir.v1.2.json
+│   ├── semantic_vocabulary.json
+│   ├── langos.proto             # gRPC contract (port 9474)
 │   └── express_request.v1.json
 ├── docs/
 │   ├── ARCHITECTURE.md
 │   └── INFRASTRUCTURE.md
 └── config/
-    └── langos.yaml
+    └── langos.json
 ```
 
 ---

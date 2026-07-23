@@ -555,7 +555,12 @@ defmodule LangOS.Engine.Syntax do
     if ref do
       %{"role" => role, "kind" => "pronoun", "label" => surface, "ref" => ref, "span" => [first_start, last_stop]}
     else
-      kind = if Enum.any?(kept, &capitalized?/1), do: "named", else: "literal"
+      # Vocabulary plugins refine the concept kind with domain hints
+      # ("Biology A1" -> course); without a plugin the shape heuristic holds.
+      kind =
+        LangOS.VocabPlugin.kind_hint(surface) ||
+          if Enum.any?(kept, &capitalized?/1), do: "named", else: "literal"
+
       %{"role" => role, "kind" => kind, "label" => surface, "span" => [first_start, last_stop]}
     end
   end

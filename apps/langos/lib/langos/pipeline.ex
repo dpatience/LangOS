@@ -3,7 +3,7 @@ defmodule LangOS.Pipeline do
   Orchestrates understand, express, and translate pipeline stages.
   Pipeline: text → detect language → parse → build graph → export IR v1.2.
   """
-  alias LangOS.{Gateway, IR, LanguageDetector, Router}
+  alias LangOS.{Config, Gateway, IR, LanguageDetector, ReferenceMarker, Router, Splitter}
 
   @spec understand(map()) :: {:ok, map()} | {:error, term()}
   def understand(request) do
@@ -14,6 +14,89 @@ defmodule LangOS.Pipeline do
            Gateway.with_cache(normalized, fn -> run_understand(normalized) end) do
       latency = System.monotonic_time(:millisecond) - started
       {:ok, Map.put(response, "latency_ms", latency)}
+    end
+  end
+
+  @doc """
+  Understand a multi-sentence document.
+
+  The text is split into semantic units, parsed in parallel
+  (`Task.async_stream`, bounded by `documents.max_unit_concurrency`), then
+  reference-marked sequentially so each unit sees the named entities of the
+  units before it (coreference candidates). `on_unit` — when given — is
+  called with every finished unit in order, which is how the SSE transport
+  streams long documents.
+  """
+  @spec understand_document(map(), (map() -> any()) | nil) :: {:ok, map()} | {:error, term()}
+  def understand_document(request, on_unit \\ nil) do
+    started = System.monotonic_time(:millisecond)
+
+    with {:ok, normalized} <- Gateway.normalize_understand(request) do
+      units = Splitter.split(normalized["text"])
+      concurrency = Config.get(["documents", "max_unit_concurrency"], 4)
+
+      results =
+        units
+        |> Task.async_stream(
+          fn unit ->
+            understand(%{"text" => unit["text"], "locale" => normalized["locale"]})
+          end,
+          max_concurrency: concurrency,
+          ordered: true,
+          timeout: 30_000
+        )
+        |> Enum.zip(units)
+
+      {units_out, _entities} =
+        results
+        |> Enum.with_index()
+        |> Enum.map_reduce([], fn {{task_result, unit}, index}, prior ->
+          unit_out = document_unit(task_result, unit, index, prior)
+          if on_unit, do: on_unit.(unit_out)
+
+          new_entities =
+            case unit_out["ir"] do
+              nil -> prior
+              ir -> ReferenceMarker.named_entities(ir, index) ++ prior
+            end
+
+          {unit_out, new_entities}
+        end)
+
+      languages = units_out |> Enum.map(& &1["language"]) |> Enum.reject(&is_nil/1)
+
+      language =
+        languages
+        |> Enum.frequencies()
+        |> Enum.max_by(&elem(&1, 1), fn -> {"en", 0} end)
+        |> elem(0)
+
+      {:ok,
+       %{
+         "units" => units_out,
+         "unit_count" => length(units_out),
+         "language" => language,
+         "latency_ms" => System.monotonic_time(:millisecond) - started
+       }}
+    end
+  end
+
+  defp document_unit(task_result, unit, index, prior_entities) do
+    base = %{"unit" => index, "text" => unit["text"], "span" => unit["span"]}
+
+    case task_result do
+      {:ok, {:ok, resp}} ->
+        ir = ReferenceMarker.mark(resp["ir"], prior_entities)
+
+        base
+        |> Map.put("ir", ir)
+        |> Map.put("language", resp["language"])
+
+      {:ok, {:error, reason}} ->
+        Map.put(base, "error", inspect(reason))
+
+      {:exit, reason} ->
+        Map.put(base, "error", "unit_timeout: #{inspect(reason)}")
     end
   end
 
@@ -80,6 +163,7 @@ defmodule LangOS.Pipeline do
 
       case IR.validate(ir) do
         :ok ->
+          ir = ReferenceMarker.mark(ir, request["prior_entities"] || [])
           graph = ir["graph"] || %{"nodes" => [], "edges" => []}
           node_count = length(graph["nodes"] || [])
           edge_count = length(graph["edges"] || [])

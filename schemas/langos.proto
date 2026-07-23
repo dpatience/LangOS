@@ -1,0 +1,47 @@
+// LangOS gRPC contract (port 9474).
+//
+// The Semantic IR is a graph; its canonical wire form is JSON (v1.2 schema,
+// schemas/semantic_ir.v1.2.json), carried here as a JSON string so the
+// protobuf contract stays stable while the IR evolves by version.
+//
+// The Elixir modules in apps/langos/lib/langos/grpc/ are hand-maintained
+// mirrors of this file (kept in sync by grpc tests).
+
+syntax = "proto3";
+
+package langos.v1;
+
+service LangOS {
+  rpc Understand(UnderstandRequest) returns (IRReply);
+  rpc Express(ExpressRequest) returns (TextReply);
+  rpc Translate(TranslateRequest) returns (TextReply);
+}
+
+message UnderstandRequest {
+  string text = 1;
+  string locale = 2; // optional hint; empty string = automatic detection
+}
+
+message ExpressRequest {
+  string template = 1;
+  string locale = 2;
+  string data_json = 3; // JSON object of template data
+}
+
+message TranslateRequest {
+  string text = 1;
+  string from = 2;
+  string to = 3;
+}
+
+message IRReply {
+  string ir_json = 1;   // Semantic IR v1.2 as JSON
+  string language = 2;  // detected language
+  int64 latency_ms = 3;
+}
+
+message TextReply {
+  string text = 1;
+  string ir_json = 2;   // present for Translate (the pivot IR)
+  int64 latency_ms = 3;
+}

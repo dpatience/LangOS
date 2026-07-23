@@ -8,6 +8,10 @@
     "http": {
       "host": "127.0.0.1",
       "port": 9473
+    },
+    "grpc": {
+      "enabled": true,
+      "port": 9474
     }
   },
   "cache": {
@@ -41,7 +45,18 @@
     "simple_command_engine": "rule",
     "default_parse_engine": "neural",
     "default_generate_engine": "neural",
-    "fallback_engine": "rule"
+    "fallback_engine": "rule",
+    "stages": {
+      "parse": ["rule", "syntax", "stat", "neural"],
+      "generate": "neural"
+    }
+  },
+  "documents": {
+    "max_unit_concurrency": 4
+  },
+  "plugins": {
+    "dir": "plugins",
+    "installed": ["education-vocab"]
   },
   "language_packs": {
     "installed": ["en", "fr", "rw"],

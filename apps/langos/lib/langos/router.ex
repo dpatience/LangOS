@@ -20,21 +20,33 @@ defmodule LangOS.Router do
     end)
   end
 
+  @default_parse_chain ["rule", "syntax", "stat", "neural"]
+
   @doc """
-  Ordered engine chain for the parse stage:
+  Ordered engine chain for the parse stage, configurable per stage via
+  `routing.stages.parse`. Default:
   rule (precise patterns) → syntax (deterministic structural parser) →
   stat (trained model fallback) → neural (bootstrap fallback).
   The pipeline tries each in order until one succeeds.
   """
   @spec parse_chain(context()) :: [module()]
   def parse_chain(_context) do
-    ["rule", "syntax", "stat", "neural"]
+    stage_config("parse", @default_parse_chain)
     |> Enum.flat_map(fn id ->
       case Engine.Registry.get(id) do
         {:ok, mod} -> [mod]
         {:error, _} -> []
       end
     end)
+  end
+
+  @doc "Configured engine ids for a pipeline stage (`routing.stages.<stage>`)."
+  @spec stage_config(String.t(), term()) :: term()
+  def stage_config(stage, default) do
+    case Process.whereis(Config) do
+      nil -> default
+      _ -> Config.get(["routing", "stages", stage], default)
+    end
   end
 
   defp engine_id(:parse, context) do
@@ -49,7 +61,7 @@ defmodule LangOS.Router do
   end
 
   defp engine_id(:generate, _context) do
-    Config.get([:routing, :default_generate_engine], "neural")
+    stage_config("generate", Config.get([:routing, :default_generate_engine], "neural"))
   end
 
   defp engine_id(:detect_language, _context) do

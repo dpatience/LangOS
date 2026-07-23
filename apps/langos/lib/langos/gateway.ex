@@ -22,6 +22,7 @@ defmodule LangOS.Gateway do
            "text" => String.trim(to_string(text)),
            "conversation" => Map.get(request, "conversation", []),
            "entities" => Map.get(request, "entities", []),
+           "prior_entities" => Map.get(request, "prior_entities", []),
            "locale" => locale,
            "options" => Map.get(request, "options", %{})
          }}

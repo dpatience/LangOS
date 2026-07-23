@@ -1,0 +1,31 @@
+{
+  "id": "education-vocab",
+  "name": "Education Vocabulary",
+  "version": "1.0.0",
+  "domain": "education",
+  "description": "Domain hints for education applications: courses, class identifiers, school entities. Contributes recognition hints only — no intents, business rules, or actions.",
+  "terms": {
+    "biology a1": {"kind": "course"},
+    "math 101": {"kind": "course"},
+    "homework": {"kind": "assignment"},
+    "assignment": {"kind": "assignment"},
+    "exam": {"kind": "assessment"},
+    "quiz": {"kind": "assessment"},
+    "semester": {"kind": "term"},
+    "teacher": {"kind": "person"},
+    "student": {"kind": "person"},
+    "classroom": {"kind": "location"},
+    "school": {"kind": "organization"},
+    "university": {"kind": "organization"}
+  },
+  "entity_hints": [
+    {"pattern": "^[A-Za-z]\\d{1,4}$", "kind": "identifier"},
+    {"pattern": "^(biology|math|mathematics|physics|chemistry|history|geography|english|french|kinyarwanda)(\\s+[A-Za-z]?\\d{1,4})?$", "kind": "course"},
+    {"pattern": "^grade\\s+\\d{1,2}$", "kind": "level"}
+  ],
+  "priors": {
+    "class": "course",
+    "course": "course",
+    "lesson": "course"
+  }
+}

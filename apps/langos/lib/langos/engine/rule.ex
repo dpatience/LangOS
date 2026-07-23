@@ -67,6 +67,15 @@ defmodule LangOS.Engine.Rule do
   end
 
   @impl true
+  # IR-driven expression wins over plain templates: translate sends both an
+  # "ir" and the "ir_summary" template name, and the data comes from the IR.
+  def generate(%{"ir" => ir} = request, opts) when is_map(ir) do
+    locale = Map.get(request, "locale") || Keyword.get(opts, :locale, "en")
+    template = Map.get(request, "template", "ir_summary")
+    summary = summarize_ir(ir)
+    express_template_or_default(locale, template, summary)
+  end
+
   def generate(%{"template" => template} = request, opts) do
     locale = Map.get(request, "locale") || Keyword.get(opts, :locale, "en")
     data = Map.get(request, "data", %{})
@@ -78,12 +87,6 @@ defmodule LangOS.Engine.Rule do
       {:error, :enoent} -> {:error, {:unknown_template, template}}
       err -> err
     end
-  end
-
-  def generate(%{"ir" => ir}, opts) when is_map(ir) do
-    locale = Keyword.get(opts, :locale, "en")
-    summary = summarize_ir(ir)
-    express_template_or_default(locale, "ir_summary", summary)
   end
 
   def generate(_request, _opts), do: {:error, :missing_template}
