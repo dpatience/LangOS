@@ -1,0 +1,307 @@
+{
+  "language": "en",
+  "script": "latin",
+  "word_order": "SVO",
+  "morphology": {
+    "type": "isolating",
+    "conjugation": "lexical"
+  },
+  "sentence_rules": {
+    "capitalize_first": true,
+    "default_subject": "someone",
+    "command_subject": null,
+    "adjective_position": "before",
+    "adverb_position": "before_verb",
+    "copula_rules": {
+      "1s": {"subject": "I", "form": "am"},
+      "2s": {"subject": "you", "form": "are"},
+      "3s": {"subject": null, "form": "is"},
+      "default": "is"
+    }
+  },
+  "elision": [],
+
+  "nouns": {
+    "_doc": "English nouns: no grammatical gender, plural with -s/-es, articles a/an/the. field_nouns maps machine field names to display forms.",
+    "articles": {
+      "definite": "the",
+      "indefinite": "a",
+      "indefinite_before_vowel": "an"
+    },
+    "gender": "none",
+    "plural_rules": [
+      {"match": "(s|sh|ch|x|z)$", "replace": "$1es"},
+      {"match": "([^aeiou])y$", "replace": "$1ies"},
+      {"match": "f$", "replace": "ves"},
+      {"match": "fe$", "replace": "ves"},
+      {"match": "$", "replace": "s"}
+    ],
+    "uncountable": ["information", "knowledge", "advice", "furniture", "luggage", "news", "progress", "research", "software", "weather", "equipment"],
+    "field_nouns": {
+      "age": "age",
+      "sex": "sex",
+      "gender": "gender",
+      "residence": "residence",
+      "language": "language",
+      "name": "name",
+      "first name": "first name",
+      "last name": "last name",
+      "email": "email address",
+      "phone": "phone number",
+      "address": "address",
+      "birth date": "birth date",
+      "date of birth": "date of birth",
+      "nationality": "nationality",
+      "occupation": "occupation",
+      "level": "level",
+      "class": "class",
+      "school": "school",
+      "grade": "grade"
+    }
+  },
+
+  "pronouns": {
+    "_doc": "Personal pronouns in subject/object/possessive/reflexive cases.",
+    "REF_SPEAKER":          {"subject": "I",    "object": "me",   "possessive": "my",    "reflexive": "myself",     "person": "1s"},
+    "REF_LISTENER":         {"subject": "you",  "object": "you",  "possessive": "your",  "reflexive": "yourself",   "person": "2s"},
+    "REF_PREVIOUS_ENTITY":  {"subject": "they", "object": "them", "possessive": "their", "reflexive": "themselves", "person": "3s"},
+    "REF_HE":               {"subject": "he",   "object": "him",  "possessive": "his",   "reflexive": "himself",    "person": "3s"},
+    "REF_SHE":              {"subject": "she",  "object": "her",  "possessive": "her",   "reflexive": "herself",    "person": "3s"},
+    "REF_IT":               {"subject": "it",   "object": "it",   "possessive": "its",   "reflexive": "itself",     "person": "3s"},
+    "REF_WE":               {"subject": "we",   "object": "us",   "possessive": "our",   "reflexive": "ourselves",  "person": "1p"},
+    "REF_THEY":             {"subject": "they", "object": "them", "possessive": "their", "reflexive": "themselves", "person": "3p"},
+    "REF_HERE":             {"subject": "here", "object": "here"},
+    "REF_TIME_NOW":         {"subject": "now",  "object": "now"},
+    "REF_TIME_PAST":        {"subject": "before", "object": "before"},
+    "REF_TIME_FUTURE":      {"subject": "later",  "object": "later"}
+  },
+
+  "verbs": {
+    "_doc": "Semantic symbol -> surface forms. 'imp' = imperative (command), 'stmt' = 3rd person past/present, 'stmt_1s' = 1st person singular override, 'gerund' = -ing form, 'infinitive' = to + base.",
+    "ACTION_CREATE":    {"imp": "create",     "stmt": "created",      "gerund": "creating",    "infinitive": "to create"},
+    "ACTION_DELETE":    {"imp": "delete",     "stmt": "deleted",      "gerund": "deleting",    "infinitive": "to delete"},
+    "ACTION_UPDATE":    {"imp": "update",     "stmt": "updated",      "gerund": "updating",    "infinitive": "to update"},
+    "ACTION_ASSIGN":    {"imp": "add",        "stmt": "added",        "gerund": "adding",      "infinitive": "to add"},
+    "ACTION_REGISTER":  {"imp": "register",   "stmt": "registered",   "gerund": "registering", "infinitive": "to register"},
+    "ACTION_REMOVE":    {"imp": "remove",     "stmt": "removed",      "gerund": "removing",    "infinitive": "to remove"},
+    "ACTION_MOVE":      {"imp": "move",       "stmt": "moved",        "gerund": "moving",      "infinitive": "to move"},
+    "ACTION_SEND":      {"imp": "send",       "stmt": "sent",         "gerund": "sending",     "infinitive": "to send"},
+    "ACTION_GIVE":      {"imp": "give",       "stmt": "gave",         "gerund": "giving",      "infinitive": "to give"},
+    "ACTION_SHOW":      {"imp": "show",       "stmt": "showed",       "gerund": "showing",     "infinitive": "to show"},
+    "ACTION_LIST":      {"imp": "list",       "stmt": "listed",       "gerund": "listing",     "infinitive": "to list"},
+    "ACTION_SEARCH":    {"imp": "search for", "stmt": "searched for", "gerund": "searching for","infinitive": "to search for"},
+    "ACTION_HELP":      {"imp": "help",       "stmt": "helped",       "gerund": "helping",     "infinitive": "to help"},
+    "ACTION_START":     {"imp": "start",      "stmt": "started",      "gerund": "starting",    "infinitive": "to start"},
+    "ACTION_STOP":      {"imp": "stop",       "stmt": "stopped",      "gerund": "stopping",    "infinitive": "to stop"},
+    "ACTION_OPEN":      {"imp": "open",       "stmt": "opened",       "gerund": "opening",     "infinitive": "to open"},
+    "ACTION_CLOSE":     {"imp": "close",      "stmt": "closed",       "gerund": "closing",     "infinitive": "to close"},
+    "ACTION_READ":      {"imp": "read",       "stmt": "read",         "gerund": "reading",     "infinitive": "to read"},
+    "ACTION_WRITE":     {"imp": "write",      "stmt": "wrote",        "gerund": "writing",     "infinitive": "to write"},
+    "ACTION_SAVE":      {"imp": "save",       "stmt": "saved",        "gerund": "saving",      "infinitive": "to save"},
+    "ACTION_CALL":      {"imp": "call",       "stmt": "called",       "gerund": "calling",     "infinitive": "to call"},
+    "ACTION_EXPLAIN":   {"imp": "explain",    "stmt": "explained",    "gerund": "explaining",  "infinitive": "to explain"},
+    "ACTION_TRANSLATE": {"imp": "translate",  "stmt": "translated",   "gerund": "translating", "infinitive": "to translate"},
+    "ACTION_DEFINE":    {"imp": "define",     "stmt": "defined",      "gerund": "defining",    "infinitive": "to define"},
+    "ACTION_SUMMARIZE": {"imp": "summarize",  "stmt": "summarized",   "gerund": "summarizing", "infinitive": "to summarize"},
+    "ACTION_INVITE":    {"imp": "invite",     "stmt": "invited",      "gerund": "inviting",    "infinitive": "to invite"},
+    "ACTION_EAT":       {"imp": "eat",   "stmt": "is eating",   "stmt_1s": "am eating",   "gerund": "eating",   "infinitive": "to eat"},
+    "ACTION_DRINK":     {"imp": "drink", "stmt": "is drinking", "stmt_1s": "am drinking", "gerund": "drinking", "infinitive": "to drink"},
+    "ACTION_PLAY":      {"imp": "play",  "stmt": "is playing",  "stmt_1s": "am playing",  "gerund": "playing",  "infinitive": "to play"},
+    "ACTION_TRAVEL":    {"imp": "go",    "stmt": "is going",    "stmt_1s": "am going",    "gerund": "going",    "infinitive": "to go"},
+    "ACTION_BUY":       {"imp": "buy",   "stmt": "bought",      "gerund": "buying",   "infinitive": "to buy"},
+    "ACTION_PAY":       {"imp": "pay",   "stmt": "paid",        "gerund": "paying",   "infinitive": "to pay"},
+    "ACTION_SLEEP":     {"imp": "sleep", "stmt": "is sleeping", "gerund": "sleeping", "infinitive": "to sleep"},
+    "ACTION_TELL":      {"imp": "tell",  "stmt": "told",        "gerund": "telling",  "infinitive": "to tell"},
+    "ACTION_TEACH":     {"imp": "teach", "stmt": "taught",      "gerund": "teaching", "infinitive": "to teach"},
+    "ACTION_LEARN":     {"imp": "learn", "stmt": "learned",     "gerund": "learning", "infinitive": "to learn"},
+    "STATE_WANT":       {"stmt": "wants",       "stmt_1s": "want",       "gerund": "wanting"},
+    "STATE_NEED":       {"stmt": "needs",       "stmt_1s": "need",       "gerund": "needing"},
+    "STATE_KNOW":       {"stmt": "knows",       "stmt_1s": "know",       "gerund": "knowing"},
+    "STATE_LOVE":       {"stmt": "loves",       "stmt_1s": "love",       "gerund": "loving"},
+    "STATE_HATE":       {"stmt": "hates",       "stmt_1s": "hate",       "gerund": "hating"},
+    "STATE_LIKE":       {"stmt": "likes",       "stmt_1s": "like",       "gerund": "liking"},
+    "STATE_HAVE":       {"stmt": "has",         "stmt_1s": "have",       "gerund": "having"},
+    "STATE_BE":         {"stmt": "is",          "stmt_1s": "am",         "gerund": "being"},
+    "STATE_UNDERSTAND": {"stmt": "understands", "stmt_1s": "understand", "gerund": "understanding"},
+    "STATE_THINK":      {"stmt": "thinks",      "stmt_1s": "think",      "gerund": "thinking"},
+    "STATE_FEEL":       {"stmt": "feels",       "stmt_1s": "feel",       "gerund": "feeling"},
+    "STATE_BELIEVE":    {"stmt": "believes",    "stmt_1s": "believe",    "gerund": "believing"},
+    "META_GREET":     {"stmt": "says hello",     "fixed": "hello"},
+    "META_THANK":     {"stmt": "says thank you", "fixed": "thank you"},
+    "META_FAREWELL":  {"stmt": "says goodbye",   "fixed": "goodbye"},
+    "META_APOLOGIZE": {"stmt": "apologizes",     "fixed": "sorry"}
+  },
+
+  "adjectives": {
+    "_doc": "English adjectives: precede the noun (big house), no gender/number agreement, comparative with -er/more, superlative with -est/most.",
+    "position": "before",
+    "agreement": "none",
+    "common": {
+      "good": {"comparative": "better", "superlative": "best"},
+      "bad": {"comparative": "worse", "superlative": "worst"},
+      "big": {"comparative": "bigger", "superlative": "biggest"},
+      "small": {"comparative": "smaller", "superlative": "smallest"},
+      "new": {"comparative": "newer", "superlative": "newest"},
+      "old": {"comparative": "older", "superlative": "oldest"},
+      "fast": {"comparative": "faster", "superlative": "fastest"},
+      "slow": {"comparative": "slower", "superlative": "slowest"},
+      "long": {"comparative": "longer", "superlative": "longest"},
+      "short": {"comparative": "shorter", "superlative": "shortest"},
+      "important": {"comparative": "more important", "superlative": "most important"},
+      "successful": {"comparative": "more successful", "superlative": "most successful"},
+      "available": {"comparative": "more available", "superlative": "most available"},
+      "complete": {"comparative": "more complete", "superlative": "most complete"},
+      "missing": {},
+      "required": {},
+      "valid": {},
+      "invalid": {},
+      "correct": {},
+      "incorrect": {},
+      "active": {},
+      "inactive": {}
+    }
+  },
+
+  "adverbs": {
+    "_doc": "English adverbs: typically before the verb or at sentence end. Most formed by adding -ly to adjective.",
+    "position": "before_verb",
+    "formation_suffix": "ly",
+    "common": {
+      "quickly": {},
+      "slowly": {},
+      "successfully": {},
+      "already": {},
+      "still": {},
+      "also": {},
+      "just": {},
+      "never": {},
+      "always": {},
+      "now": {},
+      "here": {},
+      "there": {},
+      "very": {"type": "intensifier"},
+      "really": {"type": "intensifier"},
+      "quite": {"type": "intensifier"},
+      "too": {"type": "intensifier"},
+      "not": {"type": "negation"},
+      "please": {"type": "politeness"}
+    }
+  },
+
+  "prepositions": {
+    "_doc": "English prepositions: placed before their object (in the box, to the school).",
+    "container": "in",
+    "goal": "to",
+    "source": "from",
+    "beneficiary": "for",
+    "instrument": "with",
+    "location": "at",
+    "time": "at",
+    "direction": "toward",
+    "about": "about",
+    "through": "through",
+    "between": "between",
+    "without": "without",
+    "during": "during",
+    "before": "before",
+    "after": "after",
+    "above": "above",
+    "below": "below"
+  },
+
+  "conjunctions": {
+    "_doc": "English conjunctions: coordinating (and, or, but) connect equal items; subordinating (because, if, when) introduce dependent clauses.",
+    "coordinating": {
+      "and": "and",
+      "or": "or",
+      "but": "but",
+      "so": "so",
+      "yet": "yet",
+      "nor": "nor"
+    },
+    "subordinating": {
+      "because": "because",
+      "if": "if",
+      "when": "when",
+      "while": "while",
+      "although": "although",
+      "unless": "unless",
+      "since": "since",
+      "before": "before",
+      "after": "after",
+      "until": "until",
+      "that": "that",
+      "whether": "whether"
+    }
+  },
+
+  "interjections": {
+    "_doc": "English interjections: express emotion or reaction, standalone or sentence-initial.",
+    "greeting": ["hello", "hi", "hey"],
+    "farewell": ["goodbye", "bye", "see you"],
+    "thanks": ["thank you", "thanks"],
+    "surprise": ["oh", "wow", "whoa"],
+    "agreement": ["yes", "yeah", "sure", "absolutely", "exactly"],
+    "disagreement": ["no", "nope", "not really"],
+    "hesitation": ["well", "um", "hmm"],
+    "apology": ["sorry", "excuse me", "pardon"],
+    "encouragement": ["great", "nice", "perfect", "wonderful", "excellent"],
+    "frustration": ["oops", "oh no", "ugh"]
+  },
+
+  "list": {"and": "and", "or": "or", "oxford": true},
+  "possessive": {"type": "pattern", "pattern": "{owner}'s {thing}"},
+
+  "intents": {
+    "missing_fields": {
+      "openers": {
+        "neutral": ["Quick note:", "Before we continue:", "One thing left —"],
+        "casual": ["Almost there —", "Nearly done —", "Just one more step:"],
+        "formal": []
+      },
+      "recipes": [
+        {"tones": ["formal"], "text": "could you please provide {fields_of}?"},
+        {"tones": ["formal"], "text": "we require {fields_of} before we can continue."},
+        {"tones": ["formal"], "text": "kindly share {fields_of} at your earliest convenience."},
+        {"tones": ["neutral"], "text": "we still need {fields_of}."},
+        {"tones": ["neutral"], "text": "{fields_of} {be} still missing."},
+        {"tones": ["neutral"], "text": "to finish up, please add {fields_of}."},
+        {"tones": ["neutral"], "text": "please share {fields_of} so we can move forward."},
+        {"tones": ["casual"], "text": "we just need {fields_of}."},
+        {"tones": ["casual"], "text": "can you send over {fields_of}?"},
+        {"tones": ["casual"], "text": "mind adding {fields_of}?"}
+      ]
+    },
+    "success": {
+      "openers": {
+        "neutral": ["All set —", "Done —"],
+        "casual": ["Nice —", "Great —"],
+        "formal": []
+      },
+      "recipes": [
+        {"tones": ["formal"], "text": "{entity} has been successfully {action}."},
+        {"tones": ["formal"], "text": "the operation completed: {entity} was {action}."},
+        {"tones": ["neutral"], "text": "{entity} has been {action}."},
+        {"tones": ["neutral"], "text": "{entity} was {action} successfully."},
+        {"tones": ["casual"], "text": "{entity} is {action}!"},
+        {"tones": ["casual"], "text": "got it — {entity} is {action}."}
+      ]
+    },
+    "error": {
+      "openers": {
+        "neutral": [],
+        "casual": ["Oops —", "Hmm —"],
+        "formal": []
+      },
+      "recipes": [
+        {"tones": ["formal"], "text": "an error occurred: {reason}."},
+        {"tones": ["formal"], "text": "the operation could not be completed: {reason}."},
+        {"tones": ["neutral"], "text": "something went wrong: {reason}."},
+        {"tones": ["neutral"], "text": "that didn't work — {reason}."},
+        {"tones": ["casual"], "text": "that didn't go as planned — {reason}."},
+        {"tones": ["casual"], "text": "{reason} — let's try again?"}
+      ]
+    }
+  },
+  "unsupported_language_response": "I don't have that language pack installed yet. You can add it with: patience install language <code>"
+}

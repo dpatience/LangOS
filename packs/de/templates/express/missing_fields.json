@@ -1,0 +1,13 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "Um fortzufahren, benötigen wir {{entity}}s {{fields}}."},
+    {"tone": "formal", "text": "Die folgenden Angaben fehlen noch für {{entity}}: {{fields}}."},
+    {"tone": "formal", "text": "Könnten Sie bitte {{entity}}s {{fields}} angeben?"},
+    {"tone": "neutral", "text": "Uns fehlt noch {{entity}}s {{fields}}."},
+    {"tone": "neutral", "text": "Bitte teilen Sie uns {{entity}}s {{fields}} mit, damit wir fortfahren können."},
+    {"tone": "neutral", "text": "Wir brauchen noch {{entity}}s {{fields}}."},
+    {"tone": "casual", "text": "Es fehlt nur noch {{entity}}s {{fields}}."},
+    {"tone": "casual", "text": "Kannst du {{entity}}s {{fields}} ergänzen? Fast fertig!"},
+    {"tone": "casual", "text": "Noch eine Sache: {{entity}}s {{fields}} fehlt noch."}
+  ]
+}

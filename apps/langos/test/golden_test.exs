@@ -3,7 +3,7 @@ defmodule LangOSGoldenTest do
   use ExUnit.Case, async: false
   @moduletag :golden
 
-  @packs ~w(en fr rw tr)
+  @packs ~w(en fr rw tr de)
 
   for pack <- @packs do
     @pack pack

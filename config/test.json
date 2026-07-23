@@ -30,6 +30,9 @@
     "syntax": {
       "enabled": true
     },
+    "lexical": {
+      "enabled": true
+    },
     "stat": {
       "enabled": true,
       "model": "models/en/intent.json",
@@ -48,6 +51,7 @@
     "stages": {
       "parse": [
         "rule",
+        "lexical",
         "syntax",
         "stat",
         "neural"
@@ -69,7 +73,8 @@
       "en",
       "fr",
       "rw",
-      "tr"
+      "tr",
+      "de"
     ],
     "default": "en"
   },

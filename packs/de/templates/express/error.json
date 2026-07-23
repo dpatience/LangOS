@@ -1,0 +1,13 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "Es ist ein Fehler aufgetreten: {{reason}}."},
+    {"tone": "formal", "text": "Der Vorgang konnte nicht abgeschlossen werden. Grund: {{reason}}."},
+    {"tone": "formal", "text": "Ein Problem ist aufgetreten: {{reason}}."},
+    {"tone": "neutral", "text": "Etwas ist schiefgelaufen: {{reason}}."},
+    {"tone": "neutral", "text": "Das hat leider nicht geklappt — {{reason}}."},
+    {"tone": "neutral", "text": "Fehler: {{reason}}."},
+    {"tone": "casual", "text": "Ups! {{reason}}."},
+    {"tone": "casual", "text": "Hat nicht geklappt — {{reason}}."},
+    {"tone": "casual", "text": "Hmm, {{reason}}. Nochmal versuchen?"}
+  ]
+}

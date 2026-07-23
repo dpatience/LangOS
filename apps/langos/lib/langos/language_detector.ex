@@ -1,18 +1,22 @@
 defmodule LangOS.LanguageDetector do
   @moduledoc """
-  Stage 1 of the understanding pipeline: decide which language pack parses.
+  Detects which installed language pack should process the input.
 
-  Every installed pack contributes detection signals — its verb map, pronoun
-  map, declared function words, and (for agglutinative languages such as
-  Kinyarwanda) morphological prefix stripping so that an inflected form like
-  "nshaka" (n- + shaka) still hits the pack's verb stem. English scores
-  through its full lexicon plus closed-class function words.
+  Detection layers:
 
-  The winner's pack drives the rest of the pipeline, so a Kinyarwanda
-  sentence is parsed by the Kinyarwanda pack — never by the English one.
+    1. **Explicit hint** — a request with `locale: "tr"` bypasses detection.
+    2. **Script identification** — non-Latin text (Arabic, Cyrillic, CJK,
+       Devanagari, …) is matched to packs that declare the same `script`
+       in grammar.json, narrowing candidates before lexical scoring.
+    3. **Lexical scoring** — verb maps, pronoun maps, function words, and
+       morphological stripping (prefix and suffix) score each candidate pack.
+       The highest-scoring pack above `@min_score` wins.
+
+  Works with any writing system because script ranges are Unicode-block based,
+  not hard-coded character lists.
   """
 
-  alias LangOS.{Lexicon, LanguagePack}
+  alias LangOS.{Grammar, Lexicon, LanguagePack}
 
   @word_regex ~r/[\p{L}\p{N}']+/u
   @min_score 0.2
@@ -24,6 +28,25 @@ defmodule LangOS.LanguageDetector do
     can could will would shall should must what who where when why how
     not no yes please me him her us them
   )
+
+  @script_ranges [
+    {"arabic",     ~r/[\p{Arabic}]/u},
+    {"cyrillic",   ~r/[\p{Cyrillic}]/u},
+    {"cjk",        ~r/[\p{Han}]/u},
+    {"hangul",     ~r/[\p{Hangul}]/u},
+    {"devanagari", ~r/[\p{Devanagari}]/u},
+    {"hiragana",   ~r/[\p{Hiragana}]/u},
+    {"katakana",   ~r/[\p{Katakana}]/u},
+    {"thai",       ~r/[\p{Thai}]/u},
+    {"hebrew",     ~r/[\p{Hebrew}]/u},
+    {"ethiopic",   ~r/[\p{Ethiopic}]/u},
+    {"bengali",    ~r/[\p{Bengali}]/u},
+    {"georgian",   ~r/[\p{Georgian}]/u},
+    {"greek",      ~r/[\p{Greek}]/u},
+    {"tamil",      ~r/[\p{Tamil}]/u},
+    {"telugu",     ~r/[\p{Telugu}]/u},
+    {"myanmar",    ~r/[\p{Myanmar}]/u}
+  ]
 
   @spec detect(String.t(), String.t() | nil) :: String.t()
   def detect(text, hint \\ nil)
@@ -40,22 +63,43 @@ defmodule LangOS.LanguageDetector do
         @default
 
       _ ->
-        installed_ids()
+        ids = installed_ids()
+
+        # Narrow by script if the text uses a non-Latin writing system.
+        candidates =
+          case detect_script(text) do
+            "latin" -> ids
+            script ->
+              matches = Enum.filter(ids, fn id -> Grammar.script(id) == script end)
+              if matches == [], do: ids, else: matches
+          end
+
+        candidates
         |> Enum.map(fn id -> {id, score(id, tokens)} end)
-        |> Enum.sort_by(fn {id, score} -> {-score, tie_break(id)} end)
+        |> Enum.sort_by(fn {id, s} -> {-s, tie_break(id)} end)
         |> List.first()
         |> case do
-          {id, score} when score >= @min_score -> id
+          {id, s} when s >= @min_score -> id
           _ -> @default
         end
     end
+  end
+
+  @doc """
+  Identify the dominant script in the text. Returns "latin" for Latin-based
+  or mixed text, or a specific script name for non-Latin majority.
+  """
+  @spec detect_script(String.t()) :: String.t()
+  def detect_script(text) do
+    Enum.find_value(@script_ranges, "latin", fn {name, regex} ->
+      if Regex.match?(regex, text), do: name
+    end)
   end
 
   defp tokenize(text) do
     Regex.scan(@word_regex, String.downcase(text)) |> Enum.map(&hd/1)
   end
 
-  # Default pack wins ties.
   defp tie_break(@default), do: 0
   defp tie_break(_), do: 1
 
@@ -78,9 +122,6 @@ defmodule LangOS.LanguageDetector do
       token in words or stripped_hit?(token, verb_map, detection)
   end
 
-  # Morphological probe: strip declared prefixes and suffixes (longest first)
-  # and re-check the verb map. Prefix languages (Kinyarwanda): "nshaka" ->
-  # "shaka". Suffix languages (Turkish): "istiyorum" -> "ist".
   defp stripped_hit?(token, verb_map, detection) do
     prefix_hit =
       detection

@@ -72,6 +72,16 @@ defmodule LangOS.LanguagePack.Registry do
     list() |> Enum.map(& &1.id)
   end
 
+  @doc """
+  Hot-install a language pack at runtime. Loads the pack from the packs
+  directory and adds it to the registry. Returns {:ok, pack_info} or
+  {:error, reason}.
+  """
+  @spec install(String.t()) :: {:ok, map()} | {:error, term()}
+  def install(id) do
+    GenServer.call(__MODULE__, {:install, id})
+  end
+
   @impl true
   def init(_opts) do
     packs_dir =
@@ -115,6 +125,26 @@ defmodule LangOS.LanguagePack.Registry do
       end
 
     {:reply, reply, state}
+  end
+
+  def handle_call({:install, id}, _from, %{packs: packs, packs_dir: packs_dir} = state) do
+    if Map.has_key?(packs, id) do
+      info = Map.get(packs, id)
+      {:reply, {:ok, %{id: info.id, name: info.name, status: :already_installed}}, state}
+    else
+      case load_pack(id, packs_dir) do
+        nil ->
+          {:reply, {:error, {:pack_not_found, id}}, state}
+
+        pack ->
+          LangOS.Grammar.reload(id)
+          new_packs = Map.put(packs, id, pack)
+
+          {:reply,
+           {:ok, %{id: pack.id, name: pack.name, version: pack.version, status: :installed}},
+           %{state | packs: new_packs}}
+      end
+    end
   end
 
   defp init_packs_dir do

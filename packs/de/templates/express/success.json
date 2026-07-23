@@ -1,0 +1,13 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "{{entity}} wurde erfolgreich {{action}}."},
+    {"tone": "formal", "text": "Der Vorgang wurde abgeschlossen: {{entity}} wurde {{action}}."},
+    {"tone": "formal", "text": "{{entity}} ist jetzt {{action}}."},
+    {"tone": "neutral", "text": "Erledigt — {{entity}} wurde {{action}}."},
+    {"tone": "neutral", "text": "{{entity}} wurde erfolgreich {{action}}."},
+    {"tone": "neutral", "text": "Alles klar. {{entity}} ist {{action}}."},
+    {"tone": "casual", "text": "{{entity}} ist {{action}}!"},
+    {"tone": "casual", "text": "Alles klar — {{entity}} ist {{action}}."},
+    {"tone": "casual", "text": "Fertig! {{entity}} wurde {{action}}."}
+  ]
+}

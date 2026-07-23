@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "Auf Wiedersehen. Einen schönen Tag noch."},
+    {"tone": "neutral", "text": "Tschüss! Bis zum nächsten Mal."},
+    {"tone": "casual", "text": "Ciao! Bis bald!"}
+  ]
+}

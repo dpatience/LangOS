@@ -1,0 +1,351 @@
+{
+  "language": "de",
+  "script": "latin",
+  "word_order": "SVO",
+  "morphology": {
+    "type": "fusional",
+    "conjugation": "lexical"
+  },
+  "sentence_rules": {
+    "capitalize_first": true,
+    "capitalize_nouns": true,
+    "default_subject": "jemand",
+    "command_subject": null,
+    "adjective_position": "before",
+    "adverb_position": "flexible",
+    "v2_rule": true,
+    "copula_rules": {
+      "1s": {"subject": "ich", "form": "bin"},
+      "2s": {"subject": "du", "form": "bist"},
+      "3s": {"subject": null, "form": "ist"},
+      "1p": {"subject": "wir", "form": "sind"},
+      "2p": {"subject": "ihr", "form": "seid"},
+      "3p": {"subject": "sie", "form": "sind"},
+      "default": "ist"
+    }
+  },
+  "elision": [],
+
+  "nouns": {
+    "_doc": "German nouns: 3 grammatical genders (masculine/feminine/neuter), 4 cases (nominative/accusative/dative/genitive), all nouns capitalized. Articles decline by gender and case.",
+    "genders": ["masculine", "feminine", "neuter"],
+    "cases": ["nominative", "accusative", "dative", "genitive"],
+    "capitalize_all": true,
+    "articles": {
+      "definite_m": "der",
+      "definite_f": "die",
+      "definite_n": "das",
+      "definite_pl": "die",
+      "indefinite_m": "ein",
+      "indefinite_f": "eine",
+      "indefinite_n": "ein",
+      "declension": {
+        "definite": {
+          "masculine":  {"nominative": "der",  "accusative": "den",  "dative": "dem",  "genitive": "des"},
+          "feminine":   {"nominative": "die",  "accusative": "die",  "dative": "der",  "genitive": "der"},
+          "neuter":     {"nominative": "das",  "accusative": "das",  "dative": "dem",  "genitive": "des"},
+          "plural":     {"nominative": "die",  "accusative": "die",  "dative": "den",  "genitive": "der"}
+        },
+        "indefinite": {
+          "masculine":  {"nominative": "ein",   "accusative": "einen", "dative": "einem", "genitive": "eines"},
+          "feminine":   {"nominative": "eine",  "accusative": "eine",  "dative": "einer", "genitive": "einer"},
+          "neuter":     {"nominative": "ein",   "accusative": "ein",   "dative": "einem", "genitive": "eines"}
+        }
+      }
+    },
+    "plural_rules": [
+      {"match": "(e)$", "replace": "$1n"},
+      {"match": "(er|en|el)$", "replace": "$1"},
+      {"match": "$", "replace": "e"}
+    ],
+    "field_nouns": {
+      "age": "das Alter",
+      "sex": "das Geschlecht",
+      "gender": "das Geschlecht",
+      "residence": "der Wohnort",
+      "language": "die Sprache",
+      "name": "der Name",
+      "first name": "der Vorname",
+      "last name": "der Nachname",
+      "email": "die E-Mail-Adresse",
+      "phone": "die Telefonnummer",
+      "address": "die Adresse",
+      "birth date": "das Geburtsdatum",
+      "nationality": "die Staatsangehörigkeit",
+      "occupation": "der Beruf",
+      "level": "das Niveau",
+      "class": "die Klasse",
+      "school": "die Schule",
+      "grade": "die Note"
+    }
+  },
+
+  "pronouns": {
+    "_doc": "German personal pronouns in nominative/accusative/dative/genitive (possessive) cases.",
+    "REF_SPEAKER":          {"subject": "ich",  "object": "mich", "dative": "mir",   "possessive": "mein",  "person": "1s"},
+    "REF_LISTENER":         {"subject": "du",   "object": "dich", "dative": "dir",   "possessive": "dein",  "person": "2s"},
+    "REF_PREVIOUS_ENTITY":  {"subject": "er",   "object": "ihn",  "dative": "ihm",   "possessive": "sein",  "person": "3s"},
+    "REF_HE":               {"subject": "er",   "object": "ihn",  "dative": "ihm",   "possessive": "sein",  "person": "3s"},
+    "REF_SHE":              {"subject": "sie",  "object": "sie",  "dative": "ihr",   "possessive": "ihr",   "person": "3s"},
+    "REF_IT":               {"subject": "es",   "object": "es",   "dative": "ihm",   "possessive": "sein",  "person": "3s"},
+    "REF_WE":               {"subject": "wir",  "object": "uns",  "dative": "uns",   "possessive": "unser", "person": "1p"},
+    "REF_THEY":             {"subject": "sie",  "object": "sie",  "dative": "ihnen", "possessive": "ihr",   "person": "3p"},
+    "REF_HERE":             {"subject": "hier", "object": "hier"},
+    "REF_TIME_NOW":         {"subject": "jetzt",  "object": "jetzt"},
+    "REF_TIME_PAST":        {"subject": "vorher", "object": "vorher"},
+    "REF_TIME_FUTURE":      {"subject": "später", "object": "später"}
+  },
+
+  "verbs": {
+    "_doc": "Semantic symbol -> surface forms. 'imp' = imperative (du-form), 'stmt' = 3rd person singular or Perfekt, 'stmt_1s' = 1st person singular override, 'gerund' = present participle or zu+infinitive, 'infinitive' = base infinitive form.",
+    "ACTION_CREATE":    {"imp": "erstelle",       "stmt": "hat erstellt",       "gerund": "zu erstellen",      "infinitive": "erstellen"},
+    "ACTION_DELETE":    {"imp": "lösche",         "stmt": "hat gelöscht",       "gerund": "zu löschen",        "infinitive": "löschen"},
+    "ACTION_UPDATE":    {"imp": "aktualisiere",   "stmt": "hat aktualisiert",   "gerund": "zu aktualisieren",  "infinitive": "aktualisieren"},
+    "ACTION_ASSIGN":    {"imp": "füge hinzu",     "stmt": "hat hinzugefügt",    "gerund": "hinzuzufügen",      "infinitive": "hinzufügen"},
+    "ACTION_REGISTER":  {"imp": "registriere",    "stmt": "hat registriert",    "gerund": "zu registrieren",   "infinitive": "registrieren"},
+    "ACTION_REMOVE":    {"imp": "entferne",       "stmt": "hat entfernt",       "gerund": "zu entfernen",      "infinitive": "entfernen"},
+    "ACTION_MOVE":      {"imp": "verschiebe",     "stmt": "hat verschoben",     "gerund": "zu verschieben",    "infinitive": "verschieben"},
+    "ACTION_SEND":      {"imp": "sende",          "stmt": "hat gesendet",       "gerund": "zu senden",         "infinitive": "senden"},
+    "ACTION_GIVE":      {"imp": "gib",            "stmt": "hat gegeben",        "gerund": "zu geben",          "infinitive": "geben"},
+    "ACTION_SHOW":      {"imp": "zeige",          "stmt": "hat gezeigt",        "gerund": "zu zeigen",         "infinitive": "zeigen"},
+    "ACTION_LIST":      {"imp": "liste auf",      "stmt": "hat aufgelistet",    "gerund": "aufzulisten",       "infinitive": "auflisten"},
+    "ACTION_SEARCH":    {"imp": "suche",          "stmt": "hat gesucht",        "gerund": "zu suchen",         "infinitive": "suchen"},
+    "ACTION_HELP":      {"imp": "hilf",           "stmt": "hat geholfen",       "gerund": "zu helfen",         "infinitive": "helfen"},
+    "ACTION_START":     {"imp": "starte",         "stmt": "hat gestartet",      "gerund": "zu starten",        "infinitive": "starten"},
+    "ACTION_STOP":      {"imp": "stoppe",         "stmt": "hat gestoppt",       "gerund": "zu stoppen",        "infinitive": "stoppen"},
+    "ACTION_OPEN":      {"imp": "öffne",          "stmt": "hat geöffnet",       "gerund": "zu öffnen",         "infinitive": "öffnen"},
+    "ACTION_CLOSE":     {"imp": "schließe",       "stmt": "hat geschlossen",    "gerund": "zu schließen",      "infinitive": "schließen"},
+    "ACTION_READ":      {"imp": "lies",           "stmt": "hat gelesen",        "gerund": "zu lesen",          "infinitive": "lesen"},
+    "ACTION_WRITE":     {"imp": "schreibe",       "stmt": "hat geschrieben",    "gerund": "zu schreiben",      "infinitive": "schreiben"},
+    "ACTION_SAVE":      {"imp": "speichere",      "stmt": "hat gespeichert",    "gerund": "zu speichern",      "infinitive": "speichern"},
+    "ACTION_CALL":      {"imp": "rufe an",        "stmt": "hat angerufen",      "gerund": "anzurufen",         "infinitive": "anrufen"},
+    "ACTION_EXPLAIN":   {"imp": "erkläre",        "stmt": "hat erklärt",        "gerund": "zu erklären",       "infinitive": "erklären"},
+    "ACTION_TRANSLATE": {"imp": "übersetze",      "stmt": "hat übersetzt",      "gerund": "zu übersetzen",     "infinitive": "übersetzen"},
+    "ACTION_DEFINE":    {"imp": "definiere",      "stmt": "hat definiert",      "gerund": "zu definieren",     "infinitive": "definieren"},
+    "ACTION_SUMMARIZE": {"imp": "fasse zusammen", "stmt": "hat zusammengefasst","gerund": "zusammenzufassen",  "infinitive": "zusammenfassen"},
+    "ACTION_INVITE":    {"imp": "lade ein",       "stmt": "hat eingeladen",     "gerund": "einzuladen",        "infinitive": "einladen"},
+    "ACTION_EAT":       {"imp": "iss",    "stmt": "isst",    "stmt_1s": "esse",    "gerund": "zu essen",     "infinitive": "essen"},
+    "ACTION_DRINK":     {"imp": "trink",  "stmt": "trinkt",  "stmt_1s": "trinke",  "gerund": "zu trinken",   "infinitive": "trinken"},
+    "ACTION_PLAY":      {"imp": "spiel",  "stmt": "spielt",  "stmt_1s": "spiele",  "gerund": "zu spielen",   "infinitive": "spielen"},
+    "ACTION_TRAVEL":    {"imp": "reise",  "stmt": "reist",   "stmt_1s": "reise",   "gerund": "zu reisen",    "infinitive": "reisen"},
+    "ACTION_BUY":       {"imp": "kauf",   "stmt": "kauft",   "stmt_1s": "kaufe",   "gerund": "zu kaufen",    "infinitive": "kaufen"},
+    "ACTION_PAY":       {"imp": "bezahl", "stmt": "bezahlt", "stmt_1s": "bezahle", "gerund": "zu bezahlen",  "infinitive": "bezahlen"},
+    "ACTION_SLEEP":     {"imp": "schlaf", "stmt": "schläft", "stmt_1s": "schlafe", "gerund": "zu schlafen",  "infinitive": "schlafen"},
+    "ACTION_SEE":       {"imp": "sieh",   "stmt": "sieht",   "stmt_1s": "sehe",    "gerund": "zu sehen",     "infinitive": "sehen"},
+    "ACTION_TELL":      {"imp": "erzähle",     "stmt": "hat erzählt",     "gerund": "zu erzählen",     "infinitive": "erzählen"},
+    "ACTION_TEACH":     {"imp": "unterrichte", "stmt": "hat unterrichtet","gerund": "zu unterrichten", "infinitive": "unterrichten"},
+    "ACTION_LEARN":     {"imp": "lerne",  "stmt": "lernt",   "stmt_1s": "lerne",   "gerund": "zu lernen",    "infinitive": "lernen"},
+    "STATE_WANT":       {"stmt": "will",      "stmt_1s": "will",      "gerund": "zu wollen",     "infinitive": "wollen"},
+    "STATE_NEED":       {"stmt": "braucht",   "stmt_1s": "brauche",   "gerund": "zu brauchen",   "infinitive": "brauchen"},
+    "STATE_KNOW":       {"stmt": "weiß",      "stmt_1s": "weiß",      "gerund": "zu wissen",     "infinitive": "wissen"},
+    "STATE_LOVE":       {"stmt": "liebt",     "stmt_1s": "liebe",     "gerund": "zu lieben",     "infinitive": "lieben"},
+    "STATE_HATE":       {"stmt": "hasst",     "stmt_1s": "hasse",     "gerund": "zu hassen",     "infinitive": "hassen"},
+    "STATE_LIKE":       {"stmt": "mag",       "stmt_1s": "mag",       "gerund": "zu mögen",      "infinitive": "mögen"},
+    "STATE_HAVE":       {"stmt": "hat",       "stmt_1s": "habe",      "gerund": "zu haben",      "infinitive": "haben"},
+    "STATE_BE":         {"stmt": "ist",       "stmt_1s": "bin",       "gerund": "zu sein",       "infinitive": "sein"},
+    "STATE_UNDERSTAND": {"stmt": "versteht",  "stmt_1s": "verstehe",  "gerund": "zu verstehen",  "infinitive": "verstehen"},
+    "STATE_THINK":      {"stmt": "denkt",     "stmt_1s": "denke",     "gerund": "zu denken",     "infinitive": "denken"},
+    "STATE_FEEL":       {"stmt": "fühlt",     "stmt_1s": "fühle",     "gerund": "zu fühlen",     "infinitive": "fühlen"},
+    "STATE_BELIEVE":    {"stmt": "glaubt",    "stmt_1s": "glaube",    "gerund": "zu glauben",    "infinitive": "glauben"},
+    "META_GREET":     {"stmt": "grüßt",            "fixed": "hallo"},
+    "META_THANK":     {"stmt": "bedankt sich",     "fixed": "danke"},
+    "META_FAREWELL":  {"stmt": "verabschiedet sich","fixed": "auf Wiedersehen"},
+    "META_APOLOGIZE": {"stmt": "entschuldigt sich","fixed": "Entschuldigung"}
+  },
+
+  "adjectives": {
+    "_doc": "German adjectives: precede the noun, decline for gender/case/number. Strong declension (no article), weak (with definite article), mixed (with indefinite article). Comparative with -er, superlative with am -sten.",
+    "position": "before",
+    "agreement": "gender_case",
+    "declension_types": ["strong", "weak", "mixed"],
+    "common": {
+      "gut":       {"comparative": "besser",       "superlative": "am besten"},
+      "schlecht":  {"comparative": "schlechter",   "superlative": "am schlechtesten"},
+      "groß":     {"comparative": "größer",       "superlative": "am größten"},
+      "klein":     {"comparative": "kleiner",      "superlative": "am kleinsten"},
+      "neu":       {"comparative": "neuer",        "superlative": "am neuesten"},
+      "alt":       {"comparative": "älter",        "superlative": "am ältesten"},
+      "schnell":   {"comparative": "schneller",    "superlative": "am schnellsten"},
+      "langsam":   {"comparative": "langsamer",    "superlative": "am langsamsten"},
+      "lang":      {"comparative": "länger",       "superlative": "am längsten"},
+      "kurz":      {"comparative": "kürzer",       "superlative": "am kürzesten"},
+      "wichtig":   {"comparative": "wichtiger",    "superlative": "am wichtigsten"},
+      "schön":    {"comparative": "schöner",      "superlative": "am schönsten"},
+      "richtig":   {"comparative": "richtiger",    "superlative": "am richtigsten"},
+      "falsch":    {"comparative": "falscher",     "superlative": "am falschesten"},
+      "einfach":   {"comparative": "einfacher",    "superlative": "am einfachsten"},
+      "schwierig": {"comparative": "schwieriger",  "superlative": "am schwierigsten"},
+      "schwer":    {"comparative": "schwerer",     "superlative": "am schwersten"},
+      "viel":      {"comparative": "mehr",         "superlative": "am meisten"},
+      "wenig":     {"comparative": "weniger",      "superlative": "am wenigsten"},
+      "stark":     {"comparative": "stärker",      "superlative": "am stärksten"},
+      "schwach":   {"comparative": "schwächer",    "superlative": "am schwächsten"},
+      "heiß":     {"comparative": "heißer",       "superlative": "am heißesten"},
+      "kalt":      {"comparative": "kälter",       "superlative": "am kältesten"},
+      "jung":      {"comparative": "jünger",       "superlative": "am jüngsten"},
+      "teuer":     {"comparative": "teurer",       "superlative": "am teuersten"},
+      "billig":    {"comparative": "billiger",     "superlative": "am billigsten"}
+    }
+  },
+
+  "adverbs": {
+    "_doc": "German adverbs: flexible position (before or after verb, sentence-initial for emphasis). Many adjectives can function as adverbs without modification.",
+    "position": "flexible",
+    "formation_suffix": null,
+    "common": {
+      "schnell":    {},
+      "langsam":    {},
+      "schon":      {"translation": "already"},
+      "noch":       {"translation": "still"},
+      "auch":       {"translation": "also"},
+      "immer":      {"translation": "always"},
+      "nie":        {"translation": "never"},
+      "jetzt":      {"translation": "now"},
+      "hier":       {"translation": "here"},
+      "dort":       {"translation": "there"},
+      "sehr":       {"type": "intensifier"},
+      "wirklich":   {"type": "intensifier"},
+      "ziemlich":   {"type": "intensifier"},
+      "ganz":       {"type": "intensifier"},
+      "nicht":      {"type": "negation"},
+      "bitte":      {"type": "politeness"},
+      "gern":       {"variant": "gerne"},
+      "vielleicht": {"translation": "perhaps"},
+      "oft":        {"translation": "often"},
+      "manchmal":   {"translation": "sometimes"},
+      "heute":      {"translation": "today"},
+      "morgen":     {"translation": "tomorrow"},
+      "gestern":    {"translation": "yesterday"}
+    }
+  },
+
+  "prepositions": {
+    "_doc": "German prepositions govern specific cases: accusative (durch, für, gegen, ohne, um), dative (aus, bei, mit, nach, seit, von, zu), or two-way accusative/dative (an, auf, hinter, in, neben, über, unter, vor, zwischen).",
+    "container": "in",
+    "goal": "nach",
+    "goal_person": "zu",
+    "source": "von",
+    "source_origin": "aus",
+    "beneficiary": "für",
+    "instrument": "mit",
+    "location": "an",
+    "location_near": "bei",
+    "time": "um",
+    "direction": "nach",
+    "about": "über",
+    "through": "durch",
+    "between": "zwischen",
+    "without": "ohne",
+    "during": "während",
+    "before": "vor",
+    "after": "nach",
+    "above": "über",
+    "below": "unter",
+    "next_to": "neben",
+    "case_governance": {
+      "accusative": ["durch", "für", "gegen", "ohne", "um"],
+      "dative": ["aus", "bei", "mit", "nach", "seit", "von", "zu"],
+      "two_way": ["an", "auf", "hinter", "in", "neben", "über", "unter", "vor", "zwischen"],
+      "genitive": ["während", "wegen", "trotz", "statt"]
+    }
+  },
+
+  "conjunctions": {
+    "_doc": "German conjunctions: coordinating conjunctions don't affect word order; subordinating conjunctions send the conjugated verb to the end of the clause.",
+    "coordinating": {
+      "and": "und",
+      "or": "oder",
+      "but": "aber",
+      "but_rather": "sondern",
+      "so": "also",
+      "therefore": "deshalb",
+      "because_coord": "denn",
+      "nor": "noch"
+    },
+    "subordinating": {
+      "because": "weil",
+      "if": "wenn",
+      "if_conditional": "falls",
+      "when_present": "wenn",
+      "when_past": "als",
+      "while": "während",
+      "although": "obwohl",
+      "unless": "es sei denn",
+      "since_temporal": "seit",
+      "since_causal": "seitdem",
+      "before": "bevor",
+      "after": "nachdem",
+      "until": "bis",
+      "that": "dass",
+      "whether": "ob"
+    }
+  },
+
+  "interjections": {
+    "_doc": "German interjections: standalone expressions for greetings, emotions, and reactions. Regional variation exists (grüß Gott in southern Germany/Austria, moin in northern Germany).",
+    "greeting": ["hallo", "guten Tag", "guten Morgen", "guten Abend", "grüß Gott", "moin", "servus"],
+    "farewell": ["tschüss", "auf Wiedersehen", "bis bald", "ciao", "mach's gut"],
+    "thanks": ["danke", "vielen Dank", "dankeschön"],
+    "surprise": ["oh", "wow", "ach", "nanu", "Mensch"],
+    "agreement": ["ja", "genau", "natürlich", "selbstverständlich", "klar", "stimmt"],
+    "disagreement": ["nein", "nö", "gar nicht", "keineswegs"],
+    "hesitation": ["ähm", "tja", "nun", "also"],
+    "apology": ["Entschuldigung", "tut mir leid", "Verzeihung", "pardon"],
+    "encouragement": ["super", "toll", "prima", "wunderbar", "klasse", "ausgezeichnet", "bravo"],
+    "frustration": ["Mist", "verflixt", "ach du meine Güte", "Mensch", "so ein Mist"]
+  },
+
+  "list": {"and": "und", "or": "oder", "oxford": false},
+  "possessive": {"type": "pattern", "pattern": "{thing} von {owner}"},
+
+  "intents": {
+    "missing_fields": {
+      "openers": {
+        "neutral": ["Kurze Anmerkung:", "Bevor wir fortfahren:"],
+        "casual": ["Fast geschafft —", "Nur noch eine Sache —"],
+        "formal": []
+      },
+      "recipes": [
+        {"tones": ["formal"], "text": "könnten Sie bitte {fields_of} angeben?"},
+        {"tones": ["formal"], "text": "wir benötigen noch {fields_of}, um fortzufahren."},
+        {"tones": ["formal"], "text": "bitte teilen Sie uns {fields_of} mit."},
+        {"tones": ["neutral"], "text": "uns fehlt noch {fields_of}."},
+        {"tones": ["neutral"], "text": "bitte ergänzen Sie {fields_of}."},
+        {"tones": ["neutral"], "text": "wir brauchen noch {fields_of}."},
+        {"tones": ["casual"], "text": "es fehlt nur noch {fields_of}."},
+        {"tones": ["casual"], "text": "kannst du uns {fields_of} geben?"}
+      ]
+    },
+    "success": {
+      "openers": {
+        "neutral": ["Erledigt —", "Fertig —"],
+        "casual": ["Super —", "Prima —"],
+        "formal": []
+      },
+      "recipes": [
+        {"tones": ["formal"], "text": "der Vorgang für {entity} wurde erfolgreich abgeschlossen."},
+        {"tones": ["formal"], "text": "die Anfrage zu {entity} wurde bearbeitet."},
+        {"tones": ["neutral"], "text": "{entity} wurde erfolgreich verarbeitet."},
+        {"tones": ["neutral"], "text": "der Vorgang für {entity} ist abgeschlossen."},
+        {"tones": ["casual"], "text": "{entity} ist fertig!"},
+        {"tones": ["casual"], "text": "alles klar mit {entity}!"}
+      ]
+    },
+    "error": {
+      "openers": {
+        "neutral": [],
+        "casual": ["Ups —", "Hmm —"],
+        "formal": []
+      },
+      "recipes": [
+        {"tones": ["formal"], "text": "es ist ein Fehler aufgetreten: {reason}."},
+        {"tones": ["formal"], "text": "der Vorgang konnte nicht abgeschlossen werden: {reason}."},
+        {"tones": ["neutral"], "text": "etwas ist schiefgelaufen: {reason}."},
+        {"tones": ["neutral"], "text": "das hat nicht geklappt — {reason}."},
+        {"tones": ["casual"], "text": "hat leider nicht funktioniert — {reason}."},
+        {"tones": ["casual"], "text": "kleines Problem: {reason}. Nochmal versuchen?"}
+      ]
+    }
+  },
+  "unsupported_language_response": "Dieses Sprachpaket ist noch nicht installiert. Sie können es hinzufügen mit: patience install language <code>"
+}

@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "Guten Tag! Wie kann ich Ihnen helfen?"},
+    {"tone": "neutral", "text": "Hallo! Wie kann ich helfen?"},
+    {"tone": "casual", "text": "Hey! Was gibt's?"}
+  ]
+}

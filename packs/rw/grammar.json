@@ -1,0 +1,348 @@
+{
+  "language": "rw",
+  "script": "latin",
+  "word_order": "SVO",
+  "morphology": {
+    "type": "agglutinative",
+    "conjugation": "prefix",
+    "prefix_key": "prefix",
+    "default_prefix": "ara"
+  },
+  "sentence_rules": {
+    "capitalize_first": true,
+    "default_subject": null,
+    "command_subject": null,
+    "adjective_position": "after",
+    "adverb_position": "after_verb",
+    "copula_rules": {
+      "1s": {"subject": null, "form": "ni"},
+      "2s": {"subject": null, "form": "ni"},
+      "3s": {"subject": null, "form": "ni"},
+      "default": "ni"
+    }
+  },
+  "elision": [
+    {"before": "vowel", "token": "na", "replacement": "n'"}
+  ],
+
+  "nouns": {
+    "_doc": "Kinyarwanda nouns use a noun class system (Bantu classes) with singular/plural prefix pairs. No articles exist. field_nouns maps machine field names to Kinyarwanda display forms.",
+    "articles": {},
+    "gender": "noun_class",
+    "noun_classes": [
+      {"class": "1/2",   "singular_prefix": "umu-", "plural_prefix": "aba-", "example_sg": "umuntu",   "example_pl": "abantu",   "semantic": "people"},
+      {"class": "3/4",   "singular_prefix": "umu-", "plural_prefix": "imi-", "example_sg": "umugezi",  "example_pl": "imigezi",  "semantic": "plants, natural objects"},
+      {"class": "5/6",   "singular_prefix": "i-",   "plural_prefix": "ama-", "example_sg": "ijambo",   "example_pl": "amajambo", "semantic": "augmentatives, paired things"},
+      {"class": "7/8",   "singular_prefix": "iki-", "plural_prefix": "ibi-", "example_sg": "igitabo",  "example_pl": "ibitabo",  "semantic": "things, instruments"},
+      {"class": "9/10",  "singular_prefix": "in-",  "plural_prefix": "in-",  "example_sg": "inka",     "example_pl": "inka",     "semantic": "animals, loanwords"},
+      {"class": "11/10", "singular_prefix": "uru-", "plural_prefix": "in-",  "example_sg": "urukwavu", "example_pl": "inkwavu",  "semantic": "long/thin objects"},
+      {"class": "12/13", "singular_prefix": "aka-", "plural_prefix": "utu-", "example_sg": "akana",    "example_pl": "utuwana",  "semantic": "diminutives"},
+      {"class": "14",    "singular_prefix": "ubu-", "plural_prefix": null,   "example_sg": "ubuntu",   "example_pl": null,       "semantic": "abstract qualities"},
+      {"class": "15",    "singular_prefix": "uku-", "plural_prefix": null,   "example_sg": "ukuboko",  "example_pl": null,       "semantic": "verbal nouns (infinitives)"},
+      {"class": "16",    "singular_prefix": "aha-", "plural_prefix": null,   "example_sg": "ahantu",   "example_pl": null,       "semantic": "locative (specific place)"},
+      {"class": "17",    "singular_prefix": "uku-", "plural_prefix": null,   "example_sg": "ukuntu",   "example_pl": null,       "semantic": "locative (indefinite)"},
+      {"class": "18",    "singular_prefix": "mu-",  "plural_prefix": null,   "example_sg": "munzu",    "example_pl": null,       "semantic": "locative (inside)"}
+    ],
+    "plural_rules": [
+      {"match": "^umu(.+)$", "replace": "aba$1",  "classes": ["1/2"]},
+      {"match": "^umu(.+)$", "replace": "imi$1",  "classes": ["3/4"]},
+      {"match": "^i(.+)$",   "replace": "ama$1",  "classes": ["5/6"]},
+      {"match": "^iki(.+)$", "replace": "ibi$1",  "classes": ["7/8"]},
+      {"match": "^uru(.+)$", "replace": "in$1",   "classes": ["11/10"]},
+      {"match": "^aka(.+)$", "replace": "utu$1",  "classes": ["12/13"]}
+    ],
+    "field_nouns": {
+      "age": "imyaka",
+      "sex": "igitsina",
+      "gender": "igitsina",
+      "residence": "aho atuye",
+      "language": "ururimi",
+      "name": "izina",
+      "first name": "izina bwite",
+      "last name": "izina ry'umuryango",
+      "email": "imeyili",
+      "phone": "telefoni",
+      "address": "aderesi",
+      "birth date": "itariki y'amavuko",
+      "date of birth": "itariki y'amavuko",
+      "nationality": "ubwenegihugu",
+      "occupation": "umwuga",
+      "level": "urwego",
+      "class": "ishuri",
+      "school": "ishuri",
+      "grade": "amanota"
+    }
+  },
+
+  "pronouns": {
+    "_doc": "Kinyarwanda pronouns: subject/object forms plus the verbal prefix used in agglutinative conjugation. Person codes: 1s/2s/3s/1p/2p/3p.",
+    "REF_SPEAKER":          {"subject": "njye",   "object": "njye",   "prefix": "nda",  "person": "1s"},
+    "REF_LISTENER":         {"subject": "wowe",   "object": "wowe",   "prefix": "ura",  "person": "2s"},
+    "REF_PREVIOUS_ENTITY":  {"subject": "we",     "object": "we",     "prefix": "ara",  "person": "3s"},
+    "REF_WE":               {"subject": "twebwe", "object": "twebwe", "prefix": "tura", "person": "1p"},
+    "REF_THEY":             {"subject": "bo",     "object": "bo",     "prefix": "bara", "person": "3p"},
+    "REF_HERE":             {"subject": "hano",   "object": "hano"},
+    "REF_TIME_NOW":         {"subject": "ubu",    "object": "ubu"},
+    "REF_TIME_PAST":        {"subject": "kera",   "object": "kera"},
+    "REF_TIME_FUTURE":      {"subject": "ejo",    "object": "ejo"}
+  },
+
+  "verbs": {
+    "_doc": "Kinyarwanda verbs conjugate via prefix agglutination: subject-marker + tense-marker + stem. 'stem' is the root for prefix conjugation. 'fixed' means the form is used as-is (e.g. greetings).",
+    "ACTION_CREATE":    {"stem": "kora"},
+    "ACTION_DELETE":    {"stem": "siba"},
+    "ACTION_UPDATE":    {"stem": "hindura"},
+    "ACTION_ASSIGN":    {"stem": "ongeramo"},
+    "ACTION_REGISTER":  {"stem": "andikisha"},
+    "ACTION_REMOVE":    {"stem": "kuramo"},
+    "ACTION_SEND":      {"stem": "ohereza"},
+    "ACTION_GIVE":      {"stem": "tanga"},
+    "ACTION_SHOW":      {"stem": "erekana"},
+    "ACTION_LIST":      {"stem": "garagaza"},
+    "ACTION_SEARCH":    {"stem": "shakisha"},
+    "ACTION_HELP":      {"stem": "fasha"},
+    "ACTION_START":     {"stem": "tangira"},
+    "ACTION_STOP":      {"stem": "hagarika"},
+    "ACTION_OPEN":      {"stem": "fungura"},
+    "ACTION_CLOSE":     {"stem": "funga"},
+    "ACTION_READ":      {"stem": "soma"},
+    "ACTION_WRITE":     {"stem": "andika"},
+    "ACTION_SAVE":      {"stem": "bika"},
+    "ACTION_CALL":      {"stem": "hamagara"},
+    "ACTION_EXPLAIN":   {"stem": "sobanura"},
+    "ACTION_TRANSLATE": {"stem": "semura"},
+    "ACTION_DEFINE":    {"stem": "sobanura"},
+    "ACTION_SUMMARIZE": {"stem": "sobanura mu magambo make"},
+    "ACTION_EAT":       {"stem": "rya"},
+    "ACTION_DRINK":     {"stem": "nywa"},
+    "ACTION_PLAY":      {"stem": "kina"},
+    "ACTION_TRAVEL":    {"stem": "genda"},
+    "ACTION_SEE":       {"stem": "reba"},
+    "ACTION_TELL":      {"stem": "bwira"},
+    "ACTION_TEACH":     {"stem": "igisha"},
+    "ACTION_LEARN":     {"stem": "iga"},
+    "ACTION_BUY":       {"stem": "gura"},
+    "ACTION_PAY":       {"stem": "ishyura"},
+    "ACTION_SLEEP":     {"stem": "ryama"},
+    "ACTION_INVITE":    {"stem": "tumira"},
+    "STATE_WANT":       {"stem": "shaka"},
+    "STATE_NEED":       {"stem": "kenera"},
+    "STATE_KNOW":       {"stem": "menya"},
+    "STATE_LOVE":       {"stem": "kunda"},
+    "STATE_HATE":       {"stem": "anga"},
+    "STATE_HAVE":       {"stem": "gira"},
+    "STATE_LIKE":       {"stem": "kunda"},
+    "STATE_BE":         {"fixed": "ni"},
+    "STATE_UNDERSTAND": {"stem": "sobanukirwa"},
+    "STATE_THINK":      {"stem": "tekereza"},
+    "STATE_FEEL":       {"stem": "umva"},
+    "STATE_BELIEVE":    {"stem": "izera"},
+    "META_GREET":       {"fixed": "aramutsa"},
+    "META_THANK":       {"fixed": "arashimira"},
+    "META_FAREWELL":    {"fixed": "arasezera"},
+    "META_APOLOGIZE":   {"fixed": "arasaba imbabazi"}
+  },
+
+  "adjectives": {
+    "_doc": "Kinyarwanda adjectives follow the noun and agree with its noun class via agreement prefixes. Comparatives use 'kuruta' (more than), superlatives use '-a bose/byose' (of all).",
+    "position": "after",
+    "agreement": "noun_class",
+    "agreement_prefixes": {
+      "1/2":   {"singular": "mu-",  "plural": "ba-"},
+      "3/4":   {"singular": "mu-",  "plural": "mi-"},
+      "5/6":   {"singular": "ri-",  "plural": "ma-"},
+      "7/8":   {"singular": "ki-",  "plural": "bi-"},
+      "9/10":  {"singular": "n-",   "plural": "n-"},
+      "11/10": {"singular": "ru-",  "plural": "n-"},
+      "12/13": {"singular": "ka-",  "plural": "tu-"},
+      "14":    {"singular": "bu-"},
+      "15":    {"singular": "ku-"},
+      "16":    {"singular": "ha-"}
+    },
+    "comparative_marker": "kuruta",
+    "superlative_marker": "cyane",
+    "common": {
+      "good":      {"root": "-nziza",    "surface": "nziza"},
+      "bad":       {"root": "-mbi",      "surface": "mbi"},
+      "big":       {"root": "-nini",     "surface": "nini"},
+      "small":     {"root": "-to",       "surface": "to"},
+      "new":       {"root": "-shya",     "surface": "shya"},
+      "old":       {"root": "-shaje",    "surface": "shaje"},
+      "fast":      {"root": "-vuba",     "surface": "vuba"},
+      "slow":      {"root": "-buhoro",   "surface": "buhoro"},
+      "long":      {"root": "-ndende",   "surface": "ndende"},
+      "short":     {"root": "-gufi",     "surface": "gufi"},
+      "important": {"root": "-komeye",   "surface": "ikomeye"},
+      "beautiful": {"root": "-nziza",    "surface": "nziza cyane"},
+      "correct":   {"root": "-kuri",     "surface": "ukuri"},
+      "wrong":     {"root": "-dakwiye",  "surface": "bidakwiye"},
+      "easy":      {"root": "-oroshye",  "surface": "byoroshye"},
+      "difficult": {"root": "-goye",     "surface": "bigoye"},
+      "many":      {"root": "-inshi",    "surface": "byinshi"},
+      "few":       {"root": "-ke",       "surface": "bike"},
+      "strong":    {"root": "-komeye",   "surface": "ikomeye"},
+      "weak":      {"root": "-goyigoyi", "surface": "goyigoyi"}
+    }
+  },
+
+  "adverbs": {
+    "_doc": "Kinyarwanda adverbs typically follow the verb. No morphological formation suffix — adverbs are standalone words or phrases.",
+    "position": "after_verb",
+    "formation_suffix": null,
+    "common": {
+      "quickly":  {"surface": "vuba"},
+      "slowly":   {"surface": "buhoro"},
+      "already":  {"surface": "kera"},
+      "still":    {"surface": "gikomeje"},
+      "also":     {"surface": "nanone"},
+      "always":   {"surface": "iteka"},
+      "never":    {"surface": "ntabwo igeze"},
+      "now":      {"surface": "ubu"},
+      "here":     {"surface": "hano"},
+      "there":    {"surface": "hariya"},
+      "very":     {"surface": "cyane",     "type": "intensifier"},
+      "really":   {"surface": "by'ukuri",  "type": "intensifier"},
+      "not":      {"surface": "nti-",      "type": "negation"},
+      "please":   {"surface": "murakoze",  "type": "politeness"},
+      "well":     {"surface": "neza"},
+      "today":    {"surface": "uyu munsi"},
+      "tomorrow": {"surface": "ejo"},
+      "yesterday":{"surface": "ejo hashize"},
+      "together": {"surface": "hamwe"},
+      "only":     {"surface": "gusa"},
+      "maybe":    {"surface": "birashoboka"}
+    }
+  },
+
+  "prepositions": {
+    "_doc": "Kinyarwanda prepositions (locative particles): placed before their complement, some combine with noun class markers.",
+    "container": "muri",
+    "goal": "kuri",
+    "source": "muri",
+    "beneficiary": "kuri",
+    "location": "mu",
+    "time": "mu",
+    "direction": "kuri",
+    "about": "ku birebana na",
+    "with": "hamwe na",
+    "without": "nta",
+    "before": "mbere ya",
+    "after": "nyuma ya",
+    "between": "hagati ya",
+    "above": "hejuru ya",
+    "below": "munsi ya",
+    "near": "hafi ya",
+    "far": "kure ya",
+    "inside": "imbere muri",
+    "outside": "hanze ya"
+  },
+
+  "conjunctions": {
+    "_doc": "Kinyarwanda conjunctions: coordinating connect equal clauses; subordinating introduce dependent clauses. 'na' elides to 'n'' before vowels.",
+    "coordinating": {
+      "and": "na",
+      "or": "cyangwa",
+      "but": "ariko",
+      "so": "nuko"
+    },
+    "subordinating": {
+      "because": "kubera ko",
+      "if": "niba",
+      "when": "igihe",
+      "while": "mu gihe",
+      "although": "nubwo",
+      "since": "kuva",
+      "that": "ko",
+      "before": "mbere yuko",
+      "after": "nyuma yuko",
+      "until": "kugeza",
+      "unless": "keretse niba",
+      "so_that": "kugira ngo"
+    }
+  },
+
+  "interjections": {
+    "_doc": "Kinyarwanda interjections: express emotion, greetings, or reactions. Used standalone or sentence-initially.",
+    "greeting": ["muraho", "mwiriwe", "amakuru"],
+    "farewell": ["murabeho", "nawe", "ugende neza"],
+    "thanks": ["urakoze", "murakoze", "murakoze cyane"],
+    "surprise": ["yee", "yoo", "aho"],
+    "agreement": ["yego", "nibyo", "ni byo rwose"],
+    "disagreement": ["oya", "ntibyo", "ntabwo"],
+    "hesitation": ["eeh", "burya"],
+    "apology": ["imbabazi", "mbabarira", "ihangane"],
+    "encouragement": ["neza", "ni byiza", "bihebuje"],
+    "frustration": ["yoo", "ntibyashoboka", "ibibi"]
+  },
+
+  "list": {
+    "and": "na",
+    "or": "cyangwa",
+    "oxford": false,
+    "elide_before_vowel": "n'"
+  },
+  "possessive": {
+    "type": "pattern",
+    "pattern": "{thing} bya {owner}"
+  },
+
+  "intents": {
+    "missing_fields": {
+      "openers": {
+        "neutral": ["Mbere yo gukomeza,", "Hari ikintu gisigaye —", "Icyitonderwa:"],
+        "casual": ["Hasigaye gato —", "Twabuze gato —", "Haracyabura kimwe:"],
+        "formal": ["Mugomba gutanga amakuru akurikira:", "Turabashimira — ariko turacyakeneye:"]
+      },
+      "recipes": [
+        {"tones": ["formal"], "text": "turabasaba gutanga {fields_of}."},
+        {"tones": ["formal"], "text": "dukeneye {fields_of} kugira ngo dukomeze."},
+        {"tones": ["formal"], "text": "mugomba gutanga {fields_of} mbere yo gukomeza."},
+        {"tones": ["neutral"], "text": "turacyakeneye {fields_of}."},
+        {"tones": ["neutral"], "text": "haracyabura {fields_of}."},
+        {"tones": ["neutral"], "text": "mutubwire {fields_of}."},
+        {"tones": ["neutral"], "text": "mwongeremo {fields_of} kugira ngo turangize."},
+        {"tones": ["casual"], "text": "hasigaye {fields_of} gusa."},
+        {"tones": ["casual"], "text": "mwatugezaho {fields_of}?"},
+        {"tones": ["casual"], "text": "twakenera {fields_of} — mwabidufashamo?"}
+      ]
+    },
+    "success": {
+      "openers": {
+        "neutral": ["Byagenze neza —", "Byarangiye —", "Byakozwe —"],
+        "casual": ["Byiza —", "Ni byiza —", "Neza —"],
+        "formal": ["Igikorwa cyarangiye neza —", "Turabamenyesha ko:"]
+      },
+      "recipes": [
+        {"tones": ["formal"], "text": "igikorwa cya {entity} cyarangiye neza."},
+        {"tones": ["formal"], "text": "ibya {entity} byakozwe neza."},
+        {"tones": ["formal"], "text": "{entity} {action} nk'uko byari bisabwe."},
+        {"tones": ["neutral"], "text": "ibya {entity} byarangiye."},
+        {"tones": ["neutral"], "text": "byakozwe kuri {entity}."},
+        {"tones": ["neutral"], "text": "{entity} ya{action} neza."},
+        {"tones": ["casual"], "text": "byarakunze kuri {entity}!"},
+        {"tones": ["casual"], "text": "ibya {entity} byabaye!"},
+        {"tones": ["casual"], "text": "{entity} — byakunze!"}
+      ]
+    },
+    "error": {
+      "openers": {
+        "neutral": ["Hari ikibazo —", "Ntibyakunze —"],
+        "casual": ["Yoo —", "Eeh —", "Yoo nabi —"],
+        "formal": ["Harabaye ikibazo:", "Tugusabye imbabazi —"]
+      },
+      "recipes": [
+        {"tones": ["formal"], "text": "habaye ikibazo: {reason}."},
+        {"tones": ["formal"], "text": "igikorwa nticyashobotse: {reason}."},
+        {"tones": ["formal"], "text": "tugusabye imbabazi — {reason}."},
+        {"tones": ["neutral"], "text": "hari ikitagenze neza: {reason}."},
+        {"tones": ["neutral"], "text": "ntibyakunze — {reason}."},
+        {"tones": ["neutral"], "text": "ntibyashobotse: {reason}."},
+        {"tones": ["casual"], "text": "ntibyakunze: {reason}."},
+        {"tones": ["casual"], "text": "hari ikibazo: {reason}. Twongere tugerageze?"},
+        {"tones": ["casual"], "text": "{reason} — dusubire tugerageze?"}
+      ]
+    }
+  },
+
+  "unsupported_language_response": "Uru rurimi ntiruracyashyirwaho. Mushobora kurwongeramo mukoresheje: patience install language <code>"
+}

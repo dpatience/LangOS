@@ -33,6 +33,24 @@ defmodule LangOS.Vocabulary do
     end
   end
 
+  @doc "Lookup a vocabulary entry by its semantic symbol."
+  @spec by_symbol(String.t()) :: map() | nil
+  def by_symbol(symbol) when is_binary(symbol) do
+    case :persistent_term.get(:langos_vocab_by_symbol, nil) do
+      nil ->
+        index = build_symbol_index()
+        :persistent_term.put(:langos_vocab_by_symbol, index)
+        Map.get(index, symbol)
+
+      index ->
+        Map.get(index, symbol)
+    end
+  end
+
+  defp build_symbol_index do
+    Map.new(table(), fn {_id, entry} -> {entry["symbol"], entry} end)
+  end
+
   @spec size() :: non_neg_integer()
   def size, do: map_size(table())
 

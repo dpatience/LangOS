@@ -20,7 +20,7 @@ defmodule LangOS.Router do
     end)
   end
 
-  @default_parse_chain ["rule", "syntax", "stat", "neural"]
+  @default_parse_chain ["rule", "lexical", "syntax", "stat", "neural"]
 
   @doc """
   Ordered engine chain for the parse stage, configurable per stage via

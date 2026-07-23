@@ -12,6 +12,7 @@ defmodule LangOS.CLI do
     to: :string,
     file: :string,
     locale: :string,
+    tone: :string,
     document: :boolean
   ]
   @aliases [c: :config]
@@ -23,6 +24,7 @@ defmodule LangOS.CLI do
       ["serve" | rest] -> cmd_serve(rest)
       ["mcp" | rest] -> cmd_mcp(rest)
       ["benchmark" | rest] -> cmd_benchmark(rest)
+      ["install", "language", id | _] -> cmd_install_language(id)
       ["languages", "list"] -> cmd_languages_list()
       ["engines", "list"] -> cmd_engines_list()
       ["plugins", "list"] -> cmd_plugins_list()
@@ -73,7 +75,10 @@ defmodule LangOS.CLI do
 
     ensure_services()
 
-    case LangOS.express(%{"template" => template, "locale" => locale, "data" => data}) do
+    request = %{"template" => template, "locale" => locale, "data" => data}
+    request = if opts[:tone], do: Map.put(request, "tone", opts[:tone]), else: request
+
+    case LangOS.express(request) do
       {:ok, resp} -> IO.puts(Jason.encode!(resp, pretty: true))
       {:error, err} -> exit_error(err)
     end
@@ -148,6 +153,27 @@ defmodule LangOS.CLI do
     IO.puts("patience v#{LangOS.IR.version()} (LangOS Semantic IR)")
   end
 
+  defp cmd_install_language(id) do
+    ensure_services()
+
+    case LangOS.LanguagePack.Registry.install(id) do
+      {:ok, %{status: :already_installed, name: name}} ->
+        IO.puts("patience: #{name} (#{id}) is already installed.")
+
+      {:ok, %{status: :installed, name: name, version: version}} ->
+        IO.puts("patience: Installed #{name} (#{id}) v#{version}.")
+        IO.puts("patience: Grammar, vocabulary, and templates loaded.")
+
+      {:error, {:pack_not_found, _}} ->
+        IO.puts(:stderr, "patience: Language pack \"#{id}\" not found in packs directory.")
+        IO.puts(:stderr, "patience: Create a pack folder at packs/#{id}/ with manifest.json and grammar.json.")
+        System.halt(1)
+
+      {:error, err} ->
+        exit_error(err)
+    end
+  end
+
   defp cmd_languages_list do
     ensure_services()
     packs = LangOS.LanguagePack.Registry.list()
@@ -183,8 +209,9 @@ defmodule LangOS.CLI do
 
       patience understand --text "Register Clarissa in Biology A1"
       patience understand --file report.txt          # document mode (unit streaming pipeline)
-      patience express --template missing_fields --data '{"entity":"Clarissa","fields":"age, language"}'
+      patience express --template missing_fields --tone formal --locale fr --data '{"entity":"Clarissa","fields":"age, language"}'
       patience express --template missing_fields --data fields.json
+      patience install language de                 # hot-install a language pack
       patience serve [--config config/dev.json]
       patience mcp                                   # Model Context Protocol over stdio
       patience benchmark [--file bench/corpus.jsonl]

@@ -1,0 +1,228 @@
+{
+  "patterns": [
+    {
+      "id": "registriere_in",
+      "pattern": "(?:bitte\\s+)?registrier(?:e|en)\\s+(.+?)\\s+in\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000005",
+      "symbol": "ACTION_REGISTER",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"},
+        {"index": 2, "role": "container", "kind": "named"}
+      ]
+    },
+    {
+      "id": "erstelle",
+      "pattern": "(?:bitte\\s+)?erstell(?:e|en)\\s+(?:eine[rnms]?\\s+)?(.+?)\\s+(?:namens|mit\\s+dem\\s+namen)\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000001",
+      "symbol": "ACTION_CREATE",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"},
+        {"index": 2, "role": "theme", "kind": "named"}
+      ]
+    },
+    {
+      "id": "loesche",
+      "pattern": "(?:bitte\\s+)?lösch(?:e|en)\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000002",
+      "symbol": "ACTION_DELETE",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"}
+      ]
+    },
+    {
+      "id": "oeffne",
+      "pattern": "(?:bitte\\s+)?öffn(?:e|en)\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000016",
+      "symbol": "ACTION_OPEN",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "patient", "kind": "named"}
+      ]
+    },
+    {
+      "id": "zeige",
+      "pattern": "(?:bitte\\s+)?zeig(?:e|en)\\s+(?:mir\\s+)?(.+?)\\.?$",
+      "vocab_id": "ACT_000010",
+      "symbol": "ACTION_SHOW",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "theme", "kind": "named"}
+      ]
+    },
+    {
+      "id": "sende",
+      "pattern": "(?:bitte\\s+)?send(?:e|en)\\s+(.+?)\\s+an\\s+(.+?)\\.?$",
+      "vocab_id": "ACT_000008",
+      "symbol": "ACTION_SEND",
+      "unit_type": "command",
+      "groups": [
+        {"index": 1, "role": "theme", "kind": "named"},
+        {"index": 2, "role": "goal", "kind": "named"}
+      ]
+    },
+    {
+      "id": "hilf",
+      "pattern": "(?:bitte\\s+)?hilf\\s+(?:mir|uns)?",
+      "vocab_id": "ACT_000012",
+      "symbol": "ACTION_HELP",
+      "unit_type": "command",
+      "groups": []
+    },
+    {
+      "id": "gruss",
+      "pattern": "^(?:hallo|guten\\s+tag|guten\\s+morgen|guten\\s+abend|servus|moin|hi)\\s*[!.]?$",
+      "vocab_id": "META_000001",
+      "symbol": "META_GREET",
+      "unit_type": "statement",
+      "groups": []
+    },
+    {
+      "id": "danke",
+      "pattern": "^(?:danke|vielen\\s+dank|dankeschön)\\s*[!.]?$",
+      "vocab_id": "META_000002",
+      "symbol": "META_THANK",
+      "unit_type": "statement",
+      "groups": []
+    },
+    {
+      "id": "tschuess",
+      "pattern": "^(?:tschüss|auf\\s+wiedersehen|bis\\s+bald|ciao)\\s*[!.]?$",
+      "vocab_id": "META_000003",
+      "symbol": "META_FAREWELL",
+      "unit_type": "statement",
+      "groups": []
+    },
+    {
+      "id": "was_ist",
+      "pattern": "was\\s+ist\\s+(.+?)\\??$",
+      "vocab_id": "ACT_000024",
+      "symbol": "ACTION_DEFINE",
+      "unit_type": "question",
+      "groups": [
+        {"index": 1, "role": "theme", "kind": "named"}
+      ]
+    },
+    {
+      "id": "ich_verb",
+      "pattern": "^ich\\s+(\\w+)\\s+(.+?)\\.?$",
+      "vocab_id": null,
+      "symbol": null,
+      "unit_type": "statement",
+      "groups": [
+        {"index": 1, "role": "verb_token", "kind": "literal"},
+        {"index": 2, "role": "theme", "kind": "named"}
+      ]
+    }
+  ],
+  "verb_map": {
+    "registriere": "ACTION_REGISTER",
+    "registrieren": "ACTION_REGISTER",
+    "erstelle": "ACTION_CREATE",
+    "erstellen": "ACTION_CREATE",
+    "lösche": "ACTION_DELETE",
+    "löschen": "ACTION_DELETE",
+    "aktualisiere": "ACTION_UPDATE",
+    "aktualisieren": "ACTION_UPDATE",
+    "öffne": "ACTION_OPEN",
+    "öffnen": "ACTION_OPEN",
+    "schließe": "ACTION_CLOSE",
+    "schließen": "ACTION_CLOSE",
+    "zeige": "ACTION_SHOW",
+    "zeigen": "ACTION_SHOW",
+    "sende": "ACTION_SEND",
+    "senden": "ACTION_SEND",
+    "gib": "ACTION_GIVE",
+    "geben": "ACTION_GIVE",
+    "hilf": "ACTION_HELP",
+    "helfen": "ACTION_HELP",
+    "lies": "ACTION_READ",
+    "lesen": "ACTION_READ",
+    "schreibe": "ACTION_WRITE",
+    "schreiben": "ACTION_WRITE",
+    "speichere": "ACTION_SAVE",
+    "speichern": "ACTION_SAVE",
+    "suche": "ACTION_SEARCH",
+    "suchen": "ACTION_SEARCH",
+    "starte": "ACTION_START",
+    "starten": "ACTION_START",
+    "stoppe": "ACTION_STOP",
+    "stoppen": "ACTION_STOP",
+    "erkläre": "ACTION_EXPLAIN",
+    "erklären": "ACTION_EXPLAIN",
+    "übersetze": "ACTION_TRANSLATE",
+    "übersetzen": "ACTION_TRANSLATE",
+    "definiere": "ACTION_DEFINE",
+    "definieren": "ACTION_DEFINE",
+    "lade": "ACTION_INVITE",
+    "einladen": "ACTION_INVITE",
+    "esse": "ACTION_EAT",
+    "essen": "ACTION_EAT",
+    "trinke": "ACTION_DRINK",
+    "trinken": "ACTION_DRINK",
+    "spiele": "ACTION_PLAY",
+    "spielen": "ACTION_PLAY",
+    "reise": "ACTION_TRAVEL",
+    "reisen": "ACTION_TRAVEL",
+    "gehe": "ACTION_TRAVEL",
+    "gehen": "ACTION_TRAVEL",
+    "kaufe": "ACTION_BUY",
+    "kaufen": "ACTION_BUY",
+    "bezahle": "ACTION_PAY",
+    "bezahlen": "ACTION_PAY",
+    "schlafe": "ACTION_SLEEP",
+    "schlafen": "ACTION_SLEEP",
+    "liebe": "STATE_LOVE",
+    "lieben": "STATE_LOVE",
+    "hasse": "STATE_HATE",
+    "hassen": "STATE_HATE",
+    "weiß": "STATE_KNOW",
+    "wissen": "STATE_KNOW",
+    "denke": "STATE_THINK",
+    "denken": "STATE_THINK",
+    "verstehe": "STATE_UNDERSTAND",
+    "verstehen": "STATE_UNDERSTAND",
+    "brauche": "STATE_NEED",
+    "brauchen": "STATE_NEED",
+    "will": "STATE_WANT",
+    "wollen": "STATE_WANT",
+    "habe": "STATE_HAVE",
+    "haben": "STATE_HAVE",
+    "bin": "STATE_BE",
+    "ist": "STATE_BE",
+    "sind": "STATE_BE",
+    "mag": "STATE_LIKE",
+    "mögen": "STATE_LIKE"
+  },
+  "pronoun_map": {
+    "ich": "REF_SPEAKER",
+    "mich": "REF_SPEAKER",
+    "mir": "REF_SPEAKER",
+    "du": "REF_LISTENER",
+    "dich": "REF_LISTENER",
+    "dir": "REF_LISTENER",
+    "er": "REF_PREVIOUS_ENTITY",
+    "sie": "REF_PREVIOUS_ENTITY",
+    "es": "REF_PREVIOUS_ENTITY",
+    "hier": "REF_HERE",
+    "jetzt": "REF_TIME_NOW",
+    "heute": "REF_TIME_NOW"
+  },
+  "detection": {
+    "words": [
+      "ich", "du", "er", "sie", "es", "wir", "ihr", "und", "oder", "ist",
+      "sind", "war", "habe", "hat", "haben", "ein", "eine", "der", "die",
+      "das", "den", "dem", "des", "nicht", "kein", "bitte", "danke",
+      "ja", "nein", "mit", "für", "von", "zu", "auf", "in", "an", "was",
+      "wer", "wo", "wann", "warum", "wie", "aber", "auch", "noch", "schon",
+      "sehr", "gut", "können", "müssen", "sollen", "werden", "möchten",
+      "hallo", "tschüss", "moin", "servus", "guten", "morgen", "abend",
+      "entschuldigung", "bitteschön", "dankeschön", "genau", "natürlich",
+      "vielleicht", "immer", "nie", "mehr", "weniger", "über", "unter",
+      "neben", "zwischen", "durch", "gegen", "ohne", "alle", "mein", "dein",
+      "sein", "unser", "euer"
+    ]
+  }
+}

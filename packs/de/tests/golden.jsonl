@@ -1,0 +1,13 @@
+{"input": {"text": "Registriere Hans in Biologie A1", "locale": "de"}, "expected": {"vocab_id": "ACT_000005", "symbol": "ACTION_REGISTER", "utterance_type": "command", "roles": [{"role": "patient", "surface": "Hans"}, {"role": "container", "surface": "Biologie A1"}]}}
+{"input": {"text": "Registriere Clarissa in Mathematik B2", "locale": "de"}, "expected": {"vocab_id": "ACT_000005", "symbol": "ACTION_REGISTER", "utterance_type": "command", "roles": [{"role": "patient", "surface": "Clarissa"}, {"role": "container", "surface": "Mathematik B2"}]}}
+{"input": {"text": "Erstelle einen Studenten namens Max", "locale": "de"}, "expected": {"vocab_id": "ACT_000001", "symbol": "ACTION_CREATE", "utterance_type": "command", "roles": [{"role": "patient", "surface": "Studenten"}, {"role": "theme", "surface": "Max"}]}}
+{"input": {"text": "Lösche den Eintrag", "locale": "de"}, "expected": {"vocab_id": "ACT_000002", "symbol": "ACTION_DELETE", "utterance_type": "command", "roles": [{"role": "patient", "surface": "den Eintrag"}]}}
+{"input": {"text": "Öffne die Datei", "locale": "de"}, "expected": {"vocab_id": "ACT_000016", "symbol": "ACTION_OPEN", "utterance_type": "command", "roles": [{"role": "patient", "surface": "die Datei"}]}}
+{"input": {"text": "Zeige mir die Ergebnisse", "locale": "de"}, "expected": {"vocab_id": "ACT_000010", "symbol": "ACTION_SHOW", "utterance_type": "command", "roles": [{"role": "theme", "surface": "die Ergebnisse"}]}}
+{"input": {"text": "Sende die Nachricht an Marie", "locale": "de"}, "expected": {"vocab_id": "ACT_000008", "symbol": "ACTION_SEND", "utterance_type": "command", "roles": [{"role": "theme", "surface": "die Nachricht"}, {"role": "goal", "surface": "Marie"}]}}
+{"input": {"text": "Hallo!", "locale": "de"}, "expected": {"vocab_id": "META_000001", "symbol": "META_GREET", "utterance_type": "exclamation"}}
+{"input": {"text": "Guten Tag", "locale": "de"}, "expected": {"vocab_id": "META_000001", "symbol": "META_GREET", "utterance_type": "statement"}}
+{"input": {"text": "Danke", "locale": "de"}, "expected": {"vocab_id": "META_000002", "symbol": "META_THANK", "utterance_type": "statement"}}
+{"input": {"text": "Vielen Dank!", "locale": "de"}, "expected": {"vocab_id": "META_000002", "symbol": "META_THANK", "utterance_type": "exclamation"}}
+{"input": {"text": "Tschüss", "locale": "de"}, "expected": {"vocab_id": "META_000003", "symbol": "META_FAREWELL", "utterance_type": "statement"}}
+{"input": {"text": "Was ist Photosynthese?", "locale": "de"}, "expected": {"vocab_id": "ACT_000024", "symbol": "ACTION_DEFINE", "utterance_type": "question", "roles": [{"role": "theme", "surface": "Photosynthese"}]}}

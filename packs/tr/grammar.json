@@ -1,0 +1,318 @@
+{
+  "language": "tr",
+  "script": "latin",
+  "word_order": "SOV",
+  "morphology": {
+    "type": "agglutinative",
+    "conjugation": "suffix",
+    "vowel_harmony": {
+      "vowels": ["a", "e", "ı", "i", "o", "ö", "u", "ü"],
+      "back":   ["a", "ı", "o", "u"],
+      "front":  ["e", "i", "ö", "ü"],
+      "harmony4": {
+        "a": "ı", "ı": "ı",
+        "e": "i", "i": "i",
+        "o": "u", "u": "u",
+        "ö": "ü", "ü": "ü"
+      },
+      "harmony2": {
+        "back": "a",
+        "front": "e"
+      },
+      "default": "i"
+    },
+    "progressive": {
+      "template": "{stem_drop_vowel}{h4}yor{person}",
+      "persons": {"1s": "um", "2s": "sun", "3s": "", "1p": "uz", "2p": "sunuz", "3p": "lar"}
+    },
+    "genitive": {
+      "template": "{owner}'{buffer}{h4}n",
+      "vowel_buffer": "n"
+    },
+    "accusative": {
+      "template": "{noun}'{buffer}{h4}",
+      "vowel_buffer": "y"
+    },
+    "dative": {
+      "template": "{noun}'{buffer}{h2}",
+      "vowel_buffer": "y"
+    }
+  },
+  "sentence_rules": {
+    "capitalize_first": true,
+    "default_subject": null,
+    "command_subject": null,
+    "adjective_position": "before",
+    "adverb_position": "before_verb"
+  },
+  "elision": [],
+
+  "nouns": {
+    "_doc": "Turkish nouns: no grammatical gender, no articles. Plurals with -lar/-ler (vowel harmony). field_nouns maps machine field names to base and possessed (3sg) forms.",
+    "gender": "none",
+    "articles": "none",
+    "plural_rules": [
+      {"match": "[aıou]", "suffix": "lar"},
+      {"match": "[eiöü]", "suffix": "ler"}
+    ],
+    "field_nouns": {
+      "age":          {"base": "yaş",          "poss": "yaşı"},
+      "sex":          {"base": "cinsiyet",      "poss": "cinsiyeti"},
+      "gender":       {"base": "cinsiyet",      "poss": "cinsiyeti"},
+      "residence":    {"base": "ikamet",        "poss": "ikameti"},
+      "language":     {"base": "dil",           "poss": "dili"},
+      "name":         {"base": "isim",          "poss": "ismi"},
+      "first name":   {"base": "ad",            "poss": "adı"},
+      "last name":    {"base": "soyad",         "poss": "soyadı"},
+      "email":        {"base": "e-posta",       "poss": "e-postası"},
+      "phone":        {"base": "telefon",       "poss": "telefonu"},
+      "address":      {"base": "adres",         "poss": "adresi"},
+      "birth date":   {"base": "doğum tarihi",  "poss": "doğum tarihi"},
+      "date of birth":{"base": "doğum tarihi",  "poss": "doğum tarihi"},
+      "nationality":  {"base": "uyruk",         "poss": "uyruğu"},
+      "occupation":   {"base": "meslek",        "poss": "mesleği"},
+      "level":        {"base": "seviye",        "poss": "seviyesi"},
+      "class":        {"base": "sınıf",         "poss": "sınıfı"},
+      "school":       {"base": "okul",          "poss": "okulu"},
+      "grade":        {"base": "not",           "poss": "notu"}
+    }
+  },
+
+  "pronouns": {
+    "_doc": "Turkish pronouns: no gender distinction in 3rd person. Cases formed via agglutinative suffixes.",
+    "REF_SPEAKER":          {"subject": "ben",   "object": "beni",   "person": "1s"},
+    "REF_LISTENER":         {"subject": "sen",   "object": "seni",   "person": "2s"},
+    "REF_PREVIOUS_ENTITY":  {"subject": "o",     "object": "onu",    "person": "3s"},
+    "REF_HE":               {"subject": "o",     "object": "onu",    "person": "3s"},
+    "REF_SHE":              {"subject": "o",     "object": "onu",    "person": "3s"},
+    "REF_WE":               {"subject": "biz",   "object": "bizi",   "person": "1p"},
+    "REF_THEY":             {"subject": "onlar", "object": "onları", "person": "3p"},
+    "REF_HERE":             {"subject": "burada",  "object": "burada"},
+    "REF_TIME_NOW":         {"subject": "şimdi",   "object": "şimdi"},
+    "REF_TIME_PAST":        {"subject": "önce",    "object": "önce"},
+    "REF_TIME_FUTURE":      {"subject": "sonra",   "object": "sonra"}
+  },
+
+  "verbs": {
+    "_doc": "Turkish verbs: stem form given; conjugation is agglutinative via suffixes (see morphology.progressive). Multi-word stems (e.g. 'yardım et') conjugate on the final auxiliary.",
+    "ACTION_CREATE":    {"stem": "oluştur"},
+    "ACTION_DELETE":    {"stem": "sil"},
+    "ACTION_UPDATE":    {"stem": "güncelle"},
+    "ACTION_ASSIGN":    {"stem": "ekle"},
+    "ACTION_REGISTER":  {"stem": "kaydet"},
+    "ACTION_REMOVE":    {"stem": "çıkar"},
+    "ACTION_MOVE":      {"stem": "taşı"},
+    "ACTION_SEND":      {"stem": "gönder"},
+    "ACTION_GIVE":      {"stem": "ver"},
+    "ACTION_SHOW":      {"stem": "göster"},
+    "ACTION_LIST":      {"stem": "listele"},
+    "ACTION_SEARCH":    {"stem": "ara"},
+    "ACTION_HELP":      {"stem": "yardım et"},
+    "ACTION_START":     {"stem": "başlat"},
+    "ACTION_STOP":      {"stem": "durdur"},
+    "ACTION_OPEN":      {"stem": "aç"},
+    "ACTION_CLOSE":     {"stem": "kapat"},
+    "ACTION_READ":      {"stem": "oku"},
+    "ACTION_WRITE":     {"stem": "yaz"},
+    "ACTION_SAVE":      {"stem": "kaydet"},
+    "ACTION_CALL":      {"stem": "ara"},
+    "ACTION_EXPLAIN":   {"stem": "açıkla"},
+    "ACTION_TRANSLATE": {"stem": "çevir"},
+    "ACTION_DEFINE":    {"stem": "tanımla"},
+    "ACTION_SUMMARIZE": {"stem": "özetle"},
+    "ACTION_INVITE":    {"stem": "davet et"},
+    "ACTION_EAT":       {"stem": "ye"},
+    "ACTION_DRINK":     {"stem": "iç"},
+    "ACTION_PLAY":      {"stem": "oyna"},
+    "ACTION_TRAVEL":    {"stem": "git"},
+    "ACTION_SEE":       {"stem": "gör"},
+    "ACTION_TELL":      {"stem": "anlat"},
+    "ACTION_TEACH":     {"stem": "öğret"},
+    "ACTION_LEARN":     {"stem": "öğren"},
+    "ACTION_BUY":       {"stem": "satın al"},
+    "ACTION_PAY":       {"stem": "öde"},
+    "ACTION_SLEEP":     {"stem": "uyu"},
+    "STATE_WANT":       {"stem": "iste"},
+    "STATE_NEED":       {"stem": "ihtiyaç duy"},
+    "STATE_KNOW":       {"stem": "bil"},
+    "STATE_LOVE":       {"stem": "sev"},
+    "STATE_HATE":       {"stem": "nefret et"},
+    "STATE_HAVE":       {"stem": "sahip ol"},
+    "STATE_LIKE":       {"stem": "beğen"},
+    "STATE_BE":         {"fixed": "dir"},
+    "STATE_UNDERSTAND": {"stem": "anla"},
+    "STATE_THINK":      {"stem": "düşün"},
+    "STATE_FEEL":       {"stem": "hisset"},
+    "STATE_BELIEVE":    {"stem": "inan"},
+    "META_GREET":       {"fixed": "merhaba diyor"},
+    "META_THANK":       {"fixed": "teşekkür ediyor"},
+    "META_FAREWELL":    {"fixed": "veda ediyor"},
+    "META_APOLOGIZE":   {"fixed": "özür diliyor"}
+  },
+
+  "adjectives": {
+    "_doc": "Turkish adjectives: precede the noun, no gender/number/case agreement. Comparatives formed with 'daha', superlatives with 'en'.",
+    "position": "before",
+    "agreement": "none",
+    "comparative_prefix": "daha",
+    "superlative_prefix": "en",
+    "common": {
+      "iyi":     {"en": "good",      "comparative": "daha iyi",     "superlative": "en iyi"},
+      "kötü":    {"en": "bad",       "comparative": "daha kötü",    "superlative": "en kötü"},
+      "büyük":   {"en": "big",       "comparative": "daha büyük",   "superlative": "en büyük"},
+      "küçük":   {"en": "small",     "comparative": "daha küçük",   "superlative": "en küçük"},
+      "yeni":    {"en": "new",       "comparative": "daha yeni",    "superlative": "en yeni"},
+      "eski":    {"en": "old",       "comparative": "daha eski",    "superlative": "en eski"},
+      "hızlı":   {"en": "fast",      "comparative": "daha hızlı",   "superlative": "en hızlı"},
+      "yavaş":   {"en": "slow",      "comparative": "daha yavaş",   "superlative": "en yavaş"},
+      "uzun":    {"en": "long",      "comparative": "daha uzun",    "superlative": "en uzun"},
+      "kısa":    {"en": "short",     "comparative": "daha kısa",    "superlative": "en kısa"},
+      "önemli":  {"en": "important", "comparative": "daha önemli",  "superlative": "en önemli"},
+      "güzel":   {"en": "beautiful", "comparative": "daha güzel",   "superlative": "en güzel"},
+      "doğru":   {"en": "correct",   "comparative": "daha doğru",   "superlative": "en doğru"},
+      "yanlış":  {"en": "wrong",     "comparative": "daha yanlış",  "superlative": "en yanlış"},
+      "kolay":   {"en": "easy",      "comparative": "daha kolay",   "superlative": "en kolay"},
+      "zor":     {"en": "difficult", "comparative": "daha zor",     "superlative": "en zor"},
+      "çok":     {"en": "many",      "comparative": "daha çok",     "superlative": "en çok"},
+      "az":      {"en": "few",       "comparative": "daha az",      "superlative": "en az"},
+      "güçlü":   {"en": "strong",    "comparative": "daha güçlü",   "superlative": "en güçlü"},
+      "zayıf":   {"en": "weak",      "comparative": "daha zayıf",   "superlative": "en zayıf"},
+      "sıcak":   {"en": "hot",       "comparative": "daha sıcak",   "superlative": "en sıcak"},
+      "soğuk":   {"en": "cold",      "comparative": "daha soğuk",   "superlative": "en soğuk"}
+    }
+  },
+
+  "adverbs": {
+    "_doc": "Turkish adverbs: typically placed before the verb. Many formed from adjectives with -ca/-ce suffix (vowel harmony).",
+    "position": "before_verb",
+    "common": {
+      "hızla":      {"en": "quickly",  "alt": "çabucak"},
+      "yavaşça":    {"en": "slowly"},
+      "zaten":      {"en": "already"},
+      "hâlâ":       {"en": "still"},
+      "da":         {"en": "also",     "alt": "de"},
+      "her zaman":  {"en": "always"},
+      "asla":       {"en": "never",    "alt": "hiç"},
+      "şimdi":      {"en": "now"},
+      "burada":     {"en": "here"},
+      "orada":      {"en": "there"},
+      "çok":        {"en": "very",     "type": "intensifier"},
+      "gerçekten":  {"en": "really",   "type": "intensifier"},
+      "değil":      {"en": "not",      "type": "negation"},
+      "lütfen":     {"en": "please",   "type": "politeness"}
+    }
+  },
+
+  "prepositions": {
+    "_doc": "Turkish uses postpositions and case suffixes instead of prepositions. Spatial/directional roles are expressed via locative (-da/-de), dative (-a/-e), and ablative (-dan/-den) case suffixes. Free-standing postpositions listed below.",
+    "container": null,
+    "goal": null,
+    "source": null,
+    "beneficiary": "için",
+    "instrument": "ile",
+    "location": null,
+    "about": "hakkında",
+    "with": "ile",
+    "without": "olmadan",
+    "without_suffix": "-sız/-siz/-suz/-süz",
+    "case_roles": {
+      "container": "locative",
+      "goal": "dative",
+      "source": "ablative",
+      "location": "locative"
+    }
+  },
+
+  "conjunctions": {
+    "_doc": "Turkish conjunctions: coordinating connect equal clauses; subordinating introduce dependent clauses. Some subordination is done via verbal suffixes (-dığında, -ince) rather than standalone words.",
+    "coordinating": {
+      "and": "ve",
+      "or": "veya",
+      "or_alt": "ya da",
+      "but": "ama",
+      "but_formal": "fakat",
+      "so": "bu yüzden"
+    },
+    "subordinating": {
+      "because": "çünkü",
+      "if": "eğer",
+      "when": "ne zaman",
+      "while": "iken",
+      "while_suffix": "-ken",
+      "although": "rağmen",
+      "since": "beri",
+      "that": "ki",
+      "whether": "olup olmadığı"
+    }
+  },
+
+  "interjections": {
+    "_doc": "Turkish interjections: standalone expressions for social and emotional contexts.",
+    "greeting":      ["merhaba", "selam", "günaydın", "iyi akşamlar"],
+    "farewell":      ["hoşça kal", "güle güle", "görüşürüz"],
+    "thanks":        ["teşekkür ederim", "teşekkürler", "sağ ol"],
+    "surprise":      ["vay", "aman", "oha"],
+    "agreement":     ["evet", "tabii", "kesinlikle", "doğru"],
+    "disagreement":  ["hayır", "yok", "değil"],
+    "hesitation":    ["şey", "hımm"],
+    "apology":       ["pardon", "özür dilerim", "affedersiniz"],
+    "encouragement": ["harika", "süper", "mükemmel", "bravo"],
+    "frustration":   ["eyvah", "hay aksi", "of"]
+  },
+
+  "list": {"and": "ve", "or": "veya", "oxford": false},
+  "possessive": {"type": "genitive"},
+
+  "intents": {
+    "missing_fields": {
+      "openers": {
+        "neutral":  ["Küçük bir not:", "Devam etmeden önce:", "Eksik bir bilgi var —"],
+        "casual":   ["Az kaldı —", "Son bir şey —", "Neredeyse tamam —"],
+        "formal":   []
+      },
+      "recipes": [
+        {"tones": ["formal"], "text": "devam edebilmemiz için {fields_of} gerekli."},
+        {"tones": ["formal"], "text": "lütfen {fields_of} bilgilerini paylaşır mısınız?"},
+        {"tones": ["formal"], "text": "işleme devam etmek için {fields_of} bilgisine ihtiyacımız var."},
+        {"tones": ["neutral"], "text": "{fields_of} hâlâ eksik."},
+        {"tones": ["neutral"], "text": "devam etmek için {fields_of} gerekiyor."},
+        {"tones": ["neutral"], "text": "lütfen {fields_of} bilgilerini girin."},
+        {"tones": ["neutral"], "text": "{fields_of} paylaşırsanız devam edelim."},
+        {"tones": ["casual"], "text": "bir tek {fields_of} kaldı."},
+        {"tones": ["casual"], "text": "{fields_of} alabilir miyiz?"},
+        {"tones": ["casual"], "text": "{fields_of} eksik, gönderebilir misin?"}
+      ]
+    },
+    "success": {
+      "openers": {
+        "neutral":  ["Tamamdır —", "Hazır —"],
+        "casual":   ["Süper —", "Harika —"],
+        "formal":   []
+      },
+      "recipes": [
+        {"tones": ["formal"], "text": "{entity} için işlem başarıyla tamamlandı."},
+        {"tones": ["formal"], "text": "{entity} ile ilgili talebiniz gerçekleştirildi."},
+        {"tones": ["neutral"], "text": "{entity} için işlem tamamlandı."},
+        {"tones": ["neutral"], "text": "{entity} hazır."},
+        {"tones": ["casual"], "text": "{entity} tamam!"},
+        {"tones": ["casual"], "text": "{entity} için her şey hazır!"}
+      ]
+    },
+    "error": {
+      "openers": {
+        "neutral":  [],
+        "casual":   ["Eyvah —", "Hmm —"],
+        "formal":   []
+      },
+      "recipes": [
+        {"tones": ["formal"], "text": "bir hata oluştu: {reason}."},
+        {"tones": ["formal"], "text": "işlem tamamlanamadı: {reason}."},
+        {"tones": ["neutral"], "text": "bir şeyler ters gitti: {reason}."},
+        {"tones": ["neutral"], "text": "olmadı — {reason}."},
+        {"tones": ["casual"], "text": "olmadı: {reason}."},
+        {"tones": ["casual"], "text": "küçük bir sorun çıktı: {reason}. Tekrar deneyelim mi?"}
+      ]
+    }
+  },
+  "unsupported_language_response": "Bu dil paketi henüz kurulu değil. Şu komutla ekleyebilirsiniz: patience install language <kod>"
+}

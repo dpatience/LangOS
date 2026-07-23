@@ -1,0 +1,325 @@
+{
+  "language": "fr",
+  "script": "latin",
+  "word_order": "SVO",
+  "morphology": {
+    "type": "fusional",
+    "conjugation": "lexical"
+  },
+  "sentence_rules": {
+    "capitalize_first": true,
+    "default_subject": "quelqu'un",
+    "command_subject": null,
+    "adjective_position": "after",
+    "adverb_position": "after_verb",
+    "copula_rules": {
+      "1s": {"subject": "je", "form": "suis"},
+      "2s": {"subject": "tu", "form": "es"},
+      "3s": {"subject": null, "form": "est"},
+      "1p": {"subject": "nous", "form": "sommes"},
+      "2p": {"subject": "vous", "form": "êtes"},
+      "3p": {"subject": null, "form": "sont"},
+      "default": "est"
+    }
+  },
+  "elision": [
+    {"word": "je", "before": "vowel", "becomes": "j'"},
+    {"word": "ne", "before": "vowel", "becomes": "n'"},
+    {"word": "le", "before": "vowel", "becomes": "l'"},
+    {"word": "la", "before": "vowel", "becomes": "l'"},
+    {"word": "de", "before": "vowel", "becomes": "d'"},
+    {"word": "que", "before": "vowel", "becomes": "qu'"},
+    {"word": "se", "before": "vowel", "becomes": "s'"},
+    {"word": "me", "before": "vowel", "becomes": "m'"},
+    {"word": "te", "before": "vowel", "becomes": "t'"}
+  ],
+
+  "nouns": {
+    "_doc": "French nouns: grammatical gender (masculine/feminine), plural with -s/-x, articles agree in gender/number. field_nouns maps machine field names to display forms with articles.",
+    "articles": {
+      "definite": {"masculine": "le", "feminine": "la", "plural": "les", "before_vowel": "l'"},
+      "indefinite": {"masculine": "un", "feminine": "une", "plural": "des"},
+      "partitive": {"masculine": "du", "feminine": "de la", "before_vowel": "de l'"}
+    },
+    "gender": "masculine_feminine",
+    "plural_rules": [
+      {"match": "(s|x|z)$", "replace": "$1"},
+      {"match": "(eau|au)$", "replace": "$1x"},
+      {"match": "al$", "replace": "aux"},
+      {"match": "$", "replace": "s"}
+    ],
+    "uncountable": ["information", "connaissance", "conseil", "mobilier", "bagage", "progrès", "recherche", "logiciel", "temps", "équipement"],
+    "field_nouns": {
+      "age": {"display": "l'âge", "gender": "masculine"},
+      "sex": {"display": "le sexe", "gender": "masculine"},
+      "gender": {"display": "le genre", "gender": "masculine"},
+      "residence": {"display": "la résidence", "gender": "feminine"},
+      "language": {"display": "la langue", "gender": "feminine"},
+      "name": {"display": "le nom", "gender": "masculine"},
+      "first name": {"display": "le prénom", "gender": "masculine"},
+      "last name": {"display": "le nom de famille", "gender": "masculine"},
+      "email": {"display": "l'adresse e-mail", "gender": "feminine"},
+      "phone": {"display": "le numéro de téléphone", "gender": "masculine"},
+      "address": {"display": "l'adresse", "gender": "feminine"},
+      "birth date": {"display": "la date de naissance", "gender": "feminine"},
+      "nationality": {"display": "la nationalité", "gender": "feminine"},
+      "occupation": {"display": "la profession", "gender": "feminine"},
+      "level": {"display": "le niveau", "gender": "masculine"},
+      "class": {"display": "la classe", "gender": "feminine"},
+      "school": {"display": "l'école", "gender": "feminine"},
+      "grade": {"display": "la note", "gender": "feminine"}
+    }
+  },
+
+  "pronouns": {
+    "_doc": "French pronouns: subject/object direct/object indirect/stressed/possessive forms with person keys.",
+    "REF_SPEAKER":          {"subject": "je", "object": "me", "stressed": "moi", "possessive": "mon", "person": "1s"},
+    "REF_LISTENER":         {"subject": "tu", "object": "te", "stressed": "toi", "possessive": "ton", "person": "2s"},
+    "REF_PREVIOUS_ENTITY":  {"subject": "il", "object": "le", "stressed": "lui", "possessive": "son", "person": "3s"},
+    "REF_HE":               {"subject": "il", "object": "le", "stressed": "lui", "possessive": "son", "person": "3s"},
+    "REF_SHE":              {"subject": "elle", "object": "la", "stressed": "elle", "possessive": "sa", "person": "3s"},
+    "REF_IT":               {"subject": "il", "object": "le", "stressed": "lui", "possessive": "son", "person": "3s"},
+    "REF_WE":               {"subject": "nous", "object": "nous", "stressed": "nous", "possessive": "notre", "person": "1p"},
+    "REF_THEY":             {"subject": "ils", "object": "les", "stressed": "eux", "possessive": "leur", "person": "3p"},
+    "REF_HERE":             {"subject": "ici", "object": "ici"},
+    "REF_TIME_NOW":         {"subject": "maintenant", "object": "maintenant"},
+    "REF_TIME_PAST":        {"subject": "avant", "object": "avant"},
+    "REF_TIME_FUTURE":      {"subject": "plus tard", "object": "plus tard"}
+  },
+
+  "verbs": {
+    "_doc": "Semantic symbol -> surface forms. 'imp' = impératif (vous form), 'stmt' = passé composé 3e personne, 'stmt_1s' = 1re personne singulier si différent, 'gerund' = participe présent, 'infinitive' = infinitif.",
+    "ACTION_CREATE":    {"imp": "créez",      "stmt": "a créé",         "gerund": "créant",       "infinitive": "créer"},
+    "ACTION_DELETE":    {"imp": "supprimez",  "stmt": "a supprimé",     "gerund": "supprimant",   "infinitive": "supprimer"},
+    "ACTION_UPDATE":    {"imp": "mettez à jour", "stmt": "a mis à jour", "gerund": "mettant à jour", "infinitive": "mettre à jour"},
+    "ACTION_ASSIGN":    {"imp": "ajoutez",    "stmt": "a ajouté",       "gerund": "ajoutant",     "infinitive": "ajouter"},
+    "ACTION_REGISTER":  {"imp": "inscrivez",  "stmt": "s'est inscrit",  "gerund": "inscrivant",   "infinitive": "inscrire"},
+    "ACTION_REMOVE":    {"imp": "retirez",    "stmt": "a retiré",       "gerund": "retirant",     "infinitive": "retirer"},
+    "ACTION_MOVE":      {"imp": "déplacez",   "stmt": "a déplacé",      "gerund": "déplaçant",    "infinitive": "déplacer"},
+    "ACTION_SEND":      {"imp": "envoyez",    "stmt": "a envoyé",       "gerund": "envoyant",     "infinitive": "envoyer"},
+    "ACTION_GIVE":      {"imp": "donnez",     "stmt": "a donné",        "gerund": "donnant",      "infinitive": "donner"},
+    "ACTION_SHOW":      {"imp": "montrez",    "stmt": "a montré",       "gerund": "montrant",     "infinitive": "montrer"},
+    "ACTION_LIST":      {"imp": "listez",     "stmt": "a listé",        "gerund": "listant",      "infinitive": "lister"},
+    "ACTION_SEARCH":    {"imp": "cherchez",   "stmt": "a cherché",      "gerund": "cherchant",    "infinitive": "chercher"},
+    "ACTION_HELP":      {"imp": "aidez",      "stmt": "a aidé",         "gerund": "aidant",       "infinitive": "aider"},
+    "ACTION_START":     {"imp": "commencez",  "stmt": "a commencé",     "gerund": "commençant",   "infinitive": "commencer"},
+    "ACTION_STOP":      {"imp": "arrêtez",    "stmt": "a arrêté",       "gerund": "arrêtant",     "infinitive": "arrêter"},
+    "ACTION_OPEN":      {"imp": "ouvrez",     "stmt": "a ouvert",       "gerund": "ouvrant",      "infinitive": "ouvrir"},
+    "ACTION_CLOSE":     {"imp": "fermez",     "stmt": "a fermé",        "gerund": "fermant",      "infinitive": "fermer"},
+    "ACTION_READ":      {"imp": "lisez",      "stmt": "a lu",           "gerund": "lisant",       "infinitive": "lire"},
+    "ACTION_WRITE":     {"imp": "écrivez",    "stmt": "a écrit",        "gerund": "écrivant",     "infinitive": "écrire"},
+    "ACTION_SAVE":      {"imp": "sauvegardez","stmt": "a sauvegardé",   "gerund": "sauvegardant", "infinitive": "sauvegarder"},
+    "ACTION_CALL":      {"imp": "appelez",    "stmt": "a appelé",       "gerund": "appelant",     "infinitive": "appeler"},
+    "ACTION_EXPLAIN":   {"imp": "expliquez",  "stmt": "a expliqué",     "gerund": "expliquant",   "infinitive": "expliquer"},
+    "ACTION_TRANSLATE": {"imp": "traduisez",  "stmt": "a traduit",      "gerund": "traduisant",   "infinitive": "traduire"},
+    "ACTION_DEFINE":    {"imp": "définissez", "stmt": "a défini",       "gerund": "définissant",  "infinitive": "définir"},
+    "ACTION_SUMMARIZE": {"imp": "résumez",    "stmt": "a résumé",       "gerund": "résumant",     "infinitive": "résumer"},
+    "ACTION_INVITE":    {"imp": "invitez",    "stmt": "a invité",       "gerund": "invitant",     "infinitive": "inviter"},
+    "ACTION_EAT":       {"imp": "mangez",     "stmt": "mange",          "stmt_1s": "mange",       "gerund": "mangeant",     "infinitive": "manger"},
+    "ACTION_DRINK":     {"imp": "buvez",      "stmt": "boit",           "stmt_1s": "bois",        "gerund": "buvant",       "infinitive": "boire"},
+    "ACTION_PLAY":      {"imp": "jouez",      "stmt": "joue",           "stmt_1s": "joue",        "gerund": "jouant",       "infinitive": "jouer"},
+    "ACTION_TRAVEL":    {"imp": "allez",      "stmt": "va",             "stmt_1s": "vais",        "gerund": "allant",       "infinitive": "aller"},
+    "ACTION_BUY":       {"imp": "achetez",    "stmt": "a acheté",       "gerund": "achetant",     "infinitive": "acheter"},
+    "ACTION_PAY":       {"imp": "payez",      "stmt": "a payé",         "gerund": "payant",       "infinitive": "payer"},
+    "ACTION_SLEEP":     {"imp": "dormez",     "stmt": "dort",           "stmt_1s": "dors",        "gerund": "dormant",      "infinitive": "dormir"},
+    "ACTION_TELL":      {"imp": "dites",      "stmt": "a dit",          "gerund": "disant",       "infinitive": "dire"},
+    "ACTION_TEACH":     {"imp": "enseignez",  "stmt": "a enseigné",     "gerund": "enseignant",   "infinitive": "enseigner"},
+    "ACTION_LEARN":     {"imp": "apprenez",   "stmt": "a appris",       "gerund": "apprenant",    "infinitive": "apprendre"},
+    "STATE_WANT":       {"stmt": "veut",       "stmt_1s": "veux",       "gerund": "voulant",      "infinitive": "vouloir"},
+    "STATE_NEED":       {"stmt": "a besoin de","stmt_1s": "ai besoin de","gerund": "ayant besoin de","infinitive": "avoir besoin de"},
+    "STATE_KNOW":       {"stmt": "sait",       "stmt_1s": "sais",       "gerund": "sachant",      "infinitive": "savoir"},
+    "STATE_LOVE":       {"stmt": "aime",       "stmt_1s": "aime",       "gerund": "aimant",       "infinitive": "aimer"},
+    "STATE_HATE":       {"stmt": "déteste",    "stmt_1s": "déteste",    "gerund": "détestant",    "infinitive": "détester"},
+    "STATE_LIKE":       {"stmt": "aime bien",  "stmt_1s": "aime bien",  "gerund": "aimant bien",  "infinitive": "aimer bien"},
+    "STATE_HAVE":       {"stmt": "a",          "stmt_1s": "ai",         "gerund": "ayant",        "infinitive": "avoir"},
+    "STATE_BE":         {"stmt": "est",        "stmt_1s": "suis",       "gerund": "étant",        "infinitive": "être"},
+    "STATE_UNDERSTAND": {"stmt": "comprend",   "stmt_1s": "comprends",  "gerund": "comprenant",   "infinitive": "comprendre"},
+    "STATE_THINK":      {"stmt": "pense",      "stmt_1s": "pense",      "gerund": "pensant",      "infinitive": "penser"},
+    "STATE_FEEL":       {"stmt": "ressent",    "stmt_1s": "ressens",    "gerund": "ressentant",   "infinitive": "ressentir"},
+    "STATE_BELIEVE":    {"stmt": "croit",      "stmt_1s": "crois",      "gerund": "croyant",      "infinitive": "croire"},
+    "META_GREET":     {"stmt": "dit bonjour",   "fixed": "bonjour"},
+    "META_THANK":     {"stmt": "dit merci",     "fixed": "merci"},
+    "META_FAREWELL":  {"stmt": "dit au revoir", "fixed": "au revoir"},
+    "META_APOLOGIZE": {"stmt": "s'excuse",      "fixed": "pardon"}
+  },
+
+  "adjectives": {
+    "_doc": "French adjectives: normally follow the noun, agree in gender/number. Some common short adjectives precede the noun (BANGS: beauty, age, number, goodness, size).",
+    "position": "after",
+    "agreement": "gender_number",
+    "pre_nominal": ["bon", "mauvais", "grand", "petit", "nouveau", "vieux", "jeune", "beau", "joli"],
+    "common": {
+      "bon": {"feminine": "bonne", "masculine_plural": "bons", "feminine_plural": "bonnes", "position": "before"},
+      "mauvais": {"feminine": "mauvaise", "masculine_plural": "mauvais", "feminine_plural": "mauvaises", "position": "before"},
+      "grand": {"feminine": "grande", "masculine_plural": "grands", "feminine_plural": "grandes", "position": "before"},
+      "petit": {"feminine": "petite", "masculine_plural": "petits", "feminine_plural": "petites", "position": "before"},
+      "nouveau": {"feminine": "nouvelle", "masculine_plural": "nouveaux", "feminine_plural": "nouvelles", "before_vowel": "nouvel", "position": "before"},
+      "vieux": {"feminine": "vieille", "masculine_plural": "vieux", "feminine_plural": "vieilles", "before_vowel": "vieil", "position": "before"},
+      "jeune": {"feminine": "jeune", "masculine_plural": "jeunes", "feminine_plural": "jeunes", "position": "before"},
+      "beau": {"feminine": "belle", "masculine_plural": "beaux", "feminine_plural": "belles", "before_vowel": "bel", "position": "before"},
+      "joli": {"feminine": "jolie", "masculine_plural": "jolis", "feminine_plural": "jolies", "position": "before"},
+      "important": {"feminine": "importante", "masculine_plural": "importants", "feminine_plural": "importantes"},
+      "rapide": {"feminine": "rapide", "masculine_plural": "rapides", "feminine_plural": "rapides"},
+      "lent": {"feminine": "lente", "masculine_plural": "lents", "feminine_plural": "lentes"},
+      "long": {"feminine": "longue", "masculine_plural": "longs", "feminine_plural": "longues"},
+      "court": {"feminine": "courte", "masculine_plural": "courts", "feminine_plural": "courtes"},
+      "actif": {"feminine": "active", "masculine_plural": "actifs", "feminine_plural": "actives"},
+      "heureux": {"feminine": "heureuse", "masculine_plural": "heureux", "feminine_plural": "heureuses"},
+      "correct": {"feminine": "correcte", "masculine_plural": "corrects", "feminine_plural": "correctes"},
+      "valide": {"feminine": "valide", "masculine_plural": "valides", "feminine_plural": "valides"},
+      "invalide": {"feminine": "invalide", "masculine_plural": "invalides", "feminine_plural": "invalides"},
+      "complet": {"feminine": "complète", "masculine_plural": "complets", "feminine_plural": "complètes"},
+      "manquant": {"feminine": "manquante", "masculine_plural": "manquants", "feminine_plural": "manquantes"},
+      "requis": {"feminine": "requise", "masculine_plural": "requis", "feminine_plural": "requises"},
+      "disponible": {"feminine": "disponible", "masculine_plural": "disponibles", "feminine_plural": "disponibles"},
+      "blanc": {"feminine": "blanche", "masculine_plural": "blancs", "feminine_plural": "blanches"},
+      "fort": {"feminine": "forte", "masculine_plural": "forts", "feminine_plural": "fortes"}
+    }
+  },
+
+  "adverbs": {
+    "_doc": "French adverbs: typically placed after the conjugated verb. Most formed by adding -ment to the feminine adjective.",
+    "position": "after_verb",
+    "formation_suffix": "ment",
+    "common": {
+      "rapidement": {},
+      "lentement": {},
+      "déjà": {},
+      "encore": {},
+      "aussi": {},
+      "toujours": {},
+      "jamais": {"type": "negation"},
+      "maintenant": {},
+      "ici": {},
+      "très": {"type": "intensifier"},
+      "vraiment": {"type": "intensifier"},
+      "assez": {"type": "intensifier"},
+      "trop": {"type": "intensifier"},
+      "pas": {"type": "negation"},
+      "s'il vous plaît": {"type": "politeness"},
+      "bien": {},
+      "mal": {},
+      "souvent": {},
+      "parfois": {}
+    }
+  },
+
+  "prepositions": {
+    "_doc": "French prepositions: placed before their object (dans la boîte, à l'école). Some contract with articles: à + le = au, de + le = du.",
+    "container": "dans",
+    "goal": "à",
+    "source": "de",
+    "beneficiary": "pour",
+    "instrument": "avec",
+    "location": "à",
+    "time": "à",
+    "direction": "vers",
+    "about": "à propos de",
+    "through": "à travers",
+    "between": "entre",
+    "without": "sans",
+    "during": "pendant",
+    "before": "avant",
+    "after": "après",
+    "contractions": {
+      "à + le": "au",
+      "à + les": "aux",
+      "de + le": "du",
+      "de + les": "des"
+    }
+  },
+
+  "conjunctions": {
+    "_doc": "French conjunctions: coordinating (et, ou, mais) connect equal items; subordinating (parce que, si, quand) introduce dependent clauses.",
+    "coordinating": {
+      "and": "et",
+      "or": "ou",
+      "but": "mais",
+      "so": "donc",
+      "because": "car",
+      "nor": "ni"
+    },
+    "subordinating": {
+      "because": "parce que",
+      "if": "si",
+      "when": "quand",
+      "while": "pendant que",
+      "although": "bien que",
+      "unless": "à moins que",
+      "since": "depuis",
+      "before": "avant que",
+      "after": "après que",
+      "until": "jusqu'à ce que",
+      "that": "que"
+    }
+  },
+
+  "interjections": {
+    "_doc": "French interjections: express emotion or reaction, standalone or sentence-initial.",
+    "greeting": ["bonjour", "salut", "coucou"],
+    "farewell": ["au revoir", "à bientôt", "salut"],
+    "thanks": ["merci", "merci beaucoup"],
+    "surprise": ["oh", "oh là là", "tiens"],
+    "agreement": ["oui", "bien sûr", "exactement", "absolument"],
+    "disagreement": ["non", "pas du tout", "pas vraiment"],
+    "hesitation": ["euh", "ben", "hm"],
+    "apology": ["pardon", "excusez-moi", "désolé"],
+    "encouragement": ["bravo", "super", "parfait", "magnifique", "excellent"],
+    "frustration": ["zut", "mince", "aïe", "oh non"]
+  },
+
+  "list": {"and": "et", "or": "ou", "oxford": false},
+  "possessive": {"type": "pattern", "pattern": "{thing} de {owner}", "elide_before_vowel": "{thing} d'{owner}"},
+
+  "intents": {
+    "missing_fields": {
+      "openers": {
+        "neutral": ["Petite note :", "Avant de continuer :", "Il reste une chose —"],
+        "casual": ["Presque fini —", "On y est presque —", "Plus qu'une étape :"],
+        "formal": ["Veuillez noter :", "Nous vous informons :"]
+      },
+      "recipes": [
+        {"tones": ["formal"], "text": "veuillez fournir {fields_of}."},
+        {"tones": ["formal"], "text": "nous vous prions de communiquer {fields_of}."},
+        {"tones": ["formal"], "text": "les informations suivantes sont requises : {fields_of}."},
+        {"tones": ["neutral"], "text": "il nous manque encore {fields_of}."},
+        {"tones": ["neutral"], "text": "merci de compléter {fields_of}."},
+        {"tones": ["neutral"], "text": "pour continuer, il nous faut {fields_of}."},
+        {"tones": ["casual"], "text": "il nous faut encore {fields_of}."},
+        {"tones": ["casual"], "text": "tu peux nous donner {fields_of} ?"},
+        {"tones": ["casual"], "text": "il manque juste {fields_of}."}
+      ]
+    },
+    "success": {
+      "openers": {
+        "neutral": ["C'est fait —", "Terminé —"],
+        "casual": ["Super —", "Parfait —"],
+        "formal": ["Opération réussie —"]
+      },
+      "recipes": [
+        {"tones": ["formal"], "text": "l'opération concernant {entity} a été effectuée avec succès."},
+        {"tones": ["formal"], "text": "la demande pour {entity} a abouti."},
+        {"tones": ["neutral"], "text": "c'est fait pour {entity}."},
+        {"tones": ["neutral"], "text": "l'opération pour {entity} est terminée."},
+        {"tones": ["casual"], "text": "c'est bon pour {entity} !"},
+        {"tones": ["casual"], "text": "et voilà, {entity} est prêt !"}
+      ]
+    },
+    "error": {
+      "openers": {
+        "neutral": [],
+        "casual": ["Oups —", "Hm —"],
+        "formal": ["Nous sommes désolés —"]
+      },
+      "recipes": [
+        {"tones": ["formal"], "text": "une erreur est survenue : {reason}."},
+        {"tones": ["formal"], "text": "l'opération n'a pas pu aboutir : {reason}."},
+        {"tones": ["neutral"], "text": "quelque chose n'a pas fonctionné : {reason}."},
+        {"tones": ["neutral"], "text": "cela n'a pas marché : {reason}."},
+        {"tones": ["casual"], "text": "ça n'a pas marché : {reason}."},
+        {"tones": ["casual"], "text": "petit souci : {reason} — on réessaie ?"}
+      ]
+    }
+  },
+  "unsupported_language_response": "Ce pack de langue n'est pas encore installé. Vous pouvez l'ajouter avec : patience install language <code>"
+}

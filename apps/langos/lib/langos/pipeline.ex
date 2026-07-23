@@ -3,7 +3,7 @@ defmodule LangOS.Pipeline do
   Orchestrates understand, express, and translate pipeline stages.
   Pipeline: text → detect language → parse → build graph → export IR v1.2.
   """
-  alias LangOS.{Config, Gateway, IR, LanguageDetector, ReferenceMarker, Router, Splitter, TextNormalizer}
+  alias LangOS.{Config, Gateway, Grammar, IR, LanguageDetector, ReferenceMarker, Router, Splitter, TextNormalizer}
 
   @spec understand(map()) :: {:ok, map()} | {:error, term()}
   def understand(request) do
@@ -140,9 +140,10 @@ defmodule LangOS.Pipeline do
   def express(request) do
     started = System.monotonic_time(:millisecond)
 
+    # No cache on expression: the realizer varies its phrasing per call
+    # (a cached sentence would repeat forever), and generation is microseconds.
     with {:ok, normalized} <- Gateway.normalize_express(request),
-         {:ok, response, _} <-
-           Gateway.with_cache(normalized, fn -> run_express(normalized) end) do
+         {:ok, response} <- run_express(normalized) do
       latency = System.monotonic_time(:millisecond) - started
 
       {:ok,
@@ -272,9 +273,23 @@ defmodule LangOS.Pipeline do
         {:ok, %{"text" => Enum.join(sentences, " ")}}
 
       _ ->
-        with {:ok, mod} <- Router.select_engine(:generate, context),
-             {:ok, text} <- mod.generate(request, locale: request["locale"]) do
-          {:ok, %{"text" => text}}
+        locale = request["locale"]
+
+        # If the requested locale has no grammar pack, respond gracefully
+        # in the default language rather than crashing.
+        if locale != nil and not Grammar.available?(locale) do
+          default = Config.get(["language_packs", "default"], "en")
+
+          msg =
+            Grammar.unsupported_response(default) ||
+              "Language pack \"#{locale}\" is not installed. Install it with: patience install language #{locale}"
+
+          {:ok, %{"text" => msg}}
+        else
+          with {:ok, mod} <- Router.select_engine(:generate, context),
+               {:ok, text} <- mod.generate(request, locale: locale) do
+            {:ok, %{"text" => text}}
+          end
         end
     end
   end

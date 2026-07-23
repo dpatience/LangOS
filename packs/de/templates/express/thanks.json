@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {"tone": "formal", "text": "Vielen Dank für Ihre Anfrage."},
+    {"tone": "neutral", "text": "Danke! Gerne geschehen."},
+    {"tone": "casual", "text": "Kein Ding!"}
+  ]
+}
