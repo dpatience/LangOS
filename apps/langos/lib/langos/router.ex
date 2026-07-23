@@ -22,12 +22,13 @@ defmodule LangOS.Router do
 
   @doc """
   Ordered engine chain for the parse stage:
-  rule (precise patterns) → stat (trained model) → neural (bootstrap fallback).
+  rule (precise patterns) → syntax (deterministic structural parser) →
+  stat (trained model fallback) → neural (bootstrap fallback).
   The pipeline tries each in order until one succeeds.
   """
   @spec parse_chain(context()) :: [module()]
   def parse_chain(_context) do
-    ["rule", "stat", "neural"]
+    ["rule", "syntax", "stat", "neural"]
     |> Enum.flat_map(fn id ->
       case Engine.Registry.get(id) do
         {:ok, mod} -> [mod]

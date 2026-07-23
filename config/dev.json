@@ -23,6 +23,9 @@
       "enabled": true,
       "patterns_dir": "packs/en/patterns"
     },
+    "syntax": {
+      "enabled": true
+    },
     "stat": {
       "enabled": true,
       "model": "models/en/intent.json",

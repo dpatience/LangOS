@@ -236,6 +236,7 @@
     {"id": "ACT_000218", "symbol": "ACTION_RECORD", "category": "ACT", "roles": ["agent", "theme"], "description": "Capture audio, video, or data"},
     {"id": "ACT_000219", "symbol": "ACTION_BROADCAST", "category": "ACT", "roles": ["agent", "theme"], "description": "Transmit widely"},
     {"id": "ACT_000220", "symbol": "ACTION_EDIT", "category": "ACT", "roles": ["agent", "patient"], "description": "Modify content"},
+    {"id": "ACT_000221", "symbol": "ACTION_DEFINE", "category": "ACT", "roles": ["agent", "theme"], "description": "Give the definition or meaning of a concept"},
 
     {"id": "STA_000001", "symbol": "STATE_BE", "category": "STA", "roles": ["theme", "attribute"], "description": "Existence or property assertion"},
     {"id": "STA_000002", "symbol": "STATE_HAVE", "category": "STA", "roles": ["possessor", "theme"], "description": "Possession"},

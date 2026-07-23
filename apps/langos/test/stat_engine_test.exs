@@ -19,26 +19,19 @@ defmodule LangOSStatEngineTest do
     assert {"ACT_000089", "ACTION_SUMMARIZE", _} = Stat.classify("please summarize the report", model)
   end
 
-  test "understand pipeline routes free-form text through the stat engine" do
-    assert {:ok, resp} = LangOS.understand(%{"text" => "I love you.", "locale" => "en"})
+  test "understand pipeline falls back to stat when no verb structure exists" do
+    # "thank" is a META act, not an ACT/STA/EVT verb, so the structural
+    # parser passes and the trained model classifies the social act.
+    assert {:ok, resp} = LangOS.understand(%{"text" => "Thank you so much!", "locale" => "en"})
     ir = resp["ir"]
 
     pred = Enum.find(ir["graph"]["nodes"], &(&1["type"] == "predicate"))
-    assert pred["predicate"]["id"] == "STA_000026"
-    assert pred["predicate"]["symbol"] == "STATE_LOVE"
-    assert ir["utterance_type"] == "statement"
+    assert pred["predicate"]["id"] == "META_000003"
+    assert pred["predicate"]["symbol"] == "META_THANK"
     assert ir["meta"]["engine"]["parser"] == "stat_naive_bayes"
-
-    refs =
-      ir["graph"]["nodes"]
-      |> Enum.filter(&(&1["type"] == "reference"))
-      |> Enum.map(&get_in(&1, ["reference", "ref"]))
-
-    assert "REF_SPEAKER" in refs
-    assert "REF_LISTENER" in refs
   end
 
-  test "stat extracts pronoun references with spans as mentions" do
+  test "pronoun references carry spans as mentions" do
     assert {:ok, resp} = LangOS.understand(%{"text" => "I miss my family.", "locale" => "en"})
     ir = resp["ir"]
 

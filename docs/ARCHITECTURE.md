@@ -270,7 +270,51 @@ The lookup algorithm (`LangOS.Lexicon`):
    so "sign up" beats "sign". Complexity **O(n · k)** for n tokens — linear in
    text length, independent of how many entries the lexicon holds.
 
-### 4.5 Trained understanding — the Stat engine
+### 4.5 Structural understanding — the Syntax engine
+
+Understanding is **structure extraction, not intent classification**. The
+primary parser (`LangOS.Engine.Syntax`) runs six deterministic stages:
+
+```
+Input Text
+    │
+    ▼
+Language Detection      every installed pack competes (verb maps, pronouns,
+    │                   function words, morphological prefix stripping)
+    ▼
+Tokenizer               words with byte spans
+    │
+    ▼
+Morphological Analyzer  inflected form → lemma entry ("registered" → register,
+    │                   Kinyarwanda "nshaka" → n- (speaker) + shaka)
+    ▼
+Dependency Parser       question markers, main verb, subject, objects,
+    │                   prepositional attachments
+    ▼
+Semantic Mapper         verb lemma → vocabulary ID; the ONLY stage that
+    │                   knows the Semantic Vocabulary
+    ▼
+Semantic Graph Builder  nodes + role edges + mentions → IR v1.2
+```
+
+Key invariants:
+
+- **Question-ness is `utterance_type`, never a predicate.** "What is the
+  meaning of photosynthesis?" parses as `question` + `ACT_000221
+  ACTION_DEFINE` with theme `photosynthesis` — the phrase "what is the
+  meaning of" is linguistic form, not meaning.
+- **No argument is dropped.** "Can I join the class?" yields
+  `EVENT_JOIN(patient: REF_SPEAKER, container: class)` — subject and object
+  both become role edges.
+- **Roles come from the vocabulary.** Each primitive declares its role
+  signature (`EVENT_JOIN: [patient, container, time]`); the parser assigns
+  subject/object/prepositional phrases to those declared roles.
+- **Every stage before the Semantic Mapper works purely with language**, so
+  the same pipeline serves English, French, Kinyarwanda, and future packs.
+  Packs declare their own detection words, verb maps, and morphological
+  prefixes (`packs/<id>/patterns/commands.json`).
+
+### 4.6 Trained understanding — the Stat engine (fallback)
 
 `python/langos_train` builds LangOS's own model. No external APIs.
 
@@ -291,9 +335,11 @@ winning class recognizes none of its features. Below the confidence threshold
 (config `engines.stat.min_confidence`, default 0.3) the parse is rejected and
 the pipeline falls through to the next engine.
 
-The parse chain: **rule → stat → neural**. Precise patterns first, trained model
-for free-form language, bootstrap heuristics as the last resort. Retraining is
-one command: `python3 -m langos_train.build`.
+The parse chain: **rule → syntax → stat → neural**. Precise patterns first,
+then the deterministic structural parser, with the trained classifier and
+bootstrap heuristics only as fallbacks for verbless or idiomatic utterances
+("thank you so much"). Statistical classification is disappearing from the
+main path by design. Retraining is one command: `python3 -m langos_train.build`.
 
 ### 4.3 Language Packs
 
@@ -386,30 +432,25 @@ Vocabulary plugins **do not** define intents, business rules, or actions.
 Input Request
     │
     ▼
-Language Detector ──────────────────────────────┐
-    │                                            │
-    ▼                                            │
-Sentence / Semantic Unit Splitter               │
-    │                                            │
-    ▼                                            │
-Router ──► Fast Parser (rules/stats) ──────────►│
-    │              │                             │
-    │              └── miss ──► Neural Parser ────┤
-    │                         (LangOS models)    │
-    ▼                                            │
-Entity Extractor ◄───────────────────────────────┘
+Language Detector        packs compete on detection signals;
+    │                    winner's pack parses (no en-parsing of rw text)
+    ▼
+Parse Chain (Router)
+    │
+    ├─► Rule Engine      precise command patterns (per pack)
+    │        │ miss
+    ├─► Syntax Engine    tokenizer → morphology → dependency parse
+    │        │           → semantic mapper → graph   (primary path)
+    │        │ miss
+    ├─► Stat Engine      trained Naive Bayes (verbless/idiomatic fallback)
+    │        │ miss
+    └─► Neural Engine    bootstrap heuristics (last resort)
     │
     ▼
-Reference Marker (coreference → slots, not resolution)
+Semantic Graph Builder   nodes + role edges + mentions
     │
     ▼
-Relationship Extractor
-    │
-    ▼
-Semantic Graph Builder
-    │
-    ▼
-IR Validator
+IR Validator (v1.2)
     │
     ▼
 Export Profile (JSON projection)
@@ -862,17 +903,29 @@ Latency scales **sub-linearly** with text length via parallel unit processing an
 
 ### Phase 2 — Multilingual + Trained Understanding (complete)
 
-- [x] Semantic Vocabulary expanded to 436 primitives (append-only stable IDs)
-- [x] English lexicon: 5,698 entries (bases + synonyms + inflections + idioms)
+- [x] Semantic Vocabulary expanded to 437 primitives (append-only stable IDs)
+- [x] English lexicon: 5,718 entries (bases + synonyms + inflections + idioms)
 - [x] Fast lookup: O(1) hash lookup, O(n·k) longest-match phrase scan (`LangOS.Lexicon`)
 - [x] Training pipeline (`python/langos_train`): corpus generator + Naive Bayes trainer
-- [x] Trained intent model: 360 classes, 41k+ training examples (`models/en/intent.json`)
+- [x] Trained intent model: 361 classes, 41k+ training examples (`models/en/intent.json`)
 - [x] Stat engine: trained-model classification with margin × hit-rate confidence
-- [x] Parse chain: rule → stat → neural with confidence thresholds
 - [x] French language pack (patterns, verb_map, pronoun_map, templates, golden tests)
 - [x] Kinyarwanda language pack (patterns, verb_map, pronoun_map, templates, golden tests)
 - [x] OpenAI-compatible `/v1/chat/completions` endpoint
 - [x] Anthropic-compatible `/v1/messages` endpoint
+
+### Phase 2.5 — Structural Understanding (complete)
+
+- [x] Real language detection: all installed packs compete on detection
+      signals (verb maps, pronouns, function words, morphological prefixes)
+- [x] Deterministic Syntax engine: tokenizer → morphological analyzer →
+      dependency parser → semantic mapper → graph builder
+- [x] Question forms map to semantic actions (`ACTION_DEFINE`), question-ness
+      lives only in `utterance_type`
+- [x] Role assignment from vocabulary role signatures (subject/object/preps)
+- [x] Kinyarwanda morphology: subject prefixes (n-/u-/a-...) resolve to
+      reserved references, infinitive prefixes (ku-/gu-/kw-) strip to stems
+- [x] Parse chain: rule → syntax → stat → neural (classifier demoted to fallback)
 - [ ] Reference marker (coreference slots) — Phase 3
 - [ ] Rust SDK — Phase 3 (Python SDK shipped in Phase 1)
 

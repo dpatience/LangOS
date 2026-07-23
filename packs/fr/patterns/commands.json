@@ -103,6 +103,13 @@
     "connaitre": {"id": "STA_000003", "symbol": "STATE_KNOW"},
     "savoir": {"id": "STA_000003", "symbol": "STATE_KNOW"},
     "vouloir": {"id": "STA_000004", "symbol": "STATE_WANT"},
+    "veux": {"id": "STA_000004", "symbol": "STATE_WANT"},
+    "voulez": {"id": "STA_000004", "symbol": "STATE_WANT"},
+    "sais": {"id": "STA_000003", "symbol": "STATE_KNOW"},
+    "aime": {"id": "STA_000026", "symbol": "STATE_LOVE"},
+    "manger": {"id": "ACT_000114", "symbol": "ACTION_EAT"},
+    "mange": {"id": "ACT_000114", "symbol": "ACTION_EAT"},
+    "boire": {"id": "ACT_000115", "symbol": "ACTION_DRINK"},
     "avoir besoin": {"id": "STA_000005", "symbol": "STATE_NEED"},
     "aimer": {"id": "STA_000026", "symbol": "STATE_LOVE"},
     "adorer": {"id": "STA_000026", "symbol": "STATE_LOVE"},
@@ -114,6 +121,16 @@
     "merci": {"id": "META_000003", "symbol": "META_THANK"},
     "oui": {"id": "META_000005", "symbol": "META_CONFIRM"},
     "non": {"id": "META_000006", "symbol": "META_DENY"}
+  },
+  "detection": {
+    "words": [
+      "le", "la", "les", "un", "une", "des", "de", "du", "au", "aux",
+      "est", "sont", "suis", "es", "êtes", "et", "ou", "mais", "dans",
+      "pour", "avec", "sur", "que", "qui", "quoi", "où", "quand", "pourquoi",
+      "comment", "ne", "pas", "très", "bien", "merci", "bonjour", "oui", "non",
+      "c'est", "qu'est-ce", "s'il", "plaît"
+    ],
+    "strip_prefixes": []
   },
   "pronoun_map": {
     "je": "REF_SPEAKER", "moi": "REF_SPEAKER", "me": "REF_SPEAKER",

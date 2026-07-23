@@ -232,6 +232,7 @@ SYNONYMS: dict[str, list[str]] = {
     "ACT_000218": ["capture", "tape", "film", "videotape"],
     "ACT_000219": ["air", "transmit", "stream", "televise"],
     "ACT_000220": ["revise", "modify text", "proofread", "rewrite", "polish"],
+    "ACT_000221": ["give the definition of", "explain the meaning of", "tell me the meaning of", "what does it mean"],
     # ---- states
     "STA_000001": ["exist as", "am", "are", "is", "was", "were", "been"],
     "STA_000002": ["possess", "hold", "own", "carry", "got"],
@@ -319,7 +320,7 @@ SYNONYMS: dict[str, list[str]] = {
     "QRY_000023": ["who are you", "what are you", "introduce yourself"],
     "QRY_000024": ["right", "correct", "isnt it", "no", "yeah"],
     "QRY_000025": ["or", "either or", "which one of"],
-    "QRY_000026": ["what does mean", "define", "what is the meaning", "meaning of"],
+    "QRY_000026": ["what does mean", "what is the meaning", "meaning of"],
     "QRY_000027": ["how long", "for how long", "what duration"],
     "QRY_000028": ["how far", "what distance"],
     "QRY_000029": ["how often", "how frequently", "how many times"],

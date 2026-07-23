@@ -3,7 +3,7 @@ defmodule LangOS.Pipeline do
   Orchestrates understand, express, and translate pipeline stages.
   Pipeline: text → detect language → parse → build graph → export IR v1.2.
   """
-  alias LangOS.{Gateway, IR, Native, Router}
+  alias LangOS.{Gateway, IR, LanguageDetector, Router}
 
   @spec understand(map()) :: {:ok, map()} | {:error, term()}
   def understand(request) do
@@ -63,12 +63,15 @@ defmodule LangOS.Pipeline do
   def translate(_), do: {:error, :invalid_translate_request}
 
   defp run_understand(%{"text" => text} = request) do
-    locale = request["locale"]
+    # Stage 1: language detection selects the pack that parses. A request
+    # locale is an explicit hint; otherwise every installed pack competes.
+    detected = LanguageDetector.detect(text, request["locale"])
+    locale = detected
+
     token_count = Router.token_count(text)
     context = %{text: text, locale: locale, token_count: token_count}
 
-    with detected <- Native.safe_detect_language(text, locale),
-         {:ok, {mod, tree}} <- parse_with_chain(context, text, locale),
+    with {:ok, {mod, tree}} <- parse_with_chain(context, text, locale),
          {:ok, ir} <- mod.extract_meaning(tree, locale: locale, text: text) do
       ir =
         update_in(ir, ["meta"], fn meta ->

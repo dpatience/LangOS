@@ -6421,9 +6421,24 @@
    "symbol": "ACTION_PROTECT"
   },
   "define": {
-   "category": "QRY",
-   "id": "QRY_000026",
-   "symbol": "QUERY_DEFINITION"
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
+  "defined": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
+  "defines": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
+  "defining": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
   },
   "definitely": {
    "category": "MOD",
@@ -8945,20 +8960,40 @@
    "id": "ACT_000088",
    "symbol": "ACTION_EXPLAIN"
   },
+  "explain the meaning of": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
   "explained": {
    "category": "ACT",
    "id": "ACT_000088",
    "symbol": "ACTION_EXPLAIN"
+  },
+  "explained the meaning of": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
   },
   "explaining": {
    "category": "ACT",
    "id": "ACT_000088",
    "symbol": "ACTION_EXPLAIN"
   },
+  "explaining the meaning of": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
   "explains": {
    "category": "ACT",
    "id": "ACT_000088",
    "symbol": "ACTION_EXPLAIN"
+  },
+  "explains the meaning of": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
   },
   "explore": {
    "category": "ACT",
@@ -10190,6 +10225,11 @@
    "id": "ACT_000216",
    "symbol": "ACTION_FEED"
   },
+  "gave the definition of": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
   "generate": {
    "category": "ACT",
    "id": "ACT_000001",
@@ -10360,6 +10400,11 @@
    "id": "EVT_000015",
    "symbol": "EVENT_BREAK"
   },
+  "give the definition of": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
   "given": {
    "category": "ACT",
    "id": "ACT_000009",
@@ -10374,6 +10419,11 @@
    "category": "ACT",
    "id": "ACT_000216",
    "symbol": "ACTION_FEED"
+  },
+  "given the definition of": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
   },
   "gives": {
    "category": "ACT",
@@ -10390,6 +10440,11 @@
    "id": "ACT_000216",
    "symbol": "ACTION_FEED"
   },
+  "gives the definition of": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
   "giving": {
    "category": "ACT",
    "id": "ACT_000009",
@@ -10404,6 +10459,11 @@
    "category": "ACT",
    "id": "ACT_000216",
    "symbol": "ACTION_FEED"
+  },
+  "giving the definition of": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
   },
   "glance": {
    "category": "ACT",
@@ -24856,6 +24916,11 @@
    "id": "ACT_000048",
    "symbol": "ACTION_NOTIFY"
   },
+  "tell me the meaning of": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
   "telling": {
    "category": "ACT",
    "id": "ACT_000164",
@@ -24866,6 +24931,11 @@
    "id": "ACT_000048",
    "symbol": "ACTION_NOTIFY"
   },
+  "telling me the meaning of": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
   "tells": {
    "category": "ACT",
    "id": "ACT_000164",
@@ -24875,6 +24945,11 @@
    "category": "ACT",
    "id": "ACT_000048",
    "symbol": "ACTION_NOTIFY"
+  },
+  "tells me the meaning of": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
   },
   "temporarily": {
    "category": "MOD",
@@ -25175,6 +25250,11 @@
    "category": "ACT",
    "id": "ACT_000048",
    "symbol": "ACTION_NOTIFY"
+  },
+  "told me the meaning of": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
   },
   "tomorrow": {
    "ref": "REF_TIME_FUTURE"
@@ -27628,6 +27708,11 @@
    "id": "QRY_000021",
    "symbol": "QUERY_OPINION"
   },
+  "what does it mean": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
   "what does mean": {
    "category": "QRY",
    "id": "QRY_000026",
@@ -27673,6 +27758,11 @@
    "id": "QRY_000003",
    "symbol": "QUERY_WHAT"
   },
+  "whats does it mean": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
   "whats the reason": {
    "category": "QRY",
    "id": "QRY_000007",
@@ -27687,6 +27777,16 @@
    "category": "QRY",
    "id": "QRY_000021",
    "symbol": "QUERY_OPINION"
+  },
+  "whatted does it mean": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
+  },
+  "whatting does it mean": {
+   "category": "ACT",
+   "id": "ACT_000221",
+   "symbol": "ACTION_DEFINE"
   },
   "when": {
    "category": "QRY",
@@ -28417,7 +28517,7 @@
    "ref": "REF_LISTENER"
   }
  },
- "entry_count": 5698,
+ "entry_count": 5718,
  "generated_by": "langos_train",
  "language": "en",
  "max_phrase_words": 5

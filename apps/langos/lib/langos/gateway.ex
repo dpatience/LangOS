@@ -13,10 +13,9 @@ defmodule LangOS.Gateway do
         {:error, :missing_text}
 
       true ->
-        locale =
-          Map.get(request, "locale") ||
-            Map.get(request, :locale) ||
-            LangOS.Config.get([:language_packs, :default], "en")
+        # No default here: a missing locale means language detection decides
+        # which pack parses. Only explicit request locales act as hints.
+        locale = Map.get(request, "locale") || Map.get(request, :locale)
 
         {:ok,
          %{

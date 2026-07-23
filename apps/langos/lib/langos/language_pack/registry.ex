@@ -53,6 +53,25 @@ defmodule LangOS.LanguagePack.Registry do
     end
   end
 
+  @doc """
+  Language-detection signals declared by the pack:
+  `words` (high-frequency function words), `strip_prefixes` (morphological
+  prefixes to strip before verb lookup, e.g. Kinyarwanda ku-/gu-/n-),
+  and `subject_prefixes` (bound subject markers -> reserved references).
+  """
+  @spec detection(String.t()) :: map()
+  def detection(id) do
+    case get(id) do
+      {:ok, pack} -> pack.detection
+      _ -> %{}
+    end
+  end
+
+  @spec installed_ids() :: [String.t()]
+  def installed_ids do
+    list() |> Enum.map(& &1.id)
+  end
+
   @impl true
   def init(_opts) do
     packs_dir =
@@ -112,7 +131,7 @@ defmodule LangOS.LanguagePack.Registry do
 
     with {:ok, body} <- File.read(manifest_path),
          {:ok, manifest} <- Jason.decode(body) do
-      {verb_map, pronoun_map} = load_mappings(patterns_path)
+      {verb_map, pronoun_map, detection} = load_mappings(patterns_path)
 
       %{
         id: id,
@@ -123,7 +142,8 @@ defmodule LangOS.LanguagePack.Registry do
         patterns_file: patterns_path,
         templates_dir: Path.join(root, "templates/express"),
         verb_map: verb_map,
-        pronoun_map: pronoun_map
+        pronoun_map: pronoun_map,
+        detection: detection
       }
     else
       _ -> nil
@@ -135,14 +155,15 @@ defmodule LangOS.LanguagePack.Registry do
       {:ok, body} ->
         case Jason.decode(body) do
           {:ok, data} ->
-            {Map.get(data, "verb_map", %{}), Map.get(data, "pronoun_map", %{})}
+            {Map.get(data, "verb_map", %{}), Map.get(data, "pronoun_map", %{}),
+             Map.get(data, "detection", %{})}
 
           _ ->
-            {%{}, %{}}
+            {%{}, %{}, %{}}
         end
 
       _ ->
-        {%{}, %{}}
+        {%{}, %{}, %{}}
     end
   end
 end

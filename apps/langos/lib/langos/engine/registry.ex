@@ -5,10 +5,11 @@ defmodule LangOS.Engine.Registry do
   use GenServer
 
   alias LangOS.Config
-  alias LangOS.Engine.{Neural, Rule, Stat}
+  alias LangOS.Engine.{Neural, Rule, Stat, Syntax}
 
   @engines %{
     "rule" => Rule,
+    "syntax" => Syntax,
     "stat" => Stat,
     "neural" => Neural
   }

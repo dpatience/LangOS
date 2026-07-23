@@ -80,8 +80,16 @@
     "kwerekana": {"id": "ACT_000010", "symbol": "ACTION_SHOW"},
     "erekana": {"id": "ACT_000010", "symbol": "ACTION_SHOW"},
     "garagaza": {"id": "ACT_000010", "symbol": "ACTION_SHOW"},
-    "gushaka": {"id": "ACT_000012", "symbol": "ACTION_SEARCH"},
-    "shaka": {"id": "ACT_000012", "symbol": "ACTION_SEARCH"},
+    "gushaka": {"id": "STA_000004", "symbol": "STATE_WANT"},
+    "shaka": {"id": "STA_000004", "symbol": "STATE_WANT"},
+    "gushakisha": {"id": "ACT_000012", "symbol": "ACTION_SEARCH"},
+    "shakisha": {"id": "ACT_000012", "symbol": "ACTION_SEARCH"},
+    "kurya": {"id": "ACT_000114", "symbol": "ACTION_EAT"},
+    "rya": {"id": "ACT_000114", "symbol": "ACTION_EAT"},
+    "kunywa": {"id": "ACT_000115", "symbol": "ACTION_DRINK"},
+    "nywa": {"id": "ACT_000115", "symbol": "ACTION_DRINK"},
+    "kubona": {"id": "ACT_000103", "symbol": "ACTION_SEE"},
+    "kujya": {"id": "ACT_000200", "symbol": "ACTION_TRAVEL"},
     "gufasha": {"id": "ACT_000013", "symbol": "ACTION_HELP"},
     "fasha": {"id": "ACT_000013", "symbol": "ACTION_HELP"},
     "gutangira": {"id": "ACT_000014", "symbol": "ACTION_START"},
@@ -99,6 +107,22 @@
     "murakoze": {"id": "META_000003", "symbol": "META_THANK"},
     "yego": {"id": "META_000005", "symbol": "META_CONFIRM"},
     "oya": {"id": "META_000006", "symbol": "META_DENY"}
+  },
+  "detection": {
+    "words": [
+      "ni", "iki", "icyo", "iyi", "iri", "aya", "ibi", "aba", "uyu", "uwo",
+      "muri", "mu", "ku", "kuri", "na", "no", "cyane", "ariko", "kandi",
+      "cyangwa", "ntabwo", "nta", "yego", "oya", "murakoze", "muraho",
+      "ibiryo", "amazi", "umwana", "abana", "umuntu", "abantu",
+      "umunyeshuri", "abanyeshuri", "ishuri", "amashuri", "igihe", "umunsi"
+    ],
+    "strip_prefixes": ["ku", "gu", "kw", "n", "u", "a", "tu", "mu", "ba", "ndi", "ura", "ara", "tura", "mura", "bara"],
+    "subject_prefixes": {
+      "n": "REF_SPEAKER", "ndi": "REF_SPEAKER", "tu": "REF_SPEAKER", "tura": "REF_SPEAKER",
+      "u": "REF_LISTENER", "ura": "REF_LISTENER", "mu": "REF_LISTENER", "mura": "REF_LISTENER",
+      "a": "REF_PREVIOUS_ENTITY", "ara": "REF_PREVIOUS_ENTITY",
+      "ba": "REF_PREVIOUS_ENTITY", "bara": "REF_PREVIOUS_ENTITY"
+    }
   },
   "pronoun_map": {
     "njye": "REF_SPEAKER", "jye": "REF_SPEAKER", "jyewe": "REF_SPEAKER",

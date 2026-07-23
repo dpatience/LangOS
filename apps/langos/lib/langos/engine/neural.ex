@@ -21,8 +21,12 @@ defmodule LangOS.Engine.Neural do
     trimmed = text |> String.trim() |> String.replace(~r/[.!?]+$/, "")
 
     case infer_command(trimmed, locale) do
-      {:ok, result} -> {:ok, result}
-      :unknown -> {:ok, fallback_parse(trimmed)}
+      {:ok, result} ->
+        {:ok, result}
+
+      :unknown ->
+        # Unit type must see the original punctuation ("?" was stripped above).
+        {:ok, Map.put(fallback_parse(trimmed), "unit_type", detect_unit_type(String.trim(text)))}
     end
   end
 
